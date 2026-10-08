@@ -1,0 +1,1574 @@
+/* ==========================================================================
+   PAGE 3: DOC 03 SERVICES — DISCIPLINES & ATELIER CAPABILITIES (SERVICES.HTML)
+   Master Builder's Technical Commission Portfolio & Guild Work-Order Folio
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. MASTER WORK-ORDER FOLIO BINDER & HEADER
+   -------------------------------------------------------------------------- */
+.services-workorder-folio {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto 50px auto;
+  background: #fdfbf7;
+  border: 1px solid rgba(180, 160, 130, 0.45);
+  box-shadow: 
+    -4px 8px 24px rgba(10, 18, 28, 0.25),
+    -12px 24px 50px rgba(10, 18, 28, 0.2),
+    inset 0 0 100px rgba(220, 205, 180, 0.2);
+  padding: 52px 64px;
+  border-radius: 2px;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+/* Brass Pinned Corner Brackets */
+.services-workorder-folio .brass-corner-bracket {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--brass-gold);
+  z-index: 4;
+  pointer-events: none;
+}
+.services-workorder-folio .bracket-tl { top: 12px; left: 12px; border-right: none; border-bottom: none; }
+.services-workorder-folio .bracket-tr { top: 12px; right: 12px; border-left: none; border-bottom: none; }
+.services-workorder-folio .bracket-bl { bottom: 12px; left: 12px; border-right: none; border-top: none; }
+.services-workorder-folio .bracket-br { bottom: 12px; right: 12px; border-left: none; border-top: none; }
+
+/* Folio Header & Metadata */
+.workorder-meta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1.5px solid rgba(180, 160, 130, 0.4);
+  padding-bottom: 24px;
+  margin-bottom: 36px;
+  position: relative;
+  z-index: 5;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.workorder-registry-tag {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.workorder-code {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #8c6a28;
+}
+
+.workorder-jurisdiction {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: #564c40;
+  letter-spacing: 0.08em;
+}
+
+/* Three Guild Authority Badges */
+.guild-authority-badges {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.authority-badge {
+  background: rgba(245, 238, 225, 0.7);
+  border: 1px solid rgba(198, 162, 92, 0.45);
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #3b2a0e;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.folio-title-lead {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #8c6a28;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.folio-title-lead::after {
+  content: '';
+  flex: 1;
+  max-width: 140px;
+  height: 1px;
+  background: #c6a25c;
+}
+
+.folio-main-heading {
+  font-family: var(--font-serif-luxury);
+  font-size: clamp(2.1rem, 3.6vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1.16;
+  color: var(--desk-paper-ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  max-width: 960px;
+}
+
+.folio-manifesto-preamble {
+  font-family: var(--font-serif-luxury);
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #6a5a48;
+  max-width: 900px;
+  margin-bottom: 32px;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION HEADER BANNERS (SURFACE LEVEL ARCHITECTURAL METADATA)
+   -------------------------------------------------------------------------- */
+.section-header-banner {
+  margin-bottom: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  position: relative;
+  z-index: 10;
+}
+
+.section-tagline-code {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #d4af37;
+  letter-spacing: 0.16em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.section-tagline-code::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: var(--brass-gradient);
+  border-radius: 1px;
+  box-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
+}
+
+.section-title-prominent {
+  font-family: var(--font-title-arch);
+  font-size: clamp(1.45rem, 2.3vw, 2.15rem);
+  font-weight: 700;
+  color: #f7dfa5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 
+    -1px 2px 4px rgba(0, 0, 0, 0.85),
+    0 0 14px rgba(212, 175, 55, 0.3);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.peel-instructions-note {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #e2d4be;
+  background: rgba(26, 20, 14, 0.85);
+  border: 1px solid rgba(198, 162, 92, 0.5);
+  padding: 7px 16px;
+  border-radius: 3px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 
+    0 3px 10px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   2. INTERACTIVE ARCHITECTURAL SCOPE SWITCHER ("THE BLUEPRINT SCOPE DECK")
+   -------------------------------------------------------------------------- */
+.scope-deck-section {
+  max-width: 1240px;
+  margin: 0 auto 70px auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* Tabbed Drawing Register Folio Tabs Bar */
+.scope-tabs-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: -1px; /* Physically joins the cards below */
+  position: relative;
+  z-index: 5;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.scope-tab-button {
+  background: rgba(246, 240, 230, 0.88);
+  border: 1px solid rgba(180, 160, 130, 0.5);
+  border-bottom: 1px solid rgba(180, 160, 130, 0.5);
+  border-radius: 6px 6px 0 0;
+  padding: 12px 20px 10px 20px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #4a3e32;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.scope-tab-button:hover {
+  background: #fdfbf7;
+  color: #1a1204;
+  transform: translateY(-2px);
+}
+
+.scope-tab-button.active {
+  background: #fdfbf7;
+  color: #1a1204;
+  border-color: #c6a25c;
+  border-bottom: 2px solid #fdfbf7; /* Breaks through the border */
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.scope-tab-index {
+  color: #8c6a28;
+  font-weight: 800;
+}
+
+/* Scope Folio Cards Container */
+.scope-cards-stage {
+  background: #fdfbf7;
+  border: 1.5px solid #c6a25c;
+  border-radius: 0 4px 4px 4px;
+  padding: 44px 48px;
+  box-shadow: 
+    -4px 8px 24px rgba(10, 18, 28, 0.2),
+    -10px 20px 45px rgba(10, 18, 28, 0.15);
+  position: relative;
+  min-height: 480px;
+}
+
+/* Individual Scope Card */
+.scope-folio-card {
+  display: none;
+  animation: fadeInFolio 0.35s ease forwards;
+}
+
+.scope-folio-card.active {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 48px;
+}
+
+@keyframes fadeInFolio {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.scope-left-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.scope-id-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #8c6a28;
+}
+
+.scope-title-heading {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.95rem;
+  font-weight: 600;
+  color: var(--desk-paper-ink);
+  line-height: 1.25;
+}
+
+.scope-lead-paragraph {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #3d3226;
+}
+
+.scope-methods-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.scope-method-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #4a3e32;
+}
+
+.method-bullet-square {
+  width: 6px;
+  height: 6px;
+  background: var(--brass-gold);
+  margin-top: 7px;
+  flex-shrink: 0;
+  border-radius: 1px;
+}
+
+/* Right Column: Technical Blueprint Schematic & Metrics */
+.scope-right-blueprint {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Studio Mode (Default): Warm Vellum Architectural Draft Plate */
+.schematic-blueprint-box {
+  background: #f4efe4;
+  border: 1.5px solid rgba(198, 162, 92, 0.45);
+  border-radius: 4px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.8),
+    inset 0 0 14px rgba(180, 150, 110, 0.12),
+    0 2px 8px rgba(10, 18, 28, 0.06);
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.35s ease;
+}
+
+.schematic-blueprint-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(180, 150, 110, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180, 150, 110, 0.18) 1px, transparent 1px);
+  background-size: 16px 16px;
+  pointer-events: none;
+}
+
+.schematic-header-row {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.schematic-drawing-code {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #8c6a28;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
+}
+
+.schematic-scale-tag {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: #6a5a48;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.schematic-svg-graphic {
+  width: 100%;
+  height: 140px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Studio Mode SVG Linework (Architectural Drafting Ink) */
+.schematic-svg-graphic .schematic-line-primary {
+  stroke: #1e2832;
+  transition: stroke 0.3s ease;
+}
+.schematic-svg-graphic .schematic-line-secondary {
+  stroke: #7a6652;
+  transition: stroke 0.3s ease;
+}
+.schematic-svg-graphic .schematic-line-accent {
+  stroke: #b3882e;
+  transition: stroke 0.3s ease;
+}
+.schematic-svg-graphic .schematic-line-red {
+  stroke: #c92a2a;
+  transition: stroke 0.3s ease;
+}
+.schematic-svg-graphic .schematic-fill-accent {
+  fill: #b3882e;
+  transition: fill 0.3s ease;
+}
+.schematic-svg-graphic .schematic-fill-red {
+  fill: #c92a2a;
+  transition: fill 0.3s ease;
+}
+.schematic-svg-graphic .schematic-text-primary {
+  fill: #1e2832;
+  font-weight: 700;
+  transition: fill 0.3s ease;
+}
+.schematic-svg-graphic .schematic-text-secondary {
+  fill: #6a5a48;
+  font-weight: 600;
+  transition: fill 0.3s ease;
+}
+.schematic-svg-graphic .schematic-text-accent {
+  fill: #b3882e;
+  font-weight: 700;
+  transition: fill 0.3s ease;
+}
+.schematic-svg-graphic .schematic-text-red {
+  fill: #c92a2a;
+  font-weight: 700;
+  transition: fill 0.3s ease;
+}
+
+/* Metric Stats Row */
+.scope-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.scope-stat-badge {
+  background: rgba(245, 238, 225, 0.6);
+  border: 1px solid rgba(198, 162, 92, 0.35);
+  border-radius: 3px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-badge-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #8c6a28;
+  letter-spacing: 0.08em;
+}
+
+.stat-badge-val {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--desk-paper-ink);
+}
+
+/* Contractor's Stamp of Responsibility */
+.contractor-responsibility-stamp {
+  align-self: flex-start;
+  margin-top: 10px;
+  border: 2px dashed #9e2a2b;
+  border-radius: 4px;
+  padding: 8px 16px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #9e2a2b;
+  transform: rotate(-1.5deg);
+  user-select: none;
+  box-shadow: 0 1px 3px rgba(158, 42, 43, 0.15);
+  background: rgba(158, 42, 43, 0.04);
+}
+
+.stamp-text-primary {
+  font-family: var(--font-title-arch);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.stamp-text-secondary {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin-top: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   3. "CROSS-SECTION / CONSTRUCTION ANATOMY" INTERACTIVE DIAGRAM
+   -------------------------------------------------------------------------- */
+.anatomy-section {
+  max-width: 1240px;
+  margin: 0 auto 70px auto;
+  position: relative;
+  z-index: 10;
+}
+
+.anatomy-stage-box {
+  background: #fdfbf7;
+  border: 1px solid rgba(180, 160, 130, 0.45);
+  border-radius: 3px;
+  padding: 40px 48px;
+  box-shadow: 
+    -4px 8px 24px rgba(10, 18, 28, 0.22),
+    -12px 24px 50px rgba(10, 18, 28, 0.18);
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Axonometric Cross-Section SVG Canvas - Studio Mode (Default Warm Tracing Vellum) */
+.anatomy-viewport {
+  position: relative;
+  background: #f4efe4;
+  border: 1.5px solid rgba(198, 162, 92, 0.45);
+  border-radius: 4px;
+  overflow: hidden;
+  height: 440px;
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.8),
+    inset 0 0 20px rgba(180, 150, 110, 0.15),
+    0 2px 8px rgba(10, 18, 28, 0.08);
+  transition: all 0.35s ease;
+}
+
+.anatomy-viewport::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(180, 150, 110, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180, 150, 110, 0.18) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  transition: background-image 0.35s ease;
+}
+
+.anatomy-svg-canvas {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Studio Mode SVG Linework for Construction Anatomy (Architectural Drafting Ink) */
+.anatomy-svg-canvas .anatomy-l1-poly {
+  fill: rgba(180, 160, 130, 0.25);
+  stroke: #1e2832;
+  transition: all 0.3s ease;
+}
+.anatomy-svg-canvas .anatomy-l1-pile {
+  stroke: #b3882e;
+  transition: stroke 0.3s ease;
+}
+.anatomy-svg-canvas .anatomy-l1-text {
+  fill: #1e2832;
+  font-weight: 700;
+  transition: fill 0.3s ease;
+}
+
+.anatomy-svg-canvas .anatomy-l2-steel {
+  stroke: #7a6652;
+  transition: stroke 0.3s ease;
+}
+.anatomy-svg-canvas .anatomy-l2-beam {
+  stroke: #1e2832;
+  transition: stroke 0.3s ease;
+}
+.anatomy-svg-canvas .anatomy-l2-poly {
+  fill: rgba(140, 120, 100, 0.18);
+  stroke: #7a6652;
+  transition: all 0.3s ease;
+}
+.anatomy-svg-canvas .anatomy-l2-text {
+  fill: #7a6652;
+  font-weight: 700;
+  transition: fill 0.3s ease;
+}
+
+.anatomy-svg-canvas .anatomy-l3-poly {
+  fill: rgba(198, 162, 92, 0.2);
+  stroke: #b3882e;
+  transition: all 0.3s ease;
+}
+.anatomy-svg-canvas .anatomy-l3-line {
+  stroke: #b3882e;
+  transition: stroke 0.3s ease;
+}
+.anatomy-svg-canvas .anatomy-l3-text {
+  fill: #8c6a28;
+  font-weight: 700;
+  transition: fill 0.3s ease;
+}
+
+.anatomy-svg-canvas .anatomy-l4-poly {
+  fill: rgba(255, 255, 255, 0.85);
+  stroke: #1e2832;
+  transition: all 0.3s ease;
+}
+.anatomy-svg-canvas .anatomy-l4-line {
+  stroke: #c6a25c;
+  transition: stroke 0.3s ease;
+}
+.anatomy-svg-canvas .anatomy-l4-text {
+  fill: #1e2832;
+  font-weight: 700;
+  transition: fill 0.3s ease;
+}
+
+/* SVG Cutaway Layer Highlight States */
+.cutaway-layer {
+  transition: all 0.35s ease;
+  cursor: pointer;
+}
+
+.cutaway-layer.active {
+  filter: drop-shadow(0 0 6px rgba(179, 136, 46, 0.65));
+}
+
+.cutaway-layer.dimmed {
+  opacity: 0.35;
+}
+
+/* Interactive Depth Pins Overlay */
+.depth-pin {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--brass-gradient);
+  border: 1.5px solid #ffecb8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: #2b1d14;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease;
+  user-select: none;
+}
+
+.depth-pin:hover,
+.depth-pin.active {
+  transform: scale(1.25);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
+}
+
+.depth-pin[data-layer="1"] { top: 78%; left: 32%; }
+.depth-pin[data-layer="2"] { top: 54%; left: 48%; }
+.depth-pin[data-layer="3"] { top: 32%; left: 62%; }
+.depth-pin[data-layer="4"] { top: 18%; left: 78%; }
+
+/* Adjacent Technical Engineering Note Card */
+.anatomy-spec-card {
+  background: rgba(255, 253, 248, 0.95);
+  border: 1.5px solid #c6a25c;
+  border-radius: 3px;
+  padding: 28px 32px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: all 0.3s ease;
+}
+
+/* Rotary Layer Selector Dial */
+.rotary-selector-dial {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  background: rgba(240, 230, 215, 0.5);
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid rgba(198, 162, 92, 0.3);
+}
+
+.rotary-button {
+  background: transparent;
+  border: none;
+  padding: 6px 4px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #5a4b3c;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rotary-button.active {
+  background: #fdfbf7;
+  color: #1a1204;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+.anatomy-layer-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #8c6a28;
+  letter-spacing: 0.12em;
+}
+
+.anatomy-layer-heading {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--desk-paper-ink);
+}
+
+.anatomy-layer-narrative {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #4a3e32;
+}
+
+/* Technical Redline Engineering Callout */
+.anatomy-redline-callout {
+  border-left: 2px solid #c92a2a;
+  background: rgba(201, 42, 42, 0.04);
+  padding: 10px 14px;
+  border-radius: 0 3px 3px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.redline-formula-title {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #c92a2a;
+  letter-spacing: 0.08em;
+}
+
+.redline-formula-code {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #a81c1c;
+}
+
+.redline-formula-desc {
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  color: #564c40;
+}
+
+/* --------------------------------------------------------------------------
+   4. "THE GUILD SPECIFICATION MATRIX" (TECHNICAL CAPABILITIES TABLE)
+   -------------------------------------------------------------------------- */
+.matrix-section {
+  max-width: 1240px;
+  margin: 0 auto 70px auto;
+  position: relative;
+  z-index: 10;
+}
+
+.matrix-table-wrapper {
+  background: #fdfbf7;
+  border: 1px solid rgba(180, 160, 130, 0.45);
+  border-radius: 3px;
+  box-shadow: 
+    -4px 8px 24px rgba(10, 18, 28, 0.22),
+    -12px 24px 50px rgba(10, 18, 28, 0.18);
+  overflow-x: auto;
+  padding: 36px 40px;
+}
+
+.guild-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.guild-matrix-table th {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #8c6a28;
+  letter-spacing: 0.1em;
+  padding: 14px 18px;
+  border-bottom: 2px solid #c6a25c;
+  background: rgba(246, 240, 230, 0.6);
+  white-space: nowrap;
+}
+
+.guild-matrix-table td {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  color: #3d3226;
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(180, 160, 130, 0.3);
+  vertical-align: middle;
+}
+
+.guild-matrix-table tr:hover td {
+  background: rgba(255, 250, 240, 0.8);
+}
+
+.matrix-discipline-name {
+  font-family: var(--font-title-arch);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--desk-paper-ink);
+  letter-spacing: 0.04em;
+}
+
+.matrix-tolerance-badge {
+  display: inline-block;
+  background: rgba(198, 162, 92, 0.15);
+  border: 1px solid #c6a25c;
+  border-radius: 2px;
+  padding: 4px 8px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #2b1d14;
+  white-space: nowrap;
+}
+
+.matrix-licensure-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #564c40;
+}
+
+/* --------------------------------------------------------------------------
+   5. INTERACTIVE "COMMISSION PHASE GANTT / PROCESS ROLLER"
+   -------------------------------------------------------------------------- */
+.process-gantt-section {
+  max-width: 1240px;
+  margin: 0 auto 70px auto;
+  position: relative;
+  z-index: 10;
+}
+
+.process-roller-sheet {
+  background: #fdfbf7;
+  border: 1px solid rgba(180, 160, 130, 0.45);
+  border-radius: 3px;
+  padding: 44px 48px;
+  box-shadow: 
+    -4px 8px 24px rgba(10, 18, 28, 0.22),
+    -12px 24px 50px rgba(10, 18, 28, 0.18);
+}
+
+/* Brass Milestone Tape / Surveyor's Chain */
+.process-milestone-tape {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  position: relative;
+  margin-top: 32px;
+}
+
+.process-milestone-tape::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: 20px;
+  right: 20px;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    #c6a25c 0px,
+    #c6a25c 6px,
+    #4a3410 6px,
+    #4a3410 10px,
+    #ffd978 10px,
+    #ffd978 16px
+  );
+  z-index: 1;
+}
+
+.gantt-phase-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.gantt-phase-node:hover {
+  transform: translateY(-3px);
+}
+
+.phase-brass-dial {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--brass-gradient);
+  border: 2px solid #ffecb8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #2b1d14;
+  box-shadow: 
+    -2px 4px 10px rgba(0, 0, 0, 0.35),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  margin-bottom: 14px;
+  transition: all 0.25s ease;
+}
+
+.gantt-phase-node.active .phase-brass-dial {
+  transform: scale(1.15);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.8);
+}
+
+.phase-node-title {
+  font-family: var(--font-title-arch);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--desk-paper-ink);
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.phase-node-weeks {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: #8c6a28;
+  font-weight: 600;
+}
+
+/* Active Phase Detail Inspector Drawer */
+.phase-detail-inspector {
+  margin-top: 36px;
+  background: rgba(255, 253, 248, 0.95);
+  border: 1.5px solid #c6a25c;
+  border-radius: 3px;
+  padding: 24px 32px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.phase-inspector-heading {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--desk-paper-ink);
+  margin-bottom: 8px;
+}
+
+.phase-inspector-desc {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: #4a3e32;
+}
+
+.phase-gates-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.phase-gate-label {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: #8c6a28;
+  letter-spacing: 0.1em;
+}
+
+.phase-gate-badge {
+  background: rgba(246, 240, 230, 0.7);
+  border: 1px solid rgba(180, 160, 130, 0.4);
+  padding: 6px 10px;
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #3b280b;
+}
+
+/* --------------------------------------------------------------------------
+   6. FIELD SAMPLE SWATCH TRAY & TECHNICAL ADDENDUM
+   -------------------------------------------------------------------------- */
+.artifacts-dual-section {
+  max-width: 1240px;
+  margin: 0 auto 80px auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 36px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Field Sample Swatch Tray Drawer */
+.swatch-tray-container {
+  background: #1f1712;
+  border: 2px solid #3d2a1c;
+  border-radius: 4px;
+  padding: 24px;
+  box-shadow: 
+    -4px 8px 24px rgba(0, 0, 0, 0.5),
+    inset 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.swatch-tray-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.swatch-tray-title {
+  font-family: var(--font-title-arch);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffecb8;
+  letter-spacing: 0.1em;
+}
+
+.swatch-grid-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.swatch-item-card {
+  background: #111a18;
+  border: 1px solid rgba(198, 162, 92, 0.35);
+  border-radius: 3px;
+  padding: 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.25s ease;
+}
+
+.swatch-item-card:hover,
+.swatch-item-card.active {
+  transform: translateY(-2px);
+  border-color: #d4af37;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.swatch-visual-box {
+  width: 100%;
+  height: 72px;
+  border-radius: 2px;
+  margin-bottom: 8px;
+}
+
+.swatch-concrete {
+  background: #b5b1a8;
+  background-image: repeating-linear-gradient(45deg, #a8a49c 0, #a8a49c 2px, #b5b1a8 2px, #b5b1a8 6px);
+  border: 1px solid #8e8a82;
+}
+
+.swatch-brass {
+  background: var(--brass-gradient);
+  border: 1px solid #7d5e23;
+}
+
+.swatch-timber {
+  background: #1a1a1a;
+  background-image: repeating-linear-gradient(90deg, #111 0, #111 3px, #242424 3px, #242424 6px);
+  border: 1px solid #333;
+}
+
+.swatch-label-text {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #ffecba;
+  text-align: center;
+}
+
+/* Stamped Manila Drafting Envelope (Technical Service Addendum) */
+.addendum-envelope {
+  background: #d9c49a;
+  border: 2px solid #b39b6e;
+  border-radius: 4px;
+  padding: 28px 32px;
+  box-shadow: 
+    -4px 8px 24px rgba(10, 18, 28, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.addendum-envelope::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  width: 48px;
+  height: 48px;
+  border: 2px dashed #8c2a2a;
+  border-radius: 50%;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.envelope-tag {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #6a4c1f;
+  letter-spacing: 0.12em;
+}
+
+.envelope-heading {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #2b1d14;
+  margin: 8px 0 12px 0;
+}
+
+.envelope-desc {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: #4a3418;
+  margin-bottom: 20px;
+}
+
+.btn-request-dossier {
+  background: #2b1d14;
+  color: #ffecb8;
+  border: 1.5px solid #d4af37;
+  padding: 12px 20px;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.btn-request-dossier:hover {
+  background: var(--brass-gradient);
+  color: #1a1204;
+  border-color: #ffecb8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* --------------------------------------------------------------------------
+   7. BLUEPRINT MODE OVERRIDES FOR SERVICES PAGE
+   -------------------------------------------------------------------------- */
+body.blueprint-mode .services-workorder-folio,
+body.blueprint-mode .scope-cards-stage,
+body.blueprint-mode .anatomy-stage-box,
+body.blueprint-mode .matrix-table-wrapper,
+body.blueprint-mode .process-roller-sheet,
+body[data-theme="cyanotype"] .services-workorder-folio,
+body[data-theme="cyanotype"] .scope-cards-stage,
+body[data-theme="cyanotype"] .anatomy-stage-box,
+body[data-theme="cyanotype"] .matrix-table-wrapper,
+body[data-theme="cyanotype"] .process-roller-sheet {
+  background: #0a1c30;
+  border-color: rgba(90, 170, 240, 0.45);
+  color: #f0f7ff;
+}
+
+body.blueprint-mode .scope-tab-button,
+body[data-theme="cyanotype"] .scope-tab-button {
+  background: rgba(10, 28, 48, 0.9);
+  color: #a4ccf0;
+  border-color: rgba(90, 170, 240, 0.35);
+}
+
+body.blueprint-mode .scope-tab-button.active,
+body[data-theme="cyanotype"] .scope-tab-button.active {
+  background: #0a1c30;
+  color: #64ffda;
+  border-color: #64ffda;
+  border-bottom-color: #0a1c30;
+}
+
+body.blueprint-mode .folio-main-heading,
+body.blueprint-mode .scope-title-heading,
+body.blueprint-mode .anatomy-layer-heading,
+body.blueprint-mode .matrix-discipline-name,
+body.blueprint-mode .phase-node-title,
+body.blueprint-mode .phase-inspector-heading,
+body[data-theme="cyanotype"] .folio-main-heading,
+body[data-theme="cyanotype"] .scope-title-heading,
+body[data-theme="cyanotype"] .anatomy-layer-heading,
+body[data-theme="cyanotype"] .matrix-discipline-name,
+body[data-theme="cyanotype"] .phase-node-title,
+body[data-theme="cyanotype"] .phase-inspector-heading {
+  color: #ffffff;
+}
+
+body.blueprint-mode .section-title-prominent,
+body[data-theme="cyanotype"] .section-title-prominent {
+  color: #ffffff;
+  text-shadow: 
+    -1px 2px 6px rgba(0, 0, 0, 0.9),
+    0 0 16px rgba(100, 255, 218, 0.4);
+}
+
+body.blueprint-mode .section-tagline-code,
+body.blueprint-mode .folio-title-lead,
+body.blueprint-mode .scope-id-label,
+body.blueprint-mode .anatomy-layer-tag,
+body[data-theme="cyanotype"] .section-tagline-code,
+body[data-theme="cyanotype"] .folio-title-lead,
+body[data-theme="cyanotype"] .scope-id-label,
+body[data-theme="cyanotype"] .anatomy-layer-tag {
+  color: #64ffda;
+  text-shadow: 0 0 8px rgba(100, 255, 218, 0.4);
+}
+
+body.blueprint-mode .section-tagline-code::before,
+body[data-theme="cyanotype"] .section-tagline-code::before {
+  background: #64ffda;
+  box-shadow: 0 0 8px #64ffda;
+}
+
+body.blueprint-mode .folio-title-lead::after,
+body[data-theme="cyanotype"] .folio-title-lead::after {
+  background: #64ffda;
+}
+
+body.blueprint-mode .peel-instructions-note,
+body[data-theme="cyanotype"] .peel-instructions-note {
+  color: #a4ccf0;
+  background: rgba(10, 28, 48, 0.88);
+  border-color: rgba(100, 200, 255, 0.45);
+  box-shadow: 
+    0 3px 10px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(100, 200, 255, 0.2);
+}
+
+body.blueprint-mode .folio-manifesto-preamble,
+body.blueprint-mode .scope-lead-paragraph,
+body.blueprint-mode .scope-method-item,
+body.blueprint-mode .anatomy-layer-narrative,
+body.blueprint-mode .phase-inspector-desc,
+body[data-theme="cyanotype"] .folio-manifesto-preamble,
+body[data-theme="cyanotype"] .scope-lead-paragraph,
+body[data-theme="cyanotype"] .scope-method-item,
+body[data-theme="cyanotype"] .anatomy-layer-narrative,
+body[data-theme="cyanotype"] .phase-inspector-desc {
+  color: #a4ccf0;
+}
+
+body.blueprint-mode .authority-badge,
+body.blueprint-mode .scope-stat-badge,
+body.blueprint-mode .phase-gate-badge,
+body[data-theme="cyanotype"] .authority-badge,
+body[data-theme="cyanotype"] .scope-stat-badge,
+body[data-theme="cyanotype"] .phase-gate-badge {
+  background: rgba(13, 38, 64, 0.7);
+  border-color: rgba(100, 200, 255, 0.35);
+  color: #64ffda;
+}
+
+body.blueprint-mode .stat-badge-val,
+body[data-theme="cyanotype"] .stat-badge-val {
+  color: #64ffda;
+}
+
+body.blueprint-mode .guild-matrix-table th,
+body[data-theme="cyanotype"] .guild-matrix-table th {
+  background: #081726;
+  border-color: #64ffda;
+  color: #64ffda;
+}
+
+body.blueprint-mode .guild-matrix-table td,
+body[data-theme="cyanotype"] .guild-matrix-table td {
+  color: #d6ebfc;
+  border-color: rgba(90, 170, 240, 0.25);
+}
+
+body.blueprint-mode .guild-matrix-table tr:hover td,
+body[data-theme="cyanotype"] .guild-matrix-table tr:hover td {
+  background: rgba(14, 42, 72, 0.6);
+}
+
+body.blueprint-mode .matrix-tolerance-badge,
+body[data-theme="cyanotype"] .matrix-tolerance-badge {
+  background: rgba(100, 255, 218, 0.15);
+  border-color: #64ffda;
+  color: #64ffda;
+}
+
+body.blueprint-mode .anatomy-spec-card,
+body.blueprint-mode .phase-detail-inspector,
+body[data-theme="cyanotype"] .anatomy-spec-card,
+body[data-theme="cyanotype"] .phase-detail-inspector {
+  background: #081726;
+  border-color: #64ffda;
+}
+
+body.blueprint-mode .rotary-selector-dial,
+body[data-theme="cyanotype"] .rotary-selector-dial {
+  background: rgba(14, 38, 64, 0.6);
+  border-color: rgba(100, 200, 255, 0.3);
+}
+
+body.blueprint-mode .rotary-button.active,
+body[data-theme="cyanotype"] .rotary-button.active {
+  background: #0a1c30;
+  color: #64ffda;
+}
+
+body.blueprint-mode .contractor-responsibility-stamp,
+body[data-theme="cyanotype"] .contractor-responsibility-stamp {
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.08);
+}
+
+body.blueprint-mode .schematic-blueprint-box,
+body[data-theme="cyanotype"] .schematic-blueprint-box {
+  background: #0d2238;
+  border-color: #3c72a8;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+body.blueprint-mode .schematic-blueprint-box::before,
+body[data-theme="cyanotype"] .schematic-blueprint-box::before {
+  background-image: 
+    linear-gradient(rgba(100, 185, 255, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 185, 255, 0.15) 1px, transparent 1px);
+}
+
+body.blueprint-mode .schematic-drawing-code,
+body[data-theme="cyanotype"] .schematic-drawing-code {
+  color: #64ffda;
+}
+
+body.blueprint-mode .schematic-scale-tag,
+body[data-theme="cyanotype"] .schematic-scale-tag {
+  color: #9ac2e8;
+}
+
+body.blueprint-mode .schematic-svg-graphic .schematic-line-primary,
+body[data-theme="cyanotype"] .schematic-svg-graphic .schematic-line-primary {
+  stroke: #64ffda;
+}
+body.blueprint-mode .schematic-svg-graphic .schematic-line-secondary,
+body[data-theme="cyanotype"] .schematic-svg-graphic .schematic-line-secondary {
+  stroke: #70c4ff;
+}
+body.blueprint-mode .schematic-svg-graphic .schematic-line-accent,
+body[data-theme="cyanotype"] .schematic-svg-graphic .schematic-line-accent {
+  stroke: #ffd978;
+}
+body.blueprint-mode .schematic-svg-graphic .schematic-line-red,
+body[data-theme="cyanotype"] .schematic-svg-graphic .schematic-line-red {
+  stroke: #ff6b6b;
+}
+body.blueprint-mode .schematic-svg-graphic .schematic-fill-accent,
+body[data-theme="cyanotype"] .schematic-svg-graphic .schematic-fill-accent {
+  fill: #ffd978;
+}
+body.blueprint-mode .schematic-svg-graphic .schematic-fill-red,
+body[data-theme="cyanotype"] .schematic-svg-graphic .schematic-fill-red {
+  fill: #ff6b6b;
+}
+body.blueprint-mode .schematic-svg-graphic .schematic-text-primary,
+body[data-theme="cyanotype"] .schematic-svg-graphic .schematic-text-primary {
+  fill: #64ffda;
+}
+body.blueprint-mode .schematic-svg-graphic .schematic-text-secondary,
+body[data-theme="cyanotype"] .schematic-svg-graphic .schematic-text-secondary {
+  fill: #9ac2e8;
+}
+body.blueprint-mode .schematic-svg-graphic .schematic-text-accent,
+body[data-theme="cyanotype"] .schematic-svg-graphic .schematic-text-accent {
+  fill: #ffd978;
+}
+body.blueprint-mode .schematic-svg-graphic .schematic-text-red,
+body[data-theme="cyanotype"] .schematic-svg-graphic .schematic-text-red {
+  fill: #ff6b6b;
+}
+
+body.blueprint-mode .anatomy-viewport,
+body[data-theme="cyanotype"] .anatomy-viewport {
+  background: #091a2d;
+  border-color: #2b5680;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+body.blueprint-mode .anatomy-viewport::before,
+body[data-theme="cyanotype"] .anatomy-viewport::before {
+  background-image: 
+    linear-gradient(rgba(100, 185, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 185, 255, 0.12) 1px, transparent 1px);
+}
+
+body.blueprint-mode .anatomy-svg-canvas .anatomy-l1-poly,
+body[data-theme="cyanotype"] .anatomy-svg-canvas .anatomy-l1-poly {
+  fill: rgba(60, 90, 120, 0.4);
+  stroke: #64ffda;
+}
+body.blueprint-mode .anatomy-svg-canvas .anatomy-l1-pile,
+body[data-theme="cyanotype"] .anatomy-svg-canvas .anatomy-l1-pile {
+  stroke: #ffd978;
+}
+body.blueprint-mode .anatomy-svg-canvas .anatomy-l1-text,
+body[data-theme="cyanotype"] .anatomy-svg-canvas .anatomy-l1-text {
+  fill: #64ffda;
+}
+
+body.blueprint-mode .anatomy-svg-canvas .anatomy-l2-steel,
+body[data-theme="cyanotype"] .anatomy-svg-canvas .anatomy-l2-steel {
+  stroke: #70c4ff;
+}
+body.blueprint-mode .anatomy-svg-canvas .anatomy-l2-beam,
+body[data-theme="cyanotype"] .anatomy-svg-canvas .anatomy-l2-beam {
+  stroke: #70c4ff;
+}
+body.blueprint-mode .anatomy-svg-canvas .anatomy-l2-poly,
+body[data-theme="cyanotype"] .anatomy-svg-canvas .anatomy-l2-poly {
+  fill: rgba(80, 140, 200, 0.3);
+  stroke: #70c4ff;
+}
+body.blueprint-mode .anatomy-svg-canvas .anatomy-l2-text,
+body[data-theme="cyanotype"] .anatomy-svg-canvas .anatomy-l2-text {
+  fill: #70c4ff;
+}
+
+body.blueprint-mode .anatomy-svg-canvas .anatomy-l3-poly,
+body[data-theme="cyanotype"] .anatomy-svg-canvas .anatomy-l3-poly {
+  fill: rgba(200, 160, 80, 0.25);
+  stroke: #ffd978;
+}
+body.blueprint-mode .anatomy-svg-canvas .anatomy-l3-line,
+body[data-theme="cyanotype"] .anatomy-svg-canvas .anatomy-l3-line {
+  stroke: #ffd978;
+}
+body.blueprint-mode .anatomy-svg-canvas .anatomy-l3-text,
+body[data-theme="cyanotype"] .anatomy-svg-canvas .anatomy-l3-text {
+  fill: #ffd978;
+}
+
+body.blueprint-mode .anatomy-svg-canvas .anatomy-l4-poly,
+body[data-theme="cyanotype"] .anatomy-svg-canvas .anatomy-l4-poly {
+  fill: rgba(255, 255, 255, 0.5);
+  stroke: #ffffff;
+}
+body.blueprint-mode .anatomy-svg-canvas .anatomy-l4-line,
+body[data-theme="cyanotype"] .anatomy-svg-canvas .anatomy-l4-line {
+  stroke: #c6a25c;
+}
+body.blueprint-mode .anatomy-svg-canvas .anatomy-l4-text,
+body[data-theme="cyanotype"] .anatomy-svg-canvas .anatomy-l4-text {
+  fill: #ffffff;
+}
+
+body.blueprint-mode .cutaway-layer.active,
+body[data-theme="cyanotype"] .cutaway-layer.active {
+  filter: drop-shadow(0 0 8px rgba(100, 255, 218, 0.8));
+}
+
+/* --------------------------------------------------------------------------
+   8. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .services-workorder-folio,
+  .scope-cards-stage,
+  .anatomy-stage-box,
+  .process-roller-sheet {
+    padding: 36px 28px;
+  }
+
+  .scope-folio-card.active {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .anatomy-stage-box {
+    grid-template-columns: 1fr;
+  }
+
+  .artifacts-dual-section {
+    grid-template-columns: 1fr;
+  }
+
+  .process-milestone-tape {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .process-milestone-tape::before {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-workorder-folio,
+  .scope-cards-stage,
+  .anatomy-stage-box,
+  .process-roller-sheet {
+    padding: 24px 18px;
+  }
+
+  .workorder-meta-header {
+    flex-direction: column;
+  }
+
+  .process-milestone-tape {
+    grid-template-columns: 1fr;
+  }
+
+  .phase-detail-inspector {
+    grid-template-columns: 1fr;
+  }
+}
+

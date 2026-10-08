@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monograph Folio of Built Works | ANSCONS Architecture &amp; Bespoke Construction</title>
+  <meta name="description" content="Declassified architect's flat-file drawer and hand-bound monograph of built works. Explore cantilevered hillside estates, monolithic pavilions, and sub-grade vaults.">
+  
+  <!-- Skeuomorphic Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/desk.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/projects.css">
+  <link rel="stylesheet" href="css/legal-specs.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="studio-mode" data-theme="studio">
+
+  <!-- Floating Brass Return-To-Origin Compass Widget -->
+  <button id="btn-return-origin" class="btn-return-origin" title="Return to Top of Monograph Folio" aria-label="Return to top of drafting table">
+    <span class="compass-needle" aria-hidden="true">▲</span>
+    <span class="origin-text">ORIGIN (TOP)</span>
+  </button>
+
+  <!-- Virtual Desktop Lamp Glow (Top-Left 315° Ambient Light) -->
+  <div class="desk-lamp-glow" aria-hidden="true"></div>
+
+  <!-- Calibrated Marginal Desk Rulers -->
+  <div class="desk-ruler-top" aria-hidden="true">
+    <span>0 CM &nbsp; &nbsp; &nbsp; 10 &nbsp; &nbsp; &nbsp; 20 &nbsp; &nbsp; &nbsp; 30 &nbsp; &nbsp; &nbsp; 40 &nbsp; &nbsp; &nbsp; 50 &nbsp; &nbsp; &nbsp; 60 &nbsp; &nbsp; &nbsp; 70 &nbsp; &nbsp; &nbsp; 80 &nbsp; &nbsp; &nbsp; 90 &nbsp; &nbsp; &nbsp; 100 &nbsp; &nbsp; &nbsp; 110 &nbsp; &nbsp; &nbsp; 120 CM // MONOGRAPH ARCHIVE REGISTER</span>
+  </div>
+  <div class="desk-ruler-left" aria-hidden="true">
+    <span>0 IN &nbsp; &nbsp; &nbsp; 10 &nbsp; &nbsp; &nbsp; 20 &nbsp; &nbsp; &nbsp; 30 &nbsp; &nbsp; &nbsp; 40 &nbsp; &nbsp; &nbsp; 50 &nbsp; &nbsp; &nbsp; 60 &nbsp; &nbsp; &nbsp; 70 IN // ELEVATION COORDINATES</span>
+  </div>
+
+  <!-- Desk HUD Controls (Audio Mute Toggle & Solid Cast-Brass Theme Lever) -->
+  <div class="desk-controls-hud">
+    <button class="desk-audio-toggle" id="desk-audio-toggle" aria-label="Toggle mechanical audio feedback">
+      <svg class="audio-icon" viewBox="0 0 24 24">
+        <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73 4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+      </svg>
+      <span class="desk-audio-badge" id="audio-status-badge">Muted</span>
+    </button>
+
+    <div class="lamp-lever-container">
+      <div class="brass-switch-plate" id="brass-theme-lever" title="Snap toggle switch between Studio Warm Lamp and Blueprint Cyanotype mode">
+        <div class="plate-screw" aria-hidden="true"></div>
+        <span class="switch-mode-label active" id="label-mode-studio">STUDIO</span>
+        <div class="brass-toggle-housing" aria-hidden="true">
+          <div class="brass-toggle-bat" id="brass-toggle-bat"></div>
+        </div>
+        <span class="switch-mode-label" id="label-mode-blueprint">BLUEPRINT</span>
+        <div class="plate-screw" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Master Drafting Table Workspace -->
+  <div class="drafting-table">
+
+    <!-- Persistent Clamped Vellum Navigation Bar (Global Multi-Page Router) -->
+    <header class="tracing-nav-container">
+      <div class="tracing-nav-track">
+        <div class="brass-blueprint-clip" aria-hidden="true"></div>
+        <a href="index.html" class="vellum-tab" title="Atelier Master Drawing Sheet">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 01</span>
+          <span class="tab-title">ATELIER</span>
+        </a>
+        <a href="about.html" class="vellum-tab" title="Philosophy &amp; Heritage Ledger">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 02</span>
+          <span class="tab-title">PHILOSOPHY</span>
+        </a>
+        <a href="services.html" class="vellum-tab" title="Bespoke Architectural Services">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 03</span>
+          <span class="tab-title">SERVICES</span>
+        </a>
+        <a href="projects.html" class="vellum-tab active" title="Monograph Folio of Built Works">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 04</span>
+          <span class="tab-title">PORTFOLIO</span>
+        </a>
+        <a href="estimator.html" class="vellum-tab" title="Scale Caliper Project Estimator">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 05</span>
+          <span class="tab-title">ESTIMATOR</span>
+        </a>
+        <a href="contact.html" class="vellum-tab" title="Commission Liaison Brief">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 06</span>
+          <span class="tab-title">LIAISON</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- SECTION 1: Master Architectural Blueprint Hero -->
+    <section id="section-hero" class="hero-blueprint-sheet paper-curl-shadow deckled-paper">
+      <div class="drafting-tape tape-tl"></div>
+      <div class="drafting-tape tape-tr"></div>
+      <div class="drafting-tape tape-bl"></div>
+      <div class="drafting-tape tape-br"></div>
+      <div class="brass-pushpin" style="top: 14px; left: 16px;"></div>
+      <div class="brass-pushpin" style="top: 14px; right: 16px;"></div>
+
+      <div class="blueprint-border-frame">
+        <div class="sheet-header-meta">
+          <div class="north-arrow-badge">
+            <div class="north-symbol">N</div>
+            <span>GRID ORIENTATION: TRUE NORTH // ELEV. +340M</span>
+          </div>
+          <div class="arch-label">DRAWING SET: ANS-MONO-A401 // REV 04</div>
+        </div>
+
+        <div class="hero-content-core">
+          <div class="hero-text-column">
+            <div class="hero-subtitle-tag">
+              <span class="arch-label">MONOGRAPH FOLIO // DECLASSIFIED BUILT COMMISSIONS</span>
+            </div>
+            <h1 class="hero-main-title">Archival Monograph Folio. Structural Proofs &amp; Living Monuments.</h1>
+            <p class="hero-description-copy">
+              ANSCONS declassifies the architect’s flat-file plan chest. Explore our portfolio of private commissions where finished architectural photography coexists with raw structural engineering proofs, bedrock core samples, and millimetric execution tolerances.
+            </p>
+            <div class="hero-actions-cluster">
+              <a href="#monograph-spread-container" class="btn-brass-plaque">OPEN ARCHIVAL FOLIO ↘</a>
+              <a href="#section-folio-register" class="btn-brass-plaque" style="background: linear-gradient(135deg, #2b1f14 0%, #150f09 100%); color: #ffd67a; border: 1.5px solid #a88134;">UNSEALED REGISTER (07) ↘</a>
+              <a href="#site-reels" class="btn-vellum-debossed">SCRUB SITE CAMERAS ↗</a>
+            </div>
+          </div>
+
+          <div class="hero-schematic-preview" title="Click to cycle active monograph typology">
+            <div class="schematic-blueprint-box">
+              <div class="blueprint-grid-underlay"></div>
+              <svg viewBox="0 0 400 240" class="schematic-svg" aria-label="Monograph Flat-File Isometric Axonometric">
+                <rect x="30" y="30" width="340" height="180" class="iso-concrete-slab" rx="4" />
+                <line x1="30" y1="90" x2="370" y2="90" class="iso-grid-line" />
+                <line x1="30" y1="150" x2="370" y2="150" class="iso-grid-line" />
+                <line x1="120" y1="30" x2="120" y2="210" class="iso-grid-line" />
+                <line x1="280" y1="30" x2="280" y2="210" class="iso-grid-line" />
+                <!-- Cantilever Projection & Tendon Anchor Vectors -->
+                <path d="M 60,180 L 160,80 L 340,80 L 240,180 Z" class="iso-cantilever-beam" />
+                <circle cx="160" cy="80" r="4" class="iso-moment-joint" />
+                <circle cx="340" cy="80" r="4" class="iso-moment-joint" />
+                <line x1="160" y1="80" x2="160" y2="190" class="iso-structural-vector" stroke-dasharray="3,3" />
+                <line x1="340" y1="80" x2="340" y2="190" class="iso-structural-vector" stroke-dasharray="3,3" />
+                <text x="70" y="60" class="iso-calc-label">DRAWING CHEST 04 // 2020-2026</text>
+                <text x="220" y="198" class="iso-calc-label">CANTILEVER PROJECTION: 16.5M</text>
+              </svg>
+              <div class="blueprint-specs-badge">
+                <span class="spec-code">DOC-04 // AS-BUILT FOLIO</span>
+                <span class="spec-live-reading">4 BUILT TYPOLOGIES LOADED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: The Architect's Flat-File Plan Chest Cabinet (4-Drawers) -->
+    <div class="plan-chest-wrapper">
+      <div class="plan-chest-cabinet">
+        <div class="plan-chest-header-strip">
+          <div class="plan-chest-tag">
+            <span class="plan-chest-dot" aria-hidden="true"></span>
+            <span>ARCHITECT'S FLAT-FILE PLAN CHEST // 4 BUILT TYPOLOGIES</span>
+          </div>
+          <div class="plan-chest-meta">
+            SELECT DRAWER TO SLIDE CORRESPONDING MONOGRAPH FOLIO ONTO CUTTING MAT
+          </div>
+        </div>
+
+        <div class="plan-chest-drawers-stack" role="tablist" aria-label="Architectural Plan Chest Drawers">
+          <!-- Drawer 01 -->
+          <div class="drawer-unit active" data-drawer="typ-1" role="tab" aria-selected="true" tabindex="0">
+            <div class="drawer-front-panel">
+              <div class="drawer-label-holder">
+                <span class="drawer-rivet" aria-hidden="true"></span>
+                <span class="drawer-code">DRAWER 01 //</span>
+                <span class="drawer-title">TYP-01: HILLSIDE CANTILEVERS — THE OBSIDIAN CANTILEVER (BEL-AIR)</span>
+                <span class="drawer-rivet" aria-hidden="true"></span>
+              </div>
+              <div class="brass-cup-pull" title="Pull or slide Drawer 01">
+                <div class="cup-pull-slot" aria-hidden="true"></div>
+              </div>
+              <span class="drawer-status-pill">PULLED OUT ↘</span>
+            </div>
+          </div>
+
+          <!-- Drawer 02 -->
+          <div class="drawer-unit" data-drawer="typ-2" role="tab" aria-selected="false" tabindex="0">
+            <div class="drawer-front-panel">
+              <div class="drawer-label-holder">
+                <span class="drawer-rivet" aria-hidden="true"></span>
+                <span class="drawer-code">DRAWER 02 //</span>
+                <span class="drawer-title">TYP-02: MONOLITHIC PAVILIONS — MONOLITH IV: FIVE PATIOS (SONORAN)</span>
+                <span class="drawer-rivet" aria-hidden="true"></span>
+              </div>
+              <div class="brass-cup-pull" title="Pull or slide Drawer 02">
+                <div class="cup-pull-slot" aria-hidden="true"></div>
+              </div>
+              <span class="drawer-status-pill">STOWED ↗</span>
+            </div>
+          </div>
+
+          <!-- Drawer 03 -->
+          <div class="drawer-unit" data-drawer="typ-3" role="tab" aria-selected="false" tabindex="0">
+            <div class="drawer-front-panel">
+              <div class="drawer-label-holder">
+                <span class="drawer-rivet" aria-hidden="true"></span>
+                <span class="drawer-code">DRAWER 03 //</span>
+                <span class="drawer-title">TYP-03: SUB-GRADE VAULTS — SUB-GRADE PRIVATE MUSEUM &amp; WINE VAULT (KYOTO)</span>
+                <span class="drawer-rivet" aria-hidden="true"></span>
+              </div>
+              <div class="brass-cup-pull" title="Pull or slide Drawer 03">
+                <div class="cup-pull-slot" aria-hidden="true"></div>
+              </div>
+              <span class="drawer-status-pill">STOWED ↗</span>
+            </div>
+          </div>
+
+          <!-- Drawer 04 -->
+          <div class="drawer-unit" data-drawer="typ-4" role="tab" aria-selected="false" tabindex="0">
+            <div class="drawer-front-panel">
+              <div class="drawer-label-holder">
+                <span class="drawer-rivet" aria-hidden="true"></span>
+                <span class="drawer-code">DRAWER 04 //</span>
+                <span class="drawer-title">TYP-04: HISTORIC RECONSTRUCTION — THE CAST-IRON MERCANTILE EXCHANGE (TRIBECA)</span>
+                <span class="drawer-rivet" aria-hidden="true"></span>
+              </div>
+              <div class="brass-cup-pull" title="Pull or slide Drawer 04">
+                <div class="cup-pull-slot" aria-hidden="true"></div>
+              </div>
+              <span class="drawer-status-pill">STOWED ↗</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: The Hand-Bound Archival Linen Monograph Folio -->
+    <div id="monograph-spread-container" class="monograph-spread-container">
+      <div class="monograph-folio-spread">
+        
+        <!-- Archival Portfolio Left Edge Binder Strip (with Chicago screws & stitching) -->
+        <div class="folio-binder-spine-edge" aria-hidden="true">
+          <div class="binder-screw"></div>
+          <div class="binder-screw"></div>
+          <div class="binder-screw"></div>
+          <div class="binder-screw"></div>
+          <div class="binder-screw"></div>
+          <div class="binder-stitching-line"></div>
+        </div>
+
+        <!-- Polished Brass Corner Edge Guards -->
+        <div class="folio-brass-guard top-left" aria-hidden="true"></div>
+        <div class="folio-brass-guard top-right" aria-hidden="true"></div>
+        <div class="folio-brass-guard bottom-left" aria-hidden="true"></div>
+        <div class="folio-brass-guard bottom-right" aria-hidden="true"></div>
+
+        <!-- Dedicated Archival Folio Header Bar (Eliminates Overlapping) -->
+        <div class="folio-archival-header-bar">
+          <div class="folio-header-left">
+            <div class="folio-classification-badge">
+              <span class="badge-dot" aria-hidden="true"></span>
+              <span>RESTRICTED ARCHIVAL MONOGRAPH // CLASSIFICATION: CLASS 1</span>
+            </div>
+            <div class="folio-meta-serial">REGISTRY NO: ANS-MONO-2026-F04 • AS-BUILT PROOFS DECLASSIFIED</div>
+          </div>
+          <div class="archival-ink-stamp-box">
+            <div class="archival-ink-stamp">
+              <span class="archival-stamp-text" id="archival-stamp-text">MONOGRAPH RECORD 01 OF 12 // COMMISSION COMPLETE // RESTRICTED</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brass Paperclip & Clipped Field Inspection Polaroid -->
+        <div class="polaroid-clip-anchor" id="polaroid-clip-anchor" title="Click to inspect field verification polaroid">
+          <div class="brass-paperclip" aria-hidden="true"></div>
+          <div class="polaroid-photo-sheet">
+            <div class="polaroid-image-box">
+              <img id="polaroid-thumb-img" src="assets/images/polaroid-inspection.jpg" alt="Site Inspection Photo">
+            </div>
+            <div class="polaroid-caption-note" id="polaroid-caption-note">Anchor tension verified @ 1,250 kN — AP</div>
+          </div>
+        </div>
+
+        <!-- Typology Index Tabs Along the Right Margin -->
+        <div class="typology-margin-tabs" role="tablist" aria-label="Monograph Typology Selectors">
+          <button class="margin-tab-btn active" data-typology="typ-1" role="tab" aria-selected="true">
+            <span>TYP-01: HILLSIDE CANTILEVERS</span>
+          </button>
+          <button class="margin-tab-btn" data-typology="typ-2" role="tab" aria-selected="false">
+            <span>TYP-02: MONOLITHIC PAVILIONS</span>
+          </button>
+          <button class="margin-tab-btn" data-typology="typ-3" role="tab" aria-selected="false">
+            <span>TYP-03: SUB-GRADE VAULTS</span>
+          </button>
+          <button class="margin-tab-btn" data-typology="typ-4" role="tab" aria-selected="false">
+            <span>TYP-04: HISTORIC RECONSTRUCTION</span>
+          </button>
+        </div>
+
+        <!-- Section Ribbon: Core Feature 01 - Tracing Paper / As-Built Slider -->
+        <div class="section-ribbon-tag">
+          <div class="ribbon-title-cluster">
+            <div class="north-symbol">01</div>
+            <h2 class="section-ribbon-title">AS-BUILT SPLIT REVEAL • TRACING CALIPER</h2>
+          </div>
+          <div class="peel-instructions-note">DRAG PARALLEL BAR TO PEEL TRACING VELLUM ↔</div>
+        </div>
+
+        <!-- The Tracing Paper / As-Built Caliper Reveal Container -->
+        <div class="slider-stage-wrapper">
+          <div class="slider-meta-header">
+            <div class="project-title-cluster">
+              <span class="project-monograph-id" id="project-monograph-id">TYP-01 // HILLSIDE CANTILEVERS</span>
+              <h3 class="project-headline-title" id="project-headline-title">Project 01: The Obsidian Cantilever // Bel-Air Ridge</h3>
+              <span class="project-location-meta" id="project-location-meta">Bel-Air Ridge, Los Angeles, California // 34.0837° N, 118.4467° W • 42° Canyon Slope</span>
+            </div>
+
+            <div class="slider-ratio-badge" id="slider-ratio-badge">
+              <span>CAD BLUEPRINT: 50%</span>
+              <span style="color:#a88134;">//</span>
+              <span>AS-BUILT REVEAL: 50%</span>
+            </div>
+          </div>
+
+          <div class="caliper-reveal-viewport" id="caliper-viewport">
+            <!-- Underneath Layer: Crisp Architectural Photograph -->
+            <div class="asbuilt-photo-layer">
+              <img id="asbuilt-photo-img" src="assets/images/project-1-belair.jpg" alt="Completed As-Built Residence">
+              <div class="photo-passepartout-tag">COMPLETED COMMISSION // AS-BUILT PHOTO RECORD</div>
+            </div>
+
+            <!-- Top Layer: Translucent Drafting Vellum with CAD & Redlines -->
+            <div class="drafting-vellum-layer" id="drafting-vellum-layer">
+              <!-- Dynamically Populated Architectural CAD Blueprint Overlay -->
+              <div id="cad-svg-container" class="vellum-cad-overlay"></div>
+
+              <!-- Hand-Drafted Redline Contractor Annotations -->
+              <div class="cad-redline-cluster" id="cad-redline-cluster">
+                <!-- Injected via JavaScript -->
+              </div>
+            </div>
+
+            <!-- Parallel Sliding Brass Bar / Caliper Handle -->
+            <div class="caliper-parallel-bar" id="caliper-bar">
+              <div class="brass-thumbscrew top" aria-hidden="true"></div>
+              <div class="slider-grip-handle" aria-hidden="true">
+                <span>◀</span>
+                <span style="font-size: 0.5rem; color: #a47844;">ANS</span>
+                <span>▶</span>
+              </div>
+              <div class="brass-thumbscrew bottom" aria-hidden="true"></div>
+            </div>
+
+            <!-- Accessible Range Input for Keyboard & Assistive Control -->
+            <input type="range" min="5" max="95" value="50" class="accessible-range-input" id="accessible-slider" aria-label="Slide parallel rule to peel drafting vellum and reveal finished estate photography">
+          </div>
+        </div>
+
+        <!-- Section Ribbon: Core Feature 02 - Three-Part Commission Dossier -->
+        <div class="section-ribbon-tag" style="margin-top: 24px;">
+          <div class="ribbon-title-cluster">
+            <div class="north-symbol">02</div>
+            <h2 class="section-ribbon-title">COMMISSION DOSSIER • GEODETIC &amp; TECTONIC PROOFS</h2>
+          </div>
+          <div class="peel-instructions-note">ARCHIVAL CASE STUDY REGISTER</div>
+        </div>
+
+        <!-- Three-Part Dossier Grid (Plates A, B, C) -->
+        <div class="dossier-triptych-grid">
+          
+          <!-- Plate A: Site & Geodetic Feasibility -->
+          <div class="dossier-plate-card">
+            <div>
+              <div class="plate-header-row">
+                <span class="plate-code-tag">PLATE A</span>
+                <h4 class="plate-title-text">Geodetic Feasibility</h4>
+              </div>
+
+              <!-- Topographical Contour Isolines SVG -->
+              <div class="geodetic-contour-box">
+                <svg viewBox="0 0 300 140" class="contour-svg">
+                  <path d="M 0,120 Q 80,70 160,95 T 300,60" class="contour-line" />
+                  <path d="M 0,90 Q 70,40 150,65 T 300,30" class="contour-line" />
+                  <path d="M 0,60 Q 60,10 140,35 T 300,10" class="contour-line" />
+                  <text x="12" y="132" class="iso-calc-label" style="font-size: 0.55rem;">CONTOUR ELEV. +320M</text>
+                  <text x="210" y="24" class="iso-calc-label" style="font-size: 0.55rem;">RIDGELINE +385M</text>
+                </svg>
+              </div>
+
+              <div class="geodetic-metrics-list">
+                <div class="geo-metric-item">
+                  <span class="geo-label">Bedrock Incline:</span>
+                  <span class="geo-value" id="geo-incline">38° Hillside Grade</span>
+                </div>
+                <div class="geo-metric-item">
+                  <span class="geo-label">Seismic Fault Proximity:</span>
+                  <span class="geo-value" id="geo-fault">2.1 km San Andreas Strand</span>
+                </div>
+                <div class="geo-metric-item">
+                  <span class="geo-label">Geological Strata:</span>
+                  <span class="geo-value" id="geo-strata">Granitic Gneiss &amp; Basalt</span>
+                </div>
+                <div class="geo-metric-item">
+                  <span class="geo-label">Bedrock Tieback Depth:</span>
+                  <span class="geo-value" id="geo-piles">28m Micro-Piles</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="geotechnical-stamp" id="geo-stamp">
+              GEOTECHNICAL FEASIBILITY CERTIFIED // BEDROCK CORE ANCHORED
+            </div>
+          </div>
+
+          <!-- Plate B: Tectonic Execution & Craft Proof -->
+          <div class="dossier-plate-card">
+            <div>
+              <div class="plate-header-row">
+                <span class="plate-code-tag">PLATE B</span>
+                <h4 class="plate-title-text">Tectonic Execution</h4>
+              </div>
+
+              <!-- Hard Construction Facts Metrics Grid -->
+              <div class="tectonic-metrics-grid">
+                <div class="tectonic-stat-card">
+                  <div class="stat-number" id="tect-steel">168 MT</div>
+                  <div class="stat-descriptor" id="tect-steel-desc">W-Flange Structural Steel</div>
+                </div>
+                <div class="tectonic-stat-card">
+                  <div class="stat-number" id="tect-concrete">920 m³</div>
+                  <div class="stat-descriptor" id="tect-concrete-desc">Continuous 36-Hr Pour</div>
+                </div>
+                <div class="tectonic-stat-card">
+                  <div class="stat-number" id="tect-tolerance">±0.3 mm</div>
+                  <div class="stat-descriptor" id="tect-tolerance-desc">Perimeter Assembly Tolerance</div>
+                </div>
+                <div class="tectonic-stat-card">
+                  <div class="stat-number" id="tect-span">16.5 M</div>
+                  <div class="stat-descriptor" id="tect-span-desc">Column-Free Cantilever Span</div>
+                </div>
+              </div>
+
+              <!-- Micro-Photo Inspection Specimen Strip -->
+              <div class="micro-artifact-strip">
+                <div class="micro-specimen-tile">
+                  <span class="micro-specimen-icon">🔩</span>
+                  #11 Rebar Matrix
+                </div>
+                <div class="micro-specimen-tile">
+                  <span class="micro-specimen-icon">🏛️</span>
+                  Lost-Wax Bronze
+                </div>
+                <div class="micro-specimen-tile">
+                  <span class="micro-specimen-icon">💎</span>
+                  Waterjet Reveal
+                </div>
+              </div>
+            </div>
+
+            <div style="font-family: var(--font-mono); font-size: 0.65rem; color: #725e46; text-align: center;">
+              AIA DOCUMENT C103 COMPLIANT // EXECUTION AUDITED
+            </div>
+          </div>
+
+          <!-- Plate C: As-Built Spatial Monograph -->
+          <div class="dossier-plate-card">
+            <div>
+              <div class="plate-header-row">
+                <span class="plate-code-tag">PLATE C</span>
+                <h4 class="plate-title-text">Spatial Monograph</h4>
+              </div>
+
+              <!-- Museum Passe-Partout Framed Photo -->
+              <div class="passepartout-frame">
+                <img id="passepartout-img" src="assets/images/project-1-belair.jpg" alt="Spatial Monograph View">
+              </div>
+
+              <p class="plate-caption-copy" id="plate-caption">
+                Monumental cantilevered pavilion suspended over the Bel-Air ridge line. Features smoked French oak envelope panels, uninterrupted structural glazing, and an infinity travertine terrace floating above the twilight basin.
+              </p>
+            </div>
+
+            <div class="camera-metadata-tag" id="camera-meta">
+              Phase One IQ4 150MP • Rodenstock 32mm HR • f/11 • 1/30s • ISO 64
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Section Ribbon: Core Feature 03 - Live Site Camera / Archive Reels -->
+        <div class="section-ribbon-tag" style="margin-top: 24px;">
+          <div class="ribbon-title-cluster">
+            <div class="north-symbol">03</div>
+            <h2 class="section-ribbon-title">LIVE SITE CAMERA • TIMELAPSE ARCHIVE REELS</h2>
+          </div>
+          <div class="peel-instructions-note">SELECT MILESTONE TO SCRUB SITE TIMELAPSE ↺</div>
+        </div>
+
+        <!-- Rugged Field Monitor Progress Log -->
+        <div class="field-monitor-container" id="site-reels">
+          <div class="monitor-screw tl" aria-hidden="true"></div>
+          <div class="monitor-screw tr" aria-hidden="true"></div>
+          <div class="monitor-screw bl" aria-hidden="true"></div>
+          <div class="monitor-screw br" aria-hidden="true"></div>
+
+          <div class="monitor-header-row">
+            <div class="monitor-channel-meta">
+              <div class="led-indicator" aria-hidden="true"></div>
+              <div class="led-indicator green" aria-hidden="true"></div>
+              <span class="monitor-feed-title">CAM-04 // WEST RIDGE ELEVATION // TIME-LAPSE SCRUBBER</span>
+            </div>
+            <div class="arch-label" style="color: #64ffda;">STATUS: ARCHIVE DECLASSIFIED // 1080P TELEMETRY</div>
+          </div>
+
+          <!-- Timeline Scrubber Filmstrip -->
+          <div class="timeline-scrubber-track" role="tablist" aria-label="Site Progress Milestones">
+            <button class="timeline-step-node active" role="tab" aria-selected="true">
+              <span class="step-day-code">DAY 01</span>
+              <span class="step-name-label">Bedrock Blasting</span>
+            </button>
+            <button class="timeline-step-node" role="tab" aria-selected="false">
+              <span class="step-day-code">DAY 120</span>
+              <span class="step-name-label">Foundation Pour</span>
+            </button>
+            <button class="timeline-step-node" role="tab" aria-selected="false">
+              <span class="step-day-code">DAY 240</span>
+              <span class="step-name-label">Steel Topping</span>
+            </button>
+            <button class="timeline-step-node" role="tab" aria-selected="false">
+              <span class="step-day-code">DAY 360</span>
+              <span class="step-name-label">Weather Envelope</span>
+            </button>
+            <button class="timeline-step-node" role="tab" aria-selected="false">
+              <span class="step-day-code">DAY 480</span>
+              <span class="step-name-label">Hand-Over</span>
+            </button>
+          </div>
+
+          <!-- Site Monitor Live Data Feed Display -->
+          <div class="monitor-display-screen">
+            <div class="progress-snapshot-box">
+              <img id="reel-snapshot-img" src="assets/images/project-1-belair.jpg" alt="Construction Timelapse Snapshot">
+              <div class="camera-reticle-overlay" aria-hidden="true"></div>
+            </div>
+
+            <div class="superintendent-log-column">
+              <div>
+                <h4 class="log-milestone-title" id="log-milestone-title">DAY 01 // Bedrock Blasting &amp; Anchor Excavation</h4>
+                <p class="log-entry-text" id="log-entry-text" style="margin-top: 8px;">
+                  Hydraulic diamond drills anchored 28 meters into bedrock basalt. 3D lidar topographical scan confirmed zero hillside displacement.
+                </p>
+              </div>
+
+              <!-- Site Environmental Sensor Telemetry Dials -->
+              <div class="telemetry-sensor-strip">
+                <div class="sensor-gauge">
+                  <div class="sensor-value" id="sensor-fc">2,400 kN Anchor Test</div>
+                  <div class="sensor-tag">ROCK ANCHOR TENSION</div>
+                </div>
+                <div class="sensor-gauge">
+                  <div class="sensor-value" id="sensor-temp">18.5°C</div>
+                  <div class="sensor-tag">AMBIENT TEMP</div>
+                </div>
+                <div class="sensor-gauge">
+                  <div class="sensor-value" id="sensor-vibration">0.04 mm/s PPV</div>
+                  <div class="sensor-tag">SEISMIC VIBRATION</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Downloadable Drawing Set Register CTA Button -->
+        <div class="drawing-register-cta-box">
+          <button id="btn-drawing-set" class="btn-drawing-set-envelope">
+            <div class="envelope-wax-seal" aria-hidden="true">ANS</div>
+            <span class="envelope-text-label">REQUEST COMPLETE AS-BUILT MONOGRAPH &amp; SPEC SET (RESTRICTED PDF) ↗</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+    <!-- SECTION 4: The Unsealed Commission Register (Archival Folio Dossiers) -->
+    <section id="section-folio-register" class="folio-register-section">
+
+      <!-- Plate Category Filter Rail (Sticky Architectural Drawer Index) -->
+      <div class="folio-filter-rail-container">
+        <div class="filter-rail-title-tag">
+          <span class="plan-chest-dot" aria-hidden="true"></span>
+          <span>PLATE CATEGORY REGISTER // UNSEALED DOSSIERS</span>
+        </div>
+        <div class="filter-rail-tabs" role="tablist" aria-label="Plate Category Filter">
+          <button class="filter-tab-pill active" data-filter="all" role="tab" aria-selected="true">
+            <span>[ALL COMMISSIONS (07)]</span>
+          </button>
+          <button class="filter-tab-pill" data-filter="cantilevers" role="tab" aria-selected="false">
+            <span>[01 CANTILEVERS (02)]</span>
+          </button>
+          <button class="filter-tab-pill" data-filter="monoliths" role="tab" aria-selected="false">
+            <span>[02 MONOLITHS (02)]</span>
+          </button>
+          <button class="filter-tab-pill" data-filter="subgrade" role="tab" aria-selected="false">
+            <span>[03 SUB-GRADE (02)]</span>
+          </button>
+          <button class="filter-tab-pill" data-filter="adaptive" role="tab" aria-selected="false">
+            <span>[04 ADAPTIVE (01)]</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           TYPOLOGY 01: HILLSIDE & EXTREME TOPOGRAPHY CANTILEVERS
+           ==================================================================== -->
+
+      <!-- Project 01: The Obsidian Cantilever // Bel-Air Ridge -->
+      <article class="archival-folio-sheet paper-curl-shadow deckled-paper" data-category="cantilevers" id="folio-plate-01">
+        <div class="drafting-tape tape-tl"></div>
+        <div class="drafting-tape tape-tr"></div>
+        <div class="brass-pushpin" style="top: 14px; left: 16px;"></div>
+        <div class="brass-pushpin" style="top: 14px; right: 16px;"></div>
+
+        <div class="folio-sheet-header">
+          <div>
+            <span class="folio-sheet-typology-tag">TYPOLOGY 01 // HILLSIDE &amp; EXTREME TOPOGRAPHY</span>
+            <h3 class="folio-sheet-title">Project 01: The Obsidian Cantilever</h3>
+            <span class="folio-sheet-location">Bel-Air Ridge, Los Angeles, California // 34.0837° N, 118.4467° W • 42° Canyon Slope</span>
+          </div>
+          <div class="folio-sheet-serial-badge">
+            <span class="dwg-plate-id">DWG: PLATE-M01</span>
+            <span class="arch-label" style="font-size: 0.62rem;">DOC-04-C01 // REV 2026.04</span>
+          </div>
+        </div>
+
+        <!-- Visual Spread: 16:9 Photographic Viewport + Side Isometric Blueprint -->
+        <div class="folio-visual-spread">
+          <div class="folio-photo-viewport" title="Hover with inspection loupe to view calibrated coordinates & turnover stamp">
+            <img src="assets/images/project-1-belair.jpg" alt="The Obsidian Cantilever // Bel-Air Ridge" loading="lazy">
+            <div class="inspection-loupe-crosshair-x" aria-hidden="true"></div>
+            <div class="inspection-loupe-crosshair-y" aria-hidden="true"></div>
+            <div class="loupe-coords-badge" aria-hidden="true">X: 0.0mm • Y: 0.0mm [MICRON CALIBRATED]</div>
+            <div class="turnover-stamp-reveal" aria-hidden="true">STATUS: COMMISSION TURNOVER // ARCHIVE SECURED</div>
+          </div>
+
+          <div class="side-blueprint-box">
+            <div class="side-blueprint-grid" aria-hidden="true"></div>
+            <svg viewBox="0 0 200 160" class="side-blueprint-svg" aria-label="Cantilever Structural Axonometric">
+              <rect x="15" y="15" width="170" height="130" class="side-bp-slab" rx="2" />
+              <line x1="15" y1="50" x2="185" y2="50" class="side-bp-grid" />
+              <line x1="15" y1="100" x2="185" y2="100" class="side-bp-grid" />
+              <!-- Cantilever 18m Projection Frame -->
+              <path d="M 30,120 L 80,45 L 170,45 L 120,120 Z" class="side-bp-beam" />
+              <circle cx="80" cy="45" r="3.5" class="side-bp-beam" fill="#8d6b2c" />
+              <line x1="80" y1="45" x2="80" y2="135" class="side-bp-vector" stroke-dasharray="2,2" />
+              <line x1="170" y1="45" x2="120" y2="120" class="side-bp-vector" />
+              <text x="35" y="35" class="side-bp-text">SPAN: 18.0M</text>
+              <text x="85" y="140" class="side-bp-text">TIEBACK: 32M</text>
+            </svg>
+            <div class="side-blueprint-meta">
+              <span class="side-dwg-code">DWG: PLATE-M01</span>
+              <span class="arch-label" style="font-size: 0.6rem;">ISO CANTILEVER</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specification Tag Bar -->
+        <div class="spec-tag-bar">
+          <span class="spec-pill-tag">SPAN: 18.0M PROJECTION</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">TIEBACKS: 14× DYWIDAG 32M</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">LOC: BEL-AIR RIDGE, CA</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">TOLERANCE: ±0.5MM</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">BEARING: 1,600 kN/m²</span>
+        </div>
+
+        <!-- 3-Column Dossier Narrative Grid -->
+        <div class="dossier-narrative-grid">
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">COMMISSION BRIEF</span>
+            <p class="dossier-block-copy">
+              A private residential pavilion projected 18 meters out over a 42-degree weathered shale canyon, requiring zero visible vertical ground supports beneath the living volume.
+            </p>
+          </div>
+
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">GEOTECHNICAL &amp; STRUCTURAL CHALLENGE</span>
+            <p class="dossier-block-copy">
+              Anchoring against seismic uplift and soil creep along an active coastal ridge. The brittle shale matrix demanded deep rock pin anchors into basalt bedrock.
+            </p>
+          </div>
+
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">TECTONIC EXECUTION &amp; METRICS</span>
+            <ul class="dossier-metric-list">
+              <li class="dossier-metric-item"><strong>Foundation:</strong> 14 Dywidag high-tensile rock tiebacks drilled 32 meters into bedrock (q_allow = 1,600 kN/m²).</li>
+              <li class="dossier-metric-item"><strong>Superstructure:</strong> Continuous tapered welded box-girder steel frame with ductile moment connections.</li>
+              <li class="dossier-metric-item"><strong>Materiality:</strong> Charred Shou Sugi Ban Accoya facade, honed Belgian bluestone flooring, ultra-clear acoustic triple-glazed low-iron glass walls.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Archival Artifact Callout Box -->
+        <div class="archival-artifact-callout">
+          <span class="artifact-stamp-icon">📋</span>
+          <div class="artifact-quote-text">
+            “Post-Tension Tendon Pull-Test Log: Zero deflection under 120% live load simulation.”
+          </div>
+        </div>
+
+        <!-- Card Footer Action -->
+        <div class="folio-card-footer-actions">
+          <span class="arch-label" style="color: #7a6652;">COMMISSION DOSSIER: COMPLETE // AS-BUILT RESTRICTED</span>
+          <button class="btn-load-caliper" data-typology="typ-1">LOAD INTO TRACING CALIPER ↗</button>
+        </div>
+      </article>
+
+      <!-- Project 02: Bluffline Sea-Wall Estate // Big Sur Coast -->
+      <article class="archival-folio-sheet paper-curl-shadow deckled-paper" data-category="cantilevers" id="folio-plate-02">
+        <div class="drafting-tape tape-tl"></div>
+        <div class="drafting-tape tape-tr"></div>
+        <div class="brass-pushpin" style="top: 14px; left: 16px;"></div>
+        <div class="brass-pushpin" style="top: 14px; right: 16px;"></div>
+
+        <div class="folio-sheet-header">
+          <div>
+            <span class="folio-sheet-typology-tag">TYPOLOGY 01 // HILLSIDE &amp; EXTREME TOPOGRAPHY</span>
+            <h3 class="folio-sheet-title">Project 02: Bluffline Sea-Wall Estate</h3>
+            <span class="folio-sheet-location">Big Sur Coastline, California // 36.2704° N, 121.8081° W • Wave-Break Bedrock</span>
+          </div>
+          <div class="folio-sheet-serial-badge">
+            <span class="dwg-plate-id">DWG: PLATE-M02</span>
+            <span class="arch-label" style="font-size: 0.62rem;">DOC-04-C02 // REV 2026.04</span>
+          </div>
+        </div>
+
+        <!-- Visual Spread -->
+        <div class="folio-visual-spread">
+          <div class="folio-photo-viewport" title="Hover with inspection loupe to view calibrated coordinates & turnover stamp">
+            <img src="assets/images/project-big-sur.jpg" alt="Bluffline Sea-Wall Estate // Big Sur Coast" loading="lazy">
+            <div class="inspection-loupe-crosshair-x" aria-hidden="true"></div>
+            <div class="inspection-loupe-crosshair-y" aria-hidden="true"></div>
+            <div class="loupe-coords-badge" aria-hidden="true">X: 0.0mm • Y: 0.0mm [MICRON CALIBRATED]</div>
+            <div class="turnover-stamp-reveal" aria-hidden="true">STATUS: COMMISSION TURNOVER // ARCHIVE SECURED</div>
+          </div>
+
+          <div class="side-blueprint-box">
+            <div class="side-blueprint-grid" aria-hidden="true"></div>
+            <svg viewBox="0 0 200 160" class="side-blueprint-svg" aria-label="Marine Sea-Wall Foundation Detail">
+              <path d="M 10,130 Q 60,110 110,135 T 190,120 L 190,150 L 10,150 Z" class="side-bp-slab" />
+              <!-- Marine Sea-Wall Poured Mass -->
+              <rect x="40" y="30" width="80" height="100" class="side-bp-beam" />
+              <line x1="60" y1="30" x2="60" y2="140" class="side-bp-vector" stroke-dasharray="2,2" />
+              <line x1="100" y1="30" x2="100" y2="140" class="side-bp-vector" stroke-dasharray="2,2" />
+              <!-- Wave Break Vector Arc -->
+              <path d="M 140,110 Q 115,80 130,50" class="side-bp-vector" stroke-width="2" />
+              <text x="45" y="24" class="side-bp-text">70 MPa MARINE</text>
+              <text x="135" y="70" class="side-bp-text">SURGE 4,000 L/M</text>
+            </svg>
+            <div class="side-blueprint-meta">
+              <span class="side-dwg-code">DWG: PLATE-M02</span>
+              <span class="arch-label" style="font-size: 0.6rem;">MARINE SPLIT-JOINT</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specification Tag Bar -->
+        <div class="spec-tag-bar">
+          <span class="spec-pill-tag">WAVE-BREAK: 14M ELEV</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">MIX: 70 MPa POZZOLAN MARINE</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">LOC: BIG SUR COAST, CA</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">DRAINAGE: 4,000 L/MIN</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">ALLOY: C61400 BRONZE</span>
+        </div>
+
+        <!-- 3-Column Dossier Narrative Grid -->
+        <div class="dossier-narrative-grid">
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">COMMISSION BRIEF</span>
+            <p class="dossier-block-copy">
+              A monolithic cliffside compound built directly on oceanfront wave-break bedrock subject to salt-spray erosion and continuous gale-force cyclonic winds.
+            </p>
+          </div>
+
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">GEOTECHNICAL &amp; STRUCTURAL CHALLENGE</span>
+            <p class="dossier-block-copy">
+              Managing chloride ion penetration, hydrodynamic surge impacts during winter swells, and thermal-seismic differential expansion on shear sea cliffs.
+            </p>
+          </div>
+
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">TECTONIC EXECUTION &amp; METRICS</span>
+            <ul class="dossier-metric-list">
+              <li class="dossier-metric-item"><strong>Concrete Mix:</strong> High-density, sulfate-resistant marine concrete (70 MPa) cast with pozzolan volcanic ash.</li>
+              <li class="dossier-metric-item"><strong>Fenestration:</strong> Marine-grade C61400 aluminum-bronze window mullions and seismic slip joints.</li>
+              <li class="dossier-metric-item"><strong>Subsurface Drainage:</strong> Integrated subsurface perimeter drainage diverters handling 4,000 liters/min storm surges.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Archival Artifact Callout Box -->
+        <div class="archival-artifact-callout">
+          <span class="artifact-stamp-icon">🌊</span>
+          <div class="artifact-quote-text">
+            “Chloride Permeability Assay: 480 Coulombs (ASTM C1202) — Zero micro-fracture salt penetration.”
+          </div>
+        </div>
+
+        <!-- Card Footer Action -->
+        <div class="folio-card-footer-actions">
+          <span class="arch-label" style="color: #7a6652;">COMMISSION DOSSIER: COMPLETE // AS-BUILT RESTRICTED</span>
+          <button class="btn-load-caliper" data-typology="typ-1-p2">LOAD INTO TRACING CALIPER ↗</button>
+        </div>
+      </article>
+
+      <!-- ====================================================================
+           TYPOLOGY 02: MONOLITHIC CAST CONCRETE & STONE PAVILIONS
+           ==================================================================== -->
+
+      <!-- Project 03: Monolith IV: House of Five Patios // Sonoran Desert -->
+      <article class="archival-folio-sheet paper-curl-shadow deckled-paper" data-category="monoliths" id="folio-plate-03">
+        <div class="drafting-tape tape-tl"></div>
+        <div class="drafting-tape tape-tr"></div>
+        <div class="brass-pushpin" style="top: 14px; left: 16px;"></div>
+        <div class="brass-pushpin" style="top: 14px; right: 16px;"></div>
+
+        <div class="folio-sheet-header">
+          <div>
+            <span class="folio-sheet-typology-tag">TYPOLOGY 02 // MONOLITHIC CAST CONCRETE &amp; STONE</span>
+            <h3 class="folio-sheet-title">Project 03: Monolith IV: House of Five Patios</h3>
+            <span class="folio-sheet-location">Sonoran Desert, Arizona // 32.2226° N, 110.9747° W • Extreme Thermal Mass</span>
+          </div>
+          <div class="folio-sheet-serial-badge">
+            <span class="dwg-plate-id">DWG: PLATE-M03</span>
+            <span class="arch-label" style="font-size: 0.62rem;">DOC-04-M03 // REV 2026.04</span>
+          </div>
+        </div>
+
+        <!-- Visual Spread -->
+        <div class="folio-visual-spread">
+          <div class="folio-photo-viewport" title="Hover with inspection loupe to view calibrated coordinates & turnover stamp">
+            <img src="assets/images/project-sonoran.jpg" alt="Monolith IV: House of Five Patios // Sonoran Desert" loading="lazy">
+            <div class="inspection-loupe-crosshair-x" aria-hidden="true"></div>
+            <div class="inspection-loupe-crosshair-y" aria-hidden="true"></div>
+            <div class="loupe-coords-badge" aria-hidden="true">X: 0.0mm • Y: 0.0mm [MICRON CALIBRATED]</div>
+            <div class="turnover-stamp-reveal" aria-hidden="true">STATUS: COMMISSION TURNOVER // ARCHIVE SECURED</div>
+          </div>
+
+          <div class="side-blueprint-box">
+            <div class="side-blueprint-grid" aria-hidden="true"></div>
+            <svg viewBox="0 0 200 160" class="side-blueprint-svg" aria-label="Dual-Wythe Board Form Wall Axonometric">
+              <rect x="25" y="25" width="40" height="110" class="side-bp-beam" />
+              <rect x="80" y="25" width="40" height="110" class="side-bp-beam" />
+              <rect x="65" y="25" width="15" height="110" class="side-bp-slab" />
+              <!-- Sub-floor water cooling channel -->
+              <rect x="135" y="90" width="45" height="45" class="side-bp-beam" />
+              <line x1="25" y1="20" x2="120" y2="20" class="side-bp-vector" />
+              <text x="35" y="14" class="side-bp-text">450MM WALL</text>
+              <text x="135" y="80" class="side-bp-text">WATER DUCT</text>
+            </svg>
+            <div class="side-blueprint-meta">
+              <span class="side-dwg-code">DWG: PLATE-M03</span>
+              <span class="arch-label" style="font-size: 0.6rem;">DUAL-WYTHE BOARD-FORM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specification Tag Bar -->
+        <div class="spec-tag-bar">
+          <span class="spec-pill-tag">WALLS: 450MM DUAL-WYTHE</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">POUR RUN: 60M CONTINUOUS</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">LOC: SONORAN DESERT, AZ</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">TOLERANCE: ±0.5MM</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">THERMAL DELAY: 14.5 HRS</span>
+        </div>
+
+        <!-- 3-Column Dossier Narrative Grid -->
+        <div class="dossier-narrative-grid">
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">COMMISSION BRIEF</span>
+            <p class="dossier-block-copy">
+              A low-slung, thermal-mass desert sanctuary engineered to withstand 48°C summer heat swings without active daytime mechanical refrigeration.
+            </p>
+          </div>
+
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">GEOTECHNICAL &amp; STRUCTURAL CHALLENGE</span>
+            <p class="dossier-block-copy">
+              Extreme hydration heat dissipation in arid desert conditions. Concrete had to be placed during night shifts with liquid-nitrogen batch cooling to prevent shrinkage cracking.
+            </p>
+          </div>
+
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">TECTONIC EXECUTION &amp; METRICS</span>
+            <ul class="dossier-metric-list">
+              <li class="dossier-metric-item"><strong>Concrete Mix:</strong> 450mm-thick dual-wythe board-formed architectural concrete incorporating pulverized local desert river aggregate.</li>
+              <li class="dossier-metric-item"><strong>Tolerances:</strong> Formwork tie-hole grid aligned to ±0.5 mm across a 60-meter continuous pour run.</li>
+              <li class="dossier-metric-item"><strong>Interior Craft:</strong> Hand-chiseled travertine courtyards with hidden sub-floor perimeter water channels for evaporative cooling.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Archival Artifact Callout Box -->
+        <div class="archival-artifact-callout">
+          <span class="artifact-stamp-icon">🧪</span>
+          <div class="artifact-quote-text">
+            “Aggregate Core Sample #09: Monolithic pour cured over 56 days under thermal blanket monitoring.”
+          </div>
+        </div>
+
+        <!-- Card Footer Action -->
+        <div class="folio-card-footer-actions">
+          <span class="arch-label" style="color: #7a6652;">COMMISSION DOSSIER: COMPLETE // AS-BUILT RESTRICTED</span>
+          <button class="btn-load-caliper" data-typology="typ-2">LOAD INTO TRACING CALIPER ↗</button>
+        </div>
+      </article>
+
+      <!-- Project 04: Quarry Cut Pavilion // Swiss Alpine Pass -->
+      <article class="archival-folio-sheet paper-curl-shadow deckled-paper" data-category="monoliths" id="folio-plate-04">
+        <div class="drafting-tape tape-tl"></div>
+        <div class="drafting-tape tape-tr"></div>
+        <div class="brass-pushpin" style="top: 14px; left: 16px;"></div>
+        <div class="brass-pushpin" style="top: 14px; right: 16px;"></div>
+
+        <div class="folio-sheet-header">
+          <div>
+            <span class="folio-sheet-typology-tag">TYPOLOGY 02 // MONOLITHIC CAST CONCRETE &amp; STONE</span>
+            <h3 class="folio-sheet-title">Project 04: Quarry Cut Pavilion</h3>
+            <span class="folio-sheet-location">Vals Alpine Pass, Grisons, Switzerland // 46.6192° N, 9.1804° E • Solid Granite Bedrock</span>
+          </div>
+          <div class="folio-sheet-serial-badge">
+            <span class="dwg-plate-id">DWG: PLATE-M04</span>
+            <span class="arch-label" style="font-size: 0.62rem;">DOC-04-M04 // REV 2026.04</span>
+          </div>
+        </div>
+
+        <!-- Visual Spread -->
+        <div class="folio-visual-spread">
+          <div class="folio-photo-viewport" title="Hover with inspection loupe to view calibrated coordinates & turnover stamp">
+            <img src="assets/images/project-alpine.jpg" alt="Quarry Cut Pavilion // Swiss Alpine Pass" loading="lazy">
+            <div class="inspection-loupe-crosshair-x" aria-hidden="true"></div>
+            <div class="inspection-loupe-crosshair-y" aria-hidden="true"></div>
+            <div class="loupe-coords-badge" aria-hidden="true">X: 0.0mm • Y: 0.0mm [MICRON CALIBRATED]</div>
+            <div class="turnover-stamp-reveal" aria-hidden="true">STATUS: COMMISSION TURNOVER // ARCHIVE SECURED</div>
+          </div>
+
+          <div class="side-blueprint-box">
+            <div class="side-blueprint-grid" aria-hidden="true"></div>
+            <svg viewBox="0 0 200 160" class="side-blueprint-svg" aria-label="Granite Wire Saw Cutout Detail">
+              <!-- Bedrock Granite Slab -->
+              <rect x="20" y="80" width="160" height="65" class="side-bp-slab" />
+              <!-- Wire saw cut lines -->
+              <line x1="20" y1="80" x2="180" y2="80" class="side-bp-vector" stroke-dasharray="3,3" />
+              <!-- Glulam timber beam structure -->
+              <rect x="40" y="30" width="120" height="25" class="side-bp-beam" />
+              <line x1="60" y1="55" x2="60" y2="80" class="side-bp-beam" stroke-width="2" />
+              <line x1="140" y1="55" x2="140" y2="80" class="side-bp-beam" stroke-width="2" />
+              <text x="35" y="22" class="side-bp-text">R-60 SNOW 3.5M</text>
+              <text x="45" y="110" class="side-bp-text">800T WIRE-SAWN GRANITE</text>
+            </svg>
+            <div class="side-blueprint-meta">
+              <span class="side-dwg-code">DWG: PLATE-M04</span>
+              <span class="arch-label" style="font-size: 0.6rem;">DIAMOND WIRE CUT</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specification Tag Bar -->
+        <div class="spec-tag-bar">
+          <span class="spec-pill-tag">EXCAVATION: 800 TONS GRANITE</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">ENVELOPE: R-60 TRIPLE-ISOLATED</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">LOC: VALS PASS, CH</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">SNOW-PACK: 3.5M LOAD</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">TIMBER: GLULAM FLITCH BEAMS</span>
+        </div>
+
+        <!-- 3-Column Dossier Narrative Grid -->
+        <div class="dossier-narrative-grid">
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">COMMISSION BRIEF</span>
+            <p class="dossier-block-copy">
+              A private alpine retreat carved directly into an exposed granite outcropping.
+            </p>
+          </div>
+
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">GEOTECHNICAL &amp; STRUCTURAL CHALLENGE</span>
+            <p class="dossier-block-copy">
+              Sub-zero permafrost expansion and severe seismic shear lines along alpine fault systems. Requires absolute granite-to-timber thermal decoupling.
+            </p>
+          </div>
+
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">TECTONIC EXECUTION &amp; METRICS</span>
+            <ul class="dossier-metric-list">
+              <li class="dossier-metric-item"><strong>Rock Precision:</strong> Precision diamond-wire wire-sawing to level 800 tons of natural mountain granite as the interior living floor.</li>
+              <li class="dossier-metric-item"><strong>Heavy Timber:</strong> Heavy timber glue-laminated Douglas fir beams with concealed internal flitch plates.</li>
+              <li class="dossier-metric-item"><strong>Roof Envelope:</strong> R-60 triple-isolated roof envelope designed for a 3.5-meter snow-pack load.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Archival Artifact Callout Box -->
+        <div class="archival-artifact-callout">
+          <span class="artifact-stamp-icon">⛰️</span>
+          <div class="artifact-quote-text">
+            “Seismic Acoustic Resonance Log: Solid granite monolith bedded with zero micro-cavity air gaps.”
+          </div>
+        </div>
+
+        <!-- Card Footer Action -->
+        <div class="folio-card-footer-actions">
+          <span class="arch-label" style="color: #7a6652;">COMMISSION DOSSIER: COMPLETE // AS-BUILT RESTRICTED</span>
+          <button class="btn-load-caliper" data-typology="typ-2-p4">LOAD INTO TRACING CALIPER ↗</button>
+        </div>
+      </article>
+
+      <!-- ====================================================================
+           TYPOLOGY 03: SUB-GRADE VAULTS, GALLERIES & HIGH-PERFORMANCE SPACES
+           ==================================================================== -->
+
+      <!-- Project 05: Sub-Grade Private Museum & Wine Vault // Kyoto Foothills -->
+      <article class="archival-folio-sheet paper-curl-shadow deckled-paper" data-category="subgrade" id="folio-plate-05">
+        <div class="drafting-tape tape-tl"></div>
+        <div class="drafting-tape tape-tr"></div>
+        <div class="brass-pushpin" style="top: 14px; left: 16px;"></div>
+        <div class="brass-pushpin" style="top: 14px; right: 16px;"></div>
+
+        <div class="folio-sheet-header">
+          <div>
+            <span class="folio-sheet-typology-tag">TYPOLOGY 03 // SUB-GRADE VAULTS &amp; GALLERIES</span>
+            <h3 class="folio-sheet-title">Project 05: Sub-Grade Private Museum &amp; Wine Vault</h3>
+            <span class="folio-sheet-location">Kyoto Foothills, Japan // 35.0116° N, 135.7681° E • Hydrostatic Vault</span>
+          </div>
+          <div class="folio-sheet-serial-badge">
+            <span class="dwg-plate-id">DWG: PLATE-M05</span>
+            <span class="arch-label" style="font-size: 0.62rem;">DOC-04-S05 // REV 2026.04</span>
+          </div>
+        </div>
+
+        <!-- Visual Spread -->
+        <div class="folio-visual-spread">
+          <div class="folio-photo-viewport" title="Hover with inspection loupe to view calibrated coordinates & turnover stamp">
+            <img src="assets/images/project-4-vault.jpg" alt="Sub-Grade Private Museum & Wine Vault // Kyoto Foothills" loading="lazy">
+            <div class="inspection-loupe-crosshair-x" aria-hidden="true"></div>
+            <div class="inspection-loupe-crosshair-y" aria-hidden="true"></div>
+            <div class="loupe-coords-badge" aria-hidden="true">X: 0.0mm • Y: 0.0mm [MICRON CALIBRATED]</div>
+            <div class="turnover-stamp-reveal" aria-hidden="true">STATUS: COMMISSION TURNOVER // ARCHIVE SECURED</div>
+          </div>
+
+          <div class="side-blueprint-box">
+            <div class="side-blueprint-grid" aria-hidden="true"></div>
+            <svg viewBox="0 0 200 160" class="side-blueprint-svg" aria-label="Subterranean Double-Hull Detail">
+              <!-- Outer Hydrostatic Shell -->
+              <rect x="15" y="15" width="170" height="130" class="side-bp-slab" rx="3" />
+              <!-- Bentonite Membrane Liner -->
+              <rect x="25" y="25" width="150" height="110" class="side-bp-vector" stroke-dasharray="2,2" />
+              <!-- Decoupled Floating Inner Room -->
+              <rect x="40" y="40" width="120" height="80" class="side-bp-beam" />
+              <!-- 3-Ton Bronze Pivot -->
+              <circle cx="160" cy="80" r="5" class="side-bp-beam" fill="#8d6b2c" />
+              <text x="35" y="36" class="side-bp-text">BENTONITE DUAL-HULL</text>
+              <text x="50" y="85" class="side-bp-text">NC-12 FLOATING SLAB</text>
+            </svg>
+            <div class="side-blueprint-meta">
+              <span class="side-dwg-code">DWG: PLATE-M05</span>
+              <span class="arch-label" style="font-size: 0.6rem;">DOUBLE-HULL ACOUSTIC</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specification Tag Bar -->
+        <div class="spec-tag-bar">
+          <span class="spec-pill-tag">AREA: 900 M² SUBTERRANEAN</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">ACOUSTICS: NC-12 ISOLATION</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">LOC: KYOTO FOOTHILLS, JP</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">STABILITY: ±1% RH • ±0.5°C</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">PORTAL: 3-TON BRONZE PIVOT</span>
+        </div>
+
+        <!-- 3-Column Dossier Narrative Grid -->
+        <div class="dossier-narrative-grid">
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">COMMISSION BRIEF</span>
+            <p class="dossier-block-copy">
+              A 900-square-meter private subterranean vault housing priceless antiquities and rare vintage reserves requiring museum-grade environmental stability (±1% RH, ±0.5°C).
+            </p>
+          </div>
+
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">GEOTECHNICAL &amp; STRUCTURAL CHALLENGE</span>
+            <p class="dossier-block-copy">
+              Perched subterranean water table requiring high-tolerance hydrostatic resistance, continuous positive-pressure moisture barriers, and zero acoustic transmission.
+            </p>
+          </div>
+
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">TECTONIC EXECUTION &amp; METRICS</span>
+            <ul class="dossier-metric-list">
+              <li class="dossier-metric-item"><strong>Waterproofing:</strong> Double-hulled waterproofing envelope using bentonite sheet waterproofing and welded HDPE membranes.</li>
+              <li class="dossier-metric-item"><strong>Acoustics:</strong> Fully decoupled floating room-within-a-room acoustic slab sitting on elastomeric isolation pads (NC-12 noise rating).</li>
+              <li class="dossier-metric-item"><strong>Kinetic Entry:</strong> 3-ton counterweighted solid bronze pivot door operated by a concealed mechanical balance system.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Archival Artifact Callout Box -->
+        <div class="archival-artifact-callout">
+          <span class="artifact-stamp-icon">🏺</span>
+          <div class="artifact-quote-text">
+            “Hydrostatic Pressure Test: 100 kPa head pressure verified across 72-hour submersible sensor probe.”
+          </div>
+        </div>
+
+        <!-- Card Footer Action -->
+        <div class="folio-card-footer-actions">
+          <span class="arch-label" style="color: #7a6652;">COMMISSION DOSSIER: COMPLETE // AS-BUILT RESTRICTED</span>
+          <button class="btn-load-caliper" data-typology="typ-3">LOAD INTO TRACING CALIPER ↗</button>
+        </div>
+      </article>
+
+      <!-- Project 06: Wellness & Biophilic Movement Sanctuary // Urban Retreat -->
+      <article class="archival-folio-sheet paper-curl-shadow deckled-paper" data-category="subgrade" id="folio-plate-06">
+        <div class="drafting-tape tape-tl"></div>
+        <div class="drafting-tape tape-tr"></div>
+        <div class="brass-pushpin" style="top: 14px; left: 16px;"></div>
+        <div class="brass-pushpin" style="top: 14px; right: 16px;"></div>
+
+        <div class="folio-sheet-header">
+          <div>
+            <span class="folio-sheet-typology-tag">TYPOLOGY 03 // SUB-GRADE VAULTS &amp; GALLERIES</span>
+            <h3 class="folio-sheet-title">Project 06: Wellness &amp; Biophilic Movement Sanctuary</h3>
+            <span class="folio-sheet-location">Urban Private Enclave, Tokyo // 35.6762° N, 139.6503° E • Biophilic Resonance</span>
+          </div>
+          <div class="folio-sheet-serial-badge">
+            <span class="dwg-plate-id">DWG: PLATE-M06</span>
+            <span class="arch-label" style="font-size: 0.62rem;">DOC-04-S06 // REV 2026.04</span>
+          </div>
+        </div>
+
+        <!-- Visual Spread -->
+        <div class="folio-visual-spread">
+          <div class="folio-photo-viewport" title="Hover with inspection loupe to view calibrated coordinates & turnover stamp">
+            <img src="assets/images/project-sanctuary.jpg" alt="Wellness & Biophilic Movement Sanctuary" loading="lazy">
+            <div class="inspection-loupe-crosshair-x" aria-hidden="true"></div>
+            <div class="inspection-loupe-crosshair-y" aria-hidden="true"></div>
+            <div class="loupe-coords-badge" aria-hidden="true">X: 0.0mm • Y: 0.0mm [MICRON CALIBRATED]</div>
+            <div class="turnover-stamp-reveal" aria-hidden="true">STATUS: COMMISSION TURNOVER // ARCHIVE SECURED</div>
+          </div>
+
+          <div class="side-blueprint-box">
+            <div class="side-blueprint-grid" aria-hidden="true"></div>
+            <svg viewBox="0 0 200 160" class="side-blueprint-svg" aria-label="Sprung Floor & Acoustic Baffle Detail">
+              <!-- Sub-floor slab -->
+              <rect x="20" y="125" width="160" height="20" class="side-bp-slab" />
+              <!-- Neoprene vibration pads -->
+              <circle cx="45" cy="118" r="4" class="side-bp-beam" fill="#8d6b2c" />
+              <circle cx="95" cy="118" r="4" class="side-bp-beam" fill="#8d6b2c" />
+              <circle cx="145" cy="118" r="4" class="side-bp-beam" fill="#8d6b2c" />
+              <!-- Sprung oak top layer -->
+              <rect x="20" y="105" width="160" height="8" class="side-bp-beam" />
+              <!-- Acoustic walnut wall slats -->
+              <line x1="30" y1="30" x2="30" y2="100" class="side-bp-vector" stroke-width="2" />
+              <line x1="45" y1="30" x2="45" y2="100" class="side-bp-vector" stroke-width="2" />
+              <line x1="60" y1="30" x2="60" y2="100" class="side-bp-vector" stroke-width="2" />
+              <text x="35" y="24" class="side-bp-text">SLATTED WALNUT BAFFLES</text>
+              <text x="65" y="142" class="side-bp-text">SPRUNG DUAL-NEOPRENE</text>
+            </svg>
+            <div class="side-blueprint-meta">
+              <span class="side-dwg-code">DWG: PLATE-M06</span>
+              <span class="arch-label" style="font-size: 0.6rem;">SPRUNG KINETIC FLOOR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specification Tag Bar -->
+        <div class="spec-tag-bar">
+          <span class="spec-pill-tag">AREA: 60 M² MOVEMENT HALL</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">AIR VELOCITY: ZERO-LAMINAR 0.05 M/S</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">LOC: TOKYO ENCLAVE</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">FLOOR: SPRUNG WHITE-OAK</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">LIGHTING: FULL-SPECTRUM CIRCADIAN</span>
+        </div>
+
+        <!-- 3-Column Dossier Narrative Grid -->
+        <div class="dossier-narrative-grid">
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">COMMISSION BRIEF</span>
+            <p class="dossier-block-copy">
+              A 60-square-meter dual-purpose yoga and dynamic movement hall built within a luxury private residential enclave.
+            </p>
+          </div>
+
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">GEOTECHNICAL &amp; STRUCTURAL CHALLENGE</span>
+            <p class="dossier-block-copy">
+              Eliminating low-frequency acoustic transfer and joint strain impact, while guaranteeing draft-free laminar ventilation with zero air turbulence noise.
+            </p>
+          </div>
+
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">TECTONIC EXECUTION &amp; METRICS</span>
+            <ul class="dossier-metric-list">
+              <li class="dossier-metric-item"><strong>Kinetic Flooring:</strong> Sprung European white-oak flooring system on decoupled dual-density neoprene pads to absorb joint impact during high-intensity training.</li>
+              <li class="dossier-metric-item"><strong>Laminar Climate:</strong> Concealed hydronic radiant heating loops balanced with a zero-velocity laminar airflow HVAC system to prevent convective drafts.</li>
+              <li class="dossier-metric-item"><strong>Acoustic Joinery:</strong> Shadowline wall reveals with flush, acoustic slatted American walnut baffles concealing indirect full-spectrum circadian lighting.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Archival Artifact Callout Box -->
+        <div class="archival-artifact-callout">
+          <span class="artifact-stamp-icon">🧘</span>
+          <div class="artifact-quote-text">
+            “Acoustic Decoupling Certification: RT60 decay rate measured at 0.28 seconds across all movement octaves.”
+          </div>
+        </div>
+
+        <!-- Card Footer Action -->
+        <div class="folio-card-footer-actions">
+          <span class="arch-label" style="color: #7a6652;">COMMISSION DOSSIER: COMPLETE // AS-BUILT RESTRICTED</span>
+          <button class="btn-load-caliper" data-typology="typ-3-p6">LOAD INTO TRACING CALIPER ↗</button>
+        </div>
+      </article>
+
+      <!-- ====================================================================
+           TYPOLOGY 04: HISTORIC VAULT PRESERVATION & ADAPTIVE ENGINEERING
+           ==================================================================== -->
+
+      <!-- Project 07: The Cast-Iron Mercantile Exchange // Tribeca, NYC -->
+      <article class="archival-folio-sheet paper-curl-shadow deckled-paper" data-category="adaptive" id="folio-plate-07">
+        <div class="drafting-tape tape-tl"></div>
+        <div class="drafting-tape tape-tr"></div>
+        <div class="brass-pushpin" style="top: 14px; left: 16px;"></div>
+        <div class="brass-pushpin" style="top: 14px; right: 16px;"></div>
+
+        <div class="folio-sheet-header">
+          <div>
+            <span class="folio-sheet-typology-tag">TYPOLOGY 04 // HISTORIC PRESERVATION &amp; ADAPTIVE REUSE</span>
+            <h3 class="folio-sheet-title">Project 07: The Cast-Iron Mercantile Exchange</h3>
+            <span class="folio-sheet-location">Franklin Street, Tribeca, New York City // 40.7188° N, 74.0089° W • 1892 Landmarked</span>
+          </div>
+          <div class="folio-sheet-serial-badge">
+            <span class="dwg-plate-id">DWG: PLATE-M07</span>
+            <span class="arch-label" style="font-size: 0.62rem;">DOC-04-A07 // REV 2026.04</span>
+          </div>
+        </div>
+
+        <!-- Visual Spread -->
+        <div class="folio-visual-spread">
+          <div class="folio-photo-viewport" title="Hover with inspection loupe to view calibrated coordinates & turnover stamp">
+            <img src="assets/images/project-2-tribeca.jpg" alt="The Cast-Iron Mercantile Exchange // Tribeca, NYC" loading="lazy">
+            <div class="inspection-loupe-crosshair-x" aria-hidden="true"></div>
+            <div class="inspection-loupe-crosshair-y" aria-hidden="true"></div>
+            <div class="loupe-coords-badge" aria-hidden="true">X: 0.0mm • Y: 0.0mm [MICRON CALIBRATED]</div>
+            <div class="turnover-stamp-reveal" aria-hidden="true">STATUS: COMMISSION TURNOVER // ARCHIVE SECURED</div>
+          </div>
+
+          <div class="side-blueprint-box">
+            <div class="side-blueprint-grid" aria-hidden="true"></div>
+            <svg viewBox="0 0 200 160" class="side-blueprint-svg" aria-label="Needle-Beam Underpinning Axonometric">
+              <!-- 1892 Masonry Wall Profile -->
+              <rect x="35" y="20" width="50" height="90" class="side-bp-slab" />
+              <!-- Needle Beam inserted horizontally -->
+              <rect x="20" y="70" width="160" height="22" class="side-bp-beam" />
+              <!-- Hydraulic Micro-Jack Underpinning -->
+              <line x1="45" y1="92" x2="45" y2="140" class="side-bp-vector" stroke-width="2" />
+              <line x1="155" y1="92" x2="155" y2="140" class="side-bp-vector" stroke-width="2" />
+              <text x="35" y="16" class="side-bp-text">LANDMARK MASONRY</text>
+              <text x="90" y="65" class="side-bp-text">NEEDLE BEAM</text>
+              <text x="55" y="135" class="side-bp-text">MICRO-JACK -4.5M</text>
+            </svg>
+            <div class="side-blueprint-meta">
+              <span class="side-dwg-code">DWG: PLATE-M07</span>
+              <span class="arch-label" style="font-size: 0.6rem;">NEEDLE UNDERPINNING</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specification Tag Bar -->
+        <div class="spec-tag-bar">
+          <span class="spec-pill-tag">ORIGINAL BUILD: 1892</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">UNDERPINNING: -4.5M DEEP EXCAVATION</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">LOC: TRIBECA, NYC</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">COLUMNS: FLUTED CAST-IRON F3000</span>
+          <span class="pill-sep">•</span>
+          <span class="spec-pill-tag">ELEVATOR: BLACKENED BRONZE CORE</span>
+        </div>
+
+        <!-- 3-Column Dossier Narrative Grid -->
+        <div class="dossier-narrative-grid">
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">COMMISSION BRIEF</span>
+            <p class="dossier-block-copy">
+              Adaptive structural overhaul of an 1892 landmarked cast-iron commercial warehouse into a multi-level private triplex estate.
+            </p>
+          </div>
+
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">GEOTECHNICAL &amp; STRUCTURAL CHALLENGE</span>
+            <p class="dossier-block-copy">
+              Preserving structural equilibrium of century-old unreinforced brick masonry party walls during deep sub-basement excavation alongside Manhattan subway corridors.
+            </p>
+          </div>
+
+          <div class="dossier-section-block">
+            <span class="dossier-block-label">TECTONIC EXECUTION &amp; METRICS</span>
+            <ul class="dossier-metric-list">
+              <li class="dossier-metric-item"><strong>Underpinning:</strong> Needle-beam shoring and micro-jack underpinning to excavate a new 4.5-meter sub-basement beneath existing masonry party walls.</li>
+              <li class="dossier-metric-item"><strong>Restoration:</strong> Hand-restored ornate fluted cast-iron structural columns certified via ultrasonic flaw detection.</li>
+              <li class="dossier-metric-item"><strong>Bespoke Core:</strong> Custom blackened architectural bronze elevator core with exposed counterweights and cable pulleys.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Archival Artifact Callout Box -->
+        <div class="archival-artifact-callout">
+          <span class="artifact-stamp-icon">🏛️</span>
+          <div class="artifact-quote-text">
+            “Non-Destructive Testing Log: Ultrasonic pulse velocity confirmed zero structural casting voids.”
+          </div>
+        </div>
+
+        <!-- Card Footer Action -->
+        <div class="folio-card-footer-actions">
+          <span class="arch-label" style="color: #7a6652;">COMMISSION DOSSIER: COMPLETE // AS-BUILT RESTRICTED</span>
+          <button class="btn-load-caliper" data-typology="typ-4">LOAD INTO TRACING CALIPER ↗</button>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Desk Footer: Legal Specifications & Licensure Stamps -->
+        <!-- ARCHITECTURAL DOCUMENT INDEX (THE LEGAL FOOTER)
+         A neat stack of thin Specification Sheets tucked under the cutting mat edge -->
+    <footer class="drafting-table-footer-zone">
+      
+      <!-- Heavy Cutting Mat Bottom Lip / Edge -->
+      <div class="cutting-mat-bottom-lip">
+        <div class="mat-lip-metric-ticks">
+          <span>| 00 MM</span>
+          <span>| 150 MM</span>
+          <span>| 300 MM</span>
+          <span>| 450 MM</span>
+          <span>| 600 MM</span>
+          <span>| 750 MM</span>
+          <span>| 900 MM</span>
+          <span>| 1050 MM</span>
+          <span>| 1200 MM</span>
+        </div>
+        <div class="mat-lip-title">SPECIFICATION ARCHIVE // LEGAL &amp; STATUTORY COVENANTS</div>
+      </div>
+
+      <!-- Tucked Specification Sheets Stack (Spec Sheets) -->
+      <div class="tucked-spec-stack">
+        
+        <!-- Spec Sheet 1: Privacy Policy -->
+        <div class="spec-sheet-tab" data-spec="spec-01" tabindex="0" role="button" aria-label="View SPEC-01: Client Privacy & Fiduciary Data Covenant">
+          <div class="spec-hole-punch" aria-hidden="true"></div>
+          <span class="spec-doc-id">SPEC-01 // PRV</span>
+          <div>
+            <div class="spec-doc-title">Client Privacy Protocols &amp; Confidentiality Data Covenant</div>
+            <div class="spec-doc-classification">AIA Standard B101 • Air-Gapped Vault Archiving • Zero-Publicity Guarantee</div>
+          </div>
+          <span class="spec-doc-classification">REV 2026.04</span>
+          <span class="spec-doc-action">OPEN SPEC SHEET ↗</span>
+        </div>
+
+        <!-- Spec Sheet 2: Terms of Service -->
+        <div class="spec-sheet-tab" data-spec="spec-02" tabindex="0" role="button" aria-label="View SPEC-02: General Conditions of Commission & Tender Terms">
+          <div class="spec-hole-punch" aria-hidden="true"></div>
+          <span class="spec-doc-id">SPEC-02 // TOS</span>
+          <div>
+            <div class="spec-doc-title">General Conditions of Commission &amp; Tender Terms</div>
+            <div class="spec-doc-classification">AIA A101/A201 Framework • Metric Feasibility Standards • Change-Order Protocols</div>
+          </div>
+          <span class="spec-doc-classification">REV 2026.04</span>
+          <span class="spec-doc-action">OPEN SPEC SHEET ↗</span>
+        </div>
+
+        <!-- Spec Sheet 3: Refund Guidelines -->
+        <div class="spec-sheet-tab" data-spec="spec-03" tabindex="0" role="button" aria-label="View SPEC-03: Retainer Deposit & Escrow Refund Guidelines">
+          <div class="spec-hole-punch" aria-hidden="true"></div>
+          <span class="spec-doc-id">SPEC-03 // RFD</span>
+          <div>
+            <div class="spec-doc-title">Retainer Deposit &amp; Escrow Refund Guidelines</div>
+            <div class="spec-doc-classification">FDIC-Insured Escrow • 14-Day Pre-Construction Refund Window • Milestone Accounting</div>
+          </div>
+          <span class="spec-doc-classification">REV 2026.04</span>
+          <span class="spec-doc-action">OPEN SPEC SHEET ↗</span>
+        </div>
+
+        <!-- Spec Sheet 4: Licensure & AIA Disclosures -->
+        <div class="spec-sheet-tab" data-spec="spec-04" tabindex="0" role="button" aria-label="View SPEC-04: AIA Licensure, Ethics & Statutory Compliance">
+          <div class="spec-hole-punch" aria-hidden="true"></div>
+          <span class="spec-doc-id">SPEC-04 // AIA</span>
+          <div>
+            <div class="spec-doc-title">AIA Licensure, Professional Ethics &amp; Statutory Disclosures</div>
+            <div class="spec-doc-classification">Board of Architectural Examiners • OSHA VPP Star • C-8 General Contractor #882194</div>
+          </div>
+          <span class="spec-doc-classification">REV 2026.04</span>
+          <span class="spec-doc-action">OPEN SPEC SHEET ↗</span>
+        </div>
+
+      </div>
+
+      <!-- Debossed Mat Imprint Stamp -->
+      <div class="cutting-mat-imprint-stamp">
+        <div class="mat-debossed-copyright">© 2026 ANSCONS ARCHITECTURE, CONSTRUCTION &amp; BESPOKE INTERIORS ATELIER • ALL RIGHTS RESERVED</div>
+        <div class="mat-debossed-licensure">REGISTERED PRACTICE NO. AR-09412-AIA // GENERAL BUILDING CONTRACTOR LIC. #C8-882194 // JURISDICTION: US &amp; INTERNATIONAL ATELIERS</div>
+      </div>
+
+    </footer>
+
+  </div>
+
+  <!-- Architectural Specification Sheet Modal Inspector -->
+  <div id="spec-modal-overlay" class="spec-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="spec-document-card">
+      <div class="spec-modal-header">
+        <div>
+          <div id="modal-spec-code" class="spec-modal-code">SECTION 00 22 10 // SPEC-01</div>
+          <h3 id="modal-spec-title" class="spec-modal-title">Client Privacy Protocols &amp; Data Covenant</h3>
+          <div id="modal-spec-classification" class="spec-doc-classification" style="margin-top: 4px;">CLASS 1: STRICT CONFIDENTIALITY</div>
+        </div>
+        <button id="spec-modal-close-btn" class="spec-modal-close-btn">FOLD SPEC SHEET ✕</button>
+      </div>
+
+      <div id="modal-spec-body" class="spec-modal-body">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="spec-modal-seal-footer">
+        <div id="modal-spec-ref" class="arch-label" style="color: #6b573e;">DOCUMENT RECORD: ANS-LEGAL-2026</div>
+        <div class="title-block-stamp" style="font-size: 0.65rem;">OFFICIALLY ENACTED</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Polaroid Inspection Photo Modal -->
+  <div id="polaroid-modal-backdrop" class="polaroid-modal-backdrop" role="dialog" aria-modal="true">
+    <div class="polaroid-expanded-card">
+      <div class="polaroid-expanded-photo">
+        <img id="polaroid-expanded-photo-img" src="assets/images/polaroid-inspection.jpg" alt="Enlarged Site Inspection Photo">
+      </div>
+      <div class="polaroid-expanded-meta">
+        <div class="polaroid-expanded-note" id="polaroid-expanded-note">Anchor tension verified @ 1,250 kN — AP</div>
+        <button class="polaroid-modal-close-btn" id="polaroid-modal-close-btn">STOW POLAROID ✕</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Interactivity Scripts -->
+  <script type="module" src="js/projects.js"></script>
+</body>
+</html>

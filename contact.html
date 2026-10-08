@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commission Registry &amp; Private Treaty Transmittal Desk | ANSCONS Atelier</title>
+  <meta name="description" content="Private treaty transmittal desk and architectural commission registry. Formal confidential chamber for commissioning multi-year private residential master builds.">
+  
+  <!-- Skeuomorphic Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/desk.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/liaison.css">
+  <link rel="stylesheet" href="css/legal-specs.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="studio-mode" data-theme="studio">
+
+  <!-- Floating Brass Return-To-Origin Compass Widget -->
+  <button id="btn-return-origin" class="btn-return-origin" title="Return to Top of Liaison Desk" aria-label="Return to top of drafting table">
+    <span class="compass-needle" aria-hidden="true">▲</span>
+    <span class="origin-text">ORIGIN (TOP)</span>
+  </button>
+
+  <!-- Virtual Desktop Lamp Glow (Top-Left 315° Ambient Light) -->
+  <div class="desk-lamp-glow" aria-hidden="true"></div>
+
+  <!-- Calibrated Marginal Desk Rulers -->
+  <div class="desk-ruler-top" aria-hidden="true">
+    <span>0 CM &nbsp; &nbsp; &nbsp; 10 &nbsp; &nbsp; &nbsp; 20 &nbsp; &nbsp; &nbsp; 30 &nbsp; &nbsp; &nbsp; 40 &nbsp; &nbsp; &nbsp; 50 &nbsp; &nbsp; &nbsp; 60 &nbsp; &nbsp; &nbsp; 70 &nbsp; &nbsp; &nbsp; 80 &nbsp; &nbsp; &nbsp; 90 &nbsp; &nbsp; &nbsp; 100 &nbsp; &nbsp; &nbsp; 110 &nbsp; &nbsp; &nbsp; 120 CM // PRIVATE TREATY DISPATCH DESK</span>
+  </div>
+  <div class="desk-ruler-left" aria-hidden="true">
+    <span>0 IN &nbsp; &nbsp; &nbsp; 10 &nbsp; &nbsp; &nbsp; 20 &nbsp; &nbsp; &nbsp; 30 &nbsp; &nbsp; &nbsp; 40 &nbsp; &nbsp; &nbsp; 50 &nbsp; &nbsp; &nbsp; 60 &nbsp; &nbsp; &nbsp; 70 IN // COMMISSION REGISTER ARCHIVE</span>
+  </div>
+
+  <!-- Desk HUD Controls (Audio Mute Toggle & Solid Cast-Brass Theme Lever) -->
+  <div class="desk-controls-hud">
+    <button class="desk-audio-toggle" id="desk-audio-toggle" aria-label="Toggle mechanical audio feedback">
+      <svg class="audio-icon" viewBox="0 0 24 24">
+        <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73 4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+      </svg>
+      <span class="desk-audio-badge" id="audio-status-badge">Muted</span>
+    </button>
+
+    <div class="lamp-lever-container">
+      <div class="brass-switch-plate" id="brass-theme-lever" title="Snap toggle switch between Studio Warm Lamp and Blueprint Cyanotype mode">
+        <div class="plate-screw" aria-hidden="true"></div>
+        <span class="switch-mode-label active" id="label-mode-studio">STUDIO</span>
+        <div class="brass-toggle-housing" aria-hidden="true">
+          <div class="brass-toggle-bat" id="brass-toggle-bat"></div>
+        </div>
+        <span class="switch-mode-label" id="label-mode-blueprint">BLUEPRINT</span>
+        <div class="plate-screw" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Master Drafting Table Workspace -->
+  <div class="drafting-table">
+
+    <!-- Persistent Clamped Vellum Navigation Bar (Global Multi-Page Router) -->
+    <header class="tracing-nav-container">
+      <div class="tracing-nav-track">
+        <div class="brass-blueprint-clip" aria-hidden="true"></div>
+        <a href="index.html" class="vellum-tab" title="Atelier Master Drawing Sheet">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 01</span>
+          <span class="tab-title">ATELIER</span>
+        </a>
+        <a href="about.html" class="vellum-tab" title="Philosophy &amp; Heritage Ledger">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 02</span>
+          <span class="tab-title">PHILOSOPHY</span>
+        </a>
+        <a href="services.html" class="vellum-tab" title="Bespoke Architectural Services">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 03</span>
+          <span class="tab-title">SERVICES</span>
+        </a>
+        <a href="projects.html" class="vellum-tab" title="Monograph Folio of Built Works">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 04</span>
+          <span class="tab-title">PORTFOLIO</span>
+        </a>
+        <a href="estimator.html" class="vellum-tab" title="Scale Caliper Project Estimator">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 05</span>
+          <span class="tab-title">ESTIMATOR</span>
+        </a>
+        <a href="contact.html" class="vellum-tab active" title="Commission Liaison Brief">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 06</span>
+          <span class="tab-title">LIAISON</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- SECTION: Architectural Commission Registry & Private Treaty Transmittal Desk -->
+    <section id="section-liaison-chamber" class="liaison-chamber-section">
+
+      <!-- 1. The Physical Hero Metaphor: "The Mahogany Dispatch Folio" -->
+      <div class="dispatch-folio-binder">
+
+        <!-- Brass Corner Edge Protectors -->
+        <div class="brass-corner-bracket top-left" aria-hidden="true"></div>
+        <div class="brass-corner-bracket top-right" aria-hidden="true"></div>
+        <div class="brass-corner-bracket bottom-left" aria-hidden="true"></div>
+        <div class="brass-corner-bracket bottom-right" aria-hidden="true"></div>
+
+        <!-- Silk Ribbon Closure Hanging from Folio Base -->
+        <div class="folio-ribbon-tie" aria-hidden="true"></div>
+
+        <!-- Folio Header Row -->
+        <div class="dispatch-header-row">
+          <div class="dispatch-title-group">
+            <div class="dispatch-doc-code">
+              <span>DOC 06</span>
+              <span>//</span>
+              <span>PRIVATE TREATY DISPATCH &amp; COMMISSION REGISTRY</span>
+            </div>
+            <h1 class="dispatch-doc-title">Private Treaty Transmittal Desk</h1>
+            <p class="dispatch-doc-subtitle">
+              Formal confidential chamber for patrons commissioning a multi-year master build. Enter geodetic parcel coordinates, select tectonic typology, execute signature covenant, and depress the wax seal press to lodge commission.
+            </p>
+          </div>
+
+          <!-- Confidential Security Tag -->
+          <div class="dispatch-security-tag">
+            <span class="security-tag-level">FIDUCIARY LEVEL: AIR-GAPPED PRIVACY</span>
+            <span class="security-tag-desc">AIA DOCUMENT B101-2017 SEC. 1.01 PROTOCOL</span>
+          </div>
+        </div>
+
+        <!-- 2. Pre-Filled Estimate Voucher Pin (Continuity from DOC 05 Estimator) -->
+        <div class="estimate-voucher-attachment" id="estimate-voucher-attachment">
+          <div class="brass-wire-paperclip" aria-hidden="true"></div>
+          <div class="voucher-details-col">
+            <span class="voucher-origin-tag">✂ DOC 05 TRANSMITTED TENDER VOUCHER // PAPER-CLIPPED ATTACHMENT</span>
+            <h3 class="voucher-title">Pre-Construction Feasibility Slip</h3>
+            <p class="voucher-summary-text" id="voucher-summary-text">
+              CALIBRATION RECORD: 10,000 SQ. FT. // MONOLITHIC REINFORCED SLAB // BEDROCK COEFF: 1.00× // BUDGET: $10.5M — $14.2M USD
+            </p>
+          </div>
+          <a href="estimator.html" class="voucher-action-btn" title="Return to DOC 05 Vernier Caliper Calibration Bench">
+            RE-CALIBRATE ESTIMATE ↗
+          </a>
+        </div>
+
+        <!-- 3. The Interactive Commission Intake Form (AIA Form 104-B Vellum Register) -->
+        <div class="treaty-register-sheet">
+          
+          <!-- Treaty Form Header -->
+          <div class="treaty-sheet-header">
+            <div class="treaty-header-left">
+              <span class="treaty-serial-code">AIA FORM 104-B // PRIVATE TREATY COVENANT</span>
+              <h2 class="treaty-instrument-title">Instrument of Architectural Commission &amp; Tender Retainer</h2>
+            </div>
+            <div class="treaty-header-right">
+              <span>REGISTER NO: AR-09412-TREATY</span>
+              <span>JURISDICTION: US &amp; INTERNATIONAL ATELIERS</span>
+            </div>
+          </div>
+
+          <!-- Patron Identity & Jurisdiction Drafting Fill-In Lines -->
+          <div class="drafting-inputs-stack">
+            
+            <div class="fill-in-row">
+              <label for="input-patron-name" class="fill-in-label">
+                <span>01 // PRINCIPAL PATRON / ENTITY</span>
+                <span class="dot-leader" aria-hidden="true"></span>
+              </label>
+              <input 
+                type="text" 
+                id="input-patron-name" 
+                class="treaty-text-input" 
+                placeholder="Full Legal Name, Family Office, or Sovereign Trust"
+                required
+              >
+            </div>
+
+            <div class="fill-in-row">
+              <label for="input-parcel-coords" class="fill-in-label">
+                <span>02 // GEOGRAPHIC PARCEL &amp; LOT</span>
+                <span class="dot-leader" aria-hidden="true"></span>
+              </label>
+              <input 
+                type="text" 
+                id="input-parcel-coords" 
+                class="treaty-text-input" 
+                placeholder="GPS Coordinates, City, Bluff Incline, or Parcel ID"
+              >
+            </div>
+
+            <div class="fill-in-row">
+              <label for="input-comm-line" class="fill-in-label">
+                <span>03 // SECURE COMM LINE / SIGNAL</span>
+                <span class="dot-leader" aria-hidden="true"></span>
+              </label>
+              <input 
+                type="text" 
+                id="input-comm-line" 
+                class="treaty-text-input" 
+                placeholder="Encrypted Signal Handle, Direct Courier, or Confidential Email"
+                required
+              >
+            </div>
+
+            <div class="fill-in-row">
+              <label for="input-land-valuation" class="fill-in-label">
+                <span>04 // ESTIMATED CAPITAL ENVELOPE</span>
+                <span class="dot-leader" aria-hidden="true"></span>
+              </label>
+              <input 
+                type="text" 
+                id="input-land-valuation" 
+                class="treaty-text-input" 
+                placeholder="$10M — $25M USD / €9M — €23M EUR (or Target Allocation)"
+              >
+            </div>
+
+          </div>
+
+          <!-- 4. Tactile Brass Contact Pegs (Commission Typology Switchboard) -->
+          <div class="peg-selection-section">
+            <div class="peg-section-header">
+              <span>⚙ COMMISSION SCALE &amp; TECTONIC CLASSIFICATION // PLUG-IN BRASS PEGS</span>
+            </div>
+
+            <div class="peg-switchboard-grid">
+              
+              <!-- Peg 01 -->
+              <div class="brass-peg-card plugged-in" data-typology="estate" tabindex="0" role="button">
+                <div class="peg-socket-hole">
+                  <div class="brass-pin-head"></div>
+                </div>
+                <div class="peg-text-col">
+                  <span class="peg-label-title">TYP-01 // GROUND-UP PRIVATE ESTATE</span>
+                  <span class="peg-spec-desc">Complete residential compound, thermal massing, bespoke pavilions</span>
+                </div>
+              </div>
+
+              <!-- Peg 02 -->
+              <div class="brass-peg-card" data-typology="cantilever" tabindex="0" role="button">
+                <div class="peg-socket-hole">
+                  <div class="brass-pin-head"></div>
+                </div>
+                <div class="peg-text-col">
+                  <span class="peg-label-title">TYP-02 // SEISMIC CANTILEVER / BLUFF</span>
+                  <span class="peg-spec-desc">Steep bluff tiebacks, moment steel frames, zero visible supports</span>
+                </div>
+              </div>
+
+              <!-- Peg 03 -->
+              <div class="brass-peg-card" data-typology="vault" tabindex="0" role="button">
+                <div class="peg-socket-hole">
+                  <div class="brass-pin-head"></div>
+                </div>
+                <div class="peg-text-col">
+                  <span class="peg-label-title">TYP-03 // SUBTERRANEAN VAULT &amp; GALLERY</span>
+                  <span class="peg-spec-desc">Double-hulled hydrostatic concrete, archival climatic chambers</span>
+                </div>
+              </div>
+
+              <!-- Peg 04 -->
+              <div class="brass-peg-card" data-typology="heritage" tabindex="0" role="button">
+                <div class="peg-socket-hole">
+                  <div class="brass-pin-head"></div>
+                </div>
+                <div class="peg-text-col">
+                  <span class="peg-label-title">TYP-04 // HISTORIC LANDMARK RESTORATION</span>
+                  <span class="peg-spec-desc">Seismic retrofit, stone masonry stabilization, guild bronze casting</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 5. Dual-Mode Brief & Direct Site Sketch Canvas Area -->
+          <div class="brief-drafting-block">
+            <div class="brief-switcher-tabs">
+              <button class="brief-tab-btn active" id="btn-tab-narrative">
+                ✎ ARCHITECTURAL BRIEF NARRATIVE
+              </button>
+              <button class="brief-tab-btn" id="btn-tab-sketch">
+                ☩ SITE SKETCH PAD &amp; TOPOGRAPHY
+              </button>
+            </div>
+
+            <!-- Tab 1: Written Narrative Textarea -->
+            <div class="brief-text-pane" id="brief-text-pane">
+              <textarea 
+                id="treaty-narrative-brief" 
+                class="treaty-textarea" 
+                placeholder="Detail spatial aspirations, environmental exposures (coastal gale, high solar gain, geothermal), material preferences (Belgian bluestone, charred timber, sand-cast bronze), or operational security requirements..."
+              ></textarea>
+            </div>
+
+            <!-- Tab 2: Interactive Sketch Canvas -->
+            <div class="brief-sketch-pane hidden" id="brief-sketch-pane">
+              <div class="sketch-canvas-container">
+                <div class="sketch-toolbar">
+                  <div class="sketch-tool-group">
+                    <button class="tool-chip-btn active" data-sketch-tool="pencil">✏ PENCIL LEAD</button>
+                    <button class="tool-chip-btn" data-sketch-tool="north">▲ NORTH ARROW</button>
+                    <button class="tool-chip-btn" data-sketch-tool="bluff">▲ BLUFF GRADE</button>
+                    <button class="tool-chip-btn" data-sketch-tool="axis">☩ SEISMIC AXIS</button>
+                    <button class="tool-chip-btn" data-sketch-tool="pavilion">⌂ LIVING PAVILION</button>
+                  </div>
+                  <button class="tool-chip-btn" id="btn-clear-sketch">CLEAR CANVAS ✕</button>
+                </div>
+                <canvas id="sketch-canvas" height="200"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Digital Fountain Pen Signature Line & Weighted Wax Press Actuator -->
+          <div class="signature-and-stamping-grid">
+            
+            <!-- Digital Fountain Pen Signature Box -->
+            <div class="signature-box">
+              <div class="signature-label">
+                <span>BY ORDER OF THE PATRON // [ SIGN COVENANT BELOW ]</span>
+              </div>
+              <div class="signature-canvas-frame">
+                <button class="clear-signature-btn" id="btn-clear-signature" title="Clear drawn signature">WIPE INK ✕</button>
+                <canvas id="signature-canvas" height="90"></canvas>
+                <div class="signature-watermark-text" aria-hidden="true">EXECUTE FREEHAND CURSIVE SIGNATURE</div>
+              </div>
+            </div>
+
+            <!-- The Weighted Brass Stamping Lever / Hot Wax Seal Press -->
+            <div class="wax-press-actuator-enclosure">
+              <button class="btn-wax-press-actuator" id="btn-wax-press-actuator" title="Depress brass stamping lever to lodge private commission">
+                <div class="actuator-stamp-icon">🗲</div>
+                <div class="actuator-label-stack">
+                  <span class="actuator-action-title">LODGE PRIVATE TREATY</span>
+                  <span class="actuator-action-sub">DEPRESS MECHANICAL WAX PRESS</span>
+                </div>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- The Stamped Hot Wax Impression (Appears upon clicking Wax Press) -->
+          <div class="crimson-wax-seal" id="crimson-wax-seal" aria-hidden="true">
+            <span class="seal-crest">ANSCONS</span>
+            <span class="seal-crest" style="font-size: 0.52rem; letter-spacing: 0.16em;">COMMISSION LODGED</span>
+            <span class="seal-date" id="seal-date-text">2026.04 // L9</span>
+          </div>
+
+        </div>
+
+        <!-- 7. Atelier Artifacts & Direct Private Office Channels -->
+        <div class="atelier-channels-grid">
+          
+          <!-- Artifact 1: Machined Brass Telegraphic Plaque -->
+          <div class="brass-telegraph-plate">
+            <div class="artifact-plate-header">
+              <span class="artifact-plate-title">DIRECT TELEGRAPHIC CHANNELS</span>
+              <span class="spec-doc-classification" style="color: #c9a456;">AIR-GAPPED PROTOCOL</span>
+            </div>
+            <div class="telegraph-data-list">
+              <div class="telegraph-entry">
+                <span class="telegraph-label">PRINCIPAL DIRECT LINE:</span>
+                <span class="telegraph-value">+1 (212) 840-ANSCON</span>
+              </div>
+              <div class="telegraph-entry">
+                <span class="telegraph-label">AIR-GAPPED TELEGRAPH:</span>
+                <span class="telegraph-value">atelier@anscons.com</span>
+              </div>
+              <div class="telegraph-entry">
+                <span class="telegraph-label">SECURE PGP FINGERPRINT:</span>
+                <span class="telegraph-value" style="font-size: 0.65rem;">8F2A 991B 3C04 7712 9A0E 4120 5B8C 2901</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Artifact 2: Geodetic Waymarkers -->
+          <div class="geodetic-waymarkers-card">
+            <div class="artifact-plate-header">
+              <span class="artifact-plate-title">GEODETIC WAYMARKERS</span>
+              <span class="spec-doc-classification" style="color: #c9a456;">SURVEY MONUMENTS</span>
+            </div>
+            <div class="waymarker-plate-stack">
+              <div class="waymarker-badge">
+                <span class="waymarker-name">NEW YORK ATELIER</span>
+                <span class="waymarker-coords">Tribeca Foundry // 40.7128° N, 74.0060° W</span>
+              </div>
+              <div class="waymarker-badge">
+                <span class="waymarker-name">PACIFIC WORKSHOP</span>
+                <span class="waymarker-coords">Big Sur Bluff Post // 36.2704° N, 121.8081° W</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Artifact 3: Real-Time Atelier Availability Drum Meter -->
+          <div class="availability-meter-card">
+            <div class="artifact-plate-header">
+              <span class="artifact-plate-title">ATELIER ANNUAL CAPACITY</span>
+              <span class="spec-doc-classification" style="color: #c9a456;">REGISTRY AUDIT</span>
+            </div>
+            <div class="capacity-drum-display">
+              <div class="drum-counter-row">
+                <span class="drum-counter-value">3 OF 4 COMMITTED</span>
+                <span class="drum-status-badge">1 SEAT OPEN</span>
+              </div>
+              <div class="drum-next-window">
+                <span>NEXT SITE COMMENCEMENT WINDOW: <strong>Q1 2027</strong></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: Unified Architectural Specification Sheet Legal Footer (Same as other pages) -->
+    <footer class="drafting-table-footer-zone">
+      
+      <!-- Heavy Cutting Mat Bottom Lip / Edge -->
+      <div class="cutting-mat-bottom-lip">
+        <div class="mat-lip-metric-ticks">
+          <span>| 00 MM</span>
+          <span>| 150 MM</span>
+          <span>| 300 MM</span>
+          <span>| 450 MM</span>
+          <span>| 600 MM</span>
+          <span>| 750 MM</span>
+          <span>| 900 MM</span>
+          <span>| 1050 MM</span>
+          <span>| 1200 MM</span>
+        </div>
+        <div class="mat-lip-title">SPECIFICATION ARCHIVE // LEGAL &amp; STATUTORY COVENANTS</div>
+      </div>
+
+      <!-- Tucked Specification Sheets Stack (Spec Sheets) -->
+      <div class="tucked-spec-stack">
+        
+        <!-- Spec Sheet 1: Privacy Policy -->
+        <div class="spec-sheet-tab" data-spec="spec-01" tabindex="0" role="button" aria-label="View SPEC-01: Client Privacy & Fiduciary Data Covenant">
+          <div class="spec-hole-punch" aria-hidden="true"></div>
+          <span class="spec-doc-id">SPEC-01 // PRV</span>
+          <div>
+            <div class="spec-doc-title">Client Privacy Protocols &amp; Confidentiality Data Covenant</div>
+            <div class="spec-doc-classification">AIA Standard B101 • Air-Gapped Vault Archiving • Zero-Publicity Guarantee</div>
+          </div>
+          <span class="spec-doc-classification">REV 2026.04</span>
+          <span class="spec-doc-action">OPEN SPEC SHEET ↗</span>
+        </div>
+
+        <!-- Spec Sheet 2: Terms of Service -->
+        <div class="spec-sheet-tab" data-spec="spec-02" tabindex="0" role="button" aria-label="View SPEC-02: General Conditions of Commission & Tender Terms">
+          <div class="spec-hole-punch" aria-hidden="true"></div>
+          <span class="spec-doc-id">SPEC-02 // TOS</span>
+          <div>
+            <div class="spec-doc-title">General Conditions of Commission &amp; Tender Terms</div>
+            <div class="spec-doc-classification">AIA A101/A201 Framework • Metric Feasibility Standards • Change-Order Protocols</div>
+          </div>
+          <span class="spec-doc-classification">REV 2026.04</span>
+          <span class="spec-doc-action">OPEN SPEC SHEET ↗</span>
+        </div>
+
+        <!-- Spec Sheet 3: Refund Guidelines -->
+        <div class="spec-sheet-tab" data-spec="spec-03" tabindex="0" role="button" aria-label="View SPEC-03: Retainer Deposit & Escrow Refund Guidelines">
+          <div class="spec-hole-punch" aria-hidden="true"></div>
+          <span class="spec-doc-id">SPEC-03 // RFD</span>
+          <div>
+            <div class="spec-doc-title">Retainer Deposit &amp; Escrow Refund Guidelines</div>
+            <div class="spec-doc-classification">FDIC-Insured Escrow • 14-Day Pre-Construction Refund Window • Milestone Accounting</div>
+          </div>
+          <span class="spec-doc-classification">REV 2026.04</span>
+          <span class="spec-doc-action">OPEN SPEC SHEET ↗</span>
+        </div>
+
+        <!-- Spec Sheet 4: Licensure & AIA Disclosures -->
+        <div class="spec-sheet-tab" data-spec="spec-04" tabindex="0" role="button" aria-label="View SPEC-04: AIA Licensure, Ethics & Statutory Compliance">
+          <div class="spec-hole-punch" aria-hidden="true"></div>
+          <span class="spec-doc-id">SPEC-04 // AIA</span>
+          <div>
+            <div class="spec-doc-title">AIA Licensure, Professional Ethics &amp; Statutory Disclosures</div>
+            <div class="spec-doc-classification">Board of Architectural Examiners • OSHA VPP Star • C-8 General Contractor #882194</div>
+          </div>
+          <span class="spec-doc-classification">REV 2026.04</span>
+          <span class="spec-doc-action">OPEN SPEC SHEET ↗</span>
+        </div>
+
+      </div>
+
+      <!-- Debossed Mat Imprint Stamp -->
+      <div class="cutting-mat-imprint-stamp">
+        <div class="mat-debossed-copyright">© 2026 ANSCONS ARCHITECTURE, CONSTRUCTION &amp; BESPOKE INTERIORS ATELIER • ALL RIGHTS RESERVED</div>
+        <div class="mat-debossed-licensure">REGISTERED PRACTICE NO. AR-09412-AIA // GENERAL BUILDING CONTRACTOR LIC. #C8-882194 // JURISDICTION: US &amp; INTERNATIONAL ATELIERS</div>
+      </div>
+
+    </footer>
+
+  </div>
+
+  <!-- Dispatch Modal Confirmation Dialog -->
+  <div id="dispatch-modal-backdrop" class="dispatch-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-receipt-title">
+    <div class="dispatch-parchment-card">
+      <div class="dispatch-modal-header">
+        <div>
+          <span class="modal-doc-code">AIA DOCUMENT G702-TRANS // OFFICIAL RECORD</span>
+          <h3 class="modal-receipt-title" id="modal-receipt-title">Commission Lodged &amp; Transmitted</h3>
+        </div>
+        <button class="modal-close-x" id="modal-close-x" aria-label="Close transmittal confirmation">✕</button>
+      </div>
+
+      <div class="modal-receipt-body">
+        <div class="modal-tracking-pill" id="modal-registry-ref">
+          REGISTRY REF: ANS-2026-L9-4E82
+        </div>
+        <p id="modal-client-summary">
+          COMMISSION LODGED BY: PATRON // PARCEL: LOT 14 // TYPOLOGY: GROUND-UP PRIVATE ESTATE
+        </p>
+        <p>
+          Your commission covenant and site brief have been registered onto the air-gapped atelier server. A countersigned digital duplicate and preliminary geotechnical scope memorandum will be delivered to your secure signal line within two business days.
+        </p>
+        <p style="font-size: 0.72rem; color: #8a6424;">
+          ESCROW PROTOCOL: Initial pre-construction retainers are held in bonded escrow under AIA Document A101 covenants.
+        </p>
+      </div>
+
+      <button class="btn-modal-dismiss" id="btn-modal-dismiss">RETURN TO DISPATCH DESK</button>
+    </div>
+  </div>
+
+  <!-- Architectural Specification Sheet Modal Inspector -->
+  <div id="spec-modal-overlay" class="spec-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="spec-document-card">
+      <div class="spec-modal-header">
+        <div>
+          <div id="modal-spec-code" class="spec-modal-code">SECTION 00 22 10 // SPEC-01</div>
+          <h3 id="modal-spec-title" class="spec-modal-title">Client Privacy Protocols &amp; Data Covenant</h3>
+          <div id="modal-spec-classification" class="spec-doc-classification" style="margin-top: 4px;">CLASS 1: STRICT CONFIDENTIALITY</div>
+        </div>
+        <button id="spec-modal-close-btn" class="spec-modal-close-btn" aria-label="Close statutory document">FOLD SPEC SHEET ✕</button>
+      </div>
+
+      <div id="modal-spec-body" class="spec-modal-body">
+        <!-- Injected via legal-specs.js -->
+      </div>
+
+      <div class="spec-modal-seal-footer">
+        <div id="modal-spec-ref" class="arch-label" style="color: #6b573e;">DOCUMENT RECORD: ANS-LEGAL-2026</div>
+        <div class="title-block-stamp" style="font-size: 0.65rem;">OFFICIALLY ENACTED</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Interactivity Scripts -->
+  <script type="module" src="js/liaison.js"></script>
+
+</body>
+</html>
+

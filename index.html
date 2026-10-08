@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANSCONS | Architecture, Construction & Bespoke Residential Interiors</title>
+  <meta name="description" content="Bespoke General Contracting, Luxury Residential Architecture, and Refined Interior Millwork. Crafted with millimetric precision.">
+  
+  <!-- Skeuomorphic Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/desk.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/materials.css">
+  <link rel="stylesheet" href="css/portfolio.css">
+  <link rel="stylesheet" href="css/caliper.css">
+  <link rel="stylesheet" href="css/credentials.css">
+  <link rel="stylesheet" href="css/clipboard.css">
+  <link rel="stylesheet" href="css/legal-specs.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="studio-mode" data-theme="studio">
+
+  <!-- Floating Brass Return-To-Origin (Top of Desk) Compass Widget -->
+  <button id="btn-return-origin" class="btn-return-origin" title="Return to Drawing Sheet Origin (Top)" aria-label="Return to top of drafting table">
+    <span class="compass-needle" aria-hidden="true">▲</span>
+    <span class="origin-text">ORIGIN (TOP)</span>
+  </button>
+
+  <!-- Desktop Virtual Light Glow (Top-Left Desk Lamp) -->
+  <div class="desk-lamp-glow" aria-hidden="true"></div>
+
+  <!-- Calibrated Metric & Imperial Marginal Desk Rulers -->
+  <div class="desk-ruler-top" aria-hidden="true">
+    <span>0 CM &nbsp; &nbsp; &nbsp; 10 &nbsp; &nbsp; &nbsp; 20 &nbsp; &nbsp; &nbsp; 30 &nbsp; &nbsp; &nbsp; 40 &nbsp; &nbsp; &nbsp; 50 &nbsp; &nbsp; &nbsp; 60 &nbsp; &nbsp; &nbsp; 70 &nbsp; &nbsp; &nbsp; 80 &nbsp; &nbsp; &nbsp; 90 &nbsp; &nbsp; &nbsp; 100 &nbsp; &nbsp; &nbsp; 110 &nbsp; &nbsp; &nbsp; 120 CM // SCALE 1:50</span>
+  </div>
+  <div class="desk-ruler-left" aria-hidden="true">
+    <span>0 IN &nbsp; &nbsp; &nbsp; 10 &nbsp; &nbsp; &nbsp; 20 &nbsp; &nbsp; &nbsp; 30 &nbsp; &nbsp; &nbsp; 40 &nbsp; &nbsp; &nbsp; 50 &nbsp; &nbsp; &nbsp; 60 &nbsp; &nbsp; &nbsp; 70 IN // ELEVATION COORDINATES</span>
+  </div>
+
+  <!-- Desk HUD Controls (Audio Mute Toggle & Solid Cast-Brass Snap Toggle Switch) -->
+  <div class="desk-controls-hud">
+    <!-- Audio Toggle: MUTED BY DEFAULT per instructions -->
+    <button class="desk-audio-toggle" id="desk-audio-toggle" aria-label="Toggle mechanical audio feedback">
+      <svg class="audio-icon" viewBox="0 0 24 24">
+        <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73 4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+      </svg>
+      <span class="desk-audio-badge" id="audio-status-badge">Muted</span>
+    </button>
+
+    <!-- Solid Cast-Brass Snap Toggle Switch (Studio Warm vs Cyanotype Blueprint) -->
+    <div class="lamp-lever-container">
+      <div class="brass-switch-plate" id="brass-theme-lever" title="Snap toggle switch between Studio Warm Lamp and Blueprint Cyanotype mode">
+        <div class="plate-screw" aria-hidden="true"></div>
+        <span class="switch-mode-label active" id="label-mode-studio">STUDIO</span>
+        <div class="brass-toggle-housing" aria-hidden="true">
+          <div class="brass-toggle-bat" id="brass-toggle-bat"></div>
+        </div>
+        <span class="switch-mode-label" id="label-mode-blueprint">BLUEPRINT</span>
+        <div class="plate-screw" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Master Drafting Table Layout -->
+  <div class="drafting-table">
+
+    <!-- Sticky Architectural Tracing Paper (Vellum) Navigation Clamped with Brass Clips -->
+    <header class="tracing-nav-container">
+      <div class="tracing-nav-track">
+        <div class="brass-blueprint-clip" aria-hidden="true"></div>
+        <a href="index.html" class="vellum-tab active" title="Atelier Master Drawing Sheet">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 01</span>
+          <span class="tab-title">ATELIER</span>
+        </a>
+        <a href="about.html" class="vellum-tab" title="Philosophy & Heritage Ledger">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 02</span>
+          <span class="tab-title">PHILOSOPHY</span>
+        </a>
+        <a href="services.html" class="vellum-tab" title="Bespoke Architectural Services">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 03</span>
+          <span class="tab-title">SERVICES</span>
+        </a>
+        <a href="projects.html" class="vellum-tab" title="Monograph Folio of Built Works">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 04</span>
+          <span class="tab-title">PORTFOLIO</span>
+        </a>
+        <a href="estimator.html" class="vellum-tab" title="Scale Caliper Project Estimator">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 05</span>
+          <span class="tab-title">ESTIMATOR</span>
+        </a>
+        <a href="contact.html" class="vellum-tab" title="Commission Liaison Brief">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 06</span>
+          <span class="tab-title">LIAISON</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- SECTION 1: Master Architectural Blueprint & Title Block (Hero) -->
+    <section id="section-hero" class="hero-blueprint-sheet paper-curl-shadow deckled-paper">
+      <!-- Pinned Drafting Masking Tape & Brass Pushpins -->
+      <div class="drafting-tape tape-tl"></div>
+      <div class="drafting-tape tape-tr"></div>
+      <div class="drafting-tape tape-bl"></div>
+      <div class="drafting-tape tape-br"></div>
+      <div class="brass-pushpin" style="top: 14px; left: 16px;"></div>
+      <div class="brass-pushpin" style="top: 14px; right: 16px;"></div>
+
+      <div class="blueprint-border-frame">
+        <div class="sheet-header-meta">
+          <div class="north-arrow-badge">
+            <div class="north-symbol">N</div>
+            <span>GRID ORIENTATION: TRUE NORTH // ELEV. +320M</span>
+          </div>
+          <div class="arch-label">DRAWING SET: ANS-RES-A101 // REV 06</div>
+        </div>
+
+        <div class="hero-content-core">
+          <div class="hero-text-column">
+            <div class="hero-subtitle-tag">
+              <span class="arch-label">ARCHITECTURAL MONOGRAPHS &amp; GENERAL CONTRACTING</span>
+            </div>
+            <h1 class="hero-main-title">Monuments of Living Art. Crafted With Millimetric Precision.</h1>
+            <p class="hero-description-copy">
+              ANSCONS is a luxury design-build atelier orchestrating bespoke private residences, cantilevered structural engineering, and haute-couture interior millwork for clients who view architecture as enduring sculpture.
+            </p>
+            <div class="hero-actions-cluster">
+              <a href="#section-materials" class="btn-brass-plaque">EXPLORE MATERIAL ATELIER</a>
+              <a href="#section-commission" class="btn-vellum-debossed">COMMISSION A RESIDENCE</a>
+            </div>
+          </div>
+
+          <!-- Hero Right: Architectural Floor Plan & Structural Isometric SVG -->
+          <div class="hero-schematic-preview">
+            <svg class="schematic-svg" viewBox="0 0 420 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Grid background -->
+              <defs>
+                <pattern id="hero-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(180,150,110,0.15)" stroke-width="0.8"/>
+                </pattern>
+              </defs>
+              <rect width="420" height="280" fill="url(#hero-grid)" />
+              
+              <!-- Cantilever Floor Plan Walls -->
+              <rect x="40" y="40" width="240" height="180" stroke="#705228" stroke-width="2.5" fill="rgba(240,230,215,0.3)"/>
+              <rect x="180" y="70" width="180" height="150" stroke="#705228" stroke-width="2.5" fill="rgba(240,230,215,0.4)"/>
+              
+              <!-- Cantilever Balcony & Infinity Edge -->
+              <path d="M 280 40 L 390 40 L 390 120 L 280 120" stroke="#b89347" stroke-dasharray="4 3" stroke-width="1.8"/>
+              <path d="M 280 120 L 390 120" stroke="#3b7cc4" stroke-width="3"/>
+              
+              <!-- Column nodes & dimensions -->
+              <circle cx="40" cy="40" r="5" fill="#c49b38" stroke="#3d290c" stroke-width="1.5"/>
+              <circle cx="280" cy="40" r="5" fill="#c49b38" stroke="#3d290c" stroke-width="1.5"/>
+              <circle cx="40" cy="220" r="5" fill="#c49b38" stroke="#3d290c" stroke-width="1.5"/>
+              <circle cx="360" cy="220" r="5" fill="#c49b38" stroke="#3d290c" stroke-width="1.5"/>
+              
+              <!-- Dimension Lines -->
+              <line x1="40" y1="20" x2="280" y2="20" stroke="#8c6a28" stroke-width="1"/>
+              <text x="140" y="16" font-family="'JetBrains Mono'" font-size="9" fill="#8c6a28" text-anchor="middle">14,850 MM</text>
+              <line x1="20" y1="40" x2="20" y2="220" stroke="#8c6a28" stroke-width="1"/>
+              <text x="14" y="135" font-family="'JetBrains Mono'" font-size="9" fill="#8c6a28" text-anchor="middle" transform="rotate(-90 14 135)">8,400 MM</text>
+
+              <!-- Space labels -->
+              <text x="110" y="110" font-family="'Cinzel'" font-size="11" font-weight="700" fill="#2e2211">GREAT ROOM</text>
+              <text x="110" y="125" font-family="'JetBrains Mono'" font-size="8" fill="#755a30">ELEV. +0.00</text>
+
+              <text x="250" y="150" font-family="'Cinzel'" font-size="11" font-weight="700" fill="#2e2211">ATRIUM &amp; SUITE</text>
+              <text x="250" y="165" font-family="'JetBrains Mono'" font-size="8" fill="#755a30">ELEV. +0.15</text>
+
+              <text x="320" y="80" font-family="'Cinzel'" font-size="9" font-weight="700" fill="#3b7cc4">INFINITY WATER</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Master Title Block Standard -->
+        <div class="architect-title-block">
+          <div class="title-block-cell">
+            <span class="cell-caption">PRACTICE &amp; ATELIER</span>
+            <span class="cell-value">ANSCONS ARCHITECTURE &amp; BUILD</span>
+          </div>
+          <div class="title-block-cell">
+            <span class="cell-caption">PROJECT REGISTRATION</span>
+            <span class="cell-value">BEL-AIR MONOGRAPH // RES-094</span>
+          </div>
+          <div class="title-block-cell">
+            <span class="cell-caption">SCALE &amp; TOLERANCE</span>
+            <span class="cell-value">1:50 METRIC // ±0.5MM</span>
+          </div>
+          <div class="title-block-cell" style="align-items: center;">
+            <div class="title-block-stamp">PERMIT APPROVED</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solid Brass Corner Paperweight -->
+      <div class="brass-corner-weight" aria-hidden="true">ANSCONS</div>
+    </section>
+
+    <!-- SECTION 2: Material Sample Desk Tray (Services) -->
+    <section id="section-materials" class="material-tray-section">
+      <div class="section-ribbon-tag">
+        <div class="north-symbol">02</div>
+        <h2 class="section-ribbon-title">Specification Samples • Residential &amp; Interior Atelier</h2>
+      </div>
+
+      <!-- Oiled Dark Walnut Organizer Box -->
+      <div class="walnut-sample-tray">
+        <div class="tray-brass-plaque">MATERIAL SPECIFICATION ARCHIVE // SERIES IV</div>
+
+        <div class="material-samples-grid">
+          
+          <!-- Sample 1: Fluted French Smoked Oak (Bespoke Residential) -->
+          <div class="material-block sample-wood" tabindex="0">
+            <div class="material-surface">
+              <div class="material-inlay-badge">
+                <span class="material-code">ATELIER 01 // WOODCRAFT</span>
+                <h3 class="material-title">Bespoke Residences</h3>
+              </div>
+            </div>
+            
+            <!-- Classic Coarse-Grain Watercolor Paper Card -->
+            <div class="coarse-watercolor-card">
+              <div class="classic-scope-title">Artisanal Joinery &amp; Envelope:</div>
+              <ul class="spec-scope-list">
+                <li class="spec-scope-item">Ground-up architectural cantilever estates</li>
+                <li class="spec-scope-item">Fluted smoked French oak envelope claddings</li>
+                <li class="spec-scope-item">Thermally broken minimal glass framing</li>
+              </ul>
+
+              <!-- Modern Juxtaposition: Floating Frosted Glass with Polished Brass Screws -->
+              <div class="floating-frosted-glass">
+                <div class="standoff-brass-screw screw-tl"></div>
+                <div class="standoff-brass-screw screw-tr"></div>
+                <div class="standoff-brass-screw screw-bl"></div>
+                <div class="standoff-brass-screw screw-br"></div>
+                <div class="modern-metrics-content">
+                  <span>STRUCTURAL TOLERANCE</span>
+                  <span class="modern-badge-metric">±0.5MM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sample 2: Bookmatched Calacatta Gold Marble (Penthouse Interiors) -->
+          <div class="material-block sample-marble" tabindex="0">
+            <div class="material-surface">
+              <div class="marble-vein"></div>
+              <div class="material-inlay-badge">
+                <span class="material-code">ATELIER 02 // MASONRY</span>
+                <h3 class="material-title">Luxury Interiors</h3>
+              </div>
+            </div>
+
+            <!-- Classic Coarse-Grain Watercolor Paper Card -->
+            <div class="coarse-watercolor-card">
+              <div class="classic-scope-title">Classical Stone Craftsmanship:</div>
+              <ul class="spec-scope-list">
+                <li class="spec-scope-item">Full-floor luxury penthouse conversions</li>
+                <li class="spec-scope-item">Bookmatched monolithic marble fireplace walls</li>
+                <li class="spec-scope-item">Precision chevron white oak flooring</li>
+              </ul>
+
+              <!-- Modern Juxtaposition: Floating Frosted Glass with Polished Brass Screws -->
+              <div class="floating-frosted-glass">
+                <div class="standoff-brass-screw screw-tl"></div>
+                <div class="standoff-brass-screw screw-tr"></div>
+                <div class="standoff-brass-screw screw-bl"></div>
+                <div class="standoff-brass-screw screw-br"></div>
+                <div class="modern-metrics-content">
+                  <span>QUARRY &amp; FINISH</span>
+                  <span class="modern-badge-metric">CARRARA • SILK</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sample 3: Fluted Architectural Glass & Brass (Millwork) -->
+          <div class="material-block sample-glass" tabindex="0">
+            <div class="material-surface">
+              <div class="material-inlay-badge">
+                <span class="material-code">ATELIER 03 // METALS</span>
+                <h3 class="material-title">Bespoke Millwork</h3>
+              </div>
+            </div>
+
+            <!-- Classic Coarse-Grain Watercolor Paper Card -->
+            <div class="coarse-watercolor-card">
+              <div class="classic-scope-title">Haute Couture Cabinetry:</div>
+              <ul class="spec-scope-list">
+                <li class="spec-scope-item">Acoustic dressing suites &amp; vanities</li>
+                <li class="spec-scope-item">Brushed champagne brass hardware inlays</li>
+                <li class="spec-scope-item">Reeded fluted glass display conservatories</li>
+              </ul>
+
+              <!-- Modern Juxtaposition: Floating Frosted Glass with Polished Brass Screws -->
+              <div class="floating-frosted-glass">
+                <div class="standoff-brass-screw screw-tl"></div>
+                <div class="standoff-brass-screw screw-tr"></div>
+                <div class="standoff-brass-screw screw-bl"></div>
+                <div class="standoff-brass-screw screw-br"></div>
+                <div class="modern-metrics-content">
+                  <span>METALLURGY</span>
+                  <span class="modern-badge-metric">C360 ALLOY</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sample 4: Honed Roman Travertine (Estate Grounds) -->
+          <div class="material-block sample-stone" tabindex="0">
+            <div class="material-surface">
+              <div class="material-inlay-badge">
+                <span class="material-code">ATELIER 04 // EXTERIORS</span>
+                <h3 class="material-title">Pavilions &amp; Grounds</h3>
+              </div>
+            </div>
+
+            <!-- Classic Coarse-Grain Watercolor Paper Card -->
+            <div class="coarse-watercolor-card">
+              <div class="classic-scope-title">Sculptural Earth Architecture:</div>
+              <ul class="spec-scope-list">
+                <li class="spec-scope-item">Cantilevered travertine infinity pools</li>
+                <li class="spec-scope-item">Sculptural outdoor culinary pavilions</li>
+                <li class="spec-scope-item">Subterranean private wine cellars &amp; spas</li>
+              </ul>
+
+              <!-- Modern Juxtaposition: Floating Frosted Glass with Polished Brass Screws -->
+              <div class="floating-frosted-glass">
+                <div class="standoff-brass-screw screw-tl"></div>
+                <div class="standoff-brass-screw screw-tr"></div>
+                <div class="standoff-brass-screw screw-bl"></div>
+                <div class="standoff-brass-screw screw-br"></div>
+                <div class="modern-metrics-content">
+                  <span>GEOTHERMAL TIER</span>
+                  <span class="modern-badge-metric">NET-ZERO R-40</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Leather-Bound Architectural Portfolio Folio (Past Projects) -->
+    <section id="section-portfolio" class="portfolio-folio-section">
+        <div class="section-ribbon-tag">
+        <div class="north-symbol">03</div>
+        <h2 class="section-ribbon-title">Monograph Folio • Architectural Case Studies</h2>
+      </div>
+
+      <!-- Hand-Stitched Leather Binder -->
+      <div class="leather-folio-binder">
+        <div class="brass-corner top-left" aria-hidden="true"></div>
+        <div class="brass-corner top-right" aria-hidden="true"></div>
+        <div class="brass-corner bottom-left" aria-hidden="true"></div>
+        <div class="brass-corner bottom-right" aria-hidden="true"></div>
+        <div class="binder-spine-groove" aria-hidden="true"></div>
+        <div class="silk-ribbon-bookmark" aria-hidden="true"></div>
+
+        <!-- Open Folio Spread -->
+        <div class="folio-paper-spread">
+          
+          <!-- Left Page: Project Visual Render -->
+          <div class="folio-page-left">
+            <div class="page-photo-frame">
+              <img id="folio-photo-img" class="page-photo-img" src="assets/images/project-1-belair.jpg" alt="The Bel-Air Cantilever Estate">
+              <div id="folio-overlay-tag" class="photo-blueprint-overlay-tag">DWG REF: BA-RES-2026 // REV 06</div>
+            </div>
+            <div class="arch-label" style="text-align: center; margin-top: 10px;">PLATE 01 • PHOTOGRAMMETRIC CAPTURE &amp; SPECIFICATION</div>
+          </div>
+
+          <!-- Right Page: Monograph Text & Spec Sheet with 3D Page Turn Sheen -->
+          <div class="folio-page-right">
+            <!-- Dynamic Sweeping Light Sheen when Page Flips in 3D -->
+            <div id="page-lighting-sheen" class="page-lighting-sheen" aria-hidden="true"></div>
+
+            <div>
+              <div class="monograph-meta-header">
+                <div>
+                  <h3 id="folio-project-title" class="monograph-project-title">The Bel-Air Cantilever Estate</h3>
+                  <div id="folio-project-location" class="monograph-location">Bel-Air Crest, Los Angeles, CA</div>
+                </div>
+                <div class="title-block-stamp" style="font-size: 0.65rem; transform: rotate(3deg);">BUILT 2026</div>
+              </div>
+
+              <p id="folio-project-narrative" class="monograph-narrative">
+                A monumental cantilevered luxury residence perched atop the ridge line. Features smoked French oak envelopes, massive uninterrupted structural glazing, and an infinity travertine terrace floating above the valley at twilight.
+              </p>
+
+              <!-- Technical Specs Grid -->
+              <div class="architectural-specs-grid">
+                <div class="spec-cell">
+                  <span class="spec-cell-label">TOTAL FOOTPRINT</span>
+                  <span id="spec-footprint" class="spec-cell-val">9,400 SQ. FT.</span>
+                </div>
+                <div class="spec-cell">
+                  <span class="spec-cell-label">STRUCTURAL TYPOLOGY</span>
+                  <span id="spec-typology" class="spec-cell-val">CANTILEVER ESTATE</span>
+                </div>
+                <div class="spec-cell">
+                  <span class="spec-cell-label">PRINCIPAL MATERIALS</span>
+                  <span id="spec-materials" class="spec-cell-val">FRENCH OAK • TRAVERTINE</span>
+                </div>
+                <div class="spec-cell">
+                  <span class="spec-cell-label">ENGINEERING ENVELOPE</span>
+                  <span id="spec-structural" class="spec-cell-val">POST-TENSIONED CANOPIES</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Page Navigation Controls -->
+            <div class="folio-nav-controls">
+              <button id="btn-folio-prev" class="btn-brass-turn">◀ PREVIOUS SPREAD</button>
+              
+              <div id="folio-dots" class="folio-page-indicators">
+                <div class="folio-page-dot active" title="Plate 01: Bel-Air Estate"></div>
+                <div class="folio-page-dot" title="Plate 02: Tribeca Penthouse"></div>
+                <div class="folio-page-dot" title="Plate 03: Mayfair Villa"></div>
+              </div>
+
+              <button id="btn-folio-next" class="btn-brass-turn">NEXT SPREAD ▶</button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Architectural Sliding Vernier Caliper (Estimator) -->
+    <section id="section-caliper" class="caliper-section">
+      <div class="section-ribbon-tag">
+        <div class="north-symbol">04</div>
+        <h2 class="section-ribbon-title">Precision Instrument • Estate Scale &amp; Budget Caliper</h2>
+      </div>
+
+      <div class="caliper-board-housing">
+        <div class="caliper-header">
+          <div class="caliper-subtitle">ARCHITECTURAL METRIC CALIBRATION</div>
+          <h3 class="caliper-main-heading">Project Scale &amp; Scope Estimator</h3>
+        </div>
+
+        <!-- Scope Selection Tabs -->
+        <div class="scope-toggle-tabs">
+          <button class="scope-btn active" data-scope="estate">Bespoke Ground-Up Estate</button>
+          <button class="scope-btn" data-scope="penthouse">Penthouse &amp; Interior Architecture</button>
+          <button class="scope-btn" data-scope="pavilion">Pavilion &amp; Landscape Grounds</button>
+        </div>
+
+        <!-- Physical Caliper Slider -->
+        <div class="vernier-caliper-tool">
+          <div class="caliper-fixed-jaw" aria-hidden="true"></div>
+          
+          <div class="caliper-main-beam">
+            <div class="beam-scale-ticks">
+              <span>| 2.5K</span>
+              <span>| 5.0K</span>
+              <span>| 7.5K</span>
+              <span>| 10.0K</span>
+              <span>| 15.0K</span>
+              <span>| 20.0K</span>
+              <span>| 25.0K SQ.FT.</span>
+            </div>
+            <div class="beam-scale-bottom-ticks"></div>
+          </div>
+
+          <!-- Sliding Jaw with Vernier Window & Knurled Brass Thumbwheel -->
+          <div id="caliper-sliding-jaw" class="caliper-sliding-jaw" style="left: 38%;">
+            <div class="caliper-thumbwheel" aria-hidden="true"></div>
+            <div class="vernier-window">
+              <span id="vernier-current-val">9,500 SQ.FT.</span>
+            </div>
+          </div>
+
+          <!-- Accessible Touch & Keyboard Range Input -->
+          <input type="range" id="caliper-slider-input" class="caliper-range-input" min="0" max="100" value="31" aria-label="Slide to adjust estate footprint">
+        </div>
+
+        <!-- Brass Readout Gauge Instrument -->
+        <div class="caliper-readout-gauge">
+          <div class="readout-cell">
+            <span class="readout-label">PROJECT FOOTPRINT</span>
+            <span id="readout-footprint" class="readout-value">9,500 SQ. FT.</span>
+          </div>
+          <div class="readout-cell">
+            <span class="readout-label">ESTIMATED TIMELINE</span>
+            <span id="readout-duration" class="readout-value">18 – 22 MO.</span>
+          </div>
+          <div class="readout-cell">
+            <span class="readout-label">GLAZING &amp; ENVELOPE</span>
+            <span id="readout-envelope" class="readout-value" style="font-size: 0.95rem;">Minimal Steel &amp; Triple Low-E</span>
+          </div>
+          <div class="readout-cell">
+            <span class="readout-label">PROJECTED INVESTMENT</span>
+            <span id="readout-investment" class="readout-value" style="color: #ffd269;">$10.2M – $14.8M</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 5: Accreditations & Safety Awards -->
+    <section id="section-credentials" class="credentials-section">
+      <div class="section-ribbon-tag">
+        <div class="north-symbol">05</div>
+        <h2 class="section-ribbon-title">Official Accreditations &amp; Master Guild Honors</h2>
+      </div>
+
+      <div class="framed-awards-row">
+        
+        <div class="award-frame">
+          <div class="award-gold-crest">AIA</div>
+          <div class="award-org">AMERICAN INSTITUTE OF ARCHITECTS</div>
+          <div class="award-title">Residential Design Excellence</div>
+          <p class="award-desc">Honored for pioneering structural cantilever engineering in seismically complex topography.</p>
+        </div>
+
+        <div class="award-frame">
+          <div class="award-gold-crest">AD</div>
+          <div class="award-org">ARCHITECTURAL DIGEST</div>
+          <div class="award-title">Design Vanguard Laureate</div>
+          <p class="award-desc">Recognized for excellence in bespoke residential interior millwork and stone masonry.</p>
+        </div>
+
+        <div class="award-frame">
+          <div class="award-gold-crest">MBA</div>
+          <div class="award-org">MASTER BUILDERS GUILD</div>
+          <div class="award-title">Gold Master Craftsman Seal</div>
+          <p class="award-desc">Certified highest tier general contractor with flawless 100% structural tolerance audit.</p>
+        </div>
+
+        <div class="award-frame">
+          <div class="award-gold-crest">LEED</div>
+          <div class="award-org">U.S. GREEN BUILDING COUNCIL</div>
+          <div class="award-title">Platinum Residential Sustainability</div>
+          <p class="award-desc">Net-zero carbon footprint certification through geothermal and high-performance envelope systems.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 6: Official Carbon-Copy Commission Brief & Mechanical Stamp (Contact) -->
+    <section id="section-commission" class="commission-section">
+      <div class="section-ribbon-tag">
+        <div class="north-symbol">06</div>
+        <h2 class="section-ribbon-title">Contractor Commission Brief // Tender Specification</h2>
+      </div>
+
+      <div class="architect-clipboard">
+        <!-- Heavy Brass Spring Clamp -->
+        <div class="clipboard-brass-clamp">
+          <div class="clamp-hang-hole" aria-hidden="true"></div>
+        </div>
+
+        <!-- Carbon-Copy Paper Sheet -->
+        <div class="carbon-copy-sheet">
+          
+          <div class="sheet-tender-header">
+            <div>
+              <h3 class="tender-main-title">ANSCONS COMMISSION BRIEF &amp; TENDER REQUEST</h3>
+              <span class="arch-label">CONFIDENTIAL ARCHITECTURAL SUBMISSION • FILE 104-B</span>
+            </div>
+            <div class="tender-serial-badge">REF #ANS-2026-TNDR</div>
+          </div>
+
+          <form id="commission-brief-form">
+            <div class="brief-form-grid">
+              
+              <div class="form-field-group">
+                <label class="field-label" for="input-client-name">01. PRINCIPAL CLIENT NAME</label>
+                <input type="text" id="input-client-name" class="debossed-input" placeholder="e.g. Lord Sterling / Vance Family Trust" required>
+              </div>
+
+              <div class="form-field-group">
+                <label class="field-label" for="input-client-contact">02. PRIVATE DIRECT CONTACT (EMAIL / TELEPHONE)</label>
+                <input type="text" id="input-client-contact" class="debossed-input" placeholder="e.g. counsel@vancetrust.com" required>
+              </div>
+
+              <div class="form-field-group">
+                <label class="field-label" for="input-project-location">03. ESTATE LOCATION / PARCEL COORDINATES</label>
+                <input type="text" id="input-project-location" class="debossed-input" placeholder="e.g. Bel-Air, CA / Aspen, CO / Mayfair, London">
+              </div>
+
+              <div class="form-field-group">
+                <label class="field-label" for="input-target-scale">04. TARGET RESIDENTIAL SCALE</label>
+                <input type="text" id="input-target-scale" class="debossed-input" placeholder="e.g. 10,000 – 15,000 Sq. Ft.">
+              </div>
+
+              <div class="form-field-group full-width">
+                <label class="field-label">05. SCOPE OF ARCHITECTURAL COMMISSION</label>
+                <div class="checkbox-scope-cluster">
+                  <label class="pencil-checkbox-label">
+                    <input type="checkbox" checked>
+                    <span>Full Turnkey Ground-Up Estate</span>
+                  </label>
+                  <label class="pencil-checkbox-label">
+                    <input type="checkbox">
+                    <span>Penthouse Interior Architecture</span>
+                  </label>
+                  <label class="pencil-checkbox-label">
+                    <input type="checkbox">
+                    <span>Heritage Villa Renovation</span>
+                  </label>
+                  <label class="pencil-checkbox-label">
+                    <input type="checkbox">
+                    <span>Cantilever Pool &amp; Grounds</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-field-group full-width">
+                <label class="field-label" for="input-project-vision">06. ARCHITECTURAL VISION &amp; MATERIAL DESIRES</label>
+                <textarea id="input-project-vision" class="debossed-input" placeholder="Briefly articulate your vision, preferred stone/timber finishes, or specific site conditions..."></textarea>
+              </div>
+
+            </div>
+
+            <!-- Mechanical Stamp Button Zone -->
+            <div class="stamp-action-zone">
+              <button type="button" id="btn-mechanical-stamp" class="mechanical-stamp-btn" title="Click to depress mechanical stamp and transmit commission brief">
+                <div class="stamp-handle-assembly">
+                  <div class="stamp-wood-knob"></div>
+                  <div class="stamp-brass-shaft"></div>
+                </div>
+                <div class="stamp-die-base">
+                  <span class="north-symbol" style="width: 20px; height: 20px; font-size: 0.6rem; color: #ffd885; border-color: #ffd885;">★</span>
+                  <span class="stamp-action-label">TRANSMIT COMMISSION BRIEF</span>
+                </div>
+              </button>
+
+              <div id="dispatch-toast" style="font-family: var(--font-mono); font-size: 0.72rem; color: #8c2525; margin-top: 14px; opacity: 0; transition: all 0.3s ease;"></div>
+            </div>
+
+            <!-- The Red Ink Stamped Seal (Revealed on submission) -->
+            <div id="ink-seal" class="imprinted-ink-seal" aria-hidden="true">
+              <div class="seal-title">ANSCONS ATELIER</div>
+              <div id="seal-date-text" class="seal-date">14 SEP 2026</div>
+              <div class="seal-status">COMMISSION LOGGED</div>
+              <div id="seal-ref-text" style="font-size: 0.58rem; margin-top: 4px;">REF #ANS-2026-9412</div>
+            </div>
+
+          </form>
+
+          <!-- Skeuomorphic Metal Security Asset Tag (Riveted Directly onto Masonite Board) -->
+          <div class="clipboard-metal-asset-tag">
+            <div class="asset-rivet rivet-tl" aria-hidden="true"></div>
+            <div class="asset-rivet rivet-tr" aria-hidden="true"></div>
+            <div class="asset-rivet rivet-bl" aria-hidden="true"></div>
+            <div class="asset-rivet rivet-br" aria-hidden="true"></div>
+
+            <!-- Left: Cryptographic Lock & Asset Tag ID -->
+            <div class="tag-security-emblem">
+              <svg class="lock-shield-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+              </svg>
+              <span class="tag-serial-code">TAG #ANS-SEC-9412</span>
+            </div>
+
+            <!-- Center: Escrow & Fiduciary Commercial Clearinghouse Info -->
+            <div class="tag-content-column">
+              <div class="tag-main-title">ESCROW ASSURANCE &amp; FIDUCIARY CLEARINGHOUSE</div>
+              <div class="tag-subtitle-spec">256-BIT ENCRYPTED SETTLEMENT ARCHITECTURE • BONDED &amp; INSURED COMMERCIAL TENDER</div>
+              <div class="tag-clearing-partners">
+                <span class="tag-clearing-badge">J.P. MORGAN ESCROW</span>
+                <span class="tag-clearing-badge">SWIFT: ANSCUS33</span>
+                <span class="tag-clearing-badge">STRIPE PRIVATE CLIENT</span>
+                <span class="tag-clearing-badge">FDIC PROTECTED DEPOSIT</span>
+              </div>
+            </div>
+
+            <!-- Right: Bonded Tender Certification Seal -->
+            <div class="tag-bonded-seal">
+              <span class="seal-ring-text">BONDED</span>
+              <span class="seal-star-center">★</span>
+              <span class="seal-ring-text">TENDER</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURAL DOCUMENT INDEX (THE LEGAL FOOTER)
+         A neat stack of thin Specification Sheets tucked under the cutting mat edge -->
+    <footer class="drafting-table-footer-zone">
+      
+      <!-- Heavy Cutting Mat Bottom Lip / Edge -->
+      <div class="cutting-mat-bottom-lip">
+        <div class="mat-lip-metric-ticks">
+          <span>| 00 MM</span>
+          <span>| 150 MM</span>
+          <span>| 300 MM</span>
+          <span>| 450 MM</span>
+          <span>| 600 MM</span>
+          <span>| 750 MM</span>
+          <span>| 900 MM</span>
+          <span>| 1050 MM</span>
+          <span>| 1200 MM</span>
+        </div>
+        <div class="mat-lip-title">SPECIFICATION ARCHIVE // LEGAL &amp; STATUTORY COVENANTS</div>
+      </div>
+
+      <!-- Tucked Specification Sheets Stack (Spec Sheets) -->
+      <div class="tucked-spec-stack">
+        
+        <!-- Spec Sheet 1: Privacy Policy -->
+        <div class="spec-sheet-tab" data-spec="spec-01" tabindex="0" role="button" aria-label="View SPEC-01: Client Privacy & Fiduciary Data Covenant">
+          <div class="spec-hole-punch" aria-hidden="true"></div>
+          <span class="spec-doc-id">SPEC-01 // PRV</span>
+          <div>
+            <div class="spec-doc-title">Client Privacy Protocols &amp; Confidentiality Data Covenant</div>
+            <div class="spec-doc-classification">AIA Standard B101 • Air-Gapped Vault Archiving • Zero-Publicity Guarantee</div>
+          </div>
+          <span class="spec-doc-classification">REV 2026.04</span>
+          <span class="spec-doc-action">OPEN SPEC SHEET ↗</span>
+        </div>
+
+        <!-- Spec Sheet 2: Terms of Service -->
+        <div class="spec-sheet-tab" data-spec="spec-02" tabindex="0" role="button" aria-label="View SPEC-02: General Conditions of Commission & Tender Terms">
+          <div class="spec-hole-punch" aria-hidden="true"></div>
+          <span class="spec-doc-id">SPEC-02 // TOS</span>
+          <div>
+            <div class="spec-doc-title">General Conditions of Commission &amp; Tender Terms</div>
+            <div class="spec-doc-classification">AIA A101/A201 Framework • Metric Feasibility Standards • Change-Order Protocols</div>
+          </div>
+          <span class="spec-doc-classification">REV 2026.04</span>
+          <span class="spec-doc-action">OPEN SPEC SHEET ↗</span>
+        </div>
+
+        <!-- Spec Sheet 3: Refund Guidelines -->
+        <div class="spec-sheet-tab" data-spec="spec-03" tabindex="0" role="button" aria-label="View SPEC-03: Retainer Deposit & Escrow Refund Guidelines">
+          <div class="spec-hole-punch" aria-hidden="true"></div>
+          <span class="spec-doc-id">SPEC-03 // RFD</span>
+          <div>
+            <div class="spec-doc-title">Retainer Deposit &amp; Escrow Refund Guidelines</div>
+            <div class="spec-doc-classification">FDIC-Insured Escrow • 14-Day Pre-Construction Refund Window • Milestone Accounting</div>
+          </div>
+          <span class="spec-doc-classification">REV 2026.04</span>
+          <span class="spec-doc-action">OPEN SPEC SHEET ↗</span>
+        </div>
+
+        <!-- Spec Sheet 4: Licensure & AIA Disclosures -->
+        <div class="spec-sheet-tab" data-spec="spec-04" tabindex="0" role="button" aria-label="View SPEC-04: AIA Licensure, Ethics & Statutory Compliance">
+          <div class="spec-hole-punch" aria-hidden="true"></div>
+          <span class="spec-doc-id">SPEC-04 // AIA</span>
+          <div>
+            <div class="spec-doc-title">AIA Licensure, Professional Ethics &amp; Statutory Disclosures</div>
+            <div class="spec-doc-classification">Board of Architectural Examiners • OSHA VPP Star • C-8 General Contractor #882194</div>
+          </div>
+          <span class="spec-doc-classification">REV 2026.04</span>
+          <span class="spec-doc-action">OPEN SPEC SHEET ↗</span>
+        </div>
+
+      </div>
+
+      <!-- Debossed Mat Imprint Stamp -->
+      <div class="cutting-mat-imprint-stamp">
+        <div class="mat-debossed-copyright">© 2026 ANSCONS ARCHITECTURE, CONSTRUCTION &amp; BESPOKE INTERIORS ATELIER • ALL RIGHTS RESERVED</div>
+        <div class="mat-debossed-licensure">REGISTERED PRACTICE NO. AR-09412-AIA // GENERAL BUILDING CONTRACTOR LIC. #C8-882194 // JURISDICTION: US &amp; INTERNATIONAL ATELIERS</div>
+      </div>
+
+    </footer>
+
+  </div>
+
+  <!-- Architectural Specification Sheet Modal Inspector -->
+  <div id="spec-modal-overlay" class="spec-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="spec-document-card">
+      <div class="spec-modal-header">
+        <div>
+          <div id="modal-spec-code" class="spec-modal-code">SECTION 00 22 10 // SPEC-01</div>
+          <h3 id="modal-spec-title" class="spec-modal-title">Client Privacy Protocols &amp; Data Covenant</h3>
+          <div id="modal-spec-classification" class="spec-doc-classification" style="margin-top: 4px;">CLASS 1: STRICT CONFIDENTIALITY</div>
+        </div>
+        <button id="spec-modal-close-btn" class="spec-modal-close-btn">FOLD SPEC SHEET ✕</button>
+      </div>
+
+      <div id="modal-spec-body" class="spec-modal-body">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="spec-modal-seal-footer">
+        <div id="modal-spec-ref" class="arch-label" style="color: #6b573e;">DOCUMENT RECORD: ANS-LEGAL-2026</div>
+        <div class="title-block-stamp" style="font-size: 0.65rem;">OFFICIALLY ENACTED</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skeuomorphic JavaScript Modules -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
+

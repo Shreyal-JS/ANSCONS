@@ -1,0 +1,3329 @@
+/* Prevent perspective on body from trapping fixed modals in middle of page */
+body {
+  perspective: none !important;
+}
+
+/* ==========================================================================
+   ANSCONS DOC 04: PORTFOLIO — MONOGRAPH FOLIO OF BUILT WORKS
+   Declassified Architect's Flat-File Drawer & Hand-Bound Monograph
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   01. HERO BLUEPRINT SHEET & SCHEMATIC PREVIEW (EXPLICIT STYLING)
+   -------------------------------------------------------------------------- */
+.hero-blueprint-sheet {
+  position: relative;
+  max-width: 1220px;
+  margin: 0 auto 70px auto;
+  background-color: #f8f4ec !important;
+  background-image: 
+    radial-gradient(ellipse at 25% 20%, rgba(255, 255, 255, 0.5) 0%, transparent 60%),
+    linear-gradient(to right, rgba(160, 130, 95, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(160, 130, 95, 0.15) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 25px 25px, 25px 25px !important;
+  border: 1px solid rgba(180, 160, 130, 0.45);
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.35),
+    inset 0 0 40px rgba(220, 205, 180, 0.2);
+  padding: 48px 56px;
+  border-radius: 4px;
+  transition: all 0.4s ease;
+}
+
+body.blueprint-mode .hero-blueprint-sheet,
+body[data-theme="cyanotype"] .hero-blueprint-sheet {
+  background-color: #0d2238 !important;
+  background-image: 
+    linear-gradient(to right, rgba(100, 255, 218, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(100, 255, 218, 0.1) 1px, transparent 1px) !important;
+  border-color: #1a3a5c;
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.65),
+    0 0 25px rgba(100, 255, 218, 0.08);
+}
+
+.blueprint-border-frame {
+  position: relative;
+  border: 2px solid #2d261e;
+  padding: 28px;
+  outline: 1px solid #705e46;
+  outline-offset: 6px;
+}
+
+body.blueprint-mode .blueprint-border-frame,
+body[data-theme="cyanotype"] .blueprint-border-frame {
+  border-color: #64ffda;
+  outline-color: #2b5680;
+}
+
+.sheet-header-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1.5px solid rgba(140, 115, 80, 0.3);
+  padding-bottom: 12px;
+  margin-bottom: 28px;
+}
+
+body.blueprint-mode .sheet-header-meta,
+body[data-theme="cyanotype"] .sheet-header-meta {
+  border-bottom-color: rgba(60, 110, 160, 0.4);
+}
+
+.north-arrow-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #7d6138;
+}
+
+body.blueprint-mode .north-arrow-badge,
+body[data-theme="cyanotype"] .north-arrow-badge {
+  color: #64ffda;
+}
+
+/* Hero Content Grid */
+.hero-content-core {
+  display: grid !important;
+  grid-template-columns: 1.35fr 1fr !important;
+  gap: 40px !important;
+  align-items: center !important;
+}
+
+@media (max-width: 960px) {
+  .hero-content-core {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.hero-text-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-subtitle-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  background: rgba(212, 175, 55, 0.14);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 2px;
+  margin-bottom: 16px;
+  align-self: flex-start;
+}
+
+body.blueprint-mode .hero-subtitle-tag,
+body[data-theme="cyanotype"] .hero-subtitle-tag {
+  background: rgba(100, 255, 218, 0.12);
+  border-color: rgba(100, 255, 218, 0.4);
+}
+
+.hero-main-title {
+  font-family: var(--font-serif-luxury);
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  line-height: 1.18;
+  color: #1a1612;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+body.blueprint-mode .hero-main-title,
+body[data-theme="cyanotype"] .hero-main-title {
+  color: #ffffff;
+}
+
+.hero-description-copy {
+  font-size: 1.02rem;
+  line-height: 1.68;
+  color: #4c443b;
+  margin-bottom: 28px;
+}
+
+body.blueprint-mode .hero-description-copy,
+body[data-theme="cyanotype"] .hero-description-copy {
+  color: #bcd4ea;
+}
+
+/* Hero Action Buttons */
+.hero-actions-cluster {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-brass-plaque {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  background: var(--brass-gradient) !important;
+  color: #241904 !important;
+  text-decoration: none !important;
+  font-family: var(--font-title-arch) !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  padding: 14px 26px !important;
+  border-radius: 3px !important;
+  border: 1.5px solid #fce8ad !important;
+  box-shadow: 
+    -3px 5px 12px rgba(0,0,0,0.35),
+    inset 0 1px 1px rgba(255,255,255,0.8),
+    inset 0 -1px 2px rgba(90,65,15,0.6) !important;
+  transition: transform 0.2s var(--ease-spring), box-shadow 0.2s ease !important;
+  cursor: pointer !important;
+}
+
+.btn-brass-plaque:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    -4px 8px 18px rgba(0,0,0,0.4),
+    inset 0 1px 2px rgba(255,255,255,0.9) !important;
+}
+
+.btn-vellum-debossed {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  background: rgba(235, 225, 208, 0.8) !important;
+  color: #382c1e !important;
+  text-decoration: none !important;
+  font-family: var(--font-title-arch) !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  padding: 13px 22px !important;
+  border-radius: 3px !important;
+  border: 1px solid rgba(140, 110, 75, 0.45) !important;
+  box-shadow: 
+    inset 1px 2px 4px rgba(0, 0, 0, 0.18),
+    0 1px 1px rgba(255, 255, 255, 0.7) !important;
+  transition: all 0.22s ease !important;
+  cursor: pointer !important;
+}
+
+body.blueprint-mode .btn-vellum-debossed,
+body[data-theme="cyanotype"] .btn-vellum-debossed {
+  background: rgba(14, 38, 62, 0.8) !important;
+  color: #64ffda !important;
+  border-color: #2b5680 !important;
+}
+
+.btn-vellum-debossed:hover {
+  background: rgba(245, 238, 222, 0.95) !important;
+  transform: translateY(-2px);
+}
+
+body.blueprint-mode .btn-vellum-debossed:hover,
+body[data-theme="cyanotype"] .btn-vellum-debossed:hover {
+  background: rgba(20, 50, 80, 0.95) !important;
+}
+
+/* Hero Right Side: Schematic Preview */
+.hero-schematic-preview {
+  position: relative;
+  background: rgba(240, 235, 225, 0.75);
+  border: 1.5px dashed rgba(160, 135, 100, 0.6);
+  border-radius: 6px;
+  padding: 16px;
+  box-shadow: 
+    inset 0 2px 6px rgba(0, 0, 0, 0.08),
+    0 4px 14px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+body.blueprint-mode .hero-schematic-preview,
+body[data-theme="cyanotype"] .hero-schematic-preview {
+  background: rgba(8, 24, 42, 0.8);
+  border-color: rgba(100, 255, 218, 0.4);
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.5),
+    0 4px 18px rgba(100, 255, 218, 0.12);
+}
+
+.hero-schematic-preview:hover {
+  transform: translateY(-2px);
+  border-color: #c5a059;
+}
+
+body.blueprint-mode .hero-schematic-preview:hover,
+body[data-theme="cyanotype"] .hero-schematic-preview:hover {
+  border-color: #64ffda;
+}
+
+/* Schematic Blueprint Box */
+
+/* Blueprint Grid Underlay for Hero Schematic Box */
+.blueprint-grid-underlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(to right, rgba(180, 150, 110, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(180, 150, 110, 0.15) 1px, transparent 1px);
+  background-size: 16px 16px;
+  pointer-events: none;
+}
+
+body.blueprint-mode .blueprint-grid-underlay,
+body[data-theme="cyanotype"] .blueprint-grid-underlay {
+  background-image: 
+    linear-gradient(to right, rgba(100, 255, 218, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(100, 255, 218, 0.12) 1px, transparent 1px);
+}
+
+.schematic-blueprint-box {
+  position: relative;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #f4efe4;
+  border: 1.5px solid #c6a25c;
+  box-shadow: 
+    inset 0 0 16px rgba(180, 150, 110, 0.25),
+    0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s var(--ease-smooth);
+}
+
+body.blueprint-mode .schematic-blueprint-box,
+body[data-theme="cyanotype"] .schematic-blueprint-box {
+  background-color: #091a2d;
+  border-color: #2b5680;
+  box-shadow: 
+    inset 0 0 20px rgba(14, 46, 77, 0.6),
+    0 0 18px rgba(100, 255, 218, 0.15);
+}
+
+.schematic-blueprint-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(to right, rgba(180, 150, 110, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(180, 150, 110, 0.2) 1px, transparent 1px);
+  background-size: 16px 16px;
+  pointer-events: none;
+}
+
+body.blueprint-mode .schematic-blueprint-box::before,
+body[data-theme="cyanotype"] .schematic-blueprint-box::before {
+  background-image: 
+    linear-gradient(to right, rgba(100, 255, 218, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(100, 255, 218, 0.12) 1px, transparent 1px);
+}
+
+.schematic-svg {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  display: block;
+}
+
+/* SVG Line Classes (PREVENTS DEFAULT BLACK FILL) */
+.iso-concrete-slab {
+  fill: rgba(220, 210, 195, 0.5) !important;
+  stroke: #2b2218 !important;
+  stroke-width: 1.5;
+}
+
+.iso-grid-line {
+  stroke: rgba(160, 135, 100, 0.35) !important;
+  stroke-width: 1;
+}
+
+.iso-cantilever-beam {
+  fill: rgba(197, 160, 89, 0.25) !important;
+  stroke: #8d6b2c !important;
+  stroke-width: 2;
+  transition: all 0.3s ease;
+}
+
+.hero-schematic-preview:hover .iso-cantilever-beam {
+  fill: rgba(197, 160, 89, 0.45) !important;
+  stroke: #b28a38 !important;
+}
+
+.iso-moment-joint {
+  fill: #8d6b2c !important;
+  stroke: #ffffff !important;
+  stroke-width: 1;
+}
+
+.iso-structural-vector {
+  stroke: #b83324 !important;
+  stroke-width: 1.5;
+  fill: none !important;
+}
+
+.iso-calc-label {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 700;
+  fill: #5a4632 !important;
+  letter-spacing: 0.08em;
+}
+
+/* SVG Classes in Blueprint Mode */
+body.blueprint-mode .iso-concrete-slab,
+body[data-theme="cyanotype"] .iso-concrete-slab {
+  fill: rgba(14, 46, 77, 0.4) !important;
+  stroke: #5ba3d3 !important;
+}
+
+body.blueprint-mode .iso-grid-line,
+body[data-theme="cyanotype"] .iso-grid-line {
+  stroke: rgba(100, 255, 218, 0.15) !important;
+}
+
+body.blueprint-mode .iso-cantilever-beam,
+body[data-theme="cyanotype"] .iso-cantilever-beam {
+  fill: rgba(100, 255, 218, 0.2) !important;
+  stroke: #64ffda !important;
+}
+
+body.blueprint-mode .iso-moment-joint,
+body[data-theme="cyanotype"] .iso-moment-joint {
+  fill: #64ffda !important;
+  stroke: #091a2d !important;
+}
+
+body.blueprint-mode .iso-structural-vector,
+body[data-theme="cyanotype"] .iso-structural-vector {
+  stroke: #ff5252 !important;
+}
+
+body.blueprint-mode .iso-calc-label,
+body[data-theme="cyanotype"] .iso-calc-label {
+  fill: #8fc7ed !important;
+}
+
+.blueprint-specs-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: rgba(30, 22, 14, 0.9);
+  border-top: 1px solid #8d6b2c;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+}
+
+body.blueprint-mode .blueprint-specs-badge,
+body[data-theme="cyanotype"] .blueprint-specs-badge {
+  background: rgba(6, 18, 30, 0.95);
+  border-top-color: #2b5680;
+}
+
+.spec-code {
+  color: #dfcaa2;
+  font-weight: 700;
+}
+
+body.blueprint-mode .spec-code,
+body[data-theme="cyanotype"] .spec-code {
+  color: #64ffda;
+}
+
+.spec-live-reading {
+  color: #72ef9e;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   02. ARCHITECT'S FLAT-FILE 4-DRAWER PLAN CHEST CABINET
+   -------------------------------------------------------------------------- */
+.plan-chest-wrapper {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto 50px auto;
+}
+
+.plan-chest-cabinet {
+  position: relative;
+  background: linear-gradient(180deg, #2a1b12 0%, #1a100a 60%, #120b07 100%);
+  border-radius: 8px;
+  border: 2px solid #4a3220;
+  box-shadow: 
+    0 20px 42px rgba(0, 0, 0, 0.75),
+    inset 0 1px 2px rgba(255, 255, 255, 0.15),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.9);
+  padding: 20px 24px;
+  overflow: hidden;
+}
+
+body.blueprint-mode .plan-chest-cabinet,
+body[data-theme="cyanotype"] .plan-chest-cabinet {
+  background: linear-gradient(180deg, #0e1e30 0%, #081320 60%, #040910 100%);
+  border-color: #1a3a5c;
+  box-shadow: 
+    0 20px 42px rgba(0, 0, 0, 0.85),
+    0 0 24px rgba(100, 255, 218, 0.08);
+}
+
+.plan-chest-header-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  border-bottom: 1.5px solid #3d2718;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+body.blueprint-mode .plan-chest-header-strip,
+body[data-theme="cyanotype"] .plan-chest-header-strip {
+  border-bottom-color: #173554;
+}
+
+.plan-chest-tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #dfcaa2;
+  letter-spacing: 0.12em;
+}
+
+body.blueprint-mode .plan-chest-tag,
+body[data-theme="cyanotype"] .plan-chest-tag {
+  color: #64ffda;
+}
+
+.plan-chest-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c5a059;
+  box-shadow: 0 0 8px #c5a059;
+}
+
+body.blueprint-mode .plan-chest-dot,
+body[data-theme="cyanotype"] .plan-chest-dot {
+  background: #64ffda;
+  box-shadow: 0 0 8px #64ffda;
+}
+
+.plan-chest-meta {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: #8c7353;
+  letter-spacing: 0.08em;
+}
+
+/* Stack of 4 Flat-File Drawers */
+.plan-chest-drawers-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drawer-unit {
+  position: relative;
+  background: linear-gradient(180deg, #342115 0%, #20130a 100%);
+  border: 1px solid #4a301f;
+  border-radius: 4px;
+  padding: 10px 16px;
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    0 3px 6px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+body.blueprint-mode .drawer-unit,
+body[data-theme="cyanotype"] .drawer-unit {
+  background: linear-gradient(180deg, #112338 0%, #081422 100%);
+  border-color: #1c3d61;
+}
+
+.drawer-unit:hover {
+  transform: translateX(6px);
+  border-color: #8e6d32;
+  background: linear-gradient(180deg, #442b1b 0%, #2a190e 100%);
+}
+
+body.blueprint-mode .drawer-unit:hover,
+body[data-theme="cyanotype"] .drawer-unit:hover {
+  border-color: #64ffda;
+  background: linear-gradient(180deg, #173352 0%, #0d2036 100%);
+}
+
+/* Active Pulled Out Drawer */
+.drawer-unit.active {
+  transform: translateX(14px);
+  border-color: #c5a059;
+  background: linear-gradient(180deg, #4a2e1d 0%, #2e1a0e 100%);
+  box-shadow: 
+    -4px 6px 16px rgba(0, 0, 0, 0.6),
+    0 0 16px rgba(212, 175, 55, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+body.blueprint-mode .drawer-unit.active,
+body[data-theme="cyanotype"] .drawer-unit.active {
+  border-color: #64ffda;
+  background: linear-gradient(180deg, #183a5e 0%, #0e243c 100%);
+  box-shadow: 
+    -4px 6px 18px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(100, 255, 218, 0.3);
+}
+
+.drawer-front-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Brass Card Holder Label */
+.drawer-label-holder {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #120c08;
+  padding: 6px 14px;
+  border-radius: 3px;
+  border: 1.5px solid #8e6d32;
+  box-shadow: 
+    inset 0 2px 5px rgba(0, 0, 0, 0.8),
+    0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  flex: 1;
+  max-width: 620px;
+}
+
+body.blueprint-mode .drawer-label-holder,
+body[data-theme="cyanotype"] .drawer-label-holder {
+  background: #050e18;
+  border-color: #2e5f82;
+}
+
+.drawer-rivet {
+  width: 5px;
+  height: 5px;
+  background: #8e6d32;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  flex-shrink: 0;
+}
+
+body.blueprint-mode .drawer-rivet,
+body[data-theme="cyanotype"] .drawer-rivet {
+  background: #64ffda;
+}
+
+.drawer-code {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #ffd67a;
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+
+body.blueprint-mode .drawer-code,
+body[data-theme="cyanotype"] .drawer-code {
+  color: #64ffda;
+}
+
+.drawer-title {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #e2d2b5;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body.blueprint-mode .drawer-title,
+body[data-theme="cyanotype"] .drawer-title {
+  color: #b8dcfa;
+}
+
+/* Recessed Brass Cup Pull Handle */
+.brass-cup-pull {
+  position: relative;
+  width: 74px;
+  height: 32px;
+  background: linear-gradient(180deg, #d4b068 0%, #9a7530 50%, #583e10 100%);
+  border-radius: 16px 16px 4px 4px;
+  box-shadow: 
+    0 3px 6px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.7),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.7);
+  border: 1px solid #583e10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  flex-shrink: 0;
+}
+
+body.blueprint-mode .brass-cup-pull,
+body[data-theme="cyanotype"] .brass-cup-pull {
+  background: linear-gradient(180deg, #64ffda 0%, #2ba58c 50%, #0d4a3c 100%);
+  border-color: #0b3d31;
+}
+
+.drawer-unit:hover .brass-cup-pull {
+  filter: brightness(1.15);
+}
+
+.cup-pull-slot {
+  width: 48px;
+  height: 12px;
+  background: linear-gradient(180deg, #140d06 0%, #2b1c10 100%);
+  border-radius: 10px 10px 0 0;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+body.blueprint-mode .cup-pull-slot,
+body[data-theme="cyanotype"] .cup-pull-slot {
+  background: linear-gradient(180deg, #050f18 0%, #0d2136 100%);
+}
+
+.drawer-status-pill {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 3px;
+  background: rgba(20, 14, 8, 0.6);
+  border: 1px solid #583e10;
+  color: #9c8360;
+  flex-shrink: 0;
+}
+
+body.blueprint-mode .drawer-status-pill,
+body[data-theme="cyanotype"] .drawer-status-pill {
+  background: rgba(5, 15, 24, 0.7);
+  border-color: #1e4570;
+  color: #64ffda;
+}
+
+.drawer-unit.active .drawer-status-pill {
+  background: #c5a059;
+  border-color: #ffd67a;
+  color: #120b05;
+  font-weight: 800;
+}
+
+body.blueprint-mode .drawer-unit.active .drawer-status-pill,
+body[data-theme="cyanotype"] .drawer-unit.active .drawer-status-pill {
+  background: #64ffda;
+  border-color: #b3ffed;
+  color: #04101d;
+}
+
+/* --------------------------------------------------------------------------
+   03. THE HAND-BOUND ARCHIVAL LINEN FOLIO SPREAD
+   -------------------------------------------------------------------------- */
+.monograph-spread-container {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto 90px auto;
+}
+
+.monograph-folio-spread {
+  position: relative;
+  background: #faf6ee;
+  border-radius: 6px;
+  box-shadow: 
+    0 22px 50px rgba(0, 0, 0, 0.65),
+    inset 0 0 28px rgba(180, 155, 120, 0.35);
+  border: 1px solid rgba(160, 130, 95, 0.4);
+  padding: 42px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  overflow: visible;
+}
+
+body.blueprint-mode .monograph-folio-spread,
+body[data-theme="cyanotype"] .monograph-folio-spread {
+  background: #091a2d;
+  box-shadow: 
+    0 22px 50px rgba(0, 0, 0, 0.85),
+    0 0 30px rgba(100, 255, 218, 0.06),
+    inset 0 0 32px rgba(14, 46, 77, 0.5);
+  border-color: #173859;
+}
+
+/* Archival Portfolio Left Edge Binder Strip (with Chicago screws & stitching) */
+.folio-binder-spine-edge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  background: linear-gradient(90deg, #24160d 0%, #362215 70%, #1e120b 100%);
+  border-radius: 6px 0 0 6px;
+  border-right: 1.5px solid #4a301f;
+  box-shadow: inset 1px 0 2px rgba(255, 255, 255, 0.15), 2px 0 6px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  pointer-events: none;
+  z-index: 25;
+}
+
+body.blueprint-mode .folio-binder-spine-edge,
+body[data-theme="cyanotype"] .folio-binder-spine-edge {
+  background: linear-gradient(90deg, #091724 0%, #11283e 70%, #061018 100%);
+  border-right-color: #1b3d61;
+}
+
+/* Chicago Screws / Binding Posts */
+.binder-screw {
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, #e6c883 0%, #9e772e 70%, #583c0e 100%);
+  border-radius: 50%;
+  border: 1px solid #4a300a;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.6), inset 0 1px 1px rgba(255,255,255,0.8);
+  position: relative;
+}
+
+body.blueprint-mode .binder-screw,
+body[data-theme="cyanotype"] .binder-screw {
+  background: radial-gradient(circle, #8fffe7 0%, #2fae94 70%, #0a4436 100%);
+  border-color: #07382c;
+}
+
+.binder-screw::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 1px;
+  right: 1px;
+  height: 1.5px;
+  background: #362005;
+}
+
+body.blueprint-mode .binder-screw::before,
+body[data-theme="cyanotype"] .binder-screw::before {
+  background: #04241d;
+}
+
+.binder-stitching-line {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  right: 4px;
+  width: 1px;
+  border-right: 1.5px dashed #9c733f;
+  opacity: 0.65;
+}
+
+body.blueprint-mode .binder-stitching-line,
+body[data-theme="cyanotype"] .binder-stitching-line {
+  border-right-color: #3f7fa6;
+}
+
+/* Polished Brass Corner Edge Guards */
+.folio-brass-guard {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #d8b46e 0%, #b28a38 50%, #684a14 100%);
+  box-shadow: 
+    -2px 3px 6px rgba(0, 0, 0, 0.55),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  z-index: 40;
+}
+
+body.blueprint-mode .folio-brass-guard,
+body[data-theme="cyanotype"] .folio-brass-guard {
+  background: linear-gradient(135deg, #4da4c8 0%, #2b688c 50%, #153348 100%);
+  box-shadow: 
+    -2px 3px 6px rgba(0, 0, 0, 0.7),
+    inset 0 1px 1px rgba(100, 255, 218, 0.6);
+}
+
+.folio-brass-guard.top-left {
+  top: 0;
+  left: 0;
+  border-radius: 6px 0 28px 0;
+  border-right: 2px solid #583c0e;
+  border-bottom: 2px solid #583c0e;
+}
+
+.folio-brass-guard.top-right {
+  top: 0;
+  right: 0;
+  border-radius: 0 6px 0 28px;
+  border-left: 2px solid #583c0e;
+  border-bottom: 2px solid #583c0e;
+}
+
+.folio-brass-guard.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 28px 0 6px;
+  border-right: 2px solid #583c0e;
+  border-top: 2px solid #583c0e;
+}
+
+.folio-brass-guard.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-radius: 28px 0 6px 0;
+  border-left: 2px solid #583c0e;
+  border-top: 2px solid #583c0e;
+}
+
+/* --------------------------------------------------------------------------
+   04. ARCHIVAL FOLIO HEADER BAR (ELIMINATES OVERLAPPING)
+   -------------------------------------------------------------------------- */
+.folio-archival-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-bottom: 1.5px solid rgba(180, 155, 120, 0.4);
+  padding-bottom: 16px;
+  margin-bottom: 6px;
+  position: relative;
+  z-index: 30;
+}
+
+body.blueprint-mode .folio-archival-header-bar,
+body[data-theme="cyanotype"] .folio-archival-header-bar {
+  border-bottom-color: rgba(60, 110, 160, 0.4);
+}
+
+.folio-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.folio-classification-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #8c6828;
+  letter-spacing: 0.1em;
+}
+
+body.blueprint-mode .folio-classification-badge,
+body[data-theme="cyanotype"] .folio-classification-badge {
+  color: #64ffda;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #8c6828;
+}
+
+body.blueprint-mode .badge-dot,
+body[data-theme="cyanotype"] .badge-dot {
+  background: #64ffda;
+}
+
+.folio-meta-serial {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: #7a6652;
+  letter-spacing: 0.06em;
+}
+
+body.blueprint-mode .folio-meta-serial,
+body[data-theme="cyanotype"] .folio-meta-serial {
+  color: #8bb7d8;
+}
+
+/* Hand-Numbered Archival Red/Violet Stamp */
+.archival-ink-stamp-box {
+  display: flex;
+  align-items: center;
+}
+
+.archival-ink-stamp {
+  border: 2px dashed #b82b18;
+  border-radius: 4px;
+  padding: 6px 14px;
+  transform: rotate(1.5deg);
+  opacity: 0.88;
+  background: rgba(184, 43, 24, 0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+body.blueprint-mode .archival-ink-stamp,
+body[data-theme="cyanotype"] .archival-ink-stamp {
+  border-color: #64ffda;
+  background: rgba(100, 255, 218, 0.08);
+}
+
+.archival-stamp-text {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #9c1f10;
+  text-transform: uppercase;
+  display: block;
+}
+
+body.blueprint-mode .archival-stamp-text,
+body[data-theme="cyanotype"] .archival-stamp-text {
+  color: #64ffda;
+}
+
+/* --------------------------------------------------------------------------
+   05. TYPOLOGY MARGIN INDEX TABS (ALONG RIGHT EDGE)
+   -------------------------------------------------------------------------- */
+.typology-margin-tabs {
+  position: absolute;
+  top: 70px;
+  right: -52px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 50;
+}
+
+.margin-tab-btn {
+  background: #ede6d6;
+  border: 1px solid #b89b70;
+  border-left: none;
+  border-radius: 0 6px 6px 0;
+  padding: 10px 14px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #4a3a25;
+  box-shadow: 
+    3px 4px 10px rgba(0, 0, 0, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  transition: all 0.25s var(--ease-smooth);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 140px;
+}
+
+body.blueprint-mode .margin-tab-btn,
+body[data-theme="cyanotype"] .margin-tab-btn {
+  background: #0e2742;
+  border-color: #27527a;
+  color: #92c5eb;
+  box-shadow: 
+    3px 4px 10px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(100, 255, 218, 0.2);
+}
+
+.margin-tab-btn:hover {
+  background: #fdfaf2;
+  color: #9c6c1d;
+  transform: rotate(180deg) translateX(4px);
+}
+
+body.blueprint-mode .margin-tab-btn:hover,
+body[data-theme="cyanotype"] .margin-tab-btn:hover {
+  background: #17385c;
+  color: #64ffda;
+  transform: rotate(180deg) translateX(4px);
+}
+
+.margin-tab-btn.active {
+  background: #c5a059;
+  border-color: #795719;
+  color: #120b05;
+  font-weight: 800;
+  box-shadow: 
+    4px 6px 14px rgba(0, 0, 0, 0.35),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  transform: rotate(180deg) translateX(8px);
+}
+
+body.blueprint-mode .margin-tab-btn.active,
+body[data-theme="cyanotype"] .margin-tab-btn.active {
+  background: #64ffda;
+  border-color: #38bba0;
+  color: #04101d;
+  box-shadow: 
+    4px 6px 16px rgba(100, 255, 218, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  transform: rotate(180deg) translateX(8px);
+}
+
+/* --------------------------------------------------------------------------
+   06. TRACING PAPER / AS-BUILT CALIPER SLIDER (CREATIVE ARCHITECTURAL CAD)
+   -------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------
+   SECTION RIBBON: CORE FEATURE 01 - TRACING PAPER / AS-BUILT SLIDER
+   -------------------------------------------------------------------------- */
+.section-ribbon-tag {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 26px 0 20px 0;
+  padding: 10px 16px;
+  background: rgba(197, 160, 89, 0.09);
+  border-left: 3px solid #c5a059;
+  border-radius: 0 4px 4px 0;
+  position: relative;
+  z-index: 25;
+}
+
+body.blueprint-mode .section-ribbon-tag,
+body[data-theme="cyanotype"] .section-ribbon-tag {
+  background: rgba(100, 255, 218, 0.08);
+  border-left-color: #64ffda;
+}
+
+.ribbon-title-cluster {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-ribbon-title {
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #4a3319;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+body.blueprint-mode .section-ribbon-title,
+body[data-theme="cyanotype"] .section-ribbon-title {
+  color: #64ffda;
+}
+
+.peel-instructions-note {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #8c6828;
+  letter-spacing: 0.08em;
+  background: rgba(197, 160, 89, 0.16);
+  padding: 6px 14px;
+  border: 1px dashed rgba(197, 160, 89, 0.5);
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+body.blueprint-mode .peel-instructions-note,
+body[data-theme="cyanotype"] .peel-instructions-note {
+  color: #64ffda;
+  background: rgba(100, 255, 218, 0.14);
+  border-color: rgba(100, 255, 218, 0.45);
+}
+
+.slider-stage-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.slider-meta-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.project-title-cluster {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.project-monograph-id {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #9e7a3b;
+  letter-spacing: 0.12em;
+}
+
+body.blueprint-mode .project-monograph-id,
+body[data-theme="cyanotype"] .project-monograph-id {
+  color: #64ffda;
+}
+
+.project-headline-title {
+  font-family: var(--font-title-arch);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e160e;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+body.blueprint-mode .project-headline-title,
+body[data-theme="cyanotype"] .project-headline-title {
+  color: #ffffff;
+}
+
+.project-location-meta {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: #6d5b45;
+  font-weight: 500;
+}
+
+body.blueprint-mode .project-location-meta,
+body[data-theme="cyanotype"] .project-location-meta {
+  color: #8fbcdb;
+}
+
+/* Live Ratio Readout Badge */
+.slider-ratio-badge {
+  background: rgba(28, 20, 12, 0.88);
+  border: 1.5px solid #a88134;
+  border-radius: 4px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.blueprint-mode .slider-ratio-badge,
+body[data-theme="cyanotype"] .slider-ratio-badge {
+  background: rgba(6, 18, 30, 0.9);
+  border-color: #64ffda;
+  box-shadow: 0 4px 14px rgba(100, 255, 218, 0.2);
+}
+
+.slider-ratio-badge span {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #e5d4b5;
+}
+
+body.blueprint-mode .slider-ratio-badge span,
+body[data-theme="cyanotype"] .slider-ratio-badge span {
+  color: #64ffda;
+}
+
+/* The Caliper Reveal Viewport */
+.caliper-reveal-viewport {
+  position: relative;
+  width: 100%;
+  height: 540px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 
+    0 14px 34px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(160, 130, 95, 0.5);
+  user-select: none;
+  touch-action: pan-y;
+  cursor: ew-resize;
+}
+
+body.blueprint-mode .caliper-reveal-viewport,
+body[data-theme="cyanotype"] .caliper-reveal-viewport {
+  box-shadow: 
+    0 14px 34px rgba(0, 0, 0, 0.75),
+    0 0 20px rgba(100, 255, 218, 0.15),
+    inset 0 0 0 1px #224c74;
+}
+
+/* Underneath: Crisp Finished Architectural Photography */
+.asbuilt-photo-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.asbuilt-photo-layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-passepartout-tag {
+  position: absolute;
+  bottom: 16px;
+  right: 18px;
+  background: rgba(14, 10, 6, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: #ffd67a;
+  letter-spacing: 0.1em;
+  z-index: 12;
+  pointer-events: none;
+}
+
+/* Top: Translucent Tracing Paper with CAD & Redlines */
+.drafting-vellum-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(246, 241, 230, 0.95);
+  backdrop-filter: blur(2.5px);
+  z-index: 20;
+  clip-path: polygon(0 0, var(--reveal-pct, 50%) 0, var(--reveal-pct, 50%) 100%, 0 100%);
+  pointer-events: none;
+  overflow: hidden;
+  transition: clip-path 0.05s ease-out;
+}
+
+body.blueprint-mode .drafting-vellum-layer,
+body[data-theme="cyanotype"] .drafting-vellum-layer {
+  background: rgba(9, 26, 45, 0.95);
+}
+
+/* Refined Millimetric Vellum Gridlines */
+.drafting-vellum-layer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Creative architectural drafting vellum: registration cross-dots and delicate alignment grid */
+  background-image: 
+    radial-gradient(circle at center, rgba(160, 125, 75, 0.28) 1px, transparent 1.5px),
+    linear-gradient(to right, rgba(160, 130, 95, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(160, 130, 95, 0.08) 1px, transparent 1px),
+    linear-gradient(to right, rgba(160, 130, 95, 0.18) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(160, 130, 95, 0.18) 1px, transparent 1px);
+  background-size: 60px 60px, 15px 15px, 15px 15px, 90px 90px, 90px 90px;
+  background-position: center center;
+  pointer-events: none;
+}
+/* DO NOT Remove the below commented css code */
+/* body.blueprint-mode .drafting-vellum-layer::before,
+body[data-theme="cyanotype"] .drafting-vellum-layer::before {
+  background-image: 
+    linear-gradient(to right, rgba(100, 255, 218, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(100, 255, 218, 0.12) 1px, transparent 1px),
+    linear-gradient(to right, rgba(100, 255, 218, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(100, 255, 218, 0.25) 1px, transparent 1px);
+} */
+
+/* CAD Vector Linework SVG Container */
+.vellum-cad-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.vellum-cad-overlay svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ==========================================================================
+   CAD VECTOR LINEWORK SVG & BLUEPRINT CYANOTYPE ENGINE
+   ========================================================================== */
+/* Studio Mode (Warm Architectural Drafting Sepia & Charcoal) */
+.cad-bedrock-slope {
+  fill: rgba(180, 160, 130, 0.18) !important;
+  stroke: #4a3825 !important;
+  stroke-width: 2;
+}
+
+.cad-bedrock-hatch {
+  stroke: rgba(120, 95, 65, 0.45) !important;
+  stroke-width: 1;
+}
+
+.cad-foundation-pile {
+  stroke: #1a222c !important;
+  stroke-width: 3;
+  stroke-linecap: round;
+  fill: none !important;
+}
+
+.cad-pile-anchor-head {
+  fill: #b3882e !important;
+  stroke: #1a222c !important;
+  stroke-width: 1.5;
+}
+
+.cad-concrete-mass {
+  fill: rgba(180, 150, 110, 0.22) !important;
+  stroke: #3e2e1c !important;
+  stroke-width: 2.2;
+}
+
+.cad-structure-beam {
+  stroke: #2a1f14 !important;
+  stroke-width: 2.5;
+  fill: rgba(160, 135, 95, 0.14) !important;
+}
+
+.cad-detail-stroke {
+  stroke: #8e6d32 !important;
+  stroke-width: 1.5;
+  fill: none !important;
+}
+
+.cad-accent-vector {
+  stroke: #c23824 !important;
+  stroke-width: 2;
+  fill: none !important;
+}
+
+.cad-strata-layer {
+  fill: rgba(190, 165, 125, 0.2) !important;
+  stroke: #5a3d1c !important;
+  stroke-width: 2;
+}
+
+.cad-dimension-line {
+  stroke: #7c6246 !important;
+  stroke-width: 1.2;
+  fill: none !important;
+}
+
+.cad-dimension-text {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  fill: #4a3520 !important;
+  letter-spacing: 0.06em;
+}
+
+.cad-elevation-marker {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 800;
+  fill: #8d6b2c !important;
+}
+
+.cad-redline-callout {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  fill: #b83324 !important;
+  letter-spacing: 0.05em;
+}
+
+.cad-title-block-box {
+  fill: rgba(250, 245, 235, 0.95) !important;
+  stroke: #7c6246 !important;
+  stroke-width: 1.5;
+}
+
+/* ==========================================================================
+   BLUEPRINT CYANOTYPE CAD OVERRIDES (CLEAN, ELECTRIC CYAN & ICE BLUE)
+   ========================================================================== */
+body.blueprint-mode .drafting-vellum-layer,
+body[data-theme="cyanotype"] .drafting-vellum-layer {
+  background: radial-gradient(circle at 50% 40%, rgba(13, 39, 70, 0.96) 0%, rgba(6, 21, 39, 0.98) 100%);
+}
+
+body.blueprint-mode .cad-bedrock-slope,
+body[data-theme="cyanotype"] .cad-bedrock-slope {
+  fill: rgba(14, 46, 77, 0.45) !important;
+  stroke: #4ba3e3 !important;
+  stroke-width: 2 !important;
+}
+
+body.blueprint-mode .cad-bedrock-hatch,
+body[data-theme="cyanotype"] .cad-bedrock-hatch {
+  stroke: rgba(100, 255, 218, 0.35) !important;
+  stroke-width: 1 !important;
+}
+
+body.blueprint-mode .cad-foundation-pile,
+body[data-theme="cyanotype"] .cad-foundation-pile {
+  stroke: #64ffda !important;
+  fill: none !important;
+  stroke-width: 3 !important;
+}
+
+body.blueprint-mode .cad-pile-anchor-head,
+body[data-theme="cyanotype"] .cad-pile-anchor-head {
+  fill: #64ffda !important;
+  stroke: #ffffff !important;
+  stroke-width: 1.5 !important;
+}
+
+body.blueprint-mode .cad-concrete-mass,
+body[data-theme="cyanotype"] .cad-concrete-mass {
+  fill: rgba(100, 255, 218, 0.12) !important;
+  stroke: #64ffda !important;
+  stroke-width: 2 !important;
+}
+
+body.blueprint-mode .cad-structure-beam,
+body[data-theme="cyanotype"] .cad-structure-beam {
+  stroke: #ffffff !important;
+  fill: rgba(100, 255, 218, 0.15) !important;
+  stroke-width: 2.2 !important;
+}
+
+body.blueprint-mode .cad-detail-stroke,
+body[data-theme="cyanotype"] .cad-detail-stroke {
+  stroke: #7ee7ff !important;
+  fill: none !important;
+}
+
+body.blueprint-mode .cad-accent-vector,
+body[data-theme="cyanotype"] .cad-accent-vector {
+  stroke: #ff5252 !important;
+  fill: none !important;
+  stroke-width: 2 !important;
+}
+
+body.blueprint-mode .cad-strata-layer,
+body[data-theme="cyanotype"] .cad-strata-layer {
+  fill: rgba(10, 36, 62, 0.7) !important;
+  stroke: #4ba3e3 !important;
+  stroke-width: 2 !important;
+}
+
+body.blueprint-mode .cad-dimension-line,
+body[data-theme="cyanotype"] .cad-dimension-line {
+  stroke: #52a7eb !important;
+  stroke-width: 1.2 !important;
+}
+
+body.blueprint-mode .cad-dimension-text,
+body[data-theme="cyanotype"] .cad-dimension-text {
+  fill: #e0f2fe !important;
+  font-weight: 700 !important;
+}
+
+body.blueprint-mode .cad-elevation-marker,
+body[data-theme="cyanotype"] .cad-elevation-marker {
+  fill: #64ffda !important;
+  font-weight: 800 !important;
+}
+
+body.blueprint-mode .cad-redline-callout,
+body[data-theme="cyanotype"] .cad-redline-callout {
+  fill: #ff6b6b !important;
+  font-weight: 800 !important;
+}
+
+body.blueprint-mode .cad-title-block-box,
+body[data-theme="cyanotype"] .cad-title-block-box {
+  fill: rgba(6, 22, 40, 0.95) !important;
+  stroke: #64ffda !important;
+  stroke-width: 1.5 !important;
+}
+
+body.blueprint-mode .cad-title-block-box text,
+body[data-theme="cyanotype"] .cad-title-block-box text {
+  fill: #64ffda !important;
+}
+
+/* Universal Blueprint Safety Net: Ensure zero muddy brown or black elements in Blueprint Mode */
+body.blueprint-mode .vellum-cad-overlay text:not(.cad-redline-callout),
+body[data-theme="cyanotype"] .vellum-cad-overlay text:not(.cad-redline-callout) {
+  fill: #e0f2fe !important;
+}
+
+body.blueprint-mode .vellum-cad-overlay text.cad-redline-callout,
+body[data-theme="cyanotype"] .vellum-cad-overlay text.cad-redline-callout {
+  fill: #ff6b6b !important;
+}
+
+/* ==========================================================================
+   CONTRACTOR REDLINE ANNOTATIONS (SLEEK HORIZONTAL TOP BAR)
+   ========================================================================== */
+.cad-redline-cluster {
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8px;
+  z-index: 25;
+  pointer-events: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 2px;
+}
+
+.cad-redline-cluster::-webkit-scrollbar {
+  display: none;
+}
+
+.redline-annotation-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(254, 252, 248, 0.96);
+  border: 1px solid #c23824;
+  padding: 3px 9px;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  font-weight: 700;
+  color: #a32213;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transform: none;
+  flex-shrink: 0;
+}
+
+body.blueprint-mode .redline-annotation-badge,
+body[data-theme="cyanotype"] .redline-annotation-badge {
+  background: rgba(6, 22, 40, 0.94) !important;
+  border-color: #ff5252 !important;
+  color: #ff8b8b !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 0 10px rgba(255, 82, 82, 0.25) !important;
+}
+
+/* Parallel Brass Sliding Bar / Caliper Handle */
+.caliper-parallel-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--reveal-pct, 50%);
+  width: 12px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #d3ab5e 0%, #a47b2c 50%, #5d4212 100%);
+  box-shadow: 
+    0 0 18px rgba(0, 0, 0, 0.65),
+    -3px 0 6px rgba(0, 0, 0, 0.4),
+    3px 0 6px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  z-index: 30;
+  pointer-events: none;
+  transition: left 0.05s ease-out;
+}
+
+body.blueprint-mode .caliper-parallel-bar,
+body[data-theme="cyanotype"] .caliper-parallel-bar {
+  background: linear-gradient(90deg, #64ffda 0%, #32b59b 50%, #115747 100%);
+  box-shadow: 
+    0 0 20px rgba(100, 255, 218, 0.6),
+    -3px 0 6px rgba(0, 0, 0, 0.6),
+    3px 0 6px rgba(0, 0, 0, 0.6);
+}
+
+.caliper-parallel-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2px;
+  width: 4px;
+  background-image: repeating-linear-gradient(
+    180deg,
+    rgba(30, 20, 10, 0.7) 0px,
+    rgba(30, 20, 10, 0.7) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+}
+
+body.blueprint-mode .caliper-parallel-bar::before,
+body[data-theme="cyanotype"] .caliper-parallel-bar::before {
+  background-image: repeating-linear-gradient(
+    180deg,
+    rgba(6, 20, 32, 0.9) 0px,
+    rgba(6, 20, 32, 0.9) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+}
+
+.brass-thumbscrew {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: radial-gradient(circle, #e9cf8e 0%, #a47b2c 70%, #5d4212 100%);
+  border-radius: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 
+    0 2px 5px rgba(0, 0, 0, 0.6),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  border: 1px solid #4a340b;
+}
+
+body.blueprint-mode .brass-thumbscrew,
+body[data-theme="cyanotype"] .brass-thumbscrew {
+  background: radial-gradient(circle, #8fffe7 0%, #32b59b 70%, #0d4a3c 100%);
+  border-color: #0b3d31;
+}
+
+.brass-thumbscrew.top { top: 8px; }
+.brass-thumbscrew.bottom { bottom: 8px; }
+
+.slider-grip-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 72px;
+  background: linear-gradient(135deg, #e4c47b 0%, #b28a38 50%, #5a3c0e 100%);
+  border-radius: 8px;
+  box-shadow: 
+    0 6px 16px rgba(0, 0, 0, 0.55),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.6);
+  border: 1.5px solid #4a320b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+body.blueprint-mode .slider-grip-handle,
+body[data-theme="cyanotype"] .slider-grip-handle {
+  background: linear-gradient(135deg, #7affdf 0%, #30b196 50%, #0f4d40 100%);
+  border-color: #0c3e33;
+  box-shadow: 
+    0 6px 18px rgba(100, 255, 218, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.slider-grip-handle span {
+  font-size: 0.65rem;
+  color: #271b08;
+  font-weight: 900;
+  user-select: none;
+}
+
+body.blueprint-mode .slider-grip-handle span,
+body[data-theme="cyanotype"] .slider-grip-handle span {
+  color: #051d17;
+}
+
+.accessible-range-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 35;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   07. THREE-PART COMMISSION DOSSIER (PLATES A, B, C)
+   -------------------------------------------------------------------------- */
+.dossier-triptych-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 980px) {
+  .dossier-triptych-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dossier-plate-card {
+  position: relative;
+  background: #fdfaf3;
+  border: 1px solid #d4c0a5;
+  border-radius: 4px;
+  padding: 24px;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    inset 0 0 10px rgba(180, 155, 120, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+body.blueprint-mode .dossier-plate-card,
+body[data-theme="cyanotype"] .dossier-plate-card {
+  background: #0d2238;
+  border-color: #1f456e;
+  box-shadow: 
+    0 6px 16px rgba(0, 0, 0, 0.4),
+    inset 0 0 12px rgba(10, 32, 54, 0.4);
+}
+
+.plate-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1.5px solid #d8c29d;
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+
+body.blueprint-mode .plate-header-row,
+body[data-theme="cyanotype"] .plate-header-row {
+  border-bottom-color: #27527c;
+}
+
+.plate-code-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #9e7a3b;
+  letter-spacing: 0.12em;
+}
+
+body.blueprint-mode .plate-code-tag,
+body[data-theme="cyanotype"] .plate-code-tag {
+  color: #64ffda;
+}
+
+.plate-title-text {
+  font-family: var(--font-title-arch);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #22180f;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+body.blueprint-mode .plate-title-text,
+body[data-theme="cyanotype"] .plate-title-text {
+  color: #ffffff;
+}
+
+/* Plate A: Topographical Geodetic Visualizer */
+.geodetic-contour-box {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  background: #f0e8d8;
+  border: 1px solid #c9b494;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.blueprint-mode .geodetic-contour-box,
+body[data-theme="cyanotype"] .geodetic-contour-box {
+  background: #081726;
+  border-color: #173859;
+}
+
+.contour-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.contour-line {
+  stroke: #a48256;
+  stroke-width: 1.2;
+  fill: none;
+}
+
+body.blueprint-mode .contour-line,
+body[data-theme="cyanotype"] .contour-line {
+  stroke: #4fa3d1;
+}
+
+.geodetic-metrics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.geo-metric-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  border-bottom: 1px dashed rgba(160, 130, 95, 0.4);
+  padding-bottom: 4px;
+}
+
+body.blueprint-mode .geo-metric-item,
+body[data-theme="cyanotype"] .geo-metric-item {
+  border-bottom-color: rgba(60, 110, 160, 0.4);
+}
+
+.geo-label {
+  font-family: var(--font-mono);
+  color: #685741;
+}
+
+body.blueprint-mode .geo-label,
+body[data-theme="cyanotype"] .geo-label {
+  color: #8bb7d8;
+}
+
+.geo-value {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: #1f170e;
+}
+
+body.blueprint-mode .geo-value,
+body[data-theme="cyanotype"] .geo-value {
+  color: #ffffff;
+}
+
+.geotechnical-stamp {
+  border: 2px solid #b83324;
+  border-radius: 4px;
+  padding: 6px 10px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #9c1f12;
+  letter-spacing: 0.12em;
+  transform: rotate(-1deg);
+  background: rgba(184, 51, 36, 0.05);
+}
+
+body.blueprint-mode .geotechnical-stamp,
+body[data-theme="cyanotype"] .geotechnical-stamp {
+  border-color: #ff5252;
+  color: #ff8b8b;
+  background: rgba(255, 82, 82, 0.08);
+}
+
+/* Plate B: Hard Construction Facts Grid */
+.tectonic-metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.tectonic-stat-card {
+  background: #f4eee2;
+  border: 1px solid #d8c29d;
+  border-radius: 3px;
+  padding: 8px 10px;
+  text-align: center;
+}
+
+body.blueprint-mode .tectonic-stat-card,
+body[data-theme="cyanotype"] .tectonic-stat-card {
+  background: #0a1b2d;
+  border-color: #1d436a;
+}
+
+.stat-number {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #8c6828;
+}
+
+body.blueprint-mode .stat-number,
+body[data-theme="cyanotype"] .stat-number {
+  color: #64ffda;
+}
+
+.stat-descriptor {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: #645442;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+body.blueprint-mode .stat-descriptor,
+body[data-theme="cyanotype"] .stat-descriptor {
+  color: #8fbcdb;
+}
+
+.micro-artifact-strip {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.micro-specimen-tile {
+  flex: 1;
+  background: #ece3d2;
+  border: 1px solid #c9b494;
+  border-radius: 3px;
+  padding: 6px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: #584735;
+}
+
+body.blueprint-mode .micro-specimen-tile,
+body[data-theme="cyanotype"] .micro-specimen-tile {
+  background: #091a2d;
+  border-color: #1e4570;
+  color: #8ebbdc;
+}
+
+.micro-specimen-icon {
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Plate C: Passe-Partout Spatial Monograph */
+.passepartout-frame {
+  position: relative;
+  background: #ffffff;
+  border: 8px solid #ece4d4;
+  box-shadow: 
+    inset 0 0 10px rgba(0, 0, 0, 0.2),
+    0 3px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  height: 140px;
+}
+
+body.blueprint-mode .passepartout-frame,
+body[data-theme="cyanotype"] .passepartout-frame {
+  background: #06111e;
+  border-color: #12283e;
+  box-shadow: 
+    inset 0 0 12px rgba(0, 0, 0, 0.6),
+    0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+.passepartout-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.plate-caption-copy {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: #443729;
+  margin-bottom: 12px;
+}
+
+body.blueprint-mode .plate-caption-copy,
+body[data-theme="cyanotype"] .plate-caption-copy {
+  color: #a7cee8;
+}
+
+.camera-metadata-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: #8c7353;
+  letter-spacing: 0.08em;
+}
+
+body.blueprint-mode .camera-metadata-tag,
+body[data-theme="cyanotype"] .camera-metadata-tag {
+  color: #5ba3d3;
+}
+
+/* --------------------------------------------------------------------------
+   08. INTERACTIVE LIVE SITE CAMERA / ARCHIVE REELS
+   -------------------------------------------------------------------------- */
+.field-monitor-container {
+  position: relative;
+  background: linear-gradient(180deg, #1f272e 0%, #11171d 100%);
+  border: 3px solid #3d4a54;
+  border-radius: 8px;
+  box-shadow: 
+    0 16px 36px rgba(0, 0, 0, 0.7),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  padding: 24px;
+}
+
+body.blueprint-mode .field-monitor-container,
+body[data-theme="cyanotype"] .field-monitor-container {
+  background: linear-gradient(180deg, #091724 0%, #040c14 100%);
+  border-color: #1c3d5a;
+  box-shadow: 
+    0 16px 36px rgba(0, 0, 0, 0.85),
+    0 0 24px rgba(100, 255, 218, 0.08);
+}
+
+.monitor-screw {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #8496a3 0%, #465561 70%, #1a2228 100%);
+  border-radius: 50%;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+.monitor-screw.tl { top: 8px; left: 8px; }
+.monitor-screw.tr { top: 8px; right: 8px; }
+.monitor-screw.bl { bottom: 8px; left: 8px; }
+.monitor-screw.br { bottom: 8px; right: 8px; }
+
+.monitor-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  border-bottom: 1.5px solid #2b363f;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+body.blueprint-mode .monitor-header-row,
+body[data-theme="cyanotype"] .monitor-header-row {
+  border-bottom-color: #17344f;
+}
+
+.monitor-channel-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.led-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff3b30;
+  box-shadow: 0 0 8px #ff3b30;
+  animation: ledPulse 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes ledPulse {
+  0% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+.led-indicator.green {
+  background: #34c759;
+  box-shadow: 0 0 8px #34c759;
+}
+
+.monitor-feed-title {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #dfcaa2;
+  letter-spacing: 0.12em;
+}
+
+body.blueprint-mode .monitor-feed-title,
+body[data-theme="cyanotype"] .monitor-feed-title {
+  color: #a5d4f3;
+}
+
+.timeline-scrubber-track {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 24px;
+  gap: 8px;
+}
+
+.timeline-scrubber-track::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background: #394752;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+body.blueprint-mode .timeline-scrubber-track::before,
+body[data-theme="cyanotype"] .timeline-scrubber-track::before {
+  background: #1e3f5e;
+}
+
+.timeline-step-node {
+  position: relative;
+  z-index: 5;
+  background: #141c22;
+  border: 1.5px solid #5a6b77;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.25s ease;
+  flex: 1;
+  text-align: center;
+}
+
+body.blueprint-mode .timeline-step-node,
+body[data-theme="cyanotype"] .timeline-step-node {
+  background: #06121d;
+  border-color: #264a6d;
+}
+
+.timeline-step-node:hover {
+  border-color: #c5a059;
+  background: #1e2932;
+}
+
+body.blueprint-mode .timeline-step-node:hover,
+body[data-theme="cyanotype"] .timeline-step-node:hover {
+  border-color: #64ffda;
+  background: #0c2033;
+}
+
+.timeline-step-node.active {
+  background: #c5a059;
+  border-color: #ffd67a;
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.5);
+}
+
+body.blueprint-mode .timeline-step-node.active,
+body[data-theme="cyanotype"] .timeline-step-node.active {
+  background: #64ffda;
+  border-color: #b3ffed;
+  box-shadow: 0 0 16px rgba(100, 255, 218, 0.6);
+}
+
+.step-day-code {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #eeddbb;
+}
+
+.timeline-step-node.active .step-day-code {
+  color: #120b05;
+}
+
+body.blueprint-mode .timeline-step-node.active .step-day-code {
+  color: #04101d;
+}
+
+.step-name-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: #9cb2c2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
+
+.timeline-step-node.active .step-name-label {
+  color: #24160d;
+  font-weight: 700;
+}
+
+body.blueprint-mode .timeline-step-node.active .step-name-label {
+  color: #06192a;
+  font-weight: 700;
+}
+
+.monitor-display-screen {
+  background: #0b1116;
+  border: 1.5px solid #23303a;
+  border-radius: 6px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .monitor-display-screen {
+    grid-template-columns: 1fr;
+  }
+}
+
+.progress-snapshot-box {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  height: 220px;
+  border: 1px solid #2c3a45;
+}
+
+.progress-snapshot-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.1) brightness(0.95);
+}
+
+.camera-reticle-overlay {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+}
+
+.superintendent-log-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.log-milestone-title {
+  font-family: var(--font-mono);
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: #dfcaa2;
+  margin: 0;
+}
+
+body.blueprint-mode .log-milestone-title,
+body[data-theme="cyanotype"] .log-milestone-title {
+  color: #64ffda;
+}
+
+.log-entry-text {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: #b0c4d4;
+  margin: 0;
+}
+
+.telemetry-sensor-strip {
+  display: flex;
+  gap: 12px;
+  border-top: 1px solid #1a252e;
+  padding-top: 12px;
+}
+
+.sensor-gauge {
+  flex: 1;
+  background: #111a21;
+  border: 1px solid #283742;
+  border-radius: 3px;
+  padding: 6px 10px;
+  text-align: center;
+}
+
+.sensor-value {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #72ef9e;
+}
+
+.sensor-tag {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: #7b92a3;
+  letter-spacing: 0.04em;
+}
+
+/* --------------------------------------------------------------------------
+   09. SKEUOMORPHIC PHYSICAL ARTIFACTS
+   -------------------------------------------------------------------------- */
+.polaroid-clip-anchor {
+  position: absolute;
+  top: 140px;
+  left: -22px;
+  z-index: 60;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.polaroid-clip-anchor:hover {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+.brass-paperclip {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  width: 14px;
+  height: 38px;
+  border: 2.5px solid #c5a059;
+  border-bottom: none;
+  border-radius: 7px 7px 0 0;
+  box-shadow: 
+    -1px 2px 4px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  z-index: 70;
+  pointer-events: none;
+}
+
+body.blueprint-mode .brass-paperclip,
+body[data-theme="cyanotype"] .brass-paperclip {
+  border-color: #64ffda;
+}
+
+.polaroid-photo-sheet {
+  background: #fdfaf3;
+  padding: 10px 10px 24px 10px;
+  border-radius: 3px;
+  box-shadow: 
+    -4px 8px 18px rgba(0, 0, 0, 0.35),
+    0 1px 2px rgba(0, 0, 0, 0.2);
+  width: 130px;
+  transform: rotate(-3.5deg);
+  border: 1px solid rgba(180, 160, 130, 0.4);
+}
+
+.polaroid-image-box {
+  width: 100%;
+  height: 110px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: #111;
+}
+
+.polaroid-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.polaroid-caption-note {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 0.62rem;
+  color: #3b2816;
+  margin-top: 8px;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.drawing-register-cta-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.btn-drawing-set-envelope {
+  position: relative;
+  background: linear-gradient(135deg, #ede3cf 0%, #dac8aa 100%);
+  border: 1.5px solid #a88134;
+  border-radius: 4px;
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 
+    0 8px 22px rgba(0, 0, 0, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.25s var(--ease-smooth);
+}
+
+body.blueprint-mode .btn-drawing-set-envelope,
+body[data-theme="cyanotype"] .btn-drawing-set-envelope {
+  background: linear-gradient(135deg, #0f2742 0%, #071524 100%);
+  border-color: #64ffda;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.5),
+    0 0 18px rgba(100, 255, 218, 0.15);
+}
+
+.btn-drawing-set-envelope:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 28px rgba(0, 0, 0, 0.35),
+    0 0 16px rgba(212, 175, 55, 0.4);
+}
+
+body.blueprint-mode .btn-drawing-set-envelope:hover,
+body[data-theme="cyanotype"] .btn-drawing-set-envelope:hover {
+  box-shadow: 
+    0 12px 28px rgba(0, 0, 0, 0.6),
+    0 0 24px rgba(100, 255, 218, 0.4);
+}
+
+.envelope-wax-seal {
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(circle, #b83324 0%, #7d1b10 70%, #460f08 100%);
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #eeddbb;
+  font-size: 0.65rem;
+  font-weight: 900;
+}
+
+body.blueprint-mode .envelope-wax-seal,
+body[data-theme="cyanotype"] .envelope-wax-seal {
+  background: radial-gradient(circle, #64ffda 0%, #2ba58c 70%, #0c4e40 100%);
+  color: #04141d;
+}
+
+.envelope-text-label {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #2d1e0f;
+  text-transform: uppercase;
+}
+
+body.blueprint-mode .envelope-text-label,
+body[data-theme="cyanotype"] .envelope-text-label {
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   10. POLAROID INSPECTION LIGHTBOX MODAL
+   -------------------------------------------------------------------------- */
+.polaroid-modal-backdrop {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(8, 12, 16, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 999999 !important;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.polaroid-modal-backdrop.open {
+  display: flex !important;
+}
+
+.polaroid-expanded-card {
+  background: #fcf9f2;
+  padding: 18px 18px 36px 18px;
+  border-radius: 6px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+  max-width: 580px;
+  width: 100%;
+  position: relative;
+  animation: polaroidZoomIn 0.3s var(--ease-smooth);
+}
+
+@keyframes polaroidZoomIn {
+  from { transform: scale(0.85) rotate(-3deg); opacity: 0; }
+  to { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.polaroid-expanded-photo {
+  width: 100%;
+  height: 440px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #000;
+}
+
+.polaroid-expanded-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.polaroid-expanded-meta {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.polaroid-expanded-note {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: #2a1b0d;
+}
+
+.polaroid-modal-close-btn {
+  background: #1e140a;
+  color: #dfcaa2;
+  border: 1px solid #a88134;
+  border-radius: 3px;
+  padding: 6px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+
+
+/* ==========================================================================
+   07. THE UNSEALED COMMISSION REGISTER // ARCHIVAL FOLIO DOSSIERS
+   ========================================================================== */
+.folio-register-section {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto 90px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* Filter Rail (Plate Category Drawer Slider) */
+.folio-filter-rail-container {
+  position: sticky;
+  top: 76px;
+  z-index: 60;
+  background: rgba(26, 17, 10, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid #6b4d24;
+  border-radius: 6px;
+  padding: 10px 16px;
+  box-shadow: 
+    0 12px 30px rgba(0, 0, 0, 0.65),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+body.blueprint-mode .folio-filter-rail-container {
+  background: rgba(7, 21, 36, 0.95);
+  border-color: #1e4570;
+  box-shadow: 
+    0 12px 30px rgba(0, 0, 0, 0.85),
+    0 0 20px rgba(100, 255, 218, 0.1);
+}
+
+.filter-rail-title-tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #dfcaa2;
+  letter-spacing: 0.12em;
+}
+
+body.blueprint-mode .filter-rail-title-tag {
+  color: #64ffda;
+}
+
+.filter-rail-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-tab-pill {
+  background: rgba(45, 30, 18, 0.75);
+  border: 1px solid rgba(160, 125, 60, 0.4);
+  border-radius: 3px;
+  color: #c9b48f;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+body.blueprint-mode .filter-tab-pill {
+  background: rgba(13, 35, 58, 0.75);
+  border-color: rgba(60, 120, 180, 0.4);
+  color: #8bc2ea;
+}
+
+.filter-tab-pill:hover {
+  background: rgba(75, 50, 30, 0.9);
+  color: #ffd67a;
+  border-color: #c5a059;
+  transform: translateY(-1px);
+}
+
+body.blueprint-mode .filter-tab-pill:hover {
+  background: rgba(22, 55, 90, 0.9);
+  color: #64ffda;
+  border-color: #64ffda;
+}
+
+.filter-tab-pill.active {
+  background: linear-gradient(180deg, #d4b068 0%, #a88134 100%);
+  color: #1a1005;
+  border-color: #ffe6a3;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.7);
+  font-weight: 800;
+}
+
+body.blueprint-mode .filter-tab-pill.active {
+  background: linear-gradient(180deg, #64ffda 0%, #2ea891 100%);
+  color: #04101d;
+  border-color: #c4fff2;
+  box-shadow: 
+    0 2px 10px rgba(100, 255, 218, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+/* Individual Archival Folio Sheet */
+.archival-folio-sheet {
+  position: relative;
+  background: #fbf7ee;
+  border-radius: 4px;
+  border: 1px solid rgba(160, 130, 95, 0.45);
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.35),
+    inset 0 0 35px rgba(210, 190, 160, 0.2);
+  padding: 36px 42px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+body.blueprint-mode .archival-folio-sheet {
+  background: #091a2d;
+  border-color: #173859;
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.65),
+    0 0 25px rgba(100, 255, 218, 0.06),
+    inset 0 0 35px rgba(14, 46, 77, 0.45);
+}
+
+.archival-folio-sheet.hidden {
+  display: none !important;
+}
+
+/* Folio Sheet Header */
+.folio-sheet-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-bottom: 1.5px solid rgba(160, 130, 95, 0.35);
+  padding-bottom: 16px;
+}
+
+body.blueprint-mode .folio-sheet-header {
+  border-bottom-color: rgba(60, 110, 160, 0.35);
+}
+
+.folio-sheet-typology-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #9e7a3b;
+  letter-spacing: 0.12em;
+}
+
+body.blueprint-mode .folio-sheet-typology-tag {
+  color: #64ffda;
+}
+
+.folio-sheet-title {
+  font-family: var(--font-title-arch);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #1e160e;
+  letter-spacing: 0.04em;
+  margin: 4px 0 2px 0;
+}
+
+body.blueprint-mode .folio-sheet-title {
+  color: #ffffff;
+}
+
+.folio-sheet-location {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: #685642;
+  font-weight: 500;
+}
+
+body.blueprint-mode .folio-sheet-location {
+  color: #8fbcdb;
+}
+
+.folio-sheet-serial-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.dwg-plate-id {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #7a2216;
+  background: rgba(184, 43, 24, 0.08);
+  border: 1px dashed rgba(184, 43, 24, 0.4);
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+body.blueprint-mode .dwg-plate-id {
+  color: #ff7676;
+  background: rgba(255, 82, 82, 0.1);
+  border-color: rgba(255, 82, 82, 0.4);
+}
+
+/* Visual Assets: 16:9 Cinematic Photo + Side Isometric Blueprint */
+.folio-visual-spread {
+  display: grid;
+  grid-template-columns: 2.1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .folio-visual-spread {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 16:9 Photographic Viewport with Inspection Loupe */
+.folio-photo-viewport {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 
+    0 10px 24px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 1px rgba(160, 130, 95, 0.5);
+  cursor: crosshair;
+  background: #000;
+}
+
+.folio-photo-viewport img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.folio-photo-viewport:hover img {
+  transform: scale(1.02);
+}
+
+/* Technical Loupe Crosshair Lines */
+.inspection-loupe-crosshair-x,
+.inspection-loupe-crosshair-y {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 15;
+}
+
+.inspection-loupe-crosshair-x {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 82, 82, 0.85);
+  box-shadow: 0 0 4px rgba(255, 82, 82, 0.6);
+}
+
+.inspection-loupe-crosshair-y {
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 82, 82, 0.85);
+  box-shadow: 0 0 4px rgba(255, 82, 82, 0.6);
+}
+
+.folio-photo-viewport:hover .inspection-loupe-crosshair-x,
+.folio-photo-viewport:hover .inspection-loupe-crosshair-y {
+  opacity: 1;
+}
+
+/* Micron Calibrated Coordinate Readout Badge */
+.loupe-coords-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  background: rgba(14, 10, 6, 0.88);
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #ffd67a;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+body.blueprint-mode .loupe-coords-badge {
+  background: rgba(5, 16, 28, 0.9);
+  border-color: #64ffda;
+  color: #64ffda;
+}
+
+.folio-photo-viewport:hover .loupe-coords-badge {
+  opacity: 1;
+}
+
+/* Authentic Weathered Ink Turnover Stamp Reveal on Hover */
+.turnover-stamp-reveal {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  border: 2px dashed #b82b18;
+  border-radius: 4px;
+  padding: 6px 14px;
+  background: rgba(248, 240, 230, 0.92);
+  color: #b82b18;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  transform: rotate(-2.5deg) scale(0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 20;
+}
+
+body.blueprint-mode .turnover-stamp-reveal {
+  border-color: #64ffda;
+  color: #64ffda;
+  background: rgba(6, 20, 34, 0.92);
+  box-shadow: 0 4px 14px rgba(100, 255, 218, 0.2);
+}
+
+.folio-photo-viewport:hover .turnover-stamp-reveal {
+  opacity: 1;
+  transform: rotate(-1.5deg) scale(1);
+}
+
+/* Side Isometric Structural Detail Blueprint Box */
+.side-blueprint-box {
+  position: relative;
+  background-color: #f3eee4;
+  border: 1.5px solid #a88134;
+  border-radius: 4px;
+  box-shadow: 
+    inset 0 0 18px rgba(180, 150, 110, 0.3),
+    0 4px 14px rgba(0, 0, 0, 0.15);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+body.blueprint-mode .side-blueprint-box {
+  background-color: #081a2e;
+  border-color: #2b5680;
+  box-shadow: 
+    inset 0 0 20px rgba(14, 46, 77, 0.6),
+    0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+.side-blueprint-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(to right, rgba(160, 130, 95, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(160, 130, 95, 0.15) 1px, transparent 1px);
+  background-size: 14px 14px;
+  pointer-events: none;
+}
+
+body.blueprint-mode .side-blueprint-grid {
+  background-image: 
+    linear-gradient(to right, rgba(100, 255, 218, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(100, 255, 218, 0.1) 1px, transparent 1px);
+}
+
+.side-blueprint-svg {
+  width: 100%;
+  height: 180px;
+  display: block;
+  position: relative;
+  z-index: 5;
+}
+
+/* Blueprint vector classes with explicit fills/strokes */
+.side-bp-slab {
+  fill: rgba(220, 210, 195, 0.5) !important;
+  stroke: #2b2218 !important;
+  stroke-width: 1.5;
+}
+
+.side-bp-beam {
+  fill: rgba(197, 160, 89, 0.25) !important;
+  stroke: #8d6b2c !important;
+  stroke-width: 1.5;
+}
+
+.side-bp-vector {
+  stroke: #b83324 !important;
+  stroke-width: 1.5;
+  fill: none !important;
+}
+
+.side-bp-grid {
+  stroke: rgba(160, 135, 100, 0.35) !important;
+  stroke-width: 1;
+}
+
+.side-bp-text {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  fill: #5a4632 !important;
+  letter-spacing: 0.06em;
+}
+
+body.blueprint-mode .side-bp-slab,
+body[data-theme="cyanotype"] .side-bp-slab {
+  fill: rgba(14, 46, 77, 0.4) !important;
+  stroke: #5ba3d3 !important;
+}
+
+body.blueprint-mode .side-bp-beam,
+body[data-theme="cyanotype"] .side-bp-beam {
+  fill: rgba(100, 255, 218, 0.2) !important;
+  stroke: #64ffda !important;
+}
+
+body.blueprint-mode .side-bp-vector,
+body[data-theme="cyanotype"] .side-bp-vector {
+  stroke: #ff5252 !important;
+}
+
+body.blueprint-mode .side-bp-grid,
+body[data-theme="cyanotype"] .side-bp-grid {
+  stroke: rgba(100, 255, 218, 0.15) !important;
+}
+
+body.blueprint-mode .side-bp-text,
+body[data-theme="cyanotype"] .side-bp-text {
+  fill: #8fc7ed !important;
+}
+
+.side-blueprint-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid rgba(160, 130, 95, 0.35);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  position: relative;
+  z-index: 5;
+}
+
+body.blueprint-mode .side-blueprint-meta {
+  border-top-color: rgba(60, 110, 160, 0.35);
+}
+
+.side-dwg-code {
+  color: #8c6a2e;
+  font-weight: 800;
+}
+
+body.blueprint-mode .side-dwg-code {
+  color: #64ffda;
+}
+
+/* Specification Tag Bar */
+.spec-tag-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: rgba(36, 24, 14, 0.88);
+  border: 1px solid #755523;
+  border-radius: 4px;
+  padding: 10px 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+body.blueprint-mode .spec-tag-bar {
+  background: rgba(6, 19, 32, 0.9);
+  border-color: #1e4570;
+}
+
+.spec-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(20, 13, 8, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #f1e2c8;
+}
+
+body.blueprint-mode .spec-pill-tag {
+  background: rgba(4, 13, 22, 0.7);
+  border-color: rgba(100, 255, 218, 0.4);
+  color: #64ffda;
+}
+
+.pill-sep {
+  color: #9e7a3b;
+  font-weight: 700;
+}
+
+/* 3-Column Dossier Narrative Grid */
+.dossier-narrative-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.25fr;
+  gap: 24px;
+  border-top: 1.5px solid rgba(160, 130, 95, 0.3);
+  padding-top: 20px;
+}
+
+@media (max-width: 900px) {
+  .dossier-narrative-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dossier-section-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dossier-block-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #8c6828;
+  letter-spacing: 0.12em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+body.blueprint-mode .dossier-block-label {
+  color: #64ffda;
+}
+
+.dossier-block-copy {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #443a2f;
+  margin: 0;
+}
+
+body.blueprint-mode .dossier-block-copy {
+  color: #d8eaf7;
+}
+
+.dossier-metric-list {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dossier-metric-item {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: #3e3327;
+  padding-left: 12px;
+  position: relative;
+}
+
+body.blueprint-mode .dossier-metric-item {
+  color: #d0e4f5;
+}
+
+.dossier-metric-item::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #a88134;
+  font-size: 0.8rem;
+}
+
+body.blueprint-mode .dossier-metric-item::before {
+  color: #64ffda;
+}
+
+/* Stamped Archival Artifact Callout Box */
+.archival-artifact-callout {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(245, 238, 224, 0.85);
+  border-left: 3px solid #b82b18;
+  border-top: 1px solid rgba(184, 43, 24, 0.2);
+  border-right: 1px solid rgba(184, 43, 24, 0.2);
+  border-bottom: 1px solid rgba(184, 43, 24, 0.2);
+  border-radius: 0 4px 4px 0;
+  padding: 12px 18px;
+}
+
+body.blueprint-mode .archival-artifact-callout {
+  background: rgba(10, 28, 48, 0.85);
+  border-left-color: #64ffda;
+  border-top-color: rgba(100, 255, 218, 0.2);
+  border-right-color: rgba(100, 255, 218, 0.2);
+  border-bottom-color: rgba(100, 255, 218, 0.2);
+}
+
+.artifact-stamp-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.artifact-quote-text {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #38281a;
+  line-height: 1.45;
+}
+
+body.blueprint-mode .artifact-quote-text {
+  color: #e2f2fc;
+}
+
+/* Action Cluster: Load into Tracing Caliper */
+.folio-card-footer-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-top: 10px;
+}
+
+.btn-load-caliper {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(180deg, #302013 0%, #1c1109 100%);
+  border: 1px solid #755523;
+  color: #ffd67a;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 8px 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+body.blueprint-mode .btn-load-caliper {
+  background: linear-gradient(180deg, #10263e 0%, #071320 100%);
+  border-color: #1e4570;
+  color: #64ffda;
+}
+
+.btn-load-caliper:hover {
+  background: linear-gradient(180deg, #442d1b 0%, #2a1a0e 100%);
+  border-color: #c5a059;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+body.blueprint-mode .btn-load-caliper:hover {
+  background: linear-gradient(180deg, #183a5e 0%, #0c223a 100%);
+  border-color: #64ffda;
+  box-shadow: 0 4px 14px rgba(100, 255, 218, 0.25);
+}
+
+/* Origin Return Button Text */
+.origin-text {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+/* Desk Legal Footer Container */
+.desk-legal-footer {
+  position: relative;
+  max-width: 1240px;
+  margin: 60px auto 40px auto;
+  z-index: 40;
+}
+
+.legal-spec-accordion-tray {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

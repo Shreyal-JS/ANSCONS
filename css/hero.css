@@ -1,0 +1,319 @@
+/* ==========================================================================
+   HERO: MASTER ARCHITECTURAL BLUEPRINT & TITLE BLOCK
+   ========================================================================== */
+
+.hero-blueprint-sheet {
+  position: relative;
+  max-width: 1220px;
+  margin: 0 auto 90px auto;
+  background-color: var(--desk-paper-bg);
+  background-image: 
+    radial-gradient(ellipse at 25% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 60%),
+    linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px);
+  background-size: 100% 100%, 25px 25px, 25px 25px;
+  border: 1px solid rgba(180, 160, 130, 0.4);
+  box-shadow: var(--shadow-elevation-2);
+  padding: 55px 65px;
+  transition: all 0.5s ease;
+  transform: rotate(-0.3deg); /* Slight natural desk rotation */
+}
+
+/* Authentic Double-Line Architectural Drawing Frame */
+.blueprint-border-frame {
+  position: relative;
+  border: 2px solid #2d261e;
+  padding: 30px;
+  outline: 1px solid #705e46;
+  outline-offset: 6px;
+}
+
+[data-theme="cyanotype"] .blueprint-border-frame {
+  border-color: #79b7eb;
+  outline-color: #3b709e;
+}
+
+/* Sheet Corner Coordinates & North Arrow */
+.sheet-header-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1.5px solid rgba(140, 115, 80, 0.3);
+  padding-bottom: 14px;
+  margin-bottom: 36px;
+}
+
+.north-arrow-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #7d6138;
+}
+
+.north-symbol {
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid #a88134;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.75rem;
+  color: #a88134;
+  position: relative;
+}
+
+.north-symbol::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 7px solid #a88134;
+}
+
+/* Hero Typography & Presentation */
+.hero-content-core {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 50px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.hero-subtitle-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 14px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+.hero-main-title {
+  font-family: var(--font-serif-luxury);
+  font-size: 3.2rem;
+  line-height: 1.15;
+  color: #1a1612;
+  margin-bottom: 22px;
+}
+
+[data-theme="cyanotype"] .hero-main-title {
+  color: #ffffff;
+}
+
+.hero-description-copy {
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: #4c443b;
+  margin-bottom: 34px;
+}
+
+[data-theme="cyanotype"] .hero-description-copy {
+  color: #bcd4ea;
+}
+
+/* Hero Skeuomorphic Action Buttons */
+.hero-actions-cluster {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Cast Brass Plaque Button */
+.btn-brass-plaque {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--brass-gradient);
+  color: #241904;
+  text-decoration: none;
+  font-family: var(--font-title-arch);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 16px 28px;
+  border-radius: 3px;
+  border: 1.5px solid #fce8ad;
+  box-shadow: 
+    -3px 5px 12px rgba(0,0,0,0.35),
+    inset 0 1px 1px rgba(255,255,255,0.8),
+    inset 0 -1px 2px rgba(90,65,15,0.6);
+  transition: transform 0.2s var(--ease-spring), box-shadow 0.2s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.btn-brass-plaque::before,
+.btn-brass-plaque::after {
+  content: '•';
+  font-size: 14px;
+  color: #5c4314;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+}
+
+.btn-brass-plaque:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    -4px 8px 18px rgba(0,0,0,0.4),
+    inset 0 1px 2px rgba(255,255,255,0.9);
+}
+
+.btn-brass-plaque:active {
+  transform: translateY(1px);
+  box-shadow: 
+    -1px 2px 4px rgba(0,0,0,0.3),
+    inset 0 2px 4px rgba(0,0,0,0.4);
+}
+
+/* Debossed Wax / Parchment Button */
+.btn-vellum-debossed {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(235, 225, 208, 0.7);
+  color: #382c1e;
+  text-decoration: none;
+  font-family: var(--font-title-arch);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 15px 24px;
+  border-radius: 3px;
+  border: 1px solid rgba(140, 110, 75, 0.4);
+  box-shadow: 
+    inset 1px 2px 4px rgba(0, 0, 0, 0.18),
+    0 1px 1px rgba(255, 255, 255, 0.7);
+  transition: all 0.22s ease;
+  cursor: pointer;
+}
+
+.btn-vellum-debossed:hover {
+  background: rgba(245, 238, 222, 0.95);
+  box-shadow: 
+    inset 1px 1px 2px rgba(0, 0, 0, 0.12),
+    -2px 4px 10px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+}
+
+/* Hero Right Side: Authentic Architectural Space Schematic & Dimension Lines */
+.hero-schematic-preview {
+  position: relative;
+  background: rgba(240, 235, 225, 0.5);
+  border: 1.5px dashed rgba(160, 135, 100, 0.5);
+  border-radius: 4px;
+  padding: 24px;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.06);
+}
+
+[data-theme="cyanotype"] .hero-schematic-preview {
+  background: rgba(8, 24, 42, 0.6);
+  border-color: rgba(90, 160, 230, 0.4);
+}
+
+.schematic-svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
+}
+
+/* Master Architectural Title Block (Bottom-Right Box Standard in Blueprints) */
+.architect-title-block {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  border: 2px solid #2d261e;
+  background: rgba(250, 246, 238, 0.95);
+  box-shadow: -2px 3px 8px rgba(0,0,0,0.15);
+  margin-top: 30px;
+}
+
+[data-theme="cyanotype"] .architect-title-block {
+  background: #0d2238;
+  border-color: #6daae0;
+}
+
+.title-block-cell {
+  padding: 12px 16px;
+  border-right: 1px solid #705e46;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title-block-cell:last-child {
+  border-right: none;
+}
+
+.cell-caption {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: #8c734b;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 2px;
+}
+
+.cell-value {
+  font-family: var(--font-title-arch);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #1f1a14;
+}
+
+[data-theme="cyanotype"] .cell-value {
+  color: #e5f2ff;
+}
+
+/* Official Red Ink Architectural Permit Stamp */
+.title-block-stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #b32a2a;
+  border-radius: 4px;
+  padding: 6px 12px;
+  color: #b32a2a;
+  font-family: var(--font-title-arch);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transform: rotate(-4deg);
+  box-shadow: 0 0 1px rgba(179, 42, 42, 0.6);
+  opacity: 0.92;
+  user-select: none;
+}
+
+/* Heavy Polished Brass Paperweight holding down blueprint corner */
+.brass-corner-weight {
+  position: absolute;
+  bottom: -22px;
+  left: 20px;
+  width: 70px;
+  height: 44px;
+  background: var(--brass-gradient);
+  border-radius: 4px;
+  box-shadow: 
+    -4px 8px 18px rgba(0,0,0,0.55),
+    inset 0 1px 2px rgba(255,255,255,0.9),
+    inset 0 -2px 4px rgba(70,50,15,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #3d2a09;
+  letter-spacing: 0.1em;
+  z-index: 60;
+}
+

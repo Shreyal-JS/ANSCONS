@@ -1,0 +1,620 @@
+/* ==========================================================================
+   DRAFTING TABLE ENVIRONMENT & DESK ACCESSORIES
+   ========================================================================== */
+
+/* The Master Drafting Table Surface */
+.drafting-table {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--desk-base-color);
+  background-image: 
+    /* Grid Minor 20px */
+    linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px),
+    /* Grid Major 100px */
+    linear-gradient(to right, rgba(200, 165, 120, 0.35) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, rgba(200, 165, 120, 0.35) 1.5px, transparent 1.5px);
+  background-size: 
+    20px 20px, 
+    20px 20px, 
+    100px 100px, 
+    100px 100px;
+  background-position: center top;
+  padding: 80px 40px 120px 40px;
+  overflow-x: clip; /* Preserves position: sticky for descendant elements while preventing horizontal blowout */
+  transition: background-color 0.6s var(--ease-smooth);
+}
+
+/* Floating Brass Return-To-Origin (Top of Desk) Compass Widget */
+.btn-return-origin {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(22, 19, 16, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid #d4af37;
+  border-radius: 30px;
+  padding: 8px 16px;
+  color: #ffeaae;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  box-shadow: 
+    -3px 6px 18px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: all 0.3s var(--ease-spring);
+  user-select: none;
+}
+
+.btn-return-origin.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.btn-return-origin:hover {
+  background: var(--brass-gradient);
+  color: #211604;
+  border-color: #ffecb8;
+  transform: translateY(-2px);
+  box-shadow: 
+    -4px 8px 24px rgba(0, 0, 0, 0.7),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.compass-needle {
+  font-size: 0.8rem;
+  color: var(--brass-gold);
+  transition: transform 0.3s ease;
+}
+
+.btn-return-origin:hover .compass-needle {
+  color: #1a1204;
+  transform: translateY(-2px);
+}
+
+body.blueprint-mode .btn-return-origin,
+body[data-theme="cyanotype"] .btn-return-origin {
+  background: rgba(8, 24, 42, 0.92);
+  border-color: #64ffda;
+  color: #d6f6ff;
+}
+
+body.blueprint-mode .btn-return-origin:hover,
+body[data-theme="cyanotype"] .btn-return-origin:hover {
+  background: linear-gradient(135deg, #64ffda 0%, #3e8bcc 100%);
+  color: #051220;
+}
+
+/* Desk Lamp Warm Glow (Fixed Virtual Light at Top-Left) */
+.desk-lamp-glow {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+  width: 850px;
+  height: 850px;
+  background: radial-gradient(circle at center, rgba(255, 238, 195, 0.18) 0%, rgba(255, 220, 160, 0.08) 40%, transparent 75%);
+  pointer-events: none;
+  z-index: 99;
+  mix-blend-mode: screen;
+}
+
+/* Edge Precision Calibrated Rulers (Top & Left) - Attached to Desk Origin (Not Viewport Fixed) */
+.desk-ruler-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 26px;
+  background: linear-gradient(to bottom, #d4af37 0%, #a88126 90%, #684f14 100%);
+  border-bottom: 2px solid #3c2a07;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 40px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  color: #2b1f07;
+  background-image: repeating-linear-gradient(
+    to right,
+    transparent 0px,
+    transparent 9px,
+    #2b1f07 9px,
+    #2b1f07 10px
+  );
+  user-select: none;
+}
+
+.desk-ruler-left {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 26px;
+  background: linear-gradient(to right, #d4af37 0%, #a88126 90%, #684f14 100%);
+  border-right: 2px solid #3c2a07;
+  box-shadow: 4px 0 12px rgba(0,0,0,0.45);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 0;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  color: #2b1f07;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 9px,
+    #2b1f07 9px,
+    #2b1f07 10px
+  );
+  user-select: none;
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+}
+
+/* Desk Control Toolbar (Top Right: Theme Switch & Audio Mute) */
+.desk-controls-hud {
+  position: fixed;
+  top: 36px;
+  right: 36px;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(22, 20, 18, 0.88);
+  backdrop-filter: blur(12px);
+  padding: 8px 14px;
+  border-radius: 40px;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 
+    -3px 5px 15px rgba(0,0,0,0.5),
+    inset 0 1px 1px rgba(255,255,255,0.2);
+}
+
+/* Audio Control Button (MUTED BY DEFAULT) */
+.desk-audio-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #d8c29d;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 20px;
+  transition: all 0.25s ease;
+}
+
+.desk-audio-toggle:hover {
+  background: rgba(212, 175, 55, 0.15);
+  color: #ffd67a;
+}
+
+.desk-audio-toggle .audio-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.desk-audio-badge {
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 10px;
+  background: rgba(255, 100, 100, 0.2);
+  color: #ff8b8b;
+  border: 1px solid rgba(255, 100, 100, 0.3);
+}
+
+.desk-audio-toggle.active .desk-audio-badge {
+  background: rgba(80, 200, 120, 0.2);
+  color: #72ef9e;
+  border-color: rgba(80, 200, 120, 0.3);
+}
+
+/* ==========================================================================
+   DESK SURFACE THEME LIGHTING MATHEMATICS
+   ========================================================================== */
+
+/* 1. Studio Warm Drafting Mode */
+body.studio-mode .drafting-table,
+body[data-theme="studio"] .drafting-table {
+  background-color: var(--desk-base-color);
+  background-image: 
+    linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px),
+    linear-gradient(to right, var(--grid-line-major) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, var(--grid-line-major) 1.5px, transparent 1.5px);
+}
+
+body.studio-mode .desk-lamp-glow,
+body[data-theme="studio"] .desk-lamp-glow {
+  background: var(--lamp-glow-color);
+}
+
+/* 2. Architectural Cyanotype Blueprint Mode */
+body.blueprint-mode .drafting-table,
+body[data-theme="cyanotype"] .drafting-table {
+  background-color: #071526;
+  background-image: 
+    linear-gradient(to right, rgba(80, 160, 240, 0.22) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(80, 160, 240, 0.22) 1px, transparent 1px),
+    linear-gradient(to right, rgba(120, 200, 255, 0.38) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, rgba(120, 200, 255, 0.38) 1.5px, transparent 1.5px);
+}
+
+body.blueprint-mode .desk-lamp-glow,
+body[data-theme="cyanotype"] .desk-lamp-glow {
+  background: var(--lamp-glow-color);
+}
+
+/* ==========================================================================
+   SOLID CAST-BRASS SNAP TOGGLE SWITCH (TOP RIGHT DESK HUD)
+   ========================================================================== */
+
+.lamp-lever-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 14px;
+  border-left: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+/* Solid Cast-Brass Switch Mounting Plate */
+.brass-switch-plate {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #ecd69a 0%, #c9a34d 40%, #8a6624 85%, #b58f3c 100%);
+  border: 1.5px solid #fff0c7;
+  border-radius: 6px;
+  padding: 5px 12px;
+  box-shadow: 
+    -3px 5px 12px rgba(0, 0, 0, 0.65),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9),
+    inset 0 -1px 2px rgba(70, 50, 10, 0.8);
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s var(--ease-spring);
+}
+
+.brass-switch-plate:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    -4px 7px 16px rgba(0, 0, 0, 0.7),
+    inset 0 1px 2px rgba(255, 255, 255, 1);
+}
+
+/* Slotted Machine Screws on Switch Plate */
+.plate-screw {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff2cf 0%, #b8923a 60%, #583f12 100%);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.6);
+  position: relative;
+}
+
+.plate-screw::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 1px;
+  right: 1px;
+  height: 1px;
+  background: #382607;
+}
+
+/* Engraved Mode Labels on Brass Plate */
+.switch-mode-label {
+  font-family: var(--font-title-arch);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #3b2808;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: color 0.25s ease;
+}
+
+.switch-mode-label.active {
+  color: #160f03;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+/* Recessed Knurled Bezel & Bat Toggle Lever */
+.brass-toggle-housing {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background: radial-gradient(circle at center, #18120c 0%, #2e2216 70%, #0d0905 100%);
+  border-radius: 12px;
+  border: 1.5px solid #5a4014;
+  box-shadow: 
+    inset 0 2px 5px rgba(0, 0, 0, 0.9),
+    0 1px 1px rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  padding: 2px;
+}
+
+/* The Mechanical Cast-Brass Bat Lever */
+.brass-toggle-bat {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff7d9 0%, #dfb858 45%, #7e5c1a 100%);
+  border: 1px solid #fffae8;
+  box-shadow: 
+    -2px 3px 6px rgba(0, 0, 0, 0.65),
+    inset 0 1px 2px rgba(255, 255, 255, 1);
+  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
+  transform: translateX(0);
+}
+
+/* Snap to Blueprint Mode */
+body.blueprint-mode .brass-toggle-bat,
+body[data-theme="cyanotype"] .brass-toggle-bat {
+  transform: translateX(20px);
+  background: radial-gradient(circle at 35% 30%, #e1f3ff 0%, #52a7eb 50%, #17528a 100%);
+  border-color: #f0f8ff;
+  box-shadow: 
+    2px 3px 6px rgba(0, 0, 0, 0.65),
+    0 0 8px rgba(82, 167, 235, 0.5);
+}
+
+/* Translucent Masking Tape Strips (Securing sheets to table) */
+.drafting-tape {
+  position: absolute;
+  width: 90px;
+  height: 26px;
+  background: rgba(245, 238, 220, 0.62);
+  backdrop-filter: blur(1.5px);
+  box-shadow: 
+    -2px 3px 6px rgba(0, 0, 0, 0.18),
+    inset 0 0 4px rgba(215, 205, 180, 0.5);
+  border-left: 2px dashed rgba(200, 190, 160, 0.4);
+  border-right: 2px dashed rgba(200, 190, 160, 0.4);
+  pointer-events: none;
+  z-index: 40;
+}
+
+.drafting-tape.tape-tl {
+  top: -12px;
+  left: -20px;
+  transform: rotate(-32deg);
+}
+
+.drafting-tape.tape-tr {
+  top: -12px;
+  right: -20px;
+  transform: rotate(35deg);
+}
+
+.drafting-tape.tape-bl {
+  bottom: -12px;
+  left: -20px;
+  transform: rotate(28deg);
+}
+
+.drafting-tape.tape-br {
+  bottom: -12px;
+  right: -20px;
+  transform: rotate(-30deg);
+}
+
+/* Polished Knurled Brass Pushpins */
+.brass-pushpin {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff1c4 0%, #d4af37 45%, #7a5e19 100%);
+  box-shadow: 
+    -3px 5px 8px rgba(0,0,0,0.5),
+    inset 0 1px 2px rgba(255,255,255,0.7);
+  z-index: 50;
+  pointer-events: none;
+}
+
+.brass-pushpin::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  filter: blur(1px);
+}
+
+/* ==========================================================================
+   MASTER ARCHITECTURAL HEADING SYSTEM (CROSS-PAGE UNIFIED SYSTEM)
+   Matches index.html: .section-ribbon-tag, .north-symbol, .section-ribbon-title,
+   .hero-subtitle-tag, .arch-label, .hero-main-title, .hero-description-copy
+   ========================================================================== */
+
+/* 1. Hero Subtitle Tag Badge */
+.hero-subtitle-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+body.blueprint-mode .hero-subtitle-tag,
+body[data-theme="cyanotype"] .hero-subtitle-tag {
+  background: rgba(100, 255, 218, 0.12);
+  border-color: rgba(100, 255, 218, 0.35);
+}
+
+.arch-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #c6a25c;
+  text-transform: uppercase;
+}
+
+body.blueprint-mode .arch-label,
+body[data-theme="cyanotype"] .arch-label {
+  color: #64ffda;
+}
+
+/* 2. Master Hero Main Heading */
+.hero-main-title {
+  font-family: var(--font-serif-luxury);
+  font-size: clamp(2.3rem, 3.8vw, 3.4rem);
+  line-height: 1.15;
+  color: #1a1612;
+  margin-bottom: 22px;
+  letter-spacing: -0.02em;
+}
+
+body.blueprint-mode .hero-main-title,
+body[data-theme="cyanotype"] .hero-main-title {
+  color: #ffffff;
+}
+
+/* 3. Hero Description Copy */
+.hero-description-copy {
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: #4c443b;
+  margin-bottom: 34px;
+  max-width: 920px;
+}
+
+body.blueprint-mode .hero-description-copy,
+body[data-theme="cyanotype"] .hero-description-copy {
+  color: #bcd4ea;
+}
+
+/* 4. Master Section Ribbon Tag & Cluster */
+.section-ribbon-tag {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 26px;
+  position: relative;
+  z-index: 10;
+}
+
+.ribbon-title-cluster {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Circular Brass Compass Section Number Marker */
+.north-symbol {
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid #a88134;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.75rem;
+  color: #a88134;
+  position: relative;
+  flex-shrink: 0;
+  background: rgba(30, 22, 14, 0.4);
+}
+
+body.blueprint-mode .north-symbol,
+body[data-theme="cyanotype"] .north-symbol {
+  border-color: #64ffda;
+  color: #64ffda;
+  background: rgba(10, 28, 48, 0.6);
+}
+
+.section-ribbon-tag .north-symbol::after {
+  display: none;
+}
+
+/* Master Section Ribbon Title */
+.section-ribbon-title,
+.section-title-prominent {
+  font-family: var(--font-title-arch);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--brass-gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-shadow: -1px 2px 4px rgba(0, 0, 0, 0.6);
+  margin: 0;
+  line-height: 1.25;
+}
+
+body.blueprint-mode .section-ribbon-title,
+body.blueprint-mode .section-title-prominent,
+body[data-theme="cyanotype"] .section-ribbon-title,
+body[data-theme="cyanotype"] .section-title-prominent {
+  color: #ffffff;
+  text-shadow: 
+    -1px 2px 6px rgba(0, 0, 0, 0.9),
+    0 0 16px rgba(100, 255, 218, 0.4);
+}
+
+/* Monospace Tool / Instruction Note Badge */
+.peel-instructions-note {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #e2d4be;
+  background: rgba(26, 20, 14, 0.85);
+  border: 1px solid rgba(198, 162, 92, 0.5);
+  padding: 6px 14px;
+  border-radius: 3px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 
+    0 3px 10px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+body.blueprint-mode .peel-instructions-note,
+body[data-theme="cyanotype"] .peel-instructions-note {
+  color: #a4ccf0;
+  background: rgba(10, 28, 48, 0.88);
+  border-color: rgba(100, 200, 255, 0.45);
+  box-shadow: 
+    0 3px 10px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(100, 200, 255, 0.2);
+}
+

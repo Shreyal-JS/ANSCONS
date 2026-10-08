@@ -1,0 +1,1585 @@
+/* ==========================================================================
+   ANSCONS DOC 06: ARCHITECTURAL COMMISSION REGISTRY & DISPATCH DESK
+   Mahogany Dispatch Folio, Brass Contact Pegs, Sketch Canvas, & Wax Seal Press
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. MASTER DISPATCH CHAMBER CONTAINER & BINDER CHASSIS
+   -------------------------------------------------------------------------- */
+.liaison-chamber-section {
+  position: relative;
+  max-width: 1220px;
+  margin: 20px auto 100px auto;
+}
+
+/* The Heavy Mahogany & Buckram-Bound Dispatch Folio */
+.dispatch-folio-binder {
+  position: relative;
+  background: 
+    radial-gradient(circle at 50% 10%, rgba(255, 230, 180, 0.05) 0%, transparent 60%),
+    linear-gradient(145deg, #1f1610 0%, #150e09 45%, #0d0805 100%);
+  border: 2px solid #8f6a32;
+  border-radius: 8px;
+  padding: 46px 48px;
+  box-shadow: 
+    0 40px 90px rgba(0, 0, 0, 0.85),
+    inset 0 1px 2px rgba(255, 255, 255, 0.25),
+    inset 0 0 50px rgba(0, 0, 0, 0.9);
+  user-select: none;
+}
+
+body.blueprint-mode .dispatch-folio-binder,
+body[data-theme="cyanotype"] .dispatch-folio-binder {
+  background: 
+    radial-gradient(circle at 50% 10%, rgba(100, 255, 218, 0.08) 0%, transparent 60%),
+    linear-gradient(145deg, #071526 0%, #030d17 45%, #02070e 100%);
+  border-color: #5daee8;
+  box-shadow: 
+    0 40px 90px rgba(0, 0, 0, 0.95),
+    0 0 35px rgba(100, 255, 218, 0.12),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3),
+    inset 0 0 50px rgba(1, 5, 12, 0.95);
+}
+
+/* Brass Corner Edge Protectors */
+.brass-corner-bracket {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border: 3px solid #d4af37;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.brass-corner-bracket.top-left { top: 8px; left: 8px; border-right: none; border-bottom: none; }
+.brass-corner-bracket.top-right { top: 8px; right: 8px; border-left: none; border-bottom: none; }
+.brass-corner-bracket.bottom-left { bottom: 8px; left: 8px; border-right: none; border-top: none; }
+.brass-corner-bracket.bottom-right { bottom: 8px; right: 8px; border-left: none; border-top: none; }
+
+body.blueprint-mode .brass-corner-bracket,
+body[data-theme="cyanotype"] .brass-corner-bracket {
+  border-color: #64ffda;
+}
+
+/* Silk Ribbon Closure Hanging from Folio Base */
+.folio-ribbon-tie {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 56px;
+  background: linear-gradient(180deg, #7a1c1c 0%, #4a0f0f 70%, #2e0808 100%);
+  border-radius: 2px 2px 6px 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+body.blueprint-mode .folio-ribbon-tie,
+body[data-theme="cyanotype"] .folio-ribbon-tie {
+  background: linear-gradient(180deg, #1c527a 0%, #0f344a 70%, #071f2e 100%);
+}
+
+/* Folio Header Row */
+.dispatch-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 34px;
+  flex-wrap: wrap;
+}
+
+.dispatch-title-group {
+  flex: 1;
+  min-width: 290px;
+}
+
+.dispatch-doc-code {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #c9a456;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+body.blueprint-mode .dispatch-doc-code,
+body[data-theme="cyanotype"] .dispatch-doc-code {
+  color: #64ffda;
+}
+
+.dispatch-doc-title {
+  font-family: var(--font-serif-luxury);
+  font-size: 2.3rem;
+  font-weight: 600;
+  color: #f7f1e3;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+body.blueprint-mode .dispatch-doc-title,
+body[data-theme="cyanotype"] .dispatch-doc-title {
+  color: #ffffff;
+  text-shadow: 0 0 14px rgba(100, 255, 218, 0.25);
+}
+
+.dispatch-doc-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: #ad9472;
+  line-height: 1.45;
+  max-width: 680px;
+}
+
+body.blueprint-mode .dispatch-doc-subtitle,
+body[data-theme="cyanotype"] .dispatch-doc-subtitle {
+  color: #8fc7ed;
+}
+
+/* Confidential Classification Badge */
+.dispatch-security-tag {
+  background: linear-gradient(135deg, #2b1f14 0%, #17100a 100%);
+  border: 1px solid #c9a456;
+  border-radius: 4px;
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: right;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+body.blueprint-mode .dispatch-security-tag,
+body[data-theme="cyanotype"] .dispatch-security-tag {
+  background: linear-gradient(135deg, #091a2e 0%, #040e1a 100%);
+  border-color: #64ffda;
+}
+
+.security-tag-level {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #ff6b6b;
+}
+
+body.blueprint-mode .security-tag-level,
+body[data-theme="cyanotype"] .security-tag-level {
+  color: #64ffda;
+}
+
+.security-tag-desc {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: #a8947b;
+  letter-spacing: 0.08em;
+}
+
+/* --------------------------------------------------------------------------
+   2. PRE-FILLED ESTIMATE VOUCHER PIN (CONTINUITY FROM DOC 05)
+   -------------------------------------------------------------------------- */
+.estimate-voucher-attachment {
+  position: relative;
+  background: #fdfbf5;
+  background-image: 
+    linear-gradient(to right, rgba(160, 130, 95, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(160, 130, 95, 0.1) 1px, transparent 1px);
+  background-size: 14px 14px;
+  border: 1.5px solid #a8833c;
+  border-top: 2px dashed #9c2828;
+  border-radius: 4px;
+  padding: 18px 24px 18px 20px;
+  margin-bottom: 34px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 
+    0 10px 24px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+body.blueprint-mode .estimate-voucher-attachment,
+body[data-theme="cyanotype"] .estimate-voucher-attachment {
+  background: #091e33;
+  background-image: 
+    linear-gradient(to right, rgba(100, 255, 218, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(100, 255, 218, 0.08) 1px, transparent 1px);
+  border-color: #5daee8;
+  border-top-color: #ff5252;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* Realistic Polished Brass Wire Paperclip */
+.brass-wire-paperclip {
+  position: absolute;
+  top: -16px;
+  left: 28px;
+  width: 14px;
+  height: 44px;
+  border: 2px solid #f2db99;
+  border-radius: 8px 8px 6px 6px;
+  background: transparent;
+  box-shadow: 
+    -2px 3px 6px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  z-index: 12;
+}
+
+.brass-wire-paperclip::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 2px;
+  right: 2px;
+  height: 24px;
+  border: 2px solid #a87e2b;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+}
+
+body.blueprint-mode .brass-wire-paperclip,
+body[data-theme="cyanotype"] .brass-wire-paperclip {
+  border-color: #b2dcff;
+}
+
+body.blueprint-mode .brass-wire-paperclip::after,
+body[data-theme="cyanotype"] .brass-wire-paperclip::after {
+  border-color: #3d79a8;
+}
+
+.voucher-details-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-left: 28px; /* Offset for paperclip */
+}
+
+.voucher-origin-tag {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #9c2828;
+  text-transform: uppercase;
+}
+
+body.blueprint-mode .voucher-origin-tag,
+body[data-theme="cyanotype"] .voucher-origin-tag {
+  color: #ff6b6b;
+}
+
+.voucher-title {
+  font-family: var(--font-title-arch);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #1a1510;
+  letter-spacing: 0.04em;
+}
+
+body.blueprint-mode .voucher-title,
+body[data-theme="cyanotype"] .voucher-title {
+  color: #ffffff;
+}
+
+.voucher-summary-text {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #52422e;
+}
+
+body.blueprint-mode .voucher-summary-text,
+body[data-theme="cyanotype"] .voucher-summary-text {
+  color: #8fc7ed;
+}
+
+.voucher-action-btn {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #8a6424;
+  text-decoration: none;
+  padding: 6px 14px;
+  border: 1px solid rgba(168, 131, 60, 0.4);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.6);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.voucher-action-btn:hover {
+  border-color: #c9a456;
+  color: #211503;
+  background: #ffffff;
+}
+
+body.blueprint-mode .voucher-action-btn,
+body[data-theme="cyanotype"] .voucher-action-btn {
+  color: #64ffda;
+  border-color: rgba(93, 174, 232, 0.4);
+  background: rgba(6, 22, 40, 0.6);
+}
+
+body.blueprint-mode .voucher-action-btn:hover,
+body[data-theme="cyanotype"] .voucher-action-btn:hover {
+  background: #0f2742;
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   3. ARCHITECTURAL COMMISSION REGISTER SHEET (AIA FORM 104-B)
+   -------------------------------------------------------------------------- */
+.treaty-register-sheet {
+  position: relative;
+  background: #fffdf5;
+  border: 1.5px solid #ab926e;
+  border-radius: 4px;
+  padding: 40px 42px;
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.55),
+    inset 0 1px 2px rgba(255, 255, 255, 0.95);
+  color: #1a1714;
+  margin-bottom: 45px;
+}
+
+body.blueprint-mode .treaty-register-sheet,
+body[data-theme="cyanotype"] .treaty-register-sheet {
+  background: #081d33;
+  border-color: #5daee8;
+  color: #e0f2fe;
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.75),
+    0 0 25px rgba(100, 255, 218, 0.1);
+}
+
+/* Treaty Form Header */
+.treaty-sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 22px;
+  border-bottom: 2px solid #2b2114;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+body.blueprint-mode .treaty-sheet-header,
+body[data-theme="cyanotype"] .treaty-sheet-header {
+  border-bottom-color: #5daee8;
+}
+
+.treaty-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.treaty-serial-code {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #9c2828;
+}
+
+body.blueprint-mode .treaty-serial-code,
+body[data-theme="cyanotype"] .treaty-serial-code {
+  color: #ff6b6b;
+}
+
+.treaty-instrument-title {
+  font-family: var(--font-title-arch);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #1a1510;
+  text-transform: uppercase;
+}
+
+body.blueprint-mode .treaty-instrument-title,
+body[data-theme="cyanotype"] .treaty-instrument-title {
+  color: #ffffff;
+}
+
+.treaty-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: #5a4933;
+}
+
+body.blueprint-mode .treaty-header-right,
+body[data-theme="cyanotype"] .treaty-header-right {
+  color: #8fc7ed;
+}
+
+/* Pre-Printed Fill-In Lines with Faint Dot Leaders */
+.drafting-inputs-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-bottom: 36px;
+}
+
+.fill-in-row {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  align-items: baseline;
+  gap: 16px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .fill-in-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+.fill-in-label {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #2b2216;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+body.blueprint-mode .fill-in-label,
+body[data-theme="cyanotype"] .fill-in-label {
+  color: #64ffda;
+}
+
+.dot-leader {
+  flex: 1;
+  border-bottom: 1px dotted rgba(80, 60, 30, 0.4);
+  margin: 0 8px 3px 8px;
+}
+
+body.blueprint-mode .dot-leader,
+body[data-theme="cyanotype"] .dot-leader {
+  border-bottom-color: rgba(100, 255, 218, 0.25);
+}
+
+.treaty-text-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid #2b2114;
+  padding: 6px 4px;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: #17120a;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+body.blueprint-mode .treaty-text-input,
+body[data-theme="cyanotype"] .treaty-text-input {
+  color: #ffffff;
+  border-bottom-color: #5daee8;
+}
+
+.treaty-text-input:focus {
+  border-bottom-color: #c9a456;
+  background: rgba(201, 164, 86, 0.06);
+}
+
+body.blueprint-mode .treaty-text-input:focus,
+body[data-theme="cyanotype"] .treaty-text-input:focus {
+  border-bottom-color: #64ffda;
+  background: rgba(100, 255, 218, 0.08);
+}
+
+.treaty-text-input::placeholder {
+  color: rgba(110, 90, 60, 0.55);
+  font-style: italic;
+  font-size: 0.78rem;
+}
+
+body.blueprint-mode .treaty-text-input::placeholder,
+body[data-theme="cyanotype"] .treaty-text-input::placeholder {
+  color: rgba(143, 199, 237, 0.45);
+}
+
+/* --------------------------------------------------------------------------
+   4. TACTILE BRASS CONTACT PEGS (TYPOLOGY & SCALE SELECTOR)
+   -------------------------------------------------------------------------- */
+.peg-selection-section {
+  margin-bottom: 38px;
+}
+
+.peg-section-header {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #8c2828;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+body.blueprint-mode .peg-section-header,
+body[data-theme="cyanotype"] .peg-section-header {
+  color: #ff6b6b;
+}
+
+.peg-switchboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .peg-switchboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.brass-peg-card {
+  background: rgba(240, 234, 218, 0.6);
+  border: 1.5px solid rgba(160, 130, 95, 0.5);
+  border-radius: 4px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  user-select: none;
+}
+
+.brass-peg-card:hover {
+  border-color: #c9a456;
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateY(-2px);
+}
+
+body.blueprint-mode .brass-peg-card,
+body[data-theme="cyanotype"] .brass-peg-card {
+  background: rgba(6, 22, 40, 0.6);
+  border-color: rgba(93, 174, 232, 0.35);
+}
+
+body.blueprint-mode .brass-peg-card:hover,
+body[data-theme="cyanotype"] .brass-peg-card:hover {
+  background: rgba(14, 38, 64, 0.8);
+  border-color: #64ffda;
+}
+
+.brass-peg-card.plugged-in {
+  background: #f7eed7;
+  border-color: #c9a456;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    inset 0 0 8px rgba(201, 164, 86, 0.2);
+}
+
+body.blueprint-mode .brass-peg-card.plugged-in,
+body[data-theme="cyanotype"] .brass-peg-card.plugged-in {
+  background: #0d2847;
+  border-color: #64ffda;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.5),
+    inset 0 0 10px rgba(100, 255, 218, 0.25);
+}
+
+/* Machined Brass Terminal Socket with Spring Pin */
+.peg-socket-hole {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #291e12 35%, #0f0a05 100%);
+  border: 2px solid #a87e2b;
+  box-shadow: 
+    inset 0 2px 5px rgba(0, 0, 0, 0.9),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+body.blueprint-mode .peg-socket-hole,
+body[data-theme="cyanotype"] .peg-socket-hole {
+  background: radial-gradient(circle, #081d30 35%, #02070e 100%);
+  border-color: #5daee8;
+}
+
+/* The Insertable Machined Brass Peg Head */
+.brass-pin-head {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff2cf 0%, #c99e38 50%, #6e4d14 100%);
+  border: 1px solid #fffae8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  opacity: 0.25;
+  transition: all 0.25s var(--ease-spring);
+}
+
+.brass-peg-card.plugged-in .brass-pin-head {
+  opacity: 1;
+  transform: scale(1.15);
+  box-shadow: 
+    0 3px 8px rgba(0, 0, 0, 0.6),
+    0 0 10px rgba(255, 230, 160, 0.6);
+}
+
+body.blueprint-mode .brass-pin-head,
+body[data-theme="cyanotype"] .brass-pin-head {
+  background: radial-gradient(circle at 35% 30%, #e0f2fe 0%, #4da3df 50%, #164870 100%);
+  border-color: #ffffff;
+}
+
+body.blueprint-mode .brass-peg-card.plugged-in .brass-pin-head,
+body[data-theme="cyanotype"] .brass-peg-card.plugged-in .brass-pin-head {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.6), 0 0 12px rgba(100, 255, 218, 0.7);
+}
+
+.peg-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.peg-label-title {
+  font-family: var(--font-title-arch);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #21160a;
+  letter-spacing: 0.04em;
+}
+
+body.blueprint-mode .peg-label-title,
+body[data-theme="cyanotype"] .peg-label-title {
+  color: #ffffff;
+}
+
+.peg-spec-desc {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: #6e593e;
+}
+
+body.blueprint-mode .peg-spec-desc,
+body[data-theme="cyanotype"] .peg-spec-desc {
+  color: #8fc7ed;
+}
+
+/* --------------------------------------------------------------------------
+   5. DUAL-MODE BRIEF & DIRECT SITE SKETCH CANVAS
+   -------------------------------------------------------------------------- */
+.brief-drafting-block {
+  margin-bottom: 36px;
+}
+
+.brief-switcher-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.brief-tab-btn {
+  background: rgba(30, 22, 14, 0.1);
+  border: 1px solid rgba(160, 130, 95, 0.5);
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  padding: 8px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #695237;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.brief-tab-btn:hover {
+  color: #17120a;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.brief-tab-btn.active {
+  background: #ffffff;
+  color: #8c2828;
+  border-color: #ab926e;
+  font-weight: 900;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.08);
+}
+
+body.blueprint-mode .brief-tab-btn,
+body[data-theme="cyanotype"] .brief-tab-btn {
+  background: rgba(6, 22, 40, 0.5);
+  border-color: rgba(93, 174, 232, 0.4);
+  color: #8fc7ed;
+}
+
+body.blueprint-mode .brief-tab-btn.active,
+body[data-theme="cyanotype"] .brief-tab-btn.active {
+  background: #091e33;
+  color: #64ffda;
+  border-color: #5daee8;
+}
+
+/* Tab 1: Written Narrative Textarea */
+.brief-text-pane {
+  display: block;
+}
+
+.brief-text-pane.hidden {
+  display: none;
+}
+
+.treaty-textarea {
+  width: 100%;
+  min-height: 140px;
+  background: #ffffff;
+  border: 1.5px solid #ab926e;
+  border-radius: 0 4px 4px 4px;
+  padding: 16px 18px;
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: #1f1810;
+  outline: none;
+  resize: vertical;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+body.blueprint-mode .treaty-textarea,
+body[data-theme="cyanotype"] .treaty-textarea {
+  background: #061729;
+  border-color: #5daee8;
+  color: #ffffff;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.treaty-textarea:focus {
+  border-color: #c9a456;
+}
+
+body.blueprint-mode .treaty-textarea:focus,
+body[data-theme="cyanotype"] .treaty-textarea:focus {
+  border-color: #64ffda;
+}
+
+/* Tab 2: Interactive Sketch Canvas Pane */
+.brief-sketch-pane {
+  display: block;
+}
+
+.brief-sketch-pane.hidden {
+  display: none;
+}
+
+.sketch-canvas-container {
+  position: relative;
+  border: 1.5px solid #ab926e;
+  border-radius: 0 4px 4px 4px;
+  background-color: #ffffff;
+  background-image: 
+    linear-gradient(to right, rgba(160, 130, 95, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(160, 130, 95, 0.12) 1px, transparent 1px);
+  background-size: 16px 16px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+body.blueprint-mode .sketch-canvas-container,
+body[data-theme="cyanotype"] .sketch-canvas-container {
+  background-color: #061729;
+  background-image: 
+    linear-gradient(to right, rgba(100, 255, 218, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(100, 255, 218, 0.1) 1px, transparent 1px);
+  border-color: #5daee8;
+}
+
+.sketch-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(240, 234, 218, 0.85);
+  border-bottom: 1px solid #ab926e;
+  padding: 8px 14px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+body.blueprint-mode .sketch-toolbar,
+body[data-theme="cyanotype"] .sketch-toolbar {
+  background: rgba(9, 26, 46, 0.9);
+  border-bottom-color: #5daee8;
+}
+
+.sketch-tool-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tool-chip-btn {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(160, 130, 95, 0.6);
+  border-radius: 3px;
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: #2b1f14;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tool-chip-btn:hover {
+  background: #ffffff;
+  border-color: #c9a456;
+}
+
+.tool-chip-btn.active {
+  background: #2b1f14;
+  color: #ffecb8;
+  border-color: #2b1f14;
+}
+
+body.blueprint-mode .tool-chip-btn,
+body[data-theme="cyanotype"] .tool-chip-btn {
+  background: rgba(6, 22, 40, 0.8);
+  border-color: rgba(93, 174, 232, 0.5);
+  color: #8fc7ed;
+}
+
+body.blueprint-mode .tool-chip-btn.active,
+body[data-theme="cyanotype"] .tool-chip-btn.active {
+  background: #64ffda;
+  color: #06182a;
+  border-color: #64ffda;
+}
+
+#sketch-canvas {
+  width: 100%;
+  height: 200px;
+  display: block;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+/* --------------------------------------------------------------------------
+   6. DIGITAL FOUNTAIN PEN SIGNATURE LINE & WAX SEAL SUBMIT
+   -------------------------------------------------------------------------- */
+.signature-and-stamping-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 28px;
+  align-items: flex-end;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 2px dashed rgba(160, 130, 95, 0.6);
+}
+
+@media (max-width: 900px) {
+  .signature-and-stamping-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+body.blueprint-mode .signature-and-stamping-grid,
+body[data-theme="cyanotype"] .signature-and-stamping-grid {
+  border-top-color: rgba(93, 174, 232, 0.4);
+}
+
+.signature-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.signature-label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #8c2828;
+  text-transform: uppercase;
+}
+
+body.blueprint-mode .signature-label,
+body[data-theme="cyanotype"] .signature-label {
+  color: #ff6b6b;
+}
+
+.signature-canvas-frame {
+  position: relative;
+  background: #ffffff;
+  border: 1.5px solid #ab926e;
+  border-radius: 4px;
+  height: 90px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+body.blueprint-mode .signature-canvas-frame,
+body[data-theme="cyanotype"] .signature-canvas-frame {
+  background: #061729;
+  border-color: #5daee8;
+}
+
+#signature-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.signature-watermark-text {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: rgba(140, 110, 80, 0.4);
+  pointer-events: none;
+}
+
+body.blueprint-mode .signature-watermark-text,
+body[data-theme="cyanotype"] .signature-watermark-text {
+  color: rgba(143, 199, 237, 0.3);
+}
+
+.clear-signature-btn {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #8c2828;
+  cursor: pointer;
+  padding: 2px 6px;
+}
+
+/* The Weighted Brass Stamping Lever / Wax Press Assembly */
+.wax-press-actuator-enclosure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-wax-press-actuator {
+  position: relative;
+  width: 100%;
+  padding: 18px 24px;
+  background: linear-gradient(135deg, #f5d996 0%, #c99e38 45%, #7a5416 85%, #b58d2e 100%);
+  border: 2px solid #fff5d6;
+  border-radius: 6px;
+  box-shadow: 
+    -4px 8px 20px rgba(0, 0, 0, 0.6),
+    inset 0 1px 2px rgba(255, 255, 255, 0.95),
+    inset 0 -2px 4px rgba(70, 50, 10, 0.8);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  transition: all 0.25s var(--ease-spring);
+  user-select: none;
+}
+
+.btn-wax-press-actuator:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    -5px 12px 26px rgba(0, 0, 0, 0.7),
+    inset 0 1px 3px rgba(255, 255, 255, 1);
+}
+
+.btn-wax-press-actuator:active,
+.btn-wax-press-actuator.depressed {
+  transform: translateY(4px) scale(0.98);
+  box-shadow: 
+    -2px 3px 8px rgba(0, 0, 0, 0.7),
+    inset 0 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+body.blueprint-mode .btn-wax-press-actuator,
+body[data-theme="cyanotype"] .btn-wax-press-actuator {
+  background: linear-gradient(135deg, #a8d5f7 0%, #4da3df 45%, #185a8c 85%, #4697d4 100%);
+  border-color: #e0f2fe;
+  box-shadow: 
+    -4px 8px 20px rgba(0, 0, 0, 0.7),
+    0 0 18px rgba(100, 255, 218, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 0.95);
+}
+
+.actuator-stamp-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #171007;
+  border: 1.5px solid #ffecb8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #ffecb8;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+body.blueprint-mode .actuator-stamp-icon,
+body[data-theme="cyanotype"] .actuator-stamp-icon {
+  background: #06182c;
+  border-color: #64ffda;
+  color: #64ffda;
+}
+
+.actuator-label-stack {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 2px;
+}
+
+.actuator-action-title {
+  font-family: var(--font-title-arch);
+  font-size: 0.86rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #171007;
+  text-transform: uppercase;
+}
+
+body.blueprint-mode .actuator-action-title,
+body[data-theme="cyanotype"] .actuator-action-title {
+  color: #06182a;
+}
+
+.actuator-action-sub {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #402e12;
+  letter-spacing: 0.08em;
+}
+
+body.blueprint-mode .actuator-action-sub,
+body[data-theme="cyanotype"] .actuator-action-sub {
+  color: #08243e;
+}
+
+/* Stamped Hot Wax Impression (Appears on Submission) */
+.crimson-wax-seal {
+  position: absolute;
+  bottom: 24px;
+  right: 32px;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #b82828 0%, #7d1212 60%, #470606 100%);
+  border: 3px double #d64d4d;
+  box-shadow: 
+    0 10px 24px rgba(0, 0, 0, 0.6),
+    inset 0 2px 4px rgba(255, 255, 255, 0.35),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-8deg) scale(0);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 25;
+}
+
+.crimson-wax-seal.stamped {
+  transform: rotate(-8deg) scale(1);
+  opacity: 1;
+}
+
+body.blueprint-mode .crimson-wax-seal,
+body[data-theme="cyanotype"] .crimson-wax-seal {
+  background: radial-gradient(circle at 35% 30%, #00b4d8 0%, #0077b6 60%, #03045e 100%);
+  border-color: #64ffda;
+  box-shadow: 
+    0 10px 24px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(100, 255, 218, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.4);
+}
+
+.seal-crest {
+  font-family: var(--font-title-arch);
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: #ffdddd;
+  text-align: center;
+}
+
+body.blueprint-mode .seal-crest,
+body[data-theme="cyanotype"] .seal-crest {
+  color: #e0f2fe;
+}
+
+.seal-date {
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  font-weight: 700;
+  color: #ffb3b3;
+}
+
+body.blueprint-mode .seal-date,
+body[data-theme="cyanotype"] .seal-date {
+  color: #64ffda;
+}
+
+/* --------------------------------------------------------------------------
+   7. ATELIER ARTIFACTS & DIRECT PRIVATE OFFICE CHANNELS
+   -------------------------------------------------------------------------- */
+.atelier-channels-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  margin-top: 50px;
+}
+
+@media (max-width: 992px) {
+  .atelier-channels-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Artifact 1: Machined Brass Telegraphic Plaque */
+.brass-telegraph-plate {
+  background: linear-gradient(135deg, #241c14 0%, #17110c 50%, #211912 100%);
+  border: 1.5px solid #a8833c;
+  border-radius: 6px;
+  padding: 24px 20px;
+  position: relative;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.65),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+body.blueprint-mode .brass-telegraph-plate,
+body[data-theme="cyanotype"] .brass-telegraph-plate {
+  background: linear-gradient(135deg, #091a2e 0%, #05101d 50%, #0b2038 100%);
+  border-color: #5daee8;
+}
+
+.artifact-plate-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed rgba(168, 131, 60, 0.35);
+}
+
+body.blueprint-mode .artifact-plate-header,
+body[data-theme="cyanotype"] .artifact-plate-header {
+  border-bottom-color: rgba(93, 174, 232, 0.35);
+}
+
+.artifact-plate-title {
+  font-family: var(--font-title-arch);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #e5c880;
+  text-transform: uppercase;
+}
+
+body.blueprint-mode .artifact-plate-title,
+body[data-theme="cyanotype"] .artifact-plate-title {
+  color: #64ffda;
+}
+
+.telegraph-data-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.telegraph-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.telegraph-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: #a8947b;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+body.blueprint-mode .telegraph-label,
+body[data-theme="cyanotype"] .telegraph-label {
+  color: #8fc7ed;
+}
+
+.telegraph-value {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #f7f1e3;
+  letter-spacing: 0.04em;
+}
+
+body.blueprint-mode .telegraph-value,
+body[data-theme="cyanotype"] .telegraph-value {
+  color: #ffffff;
+}
+
+/* Artifact 2: Geodetic Waymarkers */
+.geodetic-waymarkers-card {
+  background: linear-gradient(135deg, #241c14 0%, #17110c 50%, #211912 100%);
+  border: 1.5px solid #a8833c;
+  border-radius: 6px;
+  padding: 24px 20px;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.65),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+}
+
+body.blueprint-mode .geodetic-waymarkers-card,
+body[data-theme="cyanotype"] .geodetic-waymarkers-card {
+  background: linear-gradient(135deg, #091a2e 0%, #05101d 50%, #0b2038 100%);
+  border-color: #5daee8;
+}
+
+.waymarker-plate-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.waymarker-badge {
+  background: rgba(14, 11, 8, 0.85);
+  border: 1px solid rgba(168, 131, 60, 0.35);
+  border-radius: 4px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+body.blueprint-mode .waymarker-badge,
+body[data-theme="cyanotype"] .waymarker-badge {
+  background: rgba(6, 18, 30, 0.88);
+  border-color: rgba(93, 174, 232, 0.35);
+}
+
+.waymarker-name {
+  font-family: var(--font-title-arch);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #ffecb8;
+}
+
+body.blueprint-mode .waymarker-name,
+body[data-theme="cyanotype"] .waymarker-name {
+  color: #64ffda;
+}
+
+.waymarker-coords {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #a8947b;
+}
+
+body.blueprint-mode .waymarker-coords,
+body[data-theme="cyanotype"] .waymarker-coords {
+  color: #8fc7ed;
+}
+
+/* Artifact 3: Real-Time Atelier Availability Drum Meter */
+.availability-meter-card {
+  background: linear-gradient(135deg, #241c14 0%, #17110c 50%, #211912 100%);
+  border: 1.5px solid #a8833c;
+  border-radius: 6px;
+  padding: 24px 20px;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.65),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+body.blueprint-mode .availability-meter-card,
+body[data-theme="cyanotype"] .availability-meter-card {
+  background: linear-gradient(135deg, #091a2e 0%, #05101d 50%, #0b2038 100%);
+  border-color: #5daee8;
+}
+
+.capacity-drum-display {
+  background: #0f0b08;
+  border: 1.5px solid #8c6a28;
+  border-radius: 4px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+body.blueprint-mode .capacity-drum-display,
+body[data-theme="cyanotype"] .capacity-drum-display {
+  background: #040e1a;
+  border-color: #5daee8;
+}
+
+.drum-counter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.drum-counter-value {
+  font-family: var(--font-title-arch);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffecb8;
+  text-shadow: 0 0 10px rgba(255, 236, 184, 0.35);
+}
+
+body.blueprint-mode .drum-counter-value,
+body[data-theme="cyanotype"] .drum-counter-value {
+  color: #64ffda;
+  text-shadow: 0 0 12px rgba(100, 255, 218, 0.4);
+}
+
+.drum-status-badge {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 3px;
+  background: rgba(184, 40, 40, 0.25);
+  color: #ff6b6b;
+  border: 1px solid rgba(184, 40, 40, 0.5);
+}
+
+.drum-next-window {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: #c9a456;
+}
+
+body.blueprint-mode .drum-next-window,
+body[data-theme="cyanotype"] .drum-next-window {
+  color: #8fc7ed;
+}
+
+/* --------------------------------------------------------------------------
+   8. DISPATCH MODAL CONFIRMATION DIALOG
+   -------------------------------------------------------------------------- */
+.dispatch-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 4, 3, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.dispatch-modal-backdrop.active {
+  display: flex;
+}
+
+.dispatch-parchment-card {
+  position: relative;
+  max-width: 580px;
+  width: 100%;
+  background: #fbf8ef;
+  border: 2px solid #ab926e;
+  border-radius: 6px;
+  padding: 40px;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.8);
+  color: #1a1510;
+  animation: modalEnter 0.45s var(--ease-spring);
+}
+
+body.blueprint-mode .dispatch-parchment-card,
+body[data-theme="cyanotype"] .dispatch-parchment-card {
+  background: #081d33;
+  border-color: #5daee8;
+  color: #e0f2fe;
+}
+
+@keyframes modalEnter {
+  from { opacity: 0; transform: translateY(30px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.dispatch-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #1a1510;
+}
+
+body.blueprint-mode .dispatch-modal-header,
+body[data-theme="cyanotype"] .dispatch-modal-header {
+  border-bottom-color: #5daee8;
+}
+
+.modal-doc-code {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #9c2828;
+  letter-spacing: 0.14em;
+}
+
+body.blueprint-mode .modal-doc-code,
+body[data-theme="cyanotype"] .modal-doc-code {
+  color: #ff6b6b;
+}
+
+.modal-receipt-title {
+  font-family: var(--font-title-arch);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #1a1510;
+  margin-top: 4px;
+}
+
+body.blueprint-mode .modal-receipt-title,
+body[data-theme="cyanotype"] .modal-receipt-title {
+  color: #ffffff;
+}
+
+.modal-close-x {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #6e593e;
+}
+
+.modal-receipt-body {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-tracking-pill {
+  background: rgba(201, 164, 86, 0.15);
+  border: 1px dashed #a8833c;
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-weight: 700;
+  color: #8a6424;
+}
+
+body.blueprint-mode .modal-tracking-pill,
+body[data-theme="cyanotype"] .modal-tracking-pill {
+  background: rgba(100, 255, 218, 0.12);
+  border-color: #64ffda;
+  color: #64ffda;
+}
+
+.btn-modal-dismiss {
+  width: 100%;
+  padding: 12px 20px;
+  background: var(--brass-gradient);
+  border: 1px solid #ffecb8;
+  border-radius: 4px;
+  font-family: var(--font-title-arch);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #171007;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   9. RESPONSIVE ADAPTATIONS (<= 768px & <= 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .liaison-chamber-section {
+    margin: 10px auto 60px auto;
+  }
+
+  .dispatch-folio-binder {
+    padding: 24px 16px;
+    border-radius: 6px;
+  }
+
+  .dispatch-doc-title {
+    font-size: 1.65rem;
+  }
+
+  .estimate-voucher-attachment {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 14px;
+    gap: 12px;
+  }
+
+  .brass-wire-paperclip {
+    left: 14px;
+  }
+
+  .voucher-details-col {
+    padding-left: 20px;
+  }
+
+  .treaty-register-sheet {
+    padding: 24px 16px;
+  }
+
+  .treaty-instrument-title {
+    font-size: 1.15rem;
+  }
+
+  .sketch-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .signature-canvas-frame {
+    height: 80px;
+  }
+
+  .btn-wax-press-actuator {
+    padding: 14px 18px;
+  }
+}
+

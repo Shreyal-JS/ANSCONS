@@ -1,0 +1,202 @@
+/* ==========================================================================
+   RESPONSIVE FALLBACK: THE ARCHITECT'S FIELD FOLIO (MOBILE & TABLET)
+   ========================================================================== */
+
+/* Tablet Optimization (<= 1024px) */
+@media (max-width: 1024px) {
+  .drafting-table {
+    padding: 70px 24px 80px 24px;
+  }
+
+  .material-samples-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .folio-paper-spread {
+    grid-template-columns: 1fr;
+  }
+
+  .folio-page-left {
+    border-right: none;
+    border-bottom: 1px solid rgba(180, 160, 130, 0.4);
+    padding: 24px;
+  }
+
+  .page-photo-frame {
+    height: 260px;
+  }
+
+  .caliper-readout-gauge {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .framed-awards-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .architect-title-block {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .title-block-cell {
+    border-right: none;
+    border-bottom: 1px solid #705e46;
+  }
+}
+
+/* Mobile Devices (<= 768px) */
+@media (max-width: 768px) {
+  .drafting-table {
+    padding: 60px 14px 60px 14px;
+  }
+
+  /* Hide Desktop Marginal Rulers to maximize mobile touch viewport */
+  .desk-ruler-top,
+  .desk-ruler-left,
+  .desk-lamp-glow {
+    display: none !important;
+  }
+
+  /* HUD Controls Dock cleanly at top */
+  .desk-controls-hud {
+    top: 14px;
+    right: 14px;
+    padding: 6px 10px;
+  }
+
+  .lamp-switch-label {
+    display: none; /* Icon and switch only for mobile brevity */
+  }
+
+  /* Tracing Paper Navigation: Touch-friendly horizontal scrollbar */
+  .tracing-nav-container {
+    top: 60px;
+    margin-bottom: 30px;
+  }
+
+  .tracing-nav-track {
+    overflow-x: auto;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .vellum-tab {
+    padding: 10px 14px;
+    margin-right: -4px;
+    flex-shrink: 0;
+  }
+
+  .tab-title {
+    font-size: 0.75rem;
+  }
+
+  /* Hero Section Mobile Reflow */
+  .hero-blueprint-sheet {
+    padding: 24px 16px;
+    transform: none; /* Flat orientation for clean mobile reading */
+  }
+
+  .blueprint-border-frame {
+    padding: 16px;
+    outline-offset: 3px;
+  }
+
+  .hero-content-core {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .hero-main-title {
+    font-size: 2.1rem;
+  }
+
+  .hero-description-copy {
+    font-size: 0.95rem;
+  }
+
+  .hero-actions-cluster {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-brass-plaque,
+  .btn-vellum-debossed {
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Material Samples Stack */
+  .material-samples-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .material-surface {
+    height: 180px;
+  }
+
+  /* Caliper Mobile Handling */
+  .caliper-board-housing {
+    padding: 24px 16px;
+  }
+
+  .caliper-main-heading {
+    font-size: 1.6rem;
+  }
+
+  .caliper-readout-gauge {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .caliper-fixed-jaw {
+    width: 40px;
+  }
+
+  .caliper-main-beam {
+    left: 35px;
+    right: 10px;
+  }
+
+  /* Awards Row */
+  .framed-awards-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* Clipboard Contact Form Mobile */
+  .architect-clipboard {
+    padding: 60px 16px 36px 16px;
+  }
+
+  .carbon-copy-sheet {
+    padding: 24px 14px;
+  }
+
+  .carbon-copy-sheet::before {
+    left: 20px;
+  }
+
+  .brief-form-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .clipboard-brass-clamp {
+    width: 160px;
+    height: 40px;
+    top: -18px;
+  }
+
+  .imprinted-ink-seal {
+    top: auto;
+    bottom: 80px;
+    right: 20px;
+    width: 110px;
+    height: 110px;
+  }
+}
+

@@ -1,0 +1,264 @@
+/* ==========================================================================
+   ARCHITECTURAL TRACING PAPER (VELLUM) NAVIGATION
+   Lightweight, semi-opaque vellum strips held by brass blueprint clips
+   ========================================================================== */
+
+.tracing-nav-container {
+  position: sticky;
+  top: 14px;
+  z-index: 990;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto 36px auto;
+  height: 76px; /* Constant reserved height prevents layout shift */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  pointer-events: none; /* Allow clicks through empty margins */
+}
+
+/* Condensed Sticky Dock: Keeps navbar permanently accessible while scrolling */
+.tracing-nav-container.docked-sticky {
+  top: 40px;
+}
+
+.tracing-nav-container.docked-sticky .tracing-nav-track {
+  background: rgba(26, 22, 19, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 8px 18px 4px 18px;
+  border-radius: 6px;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 
+    0 12px 32px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.tracing-nav-container.docked-sticky .vellum-tab {
+  padding: 9px 18px 7px 18px;
+  background: rgba(255, 253, 248, 0.94);
+  box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.blueprint-mode .tracing-nav-container.docked-sticky .tracing-nav-track,
+body[data-theme="cyanotype"] .tracing-nav-container.docked-sticky .tracing-nav-track {
+  background: rgba(8, 24, 42, 0.88);
+  border-color: rgba(90, 160, 230, 0.5);
+  box-shadow: 
+    0 12px 32px rgba(2, 6, 12, 0.7),
+    inset 0 1px 1px rgba(120, 200, 255, 0.2);
+}
+
+body.blueprint-mode .tracing-nav-container.docked-sticky .vellum-tab,
+body[data-theme="cyanotype"] .tracing-nav-container.docked-sticky .vellum-tab {
+  background: rgba(14, 38, 64, 0.92);
+}
+
+.tracing-nav-track {
+  display: flex;
+  align-items: flex-start;
+  gap: -8px; /* Overlapping vellum sheets */
+  padding: 16px 20px 0 20px;
+  position: relative;
+  pointer-events: auto; /* Restores clicks on track and tabs */
+  transition: 
+    background-color 0.25s ease,
+    padding 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s var(--ease-smooth);
+}
+
+/* Photorealistic Brass Blueprint Clip on Navigation Rail */
+.brass-blueprint-clip {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 58px;
+  height: 24px;
+  background: var(--brass-gradient);
+  border: 1.5px solid #ffecb8;
+  border-radius: 3px 3px 1px 1px;
+  box-shadow: 
+    -3px 5px 12px rgba(0, 0, 0, 0.55),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9),
+    inset 0 -2px 4px rgba(90, 65, 15, 0.8);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* Spring-steel wire handles folded back */
+.brass-blueprint-clip::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  width: 28px;
+  height: 18px;
+  border: 2px solid #8c6a28;
+  border-bottom: none;
+  border-radius: 12px 12px 0 0;
+  box-shadow: -1px -2px 4px rgba(0,0,0,0.35);
+}
+
+.brass-blueprint-clip::after {
+  content: '';
+  position: absolute;
+  bottom: 3px;
+  width: 38px;
+  height: 2px;
+  background: #4a330e;
+  border-radius: 1px;
+}
+
+/* Translucent Vellum Navigation Strips */
+.vellum-tab {
+  position: relative;
+  text-decoration: none;
+  background: rgba(254, 251, 244, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 18px 22px 14px 22px;
+  border-radius: 4px 4px 1px 1px;
+  border-top: 1px solid rgba(255, 255, 255, 0.95);
+  border-left: 1px solid rgba(255, 255, 255, 0.7);
+  border-right: 1px solid rgba(190, 175, 150, 0.45);
+  border-bottom: 1px solid rgba(210, 195, 170, 0.3);
+  box-shadow: 
+    -3px 5px 12px rgba(10, 14, 20, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  margin-right: -10px; /* Physical overlapping effect */
+  transform-origin: top center;
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease, background 0.25s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  user-select: none;
+}
+
+/* Micro-Clip on Individual Vellum Tabs */
+.vellum-tab-clip {
+  position: absolute;
+  top: -6px;
+  left: 18px;
+  width: 14px;
+  height: 12px;
+  background: var(--brass-gradient);
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Faint architectural draft ruling lines across the vellum */
+.vellum-tab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 11px,
+    rgba(140, 160, 180, 0.1) 11px,
+    rgba(140, 160, 180, 0.1) 12px
+  );
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Organic Hand-Placed Strip Slight Rotations */
+.vellum-tab:nth-child(2) { transform: rotate(-0.6deg); }
+.vellum-tab:nth-child(3) { transform: rotate(0.4deg); }
+.vellum-tab:nth-child(4) { transform: rotate(-0.3deg); }
+.vellum-tab:nth-child(5) { transform: rotate(0.5deg); }
+.vellum-tab:nth-child(6) { transform: rotate(-0.4deg); }
+.vellum-tab:nth-child(7) { transform: rotate(0.3deg); }
+
+/* Vellum Strip Hover Physics: Subtle Hover Tilt (-0.5deg) and Depth Shift */
+.vellum-tab:hover {
+  transform: translateY(-8px) rotate(-0.5deg) scale(1.02);
+  background: rgba(255, 255, 252, 0.95);
+  box-shadow: 
+    -6px 14px 26px rgba(10, 16, 24, 0.35),
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  z-index: 40;
+}
+
+.vellum-tab.active {
+  transform: translateY(-6px) rotate(0deg);
+  background: #ffffff;
+  border-bottom: 3px solid var(--brass-gold);
+  box-shadow: 
+    -4px 10px 20px rgba(10, 16, 24, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  z-index: 30;
+}
+
+.tab-code {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #8c734b;
+  letter-spacing: 0.14em;
+}
+
+.tab-title {
+  font-family: var(--font-title-arch);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #242220;
+  white-space: nowrap;
+}
+
+.vellum-tab.active .tab-title {
+  color: #1a1612;
+}
+
+.vellum-tab.active .tab-code {
+  color: #b58b3c;
+}
+
+/* ==========================================================================
+   BLUEPRINT MODE NAVIGATION ADAPTATION
+   ========================================================================== */
+body.blueprint-mode .vellum-tab,
+body[data-theme="cyanotype"] .vellum-tab {
+  background: rgba(12, 32, 54, 0.82);
+  border-top-color: rgba(140, 210, 255, 0.45);
+  border-left-color: rgba(140, 210, 255, 0.3);
+  border-right-color: rgba(6, 16, 30, 0.7);
+  border-bottom-color: rgba(6, 16, 30, 0.5);
+  box-shadow: 
+    -3px 5px 12px rgba(2, 6, 12, 0.5),
+    inset 0 1px 0 rgba(140, 210, 255, 0.3);
+}
+
+body.blueprint-mode .tab-title,
+body[data-theme="cyanotype"] .tab-title {
+  color: #ebf5ff;
+}
+
+body.blueprint-mode .tab-code,
+body[data-theme="cyanotype"] .tab-code {
+  color: #79bdfa;
+}
+
+body.blueprint-mode .vellum-tab:hover,
+body.blueprint-mode .vellum-tab.active,
+body[data-theme="cyanotype"] .vellum-tab:hover,
+body[data-theme="cyanotype"] .vellum-tab.active {
+  background: #112d4d;
+  border-bottom-color: #64ffda;
+  box-shadow: 
+    -6px 14px 26px rgba(1, 4, 8, 0.7),
+    0 0 15px rgba(100, 200, 255, 0.2);
+}

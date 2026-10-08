@@ -1,0 +1,209 @@
+/* ==========================================================================
+   ANSCONS ARCHITECTURE & BESPOKE RESIDENTIAL BUILDERS
+   Skeuomorphic Master Drafting Table - Main Stylesheet
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Unified Lighting Variables (Top-Left 315° Ambient Light) */
+  --light-angle: 315deg;
+  --light-color: rgba(255, 248, 235, 0.95);
+  --ambient-warmth: rgba(240, 215, 175, 0.08);
+  --shadow-color: rgba(10, 18, 28, 0.45);
+  --shadow-color-ambient: rgba(12, 19, 30, 0.22);
+  
+  /* Luxury Material Palette */
+  --brass-gold: #c6a25c;
+  --brass-light: #e8c87e;
+  --brass-dark: #8c6a28;
+  --brass-gradient: linear-gradient(135deg, #f7dfa5 0%, #d4af37 35%, #9b792b 70%, #d8b75b 100%);
+  --champagne-bronze: linear-gradient(135deg, #e3c9aa 0%, #b8936f 50%, #7d5939 100%);
+  
+  /* Wood Finishes */
+  --walnut-dark: #2b1d14;
+  --walnut-mid: #3d291c;
+  --walnut-grain: #1d130c;
+  --french-oak: #c5a073;
+  --french-oak-dark: #8c6841;
+
+  /* Architectural Stone & Glass */
+  --calacatta-base: #f9f8f5;
+  --calacatta-vein: #b89f78;
+  --travertine-base: #e8ded1;
+  --travertine-pore: #baa996;
+  
+  /* Drawing Sheets & Vellum */
+  --vellum-paper: rgba(255, 252, 245, 0.88);
+  --carbon-paper: #fffdf7;
+  --blueprint-ink: #143258;
+  --blueprint-grid-major: rgba(140, 190, 240, 0.28);
+  --blueprint-grid-minor: rgba(140, 190, 240, 0.12);
+  --blueprint-bg: #0d2238;
+  --cutting-mat-bg: #132822;
+  --cutting-mat-grid: rgba(160, 220, 180, 0.22);
+
+  /* Performance-Optimized Static Layered Shadows (Zero JS Thrashing) */
+  --shadow-elevation-1: 
+    -2px 3px 5px var(--shadow-color-ambient),
+    -5px 8px 14px var(--shadow-color);
+  --shadow-elevation-2: 
+    -3px 5px 8px var(--shadow-color-ambient),
+    -8px 14px 22px rgba(10, 18, 28, 0.38),
+    -16px 28px 45px rgba(10, 18, 28, 0.25);
+  --shadow-elevation-3: 
+    -4px 6px 12px var(--shadow-color-ambient),
+    -14px 22px 36px rgba(8, 14, 22, 0.42),
+    -28px 44px 70px rgba(8, 14, 22, 0.3);
+  --shadow-inset-groove:
+    inset 1px 2px 4px rgba(0, 0, 0, 0.45),
+    inset -1px -1px 2px rgba(255, 255, 255, 0.15);
+  --shadow-embossed:
+    0 1px 0 rgba(255, 255, 255, 0.4),
+    0 -1px 0 rgba(0, 0, 0, 0.6);
+
+  /* Typography */
+  --font-serif-luxury: 'Playfair Display', Georgia, serif;
+  --font-title-arch: 'Cinzel', serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Transitions */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ==========================================================================
+   THEME LIGHTING MATHEMATICS: STUDIO MODE VS. BLUEPRINT MODE
+   ========================================================================== */
+
+/* 1. STUDIO MODE: Warm, ambient drafting studio lighting, rich dark text on heavy cream cardstock */
+body.studio-mode,
+body[data-theme="studio"] {
+  --desk-base-color: #1a1715;
+  --desk-paper-bg: #f8f4ec;
+  --desk-paper-ink: #1b2028;
+  --desk-paper-subtle: #564c40;
+  --grid-line-color: rgba(180, 150, 110, 0.18);
+  --grid-line-major: rgba(200, 165, 120, 0.35);
+  --lamp-glow-color: radial-gradient(circle at 20% 15%, rgba(255, 235, 195, 0.28) 0%, rgba(255, 215, 150, 0.1) 45%, transparent 75%);
+  --sheet-border: rgba(180, 160, 130, 0.45);
+  --card-deckle-shadow: rgba(10, 14, 20, 0.38);
+  --brass-accent: #c6a25c;
+}
+
+/* 2. BLUEPRINT MODE: Deep architectural cyanotype blue with luminous white/cyan ink */
+body.blueprint-mode,
+body[data-theme="cyanotype"] {
+  --desk-base-color: #071526;
+  --desk-paper-bg: #0d2238;
+  --desk-paper-ink: #f0f7ff;
+  --desk-paper-subtle: #a4ccf0;
+  --grid-line-color: rgba(100, 185, 255, 0.22);
+  --grid-line-major: rgba(140, 215, 255, 0.42);
+  --lamp-glow-color: radial-gradient(circle at 20% 15%, rgba(120, 210, 255, 0.22) 0%, rgba(50, 140, 220, 0.08) 50%, transparent 75%);
+  --sheet-border: rgba(90, 170, 240, 0.5);
+  --card-deckle-shadow: rgba(3, 8, 16, 0.6);
+  --brass-accent: #6cd0ff;
+}
+
+/* Base Resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: #071526;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--desk-paper-ink);
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+  background-color: var(--desk-base-color);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* ==========================================================================
+   MICRO-DEFLECTIONS & PAPER ORGANIC WARP
+   Real paper edges are slightly deckled/curled, never mathematically flat.
+   ========================================================================== */
+
+/* Hand-cut / Deckled Organic Border-Radius */
+.deckled-paper {
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+
+/* Micro-Deflection Corner Lift Physics (Lifting 2-3mm off the desk mat) */
+.paper-curl-shadow {
+  position: relative;
+}
+
+.paper-curl-shadow::after {
+  content: '';
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  width: 55%;
+  height: 24px;
+  background: transparent;
+  box-shadow: 0 16px 20px var(--card-deckle-shadow);
+  transform: rotate(2.4deg) skew(2.5deg);
+  z-index: -1;
+  pointer-events: none;
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.paper-curl-shadow::before {
+  content: '';
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  width: 45%;
+  height: 22px;
+  background: transparent;
+  box-shadow: 0 14px 18px var(--card-deckle-shadow);
+  transform: rotate(-1.8deg) skew(-2deg);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Global Utility & Typography Classes */
+.arch-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--brass-accent);
+}
+
+.luxury-heading {
+  font-family: var(--font-serif-luxury);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.stamp-text {
+  font-family: var(--font-title-arch);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

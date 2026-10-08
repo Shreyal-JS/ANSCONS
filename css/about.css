@@ -1,0 +1,1497 @@
+/* ==========================================================================
+   PAGE 2: THE FIRM'S PHILOSOPHY & HERITAGE (ABOUT.HTML)
+   Skeuomorphic Archival Dossier, Field Log, Specimen Board & Redlined Manifesto
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. ANTIQUE BRASS PARALLEL ROLLING RULER (Top of Archival Ledger)
+   -------------------------------------------------------------------------- */
+.parallel-ruler-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto 30px auto;
+  z-index: 20;
+}
+
+.parallel-rolling-ruler {
+  position: relative;
+  width: 100%;
+  height: 46px;
+  background: var(--brass-gradient);
+  border-radius: 4px;
+  border: 1px solid #7d5e23;
+  box-shadow: 
+    -2px 6px 16px rgba(10, 18, 28, 0.4),
+    -6px 14px 28px rgba(10, 18, 28, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  user-select: none;
+}
+
+/* Left & Right Knurled Brass Roller Cylinders */
+.ruler-roller {
+  width: 28px;
+  height: 36px;
+  background: repeating-linear-gradient(
+    90deg,
+    #5a4114 0px,
+    #5a4114 2px,
+    #c6a25c 2px,
+    #f2d890 3px,
+    #9c7728 4px
+  );
+  border-radius: 3px;
+  border: 1px solid #3d2a0a;
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.4);
+  position: relative;
+  cursor: ew-resize;
+}
+
+.ruler-roller::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2a1c06;
+}
+
+.ruler-blade-markings {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  overflow: hidden;
+}
+
+.ruler-engraved-title {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #3b280b;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
+}
+
+.ruler-metric-ticks {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: #4f360f;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   2. THE FIELD LOG & FOUNDATION LEDGER (HERO SECTION)
+   -------------------------------------------------------------------------- */
+.foundation-ledger-sheet {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto 60px auto;
+  background: #fdfbf7;
+  border: 1px solid rgba(180, 160, 130, 0.45);
+  box-shadow: 
+    -4px 8px 24px rgba(10, 18, 28, 0.25),
+    -12px 24px 50px rgba(10, 18, 28, 0.2),
+    inset 0 0 120px rgba(220, 205, 180, 0.25);
+  padding: 56px 64px;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+/* Accordion-fold subtle crease lines down the folio */
+.foundation-ledger-sheet::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.08) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(0, 0, 0, 0.06) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Stitched Center Bookbinding Seam Thread */
+.bookbinding-seam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 8px,
+    #9e7d44 8px,
+    #d4b26f 16px,
+    transparent 16px
+  );
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Brass Pinned Hardware Reinforcements */
+.brass-corner-bracket {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--brass-gold);
+  z-index: 4;
+  pointer-events: none;
+}
+.bracket-tl { top: 12px; left: 12px; border-right: none; border-bottom: none; }
+.bracket-tr { top: 12px; right: 12px; border-left: none; border-bottom: none; }
+.bracket-bl { bottom: 12px; left: 12px; border-right: none; border-top: none; }
+.bracket-br { bottom: 12px; right: 12px; border-left: none; border-top: none; }
+
+/* Folio Header & Metadata */
+.ledger-meta-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1.5px solid rgba(180, 160, 130, 0.4);
+  padding-bottom: 24px;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 5;
+}
+
+.ledger-depository-stamp {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.depository-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #8c6a28;
+}
+
+.depository-coords {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: #564c40;
+  letter-spacing: 0.08em;
+}
+
+/* --------------------------------------------------------------------------
+   3. BLIND-DEBOSSED WAX / PRESSURE SEAL (ANSCONS FOUNDATION EST. 2008)
+   -------------------------------------------------------------------------- */
+.wax-seal-container {
+  position: relative;
+  cursor: pointer;
+  perspective: 600px;
+}
+
+.wax-seal-stamp {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #a83232 0%, #751b1b 55%, #420d0d 100%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 
+    -2px 4px 10px rgba(0, 0, 0, 0.4),
+    -5px 12px 24px rgba(60, 10, 10, 0.4),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.35),
+    inset -3px -4px 6px rgba(0, 0, 0, 0.6);
+  border: 3px solid rgba(240, 120, 120, 0.25);
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 0.2s ease;
+  transform-style: preserve-3d;
+  user-select: none;
+}
+
+.wax-seal-stamp:hover {
+  transform: translateY(-2px) rotate(2deg);
+  box-shadow: 
+    -3px 6px 14px rgba(0, 0, 0, 0.5),
+    -8px 18px 32px rgba(60, 10, 10, 0.5),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.5);
+}
+
+.wax-seal-outer-rim {
+  position: absolute;
+  inset: 5px;
+  border: 1px dashed rgba(255, 200, 200, 0.35);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.wax-seal-text-top {
+  font-family: var(--font-title-arch);
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #ffcccc;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.7), 0 1px 1px rgba(255, 255, 255, 0.25);
+}
+
+.wax-seal-insignia {
+  width: 26px;
+  height: 26px;
+  margin: 2px 0;
+  fill: #ffdddd;
+  filter: drop-shadow(0 -1px 0 rgba(0, 0, 0, 0.8)) drop-shadow(0 1px 1px rgba(255, 255, 255, 0.3));
+}
+
+.wax-seal-text-bottom {
+  font-family: var(--font-mono);
+  font-size: 0.48rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #ffcccc;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.7), 0 1px 1px rgba(255, 255, 255, 0.25);
+}
+
+.wax-specular {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Ledger Title & Manifesto Preamble */
+.ledger-hero-body {
+  position: relative;
+  z-index: 5;
+}
+
+.ledger-chapter-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #8c6a28;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ledger-chapter-label::after {
+  content: '';
+  flex: 1;
+  max-width: 140px;
+  height: 1px;
+  background: #c6a25c;
+}
+
+.ledger-main-heading {
+  font-family: var(--font-serif-luxury);
+  font-size: clamp(2.2rem, 3.8vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--desk-paper-ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  max-width: 920px;
+}
+
+.ledger-editorial-subheading {
+  font-family: var(--font-serif-luxury);
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 1.6;
+  color: #6a5a48;
+  margin-bottom: 32px;
+  max-width: 860px;
+}
+
+.ledger-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(180, 160, 130, 0.35);
+}
+
+.pillar-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pillar-numeral {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #8c6a28;
+  letter-spacing: 0.12em;
+}
+
+.pillar-title {
+  font-family: var(--font-title-arch);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--desk-paper-ink);
+  letter-spacing: 0.05em;
+}
+
+.pillar-copy {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #4a3e32;
+}
+
+/* --------------------------------------------------------------------------
+   4. "LAYERED TRACING PAPER" PHILOSOPHY SLIDER (SECTION 2)
+   -------------------------------------------------------------------------- */
+.philosophy-slider-section {
+  max-width: 1240px;
+  margin: 0 auto 70px auto;
+  position: relative;
+  z-index: 10;
+}
+
+.section-header-banner {
+  margin-bottom: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  position: relative;
+  z-index: 10;
+}
+
+.section-tagline-code {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #d4af37;
+  letter-spacing: 0.16em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.section-tagline-code::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: var(--brass-gradient);
+  border-radius: 1px;
+  box-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
+}
+
+.section-title-prominent {
+  font-family: var(--font-title-arch);
+  font-size: clamp(1.45rem, 2.3vw, 2.15rem);
+  font-weight: 700;
+  color: #f7dfa5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 
+    -1px 2px 4px rgba(0, 0, 0, 0.85),
+    0 0 14px rgba(212, 175, 55, 0.3);
+  margin: 0;
+  line-height: 1.25;
+}
+
+/* Peel Stage Container */
+.peel-slider-stage {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 
+    -4px 8px 24px rgba(10, 18, 28, 0.35),
+    -12px 24px 50px rgba(10, 18, 28, 0.25);
+  border: 2px solid rgba(198, 162, 92, 0.4);
+  background: #111;
+  user-select: none;
+  touch-action: none;
+}
+
+/* Base Finished Construction Photo (Behind) */
+.peel-underlay-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: contrast(1.05) brightness(0.95);
+  pointer-events: none;
+}
+
+.peel-underlay-badge {
+  position: absolute;
+  bottom: 24px;
+  right: 28px;
+  background: rgba(18, 15, 12, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 8px 16px;
+  border-radius: 3px;
+  border: 1px solid var(--brass-gold);
+  color: #ffecba;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  z-index: 5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+/* Semi-Transparent Onion Skin / Vellum Tracing Paper Overlay (On Top) */
+.peel-vellum-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%; /* Controlled via JS slider */
+  height: 100%;
+  background: rgba(248, 243, 232, 0.88);
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px);
+  overflow: hidden;
+  z-index: 6;
+  box-shadow: 4px 0 16px rgba(0, 0, 0, 0.35);
+  transition: width 0.05s ease-out;
+  will-change: width;
+}
+
+/* Vellum Tracing Paper Texture Grain */
+.peel-vellum-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(180, 150, 110, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180, 150, 110, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+/* SVG Hand-Drawn Geometric Overlay & Philosophical Annotations */
+.peel-draft-graphics {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1240px; /* Locked to stage max-width so graphics do not scale distort */
+  height: 560px;
+  pointer-events: none;
+}
+
+.peel-overlay-badge {
+  position: absolute;
+  top: 24px;
+  left: 28px;
+  background: rgba(255, 252, 245, 0.95);
+  border: 1px solid #9e7d44;
+  padding: 8px 16px;
+  border-radius: 3px;
+  color: #3b280b;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 7;
+}
+
+/* Draggable Knurled Brass Caliper Divider Handle */
+.peel-caliper-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%; /* Controlled via JS slider */
+  width: 4px;
+  background: var(--brass-gradient);
+  box-shadow: 
+    0 0 10px rgba(0, 0, 0, 0.6),
+    0 0 4px #ffd978;
+  z-index: 10;
+  cursor: ew-resize;
+  transform: translateX(-50%);
+  transition: left 0.05s ease-out;
+  will-change: left;
+}
+
+.peel-caliper-knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 46px;
+  height: 72px;
+  background: var(--brass-gradient);
+  border-radius: 6px;
+  border: 1.5px solid #4a3410;
+  box-shadow: 
+    -3px 5px 14px rgba(0, 0, 0, 0.55),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: ew-resize;
+}
+
+.caliper-knurl-grooves {
+  width: 24px;
+  height: 28px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #4a3410 0px,
+    #4a3410 2px,
+    #ffeaae 2px,
+    #c6a25c 3px,
+    #ffeaae 4px
+  );
+  border-radius: 2px;
+}
+
+.caliper-needle-indicator {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: #3b280b;
+}
+
+/* Preset Quick-Toggle Control Stamps */
+.peel-controls-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding: 0 4px;
+}
+
+.peel-instructions-note {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #e2d4be;
+  background: rgba(26, 20, 14, 0.85);
+  border: 1px solid rgba(198, 162, 92, 0.5);
+  padding: 7px 16px;
+  border-radius: 3px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 
+    0 3px 10px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.peel-preset-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-peel-preset {
+  background: rgba(253, 249, 241, 0.92);
+  border: 1px solid #c6a25c;
+  padding: 6px 14px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #3b280b;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+  transition: all 0.2s ease;
+}
+
+.btn-peel-preset:hover {
+  background: var(--brass-gradient);
+  color: #1a1204;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   5. INTERACTIVE MATERIAL PROVENANCE SPECIMEN BOARD (SECTION 3)
+   -------------------------------------------------------------------------- */
+.specimen-board-section {
+  max-width: 1240px;
+  margin: 0 auto 70px auto;
+  position: relative;
+  z-index: 10;
+}
+
+.specimen-cabinet-case {
+  background: #1f1712; /* Dark Walnut frame */
+  border-radius: 4px;
+  padding: 24px;
+  border: 3px solid #3d2a1c;
+  box-shadow: 
+    -4px 10px 30px rgba(0, 0, 0, 0.5),
+    -14px 28px 60px rgba(0, 0, 0, 0.35),
+    inset 0 0 40px rgba(0, 0, 0, 0.8);
+  position: relative;
+}
+
+/* Recessed Emerald/Charcoal Velvet Specimen Bed */
+.specimen-velvet-bed {
+  background: radial-gradient(circle at 40% 30%, #172421 0%, #0d1614 100%);
+  border: 2px solid #2d3f3b;
+  box-shadow: inset 2px 4px 12px rgba(0, 0, 0, 0.85);
+  border-radius: 2px;
+  padding: 36px 32px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* Specimen Card Item */
+.specimen-tray-item {
+  background: rgba(18, 25, 23, 0.85);
+  border: 1px solid rgba(198, 162, 92, 0.3);
+  border-radius: 4px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s var(--ease-spring);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.specimen-tray-item:hover,
+.specimen-tray-item.active {
+  transform: translateY(-4px);
+  border-color: #d4af37;
+  box-shadow: 
+    0 12px 28px rgba(0, 0, 0, 0.6),
+    0 0 12px rgba(212, 175, 55, 0.3);
+}
+
+/* Tactile 3D Physical Material Blocks */
+.specimen-block-visual {
+  width: 100%;
+  height: 160px;
+  border-radius: 3px;
+  margin-bottom: 18px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    -2px 4px 10px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.specimen-tray-item:hover .specimen-block-visual {
+  transform: scale(1.02);
+}
+
+/* Block A: Chiseled Carrara Marble */
+.visual-carrara-block {
+  background: #f4f3ef;
+  background-image: 
+    radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.9) 0%, transparent 60%),
+    linear-gradient(135deg, transparent 40%, rgba(180, 160, 130, 0.4) 45%, transparent 50%),
+    linear-gradient(65deg, transparent 60%, rgba(160, 140, 110, 0.3) 65%, transparent 70%);
+  border: 1.5px solid #d8d3c7;
+}
+
+/* Block B: Charred Shou Sugi Ban */
+.visual-shousugi-block {
+  background: #151515;
+  background-image: 
+    repeating-linear-gradient(90deg, #111 0px, #111 4px, #1f1f1f 4px, #262626 8px, #0e0e0e 12px),
+    radial-gradient(circle at 60% 40%, rgba(50, 50, 50, 0.5) 0%, transparent 60%);
+  border: 1.5px solid #2a2a2a;
+}
+
+/* Block C: 20-Year Verdigris Architectural Bronze */
+.visual-bronze-block {
+  background: linear-gradient(135deg, #7a5a2e 0%, #4f7468 45%, #2a584c 75%, #a68434 100%);
+  border: 1.5px solid #8c6a28;
+}
+
+/* Pinned Typewriter Tag */
+.specimen-typewriter-tag {
+  background: #fffdf5;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d4c4a8;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+}
+
+.specimen-pin-brass {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brass-gradient);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.tag-specimen-title {
+  font-family: var(--font-title-arch);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #2b1d14;
+  letter-spacing: 0.05em;
+}
+
+.tag-specimen-coords {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: #5a4b3c;
+  line-height: 1.4;
+}
+
+/* Slide-Out / Interactive Technical Provenance Index Card */
+.specimen-dossier-card {
+  margin-top: 24px;
+  background: #fdfbf7;
+  border: 1.5px solid #c6a25c;
+  border-radius: 3px;
+  padding: 28px 36px;
+  box-shadow: 
+    -3px 6px 18px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 36px;
+  transition: all 0.3s ease;
+}
+
+.dossier-left-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dossier-card-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #8c6a28;
+  letter-spacing: 0.12em;
+}
+
+.dossier-card-heading {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #1b2028;
+}
+
+.dossier-card-narrative {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #4a3e32;
+}
+
+/* Provenance Metrics Grid */
+.dossier-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  background: rgba(245, 238, 225, 0.5);
+  padding: 20px;
+  border-radius: 3px;
+  border: 1px solid rgba(198, 162, 92, 0.35);
+}
+
+.metric-gauge-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metric-gauge-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #8c6a28;
+  letter-spacing: 0.08em;
+}
+
+.metric-gauge-value {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1b2028;
+}
+
+.metric-gauge-desc {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: #6a5a48;
+}
+
+/* --------------------------------------------------------------------------
+   6. CHRONOLOGICAL FIELD LEDGER (SECTION 4 - HERITAGE TIMELINE)
+   -------------------------------------------------------------------------- */
+.field-ledger-section {
+  max-width: 1240px;
+  margin: 0 auto 70px auto;
+  position: relative;
+  z-index: 10;
+}
+
+.field-ledger-sheet {
+  background: #fdfbf7;
+  border: 1px solid rgba(180, 160, 130, 0.45);
+  box-shadow: 
+    -4px 8px 24px rgba(10, 18, 28, 0.25),
+    -12px 24px 50px rgba(10, 18, 28, 0.2);
+  padding: 48px 56px;
+  position: relative;
+  border-radius: 2px;
+}
+
+/* Center Continuous Vertical Surveyor's Brass Chain Graphic */
+.surveyor-chain-track {
+  position: relative;
+  margin-top: 40px;
+}
+
+.surveyor-chain-track::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 36px;
+  width: 4px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #c6a25c 0px,
+    #c6a25c 6px,
+    #4a3410 6px,
+    #4a3410 10px,
+    #ffd978 10px,
+    #ffd978 16px
+  );
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+
+/* Timeline Milestones / Surveyor Stakes */
+.timeline-stake-group {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-stake-node {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  position: relative;
+}
+
+/* Stamped Brass Elevation Stake Peg */
+.stake-brass-peg {
+  width: 76px;
+  height: 38px;
+  background: var(--brass-gradient);
+  border: 1px solid #5a4114;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #2b1d14;
+  letter-spacing: 0.08em;
+  box-shadow: 
+    -2px 4px 10px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  flex-shrink: 0;
+}
+
+/* Milestone Information Card */
+.stake-content-card {
+  background: rgba(255, 253, 248, 0.95);
+  border: 1px solid rgba(180, 160, 130, 0.4);
+  border-radius: 3px;
+  padding: 20px 28px;
+  flex: 1;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stake-content-card:hover {
+  transform: translateX(4px);
+  border-color: #c6a25c;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+}
+
+.stake-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.stake-code-badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #8c6a28;
+  letter-spacing: 0.12em;
+}
+
+.stake-elevation-coord {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: #564c40;
+}
+
+.stake-milestone-title {
+  font-family: var(--font-title-arch);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--desk-paper-ink);
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.stake-milestone-desc {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: #4a3e32;
+}
+
+/* --------------------------------------------------------------------------
+   7. FOUNDING MANIFESTO WITH HAND-DRAFTED REDLINES (SECTION 5)
+   -------------------------------------------------------------------------- */
+.manifesto-dossier-section {
+  max-width: 1240px;
+  margin: 0 auto 70px auto;
+  position: relative;
+  z-index: 10;
+}
+
+.manifesto-folio-sheet {
+  background: #fdfbf7;
+  border: 1px solid rgba(180, 160, 130, 0.45);
+  box-shadow: 
+    -4px 8px 24px rgba(10, 18, 28, 0.25),
+    -12px 24px 50px rgba(10, 18, 28, 0.2);
+  padding: 56px 64px;
+  position: relative;
+  border-radius: 2px;
+}
+
+.manifesto-editorial-article {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.manifesto-clause {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.manifesto-clause-num {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #8c6a28;
+  letter-spacing: 0.14em;
+  margin-bottom: 8px;
+}
+
+.manifesto-clause-title {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.65rem;
+  font-weight: 600;
+  color: var(--desk-paper-ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+
+.manifesto-clause-copy {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.12rem;
+  line-height: 1.7;
+  color: #3b3228;
+  position: relative;
+}
+
+/* Redline Draftsman Hand-Annotated Markup */
+.redline-strikethrough {
+  text-decoration: line-through;
+  text-decoration-color: #c92a2a;
+  text-decoration-thickness: 2px;
+  color: #8c8278;
+}
+
+.redline-correction {
+  font-family: 'Playfair Display', Georgia, cursive, serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #c92a2a;
+  margin-left: 6px;
+  display: inline-block;
+  transform: rotate(-1.5deg);
+  text-shadow: 0 0 1px rgba(201, 42, 42, 0.3);
+}
+
+.redline-margin-note {
+  position: absolute;
+  right: -180px;
+  top: 10px;
+  width: 150px;
+  font-family: 'Playfair Display', Georgia, cursive, serif;
+  font-style: italic;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  font-weight: 700;
+  color: #c92a2a;
+  transform: rotate(3deg);
+  border-left: 2px solid #c92a2a;
+  padding-left: 10px;
+}
+
+.redline-circled-phrase {
+  border: 1.5px solid #c92a2a;
+  border-radius: 40% 60% 55% 45% / 45% 55% 45% 55%;
+  padding: 2px 8px;
+  color: #c92a2a;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   8. PRINCIPAL ARCHITECT SIGNATURE & REGISTRATION PLATE (SECTION 6)
+   -------------------------------------------------------------------------- */
+.registry-section {
+  max-width: 1240px;
+  margin: 0 auto 80px auto;
+  position: relative;
+  z-index: 10;
+}
+
+.registry-backing-board {
+  background: #fdfbf7;
+  border: 1px solid rgba(180, 160, 130, 0.45);
+  box-shadow: 
+    -4px 8px 24px rgba(10, 18, 28, 0.25),
+    -12px 24px 50px rgba(10, 18, 28, 0.2);
+  padding: 48px 56px;
+  border-radius: 2px;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* Left: Principal Signature Column */
+.principal-sign-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sign-title-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #8c6a28;
+  letter-spacing: 0.12em;
+}
+
+.fountain-pen-signature-svg {
+  width: 260px;
+  height: 80px;
+}
+
+.principal-name-title {
+  font-family: var(--font-title-arch);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--desk-paper-ink);
+}
+
+.principal-role-desc {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #6a5a48;
+}
+
+/* Right: Engraved Solid Brass Registration Plaque */
+.brass-registration-plaque {
+  background: var(--brass-gradient);
+  border: 2px solid #5a4114;
+  border-radius: 4px;
+  padding: 28px 32px;
+  box-shadow: 
+    -3px 6px 18px rgba(0, 0, 0, 0.45),
+    -8px 16px 36px rgba(0, 0, 0, 0.28),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+/* Corner Screws */
+.plaque-screw {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3d2a0a;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+.screw-tl { top: 10px; left: 10px; }
+.screw-tr { top: 10px; right: 10px; }
+.screw-bl { bottom: 10px; left: 10px; }
+.screw-br { bottom: 10px; right: 10px; }
+
+.plaque-inner-frame {
+  border: 1px solid rgba(74, 52, 16, 0.4);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.plaque-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(74, 52, 16, 0.3);
+  padding-bottom: 8px;
+}
+
+.plaque-firm-name {
+  font-family: var(--font-title-arch);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #2b1d14;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.plaque-seal-mini {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #3b280b;
+}
+
+.plaque-credentials-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #2b1d14;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+}
+
+.plaque-credential-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* --------------------------------------------------------------------------
+   9. BLUEPRINT CYANOTYPE MODE OVERRIDES FOR PAGE 2
+   -------------------------------------------------------------------------- */
+body.blueprint-mode .parallel-rolling-ruler,
+body[data-theme="cyanotype"] .parallel-rolling-ruler {
+  background: linear-gradient(135deg, #184c7d 0%, #0d284a 100%);
+  border-color: #64ffda;
+  box-shadow: 
+    -2px 6px 16px rgba(0, 0, 0, 0.6),
+    inset 0 1px 2px rgba(100, 255, 218, 0.5);
+}
+
+body.blueprint-mode .ruler-engraved-title,
+body[data-theme="cyanotype"] .ruler-engraved-title {
+  color: #64ffda;
+  text-shadow: none;
+}
+
+body.blueprint-mode .ruler-metric-ticks,
+body[data-theme="cyanotype"] .ruler-metric-ticks {
+  color: #a4ccf0;
+}
+
+body.blueprint-mode .foundation-ledger-sheet,
+body.blueprint-mode .field-ledger-sheet,
+body.blueprint-mode .manifesto-folio-sheet,
+body.blueprint-mode .registry-backing-board,
+body[data-theme="cyanotype"] .foundation-ledger-sheet,
+body[data-theme="cyanotype"] .field-ledger-sheet,
+body[data-theme="cyanotype"] .manifesto-folio-sheet,
+body[data-theme="cyanotype"] .registry-backing-board {
+  background: #0a1c30;
+  border-color: rgba(90, 170, 240, 0.45);
+  box-shadow: 
+    -4px 8px 24px rgba(0, 0, 0, 0.6),
+    -12px 24px 50px rgba(0, 0, 0, 0.45);
+  color: #f0f7ff;
+}
+
+body.blueprint-mode .ledger-main-heading,
+body.blueprint-mode .pillar-title,
+body.blueprint-mode .dossier-card-heading,
+body.blueprint-mode .stake-milestone-title,
+body.blueprint-mode .manifesto-clause-title,
+body.blueprint-mode .principal-name-title,
+body[data-theme="cyanotype"] .ledger-main-heading,
+body[data-theme="cyanotype"] .pillar-title,
+body[data-theme="cyanotype"] .dossier-card-heading,
+body[data-theme="cyanotype"] .stake-milestone-title,
+body[data-theme="cyanotype"] .manifesto-clause-title,
+body[data-theme="cyanotype"] .principal-name-title {
+  color: #ffffff;
+}
+
+body.blueprint-mode .section-title-prominent,
+body[data-theme="cyanotype"] .section-title-prominent {
+  color: #ffffff;
+  text-shadow: 
+    -1px 2px 6px rgba(0, 0, 0, 0.9),
+    0 0 16px rgba(100, 255, 218, 0.4);
+}
+
+body.blueprint-mode .section-tagline-code,
+body.blueprint-mode .ledger-chapter-label,
+body.blueprint-mode .sign-title-tag,
+body[data-theme="cyanotype"] .section-tagline-code,
+body[data-theme="cyanotype"] .ledger-chapter-label,
+body[data-theme="cyanotype"] .sign-title-tag {
+  color: #64ffda;
+  text-shadow: 0 0 8px rgba(100, 255, 218, 0.4);
+}
+
+body.blueprint-mode .section-tagline-code::before,
+body[data-theme="cyanotype"] .section-tagline-code::before {
+  background: #64ffda;
+  box-shadow: 0 0 8px #64ffda;
+}
+
+body.blueprint-mode .ledger-chapter-label::after,
+body[data-theme="cyanotype"] .ledger-chapter-label::after {
+  background: #64ffda;
+}
+
+body.blueprint-mode .peel-instructions-note,
+body[data-theme="cyanotype"] .peel-instructions-note {
+  color: #a4ccf0;
+  background: rgba(10, 28, 48, 0.88);
+  border-color: rgba(100, 200, 255, 0.45);
+  box-shadow: 
+    0 3px 10px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(100, 200, 255, 0.2);
+}
+
+body.blueprint-mode .ledger-editorial-subheading,
+body.blueprint-mode .pillar-copy,
+body.blueprint-mode .dossier-card-narrative,
+body.blueprint-mode .stake-milestone-desc,
+body.blueprint-mode .manifesto-clause-copy,
+body.blueprint-mode .principal-role-desc,
+body[data-theme="cyanotype"] .ledger-editorial-subheading,
+body[data-theme="cyanotype"] .pillar-copy,
+body[data-theme="cyanotype"] .dossier-card-narrative,
+body[data-theme="cyanotype"] .stake-milestone-desc,
+body[data-theme="cyanotype"] .manifesto-clause-copy,
+body[data-theme="cyanotype"] .principal-role-desc {
+  color: #a4ccf0;
+}
+
+body.blueprint-mode .peel-vellum-overlay,
+body[data-theme="cyanotype"] .peel-vellum-overlay {
+  background: rgba(10, 32, 58, 0.88);
+}
+
+body.blueprint-mode .specimen-dossier-card,
+body[data-theme="cyanotype"] .specimen-dossier-card {
+  background: #081726;
+  border-color: #64ffda;
+}
+
+body.blueprint-mode .dossier-metrics-grid,
+body[data-theme="cyanotype"] .dossier-metrics-grid {
+  background: rgba(13, 34, 56, 0.6);
+  border-color: rgba(100, 200, 255, 0.25);
+}
+
+body.blueprint-mode .metric-gauge-value,
+body[data-theme="cyanotype"] .metric-gauge-value {
+  color: #64ffda;
+}
+
+body.blueprint-mode .metric-gauge-desc,
+body[data-theme="cyanotype"] .metric-gauge-desc {
+  color: #92b8de;
+}
+
+body.blueprint-mode .stake-content-card,
+body[data-theme="cyanotype"] .stake-content-card {
+  background: rgba(10, 28, 48, 0.95);
+  border-color: rgba(90, 170, 240, 0.35);
+}
+
+body.blueprint-mode .redline-strikethrough,
+body[data-theme="cyanotype"] .redline-strikethrough {
+  color: #6085a6;
+}
+
+body.blueprint-mode .redline-correction,
+body.blueprint-mode .redline-margin-note,
+body.blueprint-mode .redline-circled-phrase,
+body[data-theme="cyanotype"] .redline-correction,
+body[data-theme="cyanotype"] .redline-margin-note,
+body[data-theme="cyanotype"] .redline-circled-phrase {
+  color: #ff6b6b;
+  border-color: #ff6b6b;
+}
+
+body.blueprint-mode .brass-registration-plaque,
+body[data-theme="cyanotype"] .brass-registration-plaque {
+  background: linear-gradient(135deg, #1b456e 0%, #0d284a 100%);
+  border-color: #64ffda;
+}
+
+body.blueprint-mode .plaque-firm-name,
+body.blueprint-mode .plaque-credentials-list,
+body.blueprint-mode .plaque-seal-mini,
+body[data-theme="cyanotype"] .plaque-firm-name,
+body[data-theme="cyanotype"] .plaque-credentials-list,
+body[data-theme="cyanotype"] .plaque-seal-mini {
+  color: #e0f2fe;
+}
+
+/* --------------------------------------------------------------------------
+   10. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .foundation-ledger-sheet,
+  .field-ledger-sheet,
+  .manifesto-folio-sheet,
+  .registry-backing-board {
+    padding: 40px 32px;
+  }
+
+  .ledger-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .specimen-velvet-bed {
+    grid-template-columns: 1fr;
+  }
+
+  .specimen-dossier-card {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .registry-backing-board {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .redline-margin-note {
+    position: static;
+    display: block;
+    margin-top: 8px;
+    width: auto;
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .foundation-ledger-sheet,
+  .field-ledger-sheet,
+  .manifesto-folio-sheet,
+  .registry-backing-board {
+    padding: 28px 20px;
+  }
+
+  .ledger-meta-bar {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .wax-seal-stamp {
+    width: 80px;
+    height: 80px;
+  }
+
+  .peel-slider-stage {
+    height: 420px;
+  }
+
+  .surveyor-chain-track::before {
+    left: 20px;
+  }
+
+  .timeline-stake-node {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .stake-brass-peg {
+    align-self: flex-start;
+  }
+}
+

@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services &amp; Atelier Capabilities | ANSCONS Architecture &amp; Bespoke Construction</title>
+  <meta name="description" content="Master Builder technical commission portfolio, structural disciplines, and construction management capabilities of ANSCONS. Ground-up monolithic engineering and millwork.">
+  
+  <!-- Skeuomorphic Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/desk.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/services.css">
+  <link rel="stylesheet" href="css/legal-specs.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="studio-mode" data-theme="studio">
+
+  <!-- Floating Brass Return-To-Origin Compass Widget -->
+  <button id="btn-return-origin" class="btn-return-origin" title="Return to Top of Work-Order Folio" aria-label="Return to top of drafting table">
+    <span class="compass-needle" aria-hidden="true">▲</span>
+    <span class="origin-text">ORIGIN (TOP)</span>
+  </button>
+
+  <!-- Virtual Desktop Lamp Glow (Top-Left 315° Ambient Light) -->
+  <div class="desk-lamp-glow" aria-hidden="true"></div>
+
+  <!-- Calibrated Marginal Desk Rulers -->
+  <div class="desk-ruler-top" aria-hidden="true">
+    <span>0 CM &nbsp; &nbsp; &nbsp; 10 &nbsp; &nbsp; &nbsp; 20 &nbsp; &nbsp; &nbsp; 30 &nbsp; &nbsp; &nbsp; 40 &nbsp; &nbsp; &nbsp; 50 &nbsp; &nbsp; &nbsp; 60 &nbsp; &nbsp; &nbsp; 70 &nbsp; &nbsp; &nbsp; 80 &nbsp; &nbsp; &nbsp; 90 &nbsp; &nbsp; &nbsp; 100 &nbsp; &nbsp; &nbsp; 110 &nbsp; &nbsp; &nbsp; 120 CM // WORK-ORDER REGISTER CALIBRATION</span>
+  </div>
+  <div class="desk-ruler-left" aria-hidden="true">
+    <span>0 IN &nbsp; &nbsp; &nbsp; 10 &nbsp; &nbsp; &nbsp; 20 &nbsp; &nbsp; &nbsp; 30 &nbsp; &nbsp; &nbsp; 40 &nbsp; &nbsp; &nbsp; 50 &nbsp; &nbsp; &nbsp; 60 &nbsp; &nbsp; &nbsp; 70 IN // TECTONIC ELEVATIONS</span>
+  </div>
+
+  <!-- Desk HUD Controls (Audio Mute Toggle & Solid Cast-Brass Theme Lever) -->
+  <div class="desk-controls-hud">
+    <button class="desk-audio-toggle" id="desk-audio-toggle" aria-label="Toggle mechanical audio feedback">
+      <svg class="audio-icon" viewBox="0 0 24 24">
+        <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73 4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+      </svg>
+      <span class="desk-audio-badge" id="audio-status-badge">Muted</span>
+    </button>
+
+    <div class="lamp-lever-container">
+      <div class="brass-switch-plate" id="brass-theme-lever" title="Snap toggle switch between Studio Warm Lamp and Blueprint Cyanotype mode">
+        <div class="plate-screw" aria-hidden="true"></div>
+        <span class="switch-mode-label active" id="label-mode-studio">STUDIO</span>
+        <div class="brass-toggle-housing" aria-hidden="true">
+          <div class="brass-toggle-bat" id="brass-toggle-bat"></div>
+        </div>
+        <span class="switch-mode-label" id="label-mode-blueprint">BLUEPRINT</span>
+        <div class="plate-screw" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Master Drafting Table Workspace -->
+  <div class="drafting-table">
+
+    <!-- Persistent Clamped Vellum Navigation Bar (Global Multi-Page Router) -->
+    <header class="tracing-nav-container">
+      <div class="tracing-nav-track">
+        <div class="brass-blueprint-clip" aria-hidden="true"></div>
+        <a href="index.html" class="vellum-tab" title="Atelier Master Drawing Sheet">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 01</span>
+          <span class="tab-title">ATELIER</span>
+        </a>
+        <a href="about.html" class="vellum-tab" title="Philosophy &amp; Heritage Ledger">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 02</span>
+          <span class="tab-title">PHILOSOPHY</span>
+        </a>
+        <a href="services.html" class="vellum-tab active" title="Bespoke Architectural Services">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 03</span>
+          <span class="tab-title">SERVICES</span>
+        </a>
+        <a href="projects.html" class="vellum-tab" title="Monograph Folio of Built Works">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 04</span>
+          <span class="tab-title">PORTFOLIO</span>
+        </a>
+        <a href="estimator.html" class="vellum-tab" title="Scale Caliper Project Estimator">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 05</span>
+          <span class="tab-title">ESTIMATOR</span>
+        </a>
+        <a href="contact.html" class="vellum-tab" title="Commission Liaison Brief">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 06</span>
+          <span class="tab-title">LIAISON</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- SECTION 1: Master Builder's Technical Commission Portfolio & Guild Work-Order Folio Header -->
+    <section class="services-workorder-folio">
+      <!-- Brass Corner Brackets -->
+      <div class="brass-corner-bracket bracket-tl" aria-hidden="true"></div>
+      <div class="brass-corner-bracket bracket-tr" aria-hidden="true"></div>
+      <div class="brass-corner-bracket bracket-bl" aria-hidden="true"></div>
+      <div class="brass-corner-bracket bracket-br" aria-hidden="true"></div>
+
+      <!-- Folio Header & Metadata -->
+      <div class="workorder-meta-header">
+        <div class="workorder-registry-tag">
+          <span class="workorder-code">WORK-ORDER SPEC // FOLIO REF: ANS-ENG-SERIES-03 // REV 2026.09</span>
+          <span class="workorder-jurisdiction">MASTER GENERAL CONTRACTING • CIVIL TECTONICS • BESPOKE FOUNDRY ATELIER</span>
+        </div>
+
+        <div class="guild-authority-badges">
+          <div class="authority-badge">100% SELF-PERFORMED STRUCTURAL CORES</div>
+          <div class="authority-badge">±0.5MM GUILD TOLERANCE</div>
+          <div class="authority-badge">CLASS A GENERAL UNLIMITED</div>
+        </div>
+      </div>
+
+      <!-- Editorial Manifesto Body -->
+      <div class="hero-subtitle-tag">
+        <span class="arch-label">DOC 03 // DISCIPLINES &amp; ATELIER CAPABILITIES</span>
+      </div>
+      <h1 class="hero-main-title">The Alchemy of Raw Earth, Heavy Steel, and Millimetric Joinery.</h1>
+      <p class="hero-description-copy">
+        "We reject the commoditized model of construction management where general contractors act as paper brokers. ANSCONS directly engineers, self-performs, and oversees every post-tensioned foundation pour, cantilevered moment frame, and hand-patinated bronze reveal under direct Principal master builder supervision."
+      </p>
+    </section>
+
+    <!-- SECTION 2: Interactive Architectural Scope Switcher ("The Blueprint Scope Deck") -->
+    <section id="scope-deck" class="scope-deck-section">
+      <div class="section-ribbon-tag">
+        <div class="ribbon-title-cluster">
+          <div class="north-symbol">02</div>
+          <h2 class="section-ribbon-title">Blueprint Scope Deck • Architectural Disciplines &amp; Execution</h2>
+        </div>
+        <div class="peel-instructions-note">
+          <span>SELECT DISCIPLINE REGISTER TO INSPECT ARCHITECTURAL TOLERANCES</span>
+        </div>
+      </div>
+
+      <!-- Tabbed Drawing Register Buttons -->
+      <div class="scope-tabs-bar">
+        <button class="scope-tab-button active" data-scope="scope-01">
+          <span class="scope-tab-index">01</span>
+          <span>MONOLITHIC ARCHITECTURE &amp; CIVIL</span>
+        </button>
+        <button class="scope-tab-button" data-scope="scope-02">
+          <span class="scope-tab-index">02</span>
+          <span>HIGH-TOLERANCE GENERAL CONTRACTING</span>
+        </button>
+        <button class="scope-tab-button" data-scope="scope-03">
+          <span class="scope-tab-index">03</span>
+          <span>ATELIER MILLWORK &amp; FOUNDRY</span>
+        </button>
+        <button class="scope-tab-button" data-scope="scope-04">
+          <span class="scope-tab-index">04</span>
+          <span>HISTORIC VAULT PRESERVATION</span>
+        </button>
+      </div>
+
+      <!-- Scope Folio Cards Stage -->
+      <div class="scope-cards-stage">
+
+        <!-- Scope Card 01: Monolithic Architecture & Civil Engineering -->
+        <article class="scope-folio-card active" id="scope-01">
+          <div class="scope-left-content">
+            <span class="scope-id-label">DISCIPLINE 01 // GROUND-UP HEAVY TECTONICS</span>
+            <h2 class="scope-title-heading">Ground-Up Monolithic Architecture &amp; Civil Engineering</h2>
+            <p class="scope-lead-paragraph">
+              Executing structural interventions on steep hillside topography, ocean bluff foundations, and dense urban bedrock. We specialize in clear-span cantilevers up to 24 meters and seismic base-isolated substructures.
+            </p>
+
+            <ul class="scope-methods-checklist">
+              <li class="scope-method-item">
+                <div class="method-bullet-square"></div>
+                <span><strong>Deep Bedrock Micro-Piling:</strong> High-tensile Dywidag rock anchors drilled up to 28m into solid strata.</span>
+              </li>
+              <li class="scope-method-item">
+                <div class="method-bullet-square"></div>
+                <span><strong>Post-Tensioned Monolithic Concrete:</strong> 65 MPa self-consolidating mix with architectonic board-form texture.</span>
+              </li>
+              <li class="scope-method-item">
+                <div class="method-bullet-square"></div>
+                <span><strong>Heavy Moment Steel Framing:</strong> Full-penetration ductile welded joints engineered for column-free living pavilions.</span>
+              </li>
+            </ul>
+
+            <!-- Contractor's Stamp of Responsibility -->
+            <div class="contractor-responsibility-stamp">
+              <span class="stamp-text-primary">100% SELF-PERFORMED STRUCTURAL INTEGRITY</span>
+              <span class="stamp-text-secondary">DIRECT SITE INSPECTION BY PRINCIPAL ARCHITECT // AC</span>
+            </div>
+          </div>
+
+          <!-- Right Column: Blueprint Schematic & Metrics -->
+          <div class="scope-right-blueprint">
+            <div class="schematic-blueprint-box">
+              <div class="schematic-header-row">
+                <span class="schematic-drawing-code">DWG: ANS-CIVIL-S101 // MOMENT SECTION</span>
+                <span class="schematic-scale-tag">SCALE 1:50</span>
+              </div>
+              <svg class="schematic-svg-graphic" viewBox="0 0 400 140">
+                <!-- Foundation & Cantilever Moment Schematic -->
+                <line class="schematic-line-primary" x1="40" y1="120" x2="360" y2="120" stroke-width="2"/>
+                <rect class="schematic-line-secondary" x1="60" y1="60" width="80" height="60" fill="none" stroke-width="1.5" stroke-dasharray="4,2"/>
+                <polygon class="schematic-line-primary" points="140,60 320,60 280,30 140,30" fill="none" stroke-width="2"/>
+                <line class="schematic-line-accent" x1="140" y1="30" x2="140" y2="120" stroke-width="2.5"/>
+                <circle class="schematic-fill-accent" cx="140" cy="60" r="4"/>
+                <text class="schematic-text-primary" x="150" y="45" font-family="'JetBrains Mono', monospace" font-size="10">24M CLEAR CANTILEVER</text>
+                <text class="schematic-text-secondary" x="70" y="95" font-family="'JetBrains Mono', monospace" font-size="9">BEDROCK PIN ANCHOR</text>
+              </svg>
+            </div>
+
+            <div class="scope-metrics-row">
+              <div class="scope-stat-badge">
+                <span class="stat-badge-label">COMPRESSIVE MIX</span>
+                <span class="stat-badge-val">65 MPa</span>
+              </div>
+              <div class="scope-stat-badge">
+                <span class="stat-badge-label">MAX CLEAR SPAN</span>
+                <span class="stat-badge-val">24.0 M</span>
+              </div>
+              <div class="scope-stat-badge">
+                <span class="stat-badge-label">SEISMIC ZONE</span>
+                <span class="stat-badge-val">ZONE 4+</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Scope Card 02: High-Tolerance General Contracting -->
+        <article class="scope-folio-card" id="scope-02">
+          <div class="scope-left-content">
+            <span class="scope-id-label">DISCIPLINE 02 // SITE MASTERY &amp; GC</span>
+            <h2 class="scope-title-heading">High-Tolerance General Contracting &amp; Construction Management</h2>
+            <p class="scope-lead-paragraph">
+              Zero-tolerance site execution where ordinary construction allows centimeter variations. We enforce continuous laser lidar scanning throughout all structural rough-ins to maintain sub-millimeter axial alignment.
+            </p>
+
+            <ul class="scope-methods-checklist">
+              <li class="scope-method-item">
+                <div class="method-bullet-square"></div>
+                <span><strong>BIM-Integrated Laser Scanning:</strong> Daily point-cloud verification against the digital twin before pours.</span>
+              </li>
+              <li class="scope-method-item">
+                <div class="method-bullet-square"></div>
+                <span><strong>Acoustically Decoupled MEP:</strong> Full sound isolation plenums, spring-mounted chillers, and zero-vibration chases.</span>
+              </li>
+              <li class="scope-method-item">
+                <div class="method-bullet-square"></div>
+                <span><strong>Self-Performed Formwork &amp; Steel:</strong> In-house carpenters and ironworkers ensuring absolute fidelity to drawings.</span>
+              </li>
+            </ul>
+
+            <div class="contractor-responsibility-stamp">
+              <span class="stamp-text-primary">100% SELF-PERFORMED STRUCTURAL INTEGRITY</span>
+              <span class="stamp-text-secondary">DIRECT SITE INSPECTION BY PRINCIPAL ARCHITECT // AC</span>
+            </div>
+          </div>
+
+          <div class="scope-right-blueprint">
+            <div class="schematic-blueprint-box">
+              <div class="schematic-header-row">
+                <span class="schematic-drawing-code">DWG: ANS-GC-M204 // MEP AXIAL ALIGNMENT</span>
+                <span class="schematic-scale-tag">SCALE 1:20</span>
+              </div>
+              <svg class="schematic-svg-graphic" viewBox="0 0 400 140">
+                <!-- MEP Conduit & Acoustic Springs Schematic -->
+                <line class="schematic-line-secondary" x1="50" y1="30" x2="350" y2="30" stroke-width="1.5"/>
+                <line class="schematic-line-secondary" x1="50" y1="110" x2="350" y2="110" stroke-width="1.5"/>
+                <path class="schematic-line-accent" d="M 100 30 Q 110 50 100 70 T 100 110" fill="none" stroke-width="2"/>
+                <path class="schematic-line-accent" d="M 200 30 Q 210 50 200 70 T 200 110" fill="none" stroke-width="2"/>
+                <path class="schematic-line-accent" d="M 300 30 Q 310 50 300 70 T 300 110" fill="none" stroke-width="2"/>
+                <rect class="schematic-line-primary" x="140" y="55" width="120" height="30" fill="none" stroke-width="1.5"/>
+                <text class="schematic-text-primary" x="148" y="74" font-family="'JetBrains Mono', monospace" font-size="9">ACOUSTIC PLENUM NC-15</text>
+              </svg>
+            </div>
+
+            <div class="scope-metrics-row">
+              <div class="scope-stat-badge">
+                <span class="stat-badge-label">MAX DEVIATION</span>
+                <span class="stat-badge-val">±0.5 mm</span>
+              </div>
+              <div class="scope-stat-badge">
+                <span class="stat-badge-label">SOUND RATING</span>
+                <span class="stat-badge-val">NC-15</span>
+              </div>
+              <div class="scope-stat-badge">
+                <span class="stat-badge-label">LIDAR ACCURACY</span>
+                <span class="stat-badge-val">0.2 mm</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Scope Card 03: Master Millwork & Architectural Metalwork -->
+        <article class="scope-folio-card" id="scope-03">
+          <div class="scope-left-content">
+            <span class="scope-id-label">DISCIPLINE 03 // ARTISAN ATELIER</span>
+            <h2 class="scope-title-heading">Master Millwork &amp; Architectural Metalwork</h2>
+            <p class="scope-lead-paragraph">
+              Operating our own bronze sand-casting foundry, multi-axis stone waterjet saws, and traditional Japanese yakisugi charring kilns. We build bespoke heirloom doors, sculptural pivot gates, and monolithic marble baths.
+            </p>
+
+            <ul class="scope-methods-checklist">
+              <li class="scope-method-item">
+                <div class="method-bullet-square"></div>
+                <span><strong>Architectural Bronze Casting:</strong> Custom C38500 hardware, patinated with 20-year accelerated verdigris.</span>
+              </li>
+              <li class="scope-method-item">
+                <div class="method-bullet-square"></div>
+                <span><strong>Traditional Hand-Planed Joinery:</strong> French oak and black walnut joined with blind mortise-and-tenon fasteners.</span>
+              </li>
+              <li class="scope-method-item">
+                <div class="method-bullet-square"></div>
+                <span><strong>5-Axis Waterjet Stone Profiling:</strong> Bookmatched Calacatta and travertine continuous slab wall assemblies.</span>
+              </li>
+            </ul>
+
+            <div class="contractor-responsibility-stamp">
+              <span class="stamp-text-primary">100% SELF-PERFORMED STRUCTURAL INTEGRITY</span>
+              <span class="stamp-text-secondary">DIRECT SITE INSPECTION BY PRINCIPAL ARCHITECT // AC</span>
+            </div>
+          </div>
+
+          <div class="scope-right-blueprint">
+            <div class="schematic-blueprint-box">
+              <div class="schematic-header-row">
+                <span class="schematic-drawing-code">DWG: ANS-MIL-W308 // BRONZE PIVOT HINGE</span>
+                <span class="schematic-scale-tag">SCALE 1:5</span>
+              </div>
+              <svg class="schematic-svg-graphic" viewBox="0 0 400 140">
+                <!-- Architectural Bronze Pivot & Joinery Schematic -->
+                <circle class="schematic-line-accent" cx="100" cy="70" r="32" fill="none" stroke-width="2"/>
+                <circle class="schematic-line-primary" cx="100" cy="70" r="12" fill="none" stroke-width="1.5"/>
+                <line class="schematic-line-secondary" x1="100" y1="38" x2="340" y2="38" stroke-width="1.5"/>
+                <line class="schematic-line-secondary" x1="100" y1="102" x2="340" y2="102" stroke-width="1.5"/>
+                <rect class="schematic-line-primary" x="180" y="50" width="140" height="40" fill="none" stroke-width="1.5" stroke-dasharray="3,3"/>
+                <text class="schematic-text-accent" x="190" y="74" font-family="'JetBrains Mono', monospace" font-size="9">BLIND MORTISE JOINT</text>
+              </svg>
+            </div>
+
+            <div class="scope-metrics-row">
+              <div class="scope-stat-badge">
+                <span class="stat-badge-label">ALLOY GRADE</span>
+                <span class="stat-badge-val">C38500</span>
+              </div>
+              <div class="scope-stat-badge">
+                <span class="stat-badge-label">DRY-JOINT TOL</span>
+                <span class="stat-badge-val">±0.2 mm</span>
+              </div>
+              <div class="scope-stat-badge">
+                <span class="stat-badge-label">DOOR CAPACITY</span>
+                <span class="stat-badge-val">1,200 KG</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Scope Card 04: Historic Restoration & Adaptive Preservation -->
+        <article class="scope-folio-card" id="scope-04">
+          <div class="scope-left-content">
+            <span class="scope-id-label">DISCIPLINE 04 // PRESERVATION &amp; HERITAGE</span>
+            <h2 class="scope-title-heading">Historic Restoration &amp; Adaptive Vault Preservation</h2>
+            <p class="scope-lead-paragraph">
+              Preserving landmark cast-iron buildings, historic stone vaults, and centuries-old brickwork. We discreetly introduce seismic moment frames and geothermal climate control without damaging historic fabric.
+            </p>
+
+            <ul class="scope-methods-checklist">
+              <li class="scope-method-item">
+                <div class="method-bullet-square"></div>
+                <span><strong>Non-Destructive Micro-Grouting:</strong> Hydraulic lime mortar injection into compromised historic masonry.</span>
+              </li>
+              <li class="scope-method-item">
+                <div class="method-bullet-square"></div>
+                <span><strong>Concealed Carbon-Fiber Bracing:</strong> Ultra-thin composite reinforcement within historic floor assemblies.</span>
+              </li>
+              <li class="scope-method-item">
+                <div class="method-bullet-square"></div>
+                <span><strong>Archival Document Vaults:</strong> Hermetically sealed deed rooms with climate-controlled inert gas suppression.</span>
+              </li>
+            </ul>
+
+            <div class="contractor-responsibility-stamp">
+              <span class="stamp-text-primary">100% SELF-PERFORMED STRUCTURAL INTEGRITY</span>
+              <span class="stamp-text-secondary">DIRECT SITE INSPECTION BY PRINCIPAL ARCHITECT // AC</span>
+            </div>
+          </div>
+
+          <div class="scope-right-blueprint">
+            <div class="schematic-blueprint-box">
+              <div class="schematic-header-row">
+                <span class="schematic-drawing-code">DWG: ANS-HST-R410 // SEISMIC RETROFIT ARCH</span>
+                <span class="schematic-scale-tag">SCALE 1:25</span>
+              </div>
+              <svg class="schematic-svg-graphic" viewBox="0 0 400 140">
+                <!-- Historic Masonry Arch & Hidden Tie-Rod Schematic -->
+                <path class="schematic-line-accent" d="M 60 120 Q 200 10 340 120" fill="none" stroke-width="2.5"/>
+                <path class="schematic-line-primary" d="M 80 120 Q 200 35 320 120" fill="none" stroke-width="1.5" stroke-dasharray="4,2"/>
+                <line class="schematic-line-red" x1="80" y1="90" x2="320" y2="90" stroke-width="2"/>
+                <circle class="schematic-fill-red" cx="80" cy="90" r="4"/>
+                <circle class="schematic-fill-red" cx="320" cy="90" r="4"/>
+                <text class="schematic-text-red" x="140" y="82" font-family="'JetBrains Mono', monospace" font-size="9">CONCEALED TENSION TIE-ROD</text>
+              </svg>
+            </div>
+
+            <div class="scope-metrics-row">
+              <div class="scope-stat-badge">
+                <span class="stat-badge-label">HISTORIC LIFE</span>
+                <span class="stat-badge-val">+150 YRS</span>
+              </div>
+              <div class="scope-stat-badge">
+                <span class="stat-badge-label">LIME COMPAT</span>
+                <span class="stat-badge-val">100% NHL</span>
+              </div>
+              <div class="scope-stat-badge">
+                <span class="stat-badge-label">SEISMIC UPGRADE</span>
+                <span class="stat-badge-val">IBC 100%</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: The "Cross-Section / Construction Anatomy" Interactive Diagram -->
+    <section id="construction-anatomy" class="anatomy-section">
+      <div class="section-ribbon-tag">
+        <div class="ribbon-title-cluster">
+          <div class="north-symbol">03</div>
+          <h2 class="section-ribbon-title">Construction Anatomy • Exploded Axonometric Cross-Section</h2>
+        </div>
+        <div class="peel-instructions-note">
+          <span>HOVER OR CLICK DEPTH PINS TO INSPECT STRUCTURAL LAYERS</span>
+        </div>
+      </div>
+
+      <div class="anatomy-stage-box">
+        <!-- Axonometric SVG Viewport with Depth Pins -->
+        <div class="anatomy-viewport">
+          <!-- 4 Interactive Depth Pins -->
+          <div class="depth-pin active" data-layer="1" title="Inspect Layer 1: Substructure & Foundations">01</div>
+          <div class="depth-pin" data-layer="2" title="Inspect Layer 2: Structural Steel Moment Frame">02</div>
+          <div class="depth-pin" data-layer="3" title="Inspect Layer 3: High-Performance Thermal Envelope">03</div>
+          <div class="depth-pin" data-layer="4" title="Inspect Layer 4: Acoustic Decoupling & Stone">04</div>
+
+          <!-- Exploded Axonometric Cutaway SVG -->
+          <svg class="anatomy-svg-canvas" viewBox="0 0 600 440">
+            <!-- Layer 1: Substructure & Deep Foundations -->
+            <g class="cutaway-layer active" data-layer="1">
+              <polygon class="anatomy-l1-poly" points="60,340 320,410 540,320 280,250" stroke-width="2"/>
+              <!-- Micro-piles into bedrock -->
+              <line class="anatomy-l1-pile" x1="160" y1="365" x2="160" y2="430" stroke-width="3" stroke-dasharray="6,3"/>
+              <line class="anatomy-l1-pile" x1="280" y1="395" x2="280" y2="435" stroke-width="3" stroke-dasharray="6,3"/>
+              <line class="anatomy-l1-pile" x1="420" y1="355" x2="420" y2="425" stroke-width="3" stroke-dasharray="6,3"/>
+              <text class="anatomy-l1-text" x="70" y="380" font-family="'JetBrains Mono', monospace" font-size="10">LAYER 01: BEDROCK PILES (-28M)</text>
+            </g>
+
+            <!-- Layer 2: Heavy Steel Moment Frame -->
+            <g class="cutaway-layer" data-layer="2">
+              <line class="anatomy-l2-steel" x1="140" y1="280" x2="140" y2="150" stroke-width="4"/>
+              <line class="anatomy-l2-steel" x1="440" y1="250" x2="440" y2="120" stroke-width="4"/>
+              <line class="anatomy-l2-beam" x1="140" y1="150" x2="440" y2="120" stroke-width="5"/>
+              <polygon class="anatomy-l2-poly" points="140,150 440,120 520,150 220,180" stroke-width="2"/>
+              <text class="anatomy-l2-text" x="150" y="210" font-family="'JetBrains Mono', monospace" font-size="10">LAYER 02: W-FLANGE MOMENT FRAME</text>
+            </g>
+
+            <!-- Layer 3: High-Performance Thermal Envelope -->
+            <g class="cutaway-layer" data-layer="3">
+              <polygon class="anatomy-l3-poly" points="220,180 520,150 500,80 200,110" stroke-width="2" stroke-dasharray="5,2"/>
+              <line class="anatomy-l3-line" x1="200" y1="110" x2="500" y2="80" stroke-width="2"/>
+              <text class="anatomy-l3-text" x="260" y="135" font-family="'JetBrains Mono', monospace" font-size="10">LAYER 03: CONTINUOUS THERMAL WRB</text>
+            </g>
+
+            <!-- Layer 4: Acoustic Decoupling & Stone Reveals -->
+            <g class="cutaway-layer" data-layer="4">
+              <polygon class="anatomy-l4-poly" points="200,110 500,80 460,30 160,60" stroke-width="2"/>
+              <line class="anatomy-l4-line" x1="160" y1="60" x2="460" y2="30" stroke-width="3"/>
+              <text class="anatomy-l4-text" x="180" y="55" font-family="'JetBrains Mono', monospace" font-size="10">LAYER 04: FLOATING MARBLE REVEAL</text>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Technical Engineering Note Card -->
+        <div class="anatomy-spec-card">
+          <!-- Rotary Layer Selector Dial -->
+          <div class="rotary-selector-dial">
+            <button class="rotary-button active" data-layer="1">01 FOUND.</button>
+            <button class="rotary-button" data-layer="2">02 STEEL</button>
+            <button class="rotary-button" data-layer="3">03 ENVEL.</button>
+            <button class="rotary-button" data-layer="4">04 STONE</button>
+          </div>
+
+          <span class="anatomy-layer-tag" id="anatomy-layer-tag">LAYER 01 // SUBSTRUCTURE &amp; GEOLOGY</span>
+          <h3 class="anatomy-layer-heading" id="anatomy-layer-heading">Bedrock Pinning &amp; Post-Tensioned Foundations</h3>
+          <p class="anatomy-layer-narrative" id="anatomy-layer-narrative">
+            Deep micro-piles drilled directly into solid bedrock formations up to 28 meters sub-grade. Foundation grade beams are reinforced with post-tensioned Dywidag alloy rods, eliminating unreinforced differential settlement across seismic faultlines.
+          </p>
+
+          <!-- Redline Formula Callout -->
+          <div class="anatomy-redline-callout">
+            <span class="redline-formula-title" id="redline-formula-title">BEARING CAPACITY &amp; UPLIFT MOMENT</span>
+            <span class="redline-formula-code" id="redline-formula-code">q_allow = 1,450 kN/m² // T_ult = 3,200 kN</span>
+            <span class="redline-formula-desc" id="redline-formula-desc">Factor of safety FS = 3.5 across all bedrock tieback clusters.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: "The Guild Specification Matrix" (Technical Capabilities Table) -->
+    <section id="guild-matrix" class="matrix-section">
+      <div class="section-ribbon-tag">
+        <div class="ribbon-title-cluster">
+          <div class="north-symbol">04</div>
+          <h2 class="section-ribbon-title">Guild Specification Matrix • Technical Capacities &amp; Tolerances</h2>
+        </div>
+        <div class="peel-instructions-note">
+          <span>SCHEDULE OF CAPACITIES &amp; EXECUTION TOLERANCES</span>
+        </div>
+      </div>
+
+      <div class="matrix-table-wrapper">
+        <table class="guild-matrix-table">
+          <thead>
+            <tr>
+              <th>DISCIPLINE / SCOPE</th>
+              <th>ENGINEERING TOLERANCE</th>
+              <th>CORE METHODS &amp; GUILD CRAFT</th>
+              <th>EXECUTION CAPACITY</th>
+              <th>STATUTORY LICENSURE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="matrix-discipline-name">Monolithic Reinforced Concrete</span>
+              </td>
+              <td>
+                <span class="matrix-tolerance-badge">±0.5 mm / 10m run</span>
+              </td>
+              <td>Self-consolidating pours, board-formed finish, carbon-fiber reinforcement</td>
+              <td>Clear spans up to 24m</td>
+              <td><span class="matrix-licensure-tag">Class A General Building</span></td>
+            </tr>
+            <tr>
+              <td>
+                <span class="matrix-discipline-name">Heavy Architectural Bronze &amp; Steel</span>
+              </td>
+              <td>
+                <span class="matrix-tolerance-badge">Zero visual weld seam</span>
+              </td>
+              <td>Sub-arc welding, hand-patinated C38500 alloy, bespoke thermal breaks</td>
+              <td>40-ton structural assemblies</td>
+              <td><span class="matrix-licensure-tag">AWS Certified Fabrication</span></td>
+            </tr>
+            <tr>
+              <td>
+                <span class="matrix-discipline-name">Precision Stone Cladding &amp; Slabs</span>
+              </td>
+              <td>
+                <span class="matrix-tolerance-badge">±0.2 mm dry-joint</span>
+              </td>
+              <td>Waterjet axial cutting, blind mechanical clips, bookmatched Tuscan veining</td>
+              <td>Up to 12-meter slab walls</td>
+              <td><span class="matrix-licensure-tag">Stone Guild Accredited</span></td>
+            </tr>
+            <tr>
+              <td>
+                <span class="matrix-discipline-name">Acoustic &amp; Environmental Isolation</span>
+              </td>
+              <td>
+                <span class="matrix-tolerance-badge">NC-15 noise floor</span>
+              </td>
+              <td>Decoupled slab springs, triple-isolated HVAC plenums, thermal envelope seals</td>
+              <td>Sub-grade recording &amp; wine vaults</td>
+              <td><span class="matrix-licensure-tag">LEED Platinum / Passive House</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Interactive "Commission Phase Gantt / Process Roller" -->
+    <section id="process-roller" class="process-gantt-section">
+      <div class="section-ribbon-tag">
+        <div class="ribbon-title-cluster">
+          <div class="north-symbol">05</div>
+          <h2 class="section-ribbon-title">Commission Process Roller • 5-Phase Gantt &amp; Quality Gates</h2>
+        </div>
+        <div class="peel-instructions-note">
+          <span>CLICK PHASES TO INSPECT MANDATORY QUALITY GATES</span>
+        </div>
+      </div>
+
+      <div class="process-roller-sheet">
+        <!-- 5-Phase Milestone Surveyor's Chain -->
+        <div class="process-milestone-tape">
+          <div class="gantt-phase-node active" data-phase="phase-1">
+            <div class="phase-brass-dial">I</div>
+            <span class="phase-node-title">GEODETIC SURVEY</span>
+            <span class="phase-node-weeks">WEEKS 01–06</span>
+          </div>
+
+          <div class="gantt-phase-node" data-phase="phase-2">
+            <div class="phase-brass-dial">II</div>
+            <span class="phase-node-title">HEAVY TECTONICS</span>
+            <span class="phase-node-weeks">WEEKS 07–24</span>
+          </div>
+
+          <div class="gantt-phase-node" data-phase="phase-3">
+            <div class="phase-brass-dial">III</div>
+            <span class="phase-node-title">GUILD ENVELOPE</span>
+            <span class="phase-node-weeks">WEEKS 25–40</span>
+          </div>
+
+          <div class="gantt-phase-node" data-phase="phase-4">
+            <div class="phase-brass-dial">IV</div>
+            <span class="phase-node-title">ATELIER JOINERY</span>
+            <span class="phase-node-weeks">WEEKS 41–56</span>
+          </div>
+
+          <div class="gantt-phase-node" data-phase="phase-5">
+            <div class="phase-brass-dial">V</div>
+            <span class="phase-node-title">250-YR DEED VAULT</span>
+            <span class="phase-node-weeks">WEEKS 57–60</span>
+          </div>
+        </div>
+
+        <!-- Active Phase Detail Inspector -->
+        <div class="phase-detail-inspector">
+          <div>
+            <h3 class="phase-inspector-heading" id="phase-inspector-heading">Phase I: Subsurface Geology &amp; Geodetic Surveying</h3>
+            <p class="phase-inspector-desc" id="phase-inspector-desc">
+              Pre-construction diamond core drilling, sonic shear wave testing, 3D topographical lidar scanning, and environmental hydrology mapping to establish immutable bedrock coordinates.
+            </p>
+          </div>
+
+          <div class="phase-gates-column">
+            <span class="phase-gate-label">MANDATORY QUALITY INSPECTION GATES</span>
+            <div id="phase-gates-list" style="display: flex; flex-direction: column; gap: 6px;">
+              <div class="phase-gate-badge">✓ Geotechnical Core Sampling &amp; Soil Load Certification</div>
+              <div class="phase-gate-badge">✓ Millimetric Sub-Grade Laser Boundary Mapping</div>
+              <div class="phase-gate-badge">✓ Structural Engineering Peer-Review Approval</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Field Sample Swatch Tray & Technical Addendum -->
+    <section class="artifacts-dual-section">
+      <div class="section-ribbon-tag" style="grid-column: 1 / -1; margin-bottom: 24px;">
+        <div class="ribbon-title-cluster">
+          <div class="north-symbol">06</div>
+          <h2 class="section-ribbon-title">Field Sample Swatch Tray • Physical Joinery &amp; Tender Addendum</h2>
+        </div>
+        <div class="peel-instructions-note">
+          <span>PULL SPECIMEN CUTAWAY TRAY TO INSPECT MATERIAL JOINERY</span>
+        </div>
+      </div>
+
+      <!-- Field Sample Swatch Tray Drawer -->
+      <div class="swatch-tray-container" id="swatch-tray">
+        <div class="swatch-tray-header">
+          <span class="swatch-tray-title">FIELD SAMPLE SWATCH TRAY // CUTAWAYS</span>
+          <span class="authority-badge" style="font-size: 0.58rem;">PHYSICAL ARTIFACTS</span>
+        </div>
+
+        <div class="swatch-grid-items">
+          <div class="swatch-item-card active" title="Inspect Board-Form Concrete Core">
+            <div class="swatch-visual-box swatch-concrete"></div>
+            <span class="swatch-label-text">BOARD-FORM CONCRETE CORE</span>
+          </div>
+
+          <div class="swatch-item-card" title="Inspect Brass Mortise & Tenon Joint">
+            <div class="swatch-visual-box swatch-brass"></div>
+            <span class="swatch-label-text">BRASS MORTISE &amp; TENON</span>
+          </div>
+
+          <div class="swatch-item-card" title="Inspect Charred Shou Sugi Timber Seam">
+            <div class="swatch-visual-box swatch-timber"></div>
+            <span class="swatch-label-text">DOUBLE-RABBET YAKISUGI</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stamped Manila Drafting Envelope: Technical Service Addendum -->
+      <div class="addendum-envelope">
+        <div>
+          <span class="envelope-tag">TECHNICAL ADDENDUM // SPECIFICATION DOSSIER</span>
+          <h3 class="envelope-heading">Request Detailed Contracting Scope</h3>
+          <p class="envelope-desc">
+            Download our comprehensive 120-page Class A General Building technical prospectus containing full engineering schedules, subcontractor covenants, and structural warranty parameters.
+          </p>
+        </div>
+
+        <button class="btn-request-dossier" id="btn-request-dossier">
+          REQUEST CONTRACTING SCOPE &amp; TENDER DOSSIER (PDF) ↗
+        </button>
+      </div>
+
+    </section>
+
+    <!-- ARCHITECTURAL DOCUMENT INDEX (THE LEGAL FOOTER) -->
+    <footer class="drafting-table-footer-zone">
+      <div class="cutting-mat-bottom-lip">
+        <div class="mat-lip-metric-ticks">
+          <span>| 00 MM</span>
+          <span>| 150 MM</span>
+          <span>| 300 MM</span>
+          <span>| 450 MM</span>
+          <span>| 600 MM</span>
+          <span>| 750 MM</span>
+          <span>| 900 MM</span>
+          <span>| 1050 MM</span>
+          <span>| 1200 MM</span>
+        </div>
+        <div class="mat-lip-title">SPECIFICATION ARCHIVE // LEGAL &amp; STATUTORY COVENANTS</div>
+      </div>
+
+      <div class="tucked-spec-stack">
+        <!-- Spec Sheet 1: Privacy Policy -->
+        <div class="spec-sheet-tab" data-spec="spec-01" tabindex="0" role="button" aria-label="View SPEC-01: Client Privacy & Fiduciary Data Covenant">
+          <div class="spec-hole-punch" aria-hidden="true"></div>
+          <span class="spec-doc-id">SPEC-01 // PRV</span>
+          <div>
+            <div class="spec-doc-title">Client Privacy Protocols &amp; Confidentiality Data Covenant</div>
+            <div class="spec-doc-classification">AIA Standard B101 • Air-Gapped Vault Archiving • Zero-Publicity Guarantee</div>
+          </div>
+          <span class="spec-doc-classification">REV 2026.04</span>
+          <span class="spec-doc-action">OPEN SPEC SHEET ↗</span>
+        </div>
+
+        <!-- Spec Sheet 2: Terms of Service -->
+        <div class="spec-sheet-tab" data-spec="spec-02" tabindex="0" role="button" aria-label="View SPEC-02: General Conditions of Commission & Tender Terms">
+          <div class="spec-hole-punch" aria-hidden="true"></div>
+          <span class="spec-doc-id">SPEC-02 // TOS</span>
+          <div>
+            <div class="spec-doc-title">General Conditions of Commission &amp; Tender Terms</div>
+            <div class="spec-doc-classification">AIA A101/A201 Framework • Metric Feasibility Standards • Change-Order Protocols</div>
+          </div>
+          <span class="spec-doc-classification">REV 2026.04</span>
+          <span class="spec-doc-action">OPEN SPEC SHEET ↗</span>
+        </div>
+
+        <!-- Spec Sheet 3: Refund Guidelines -->
+        <div class="spec-sheet-tab" data-spec="spec-03" tabindex="0" role="button" aria-label="View SPEC-03: Retainer Deposit & Escrow Refund Guidelines">
+          <div class="spec-hole-punch" aria-hidden="true"></div>
+          <span class="spec-doc-id">SPEC-03 // RFD</span>
+          <div>
+            <div class="spec-doc-title">Retainer Deposit &amp; Escrow Refund Guidelines</div>
+            <div class="spec-doc-classification">FDIC-Insured Escrow • 14-Day Pre-Construction Refund Window • Milestone Accounting</div>
+          </div>
+          <span class="spec-doc-classification">REV 2026.04</span>
+          <span class="spec-doc-action">OPEN SPEC SHEET ↗</span>
+        </div>
+
+        <!-- Spec Sheet 4: Licensure & AIA Disclosures -->
+        <div class="spec-sheet-tab" data-spec="spec-04" tabindex="0" role="button" aria-label="View SPEC-04: AIA Licensure, Ethics & Statutory Compliance">
+          <div class="spec-hole-punch" aria-hidden="true"></div>
+          <span class="spec-doc-id">SPEC-04 // AIA</span>
+          <div>
+            <div class="spec-doc-title">AIA Licensure, Professional Ethics &amp; Statutory Disclosures</div>
+            <div class="spec-doc-classification">Board of Architectural Examiners • OSHA VPP Star • C-8 General Contractor #882194</div>
+          </div>
+          <span class="spec-doc-classification">REV 2026.04</span>
+          <span class="spec-doc-action">OPEN SPEC SHEET ↗</span>
+        </div>
+      </div>
+
+      <div class="cutting-mat-imprint-stamp">
+        <div class="mat-debossed-copyright">© 2026 ANSCONS ARCHITECTURE, CONSTRUCTION &amp; BESPOKE INTERIORS ATELIER • ALL RIGHTS RESERVED</div>
+        <div class="mat-debossed-licensure">REGISTERED PRACTICE NO. AR-09412-AIA // GENERAL BUILDING CONTRACTOR LIC. #C8-882194 // JURISDICTION: US &amp; INTERNATIONAL ATELIERS</div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Architectural Specification Sheet Modal Inspector -->
+  <div id="spec-modal-overlay" class="spec-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="spec-document-card">
+      <div class="spec-modal-header">
+        <div>
+          <div id="modal-spec-code" class="spec-modal-code">SECTION 00 22 10 // SPEC-01</div>
+          <h3 id="modal-spec-title" class="spec-modal-title">Client Privacy Protocols &amp; Data Covenant</h3>
+          <div id="modal-spec-classification" class="spec-doc-classification" style="margin-top: 4px;">CLASS 1: STRICT CONFIDENTIALITY</div>
+        </div>
+        <button id="spec-modal-close-btn" class="spec-modal-close-btn">FOLD SPEC SHEET ✕</button>
+      </div>
+
+      <div id="modal-spec-body" class="spec-modal-body">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="spec-modal-seal-footer">
+        <div id="modal-spec-ref" class="arch-label" style="color: #6b573e;">DOCUMENT RECORD: ANS-LEGAL-2026</div>
+        <div class="title-block-stamp" style="font-size: 0.65rem;">OFFICIALLY ENACTED</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Interactivity Scripts -->
+  <script type="module" src="js/services.js"></script>
+</body>
+</html>
+

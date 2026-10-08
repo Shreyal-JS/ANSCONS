@@ -1,0 +1,380 @@
+/* ==========================================================================
+   LEATHER-BOUND ARCHITECTURAL PORTFOLIO FOLIO (PAST PROJECTS)
+   ========================================================================== */
+
+.portfolio-folio-section {
+  position: relative;
+  max-width: 1220px;
+  margin: 0 auto 110px auto;
+}
+
+/* Open Leather Binder Structure */
+.leather-folio-binder {
+  position: relative;
+  background: linear-gradient(135deg, #24160d 0%, #170e08 60%, #0d0704 100%);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 
+    var(--shadow-elevation-3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.15),
+    inset 0 -2px 8px rgba(0, 0, 0, 0.9);
+  border: 1px solid #3d2616;
+}
+
+/* Perimeter Waxed Saddle Stitching */
+.leather-folio-binder::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1.5px dashed #a47844;
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+/* Polished Brass Corner Protectors */
+.brass-corner {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  background: var(--brass-gradient);
+  box-shadow: 
+    -2px 3px 6px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  z-index: 40;
+}
+
+.brass-corner.top-left {
+  top: 0;
+  left: 0;
+  border-radius: 12px 0 28px 0;
+  border-right: 2px solid #5d4212;
+  border-bottom: 2px solid #5d4212;
+}
+
+.brass-corner.top-right {
+  top: 0;
+  right: 0;
+  border-radius: 0 12px 0 28px;
+  border-left: 2px solid #5d4212;
+  border-bottom: 2px solid #5d4212;
+}
+
+.brass-corner.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 28px 0 12px;
+  border-right: 2px solid #5d4212;
+  border-top: 2px solid #5d4212;
+}
+
+.brass-corner.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-radius: 28px 0 12px 0;
+  border-left: 2px solid #5d4212;
+  border-top: 2px solid #5d4212;
+}
+
+/* Center Leather Spine & Silk Ribbon Bookmark */
+.binder-spine-groove {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  background: linear-gradient(90deg, #0f0804 0%, #29170e 50%, #0f0804 100%);
+  box-shadow: 
+    inset 2px 0 4px rgba(0,0,0,0.8),
+    inset -2px 0 4px rgba(0,0,0,0.8);
+  z-index: 30;
+}
+
+.silk-ribbon-bookmark {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 106%;
+  background: linear-gradient(90deg, #184428 0%, #2f7547 50%, #153b22 100%);
+  box-shadow: 
+    -2px 4px 10px rgba(0,0,0,0.4),
+    inset 0 1px 1px rgba(255,255,255,0.4);
+  z-index: 35;
+  clip-path: polygon(0 0, 100% 0, 100% 96%, 50% 100%, 0 96%);
+}
+
+/* Folio Paper Spread Container (True 3D Space) */
+.folio-paper-spread {
+  position: relative;
+  background: #faf6ee;
+  border-radius: 4px;
+  box-shadow: 
+    inset 0 0 18px rgba(160, 140, 110, 0.35),
+    -3px 6px 20px rgba(0,0,0,0.45);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+  overflow: hidden;
+  perspective: 2500px;
+  transform-style: preserve-3d;
+}
+
+/* Left Page (Photographic Render & Blueprint Wireframe Underlay) */
+.folio-page-left {
+  position: relative;
+  padding: 36px;
+  border-right: 1px solid rgba(180, 160, 130, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: 
+    linear-gradient(to right, rgba(200, 175, 140, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(200, 175, 140, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+  transition: opacity 0.3s ease;
+}
+
+.page-photo-frame {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 
+    -2px 5px 14px rgba(0,0,0,0.25),
+    0 0 0 1px rgba(180, 160, 130, 0.5);
+}
+
+.page-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-smooth), opacity 0.3s ease;
+}
+
+.page-photo-frame:hover .page-photo-img {
+  transform: scale(1.04);
+}
+
+.photo-blueprint-overlay-tag {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(14, 20, 28, 0.85);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 2px;
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: #f7dfa5;
+  letter-spacing: 0.1em;
+}
+
+/* Right Page: True 3D Page Turn with Vertical Axis Rotation */
+.folio-page-right {
+  position: relative;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f8f4eb;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+}
+
+/* Dynamic Lighting Sheen (Sweeps across the turning rag paper) */
+.page-lighting-sheen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg, 
+    rgba(0, 0, 0, 0.45) 0%, 
+    rgba(255, 255, 255, 0.5) 30%, 
+    rgba(0, 0, 0, 0.2) 70%, 
+    transparent 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  z-index: 50;
+  transition: opacity 0.4s ease;
+}
+
+/* 3D Page Turn Animations */
+.folio-page-right.flipping-forward {
+  animation: pageTurn3DForward 0.75s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+}
+
+.folio-page-right.flipping-backward {
+  animation: pageTurn3DBackward 0.75s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+}
+
+@keyframes pageTurn3DForward {
+  0% {
+    transform: rotateY(0deg);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+  }
+  45% {
+    transform: rotateY(-80deg) scale(0.97);
+    box-shadow: inset 30px 0 35px rgba(0,0,0,0.35);
+  }
+  50% {
+    transform: rotateY(-90deg) scale(0.96);
+  }
+  55% {
+    transform: rotateY(-80deg) scale(0.97);
+  }
+  100% {
+    transform: rotateY(0deg);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+  }
+}
+
+@keyframes pageTurn3DBackward {
+  0% {
+    transform: rotateY(0deg);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+  }
+  45% {
+    transform: rotateY(80deg) scale(0.97);
+    box-shadow: inset -30px 0 35px rgba(0,0,0,0.35);
+  }
+  50% {
+    transform: rotateY(90deg) scale(0.96);
+  }
+  55% {
+    transform: rotateY(80deg) scale(0.97);
+  }
+  100% {
+    transform: rotateY(0deg);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+  }
+}
+
+.monograph-meta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1.5px solid rgba(160, 130, 90, 0.3);
+  padding-bottom: 14px;
+  margin-bottom: 20px;
+}
+
+.monograph-project-title {
+  font-family: var(--font-serif-luxury);
+  font-size: 2.1rem;
+  line-height: 1.2;
+  color: #1c1813;
+  margin-bottom: 8px;
+}
+
+.monograph-location {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #8c734e;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.monograph-narrative {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #4a4136;
+  margin-bottom: 24px;
+}
+
+/* Architectural Spec Sheet Table */
+.architectural-specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  background: rgba(240, 230, 215, 0.55);
+  border: 1px solid rgba(180, 150, 110, 0.35);
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.spec-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.spec-cell-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: #8c734e;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.spec-cell-val {
+  font-family: var(--font-title-arch);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #241d15;
+}
+
+/* Folio Navigation Buttons (Brass Pull Tabs) */
+.folio-nav-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px dashed rgba(160, 130, 90, 0.35);
+}
+
+.folio-page-indicators {
+  display: flex;
+  gap: 8px;
+}
+
+.folio-page-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid #8c6a28;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.folio-page-dot.active {
+  background: #d4af37;
+  box-shadow: 0 0 6px rgba(212, 175, 55, 0.8);
+}
+
+.btn-brass-turn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--brass-gradient);
+  border: 1px solid #ffecb8;
+  border-radius: 3px;
+  padding: 8px 18px;
+  font-family: var(--font-title-arch);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #241804;
+  cursor: pointer;
+  box-shadow: 
+    -2px 3px 6px rgba(0,0,0,0.3),
+    inset 0 1px 1px rgba(255,255,255,0.8);
+  transition: transform 0.2s var(--ease-spring);
+}
+
+.btn-brass-turn:hover {
+  transform: translateY(-2px);
+  box-shadow: -3px 5px 10px rgba(0,0,0,0.4);
+}
+

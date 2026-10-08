@@ -1,0 +1,370 @@
+/* ==========================================================================
+   OFFICIAL COMMISSION BRIEF & MECHANICAL STAMP (CONTACT FORM)
+   ========================================================================== */
+
+.commission-section {
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto 100px auto;
+}
+
+/* Master Oiled Walnut / Masonite Clipboard */
+.architect-clipboard {
+  position: relative;
+  background: linear-gradient(145deg, #382417 0%, #24160c 60%, #150c06 100%);
+  border: 1px solid #4a301e;
+  border-radius: 12px;
+  padding: 85px 50px 60px 50px;
+  box-shadow: 
+    var(--shadow-elevation-3),
+    inset 0 1px 2px rgba(255,255,255,0.2),
+    inset 0 -3px 8px rgba(0,0,0,0.8);
+}
+
+/* Heavy Polished Brass Spring Clamp at Top of Board */
+.clipboard-brass-clamp {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 52px;
+  background: var(--brass-gradient);
+  border: 2px solid #ffecb8;
+  border-radius: 6px;
+  box-shadow: 
+    -3px 6px 16px rgba(0,0,0,0.65),
+    inset 0 2px 2px rgba(255,255,255,0.9),
+    inset 0 -2px 4px rgba(90,65,15,0.8);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Clamp Spring Rivets and Hanging Hole */
+.clamp-hang-hole {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #1a1208;
+  border: 2px solid #5a4014;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.9);
+}
+
+/* Carbon-Copy Commission Brief Form Sheet (Organic Deckled Edge & Lifted Corner Physics) */
+.carbon-copy-sheet {
+  position: relative;
+  background: #fffdf5;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 27px,
+    rgba(140, 170, 200, 0.18) 27px,
+    rgba(140, 170, 200, 0.18) 28px
+  );
+  /* Deckled Hand-cut Imperfect Border */
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  padding: 45px;
+  border: 1px solid rgba(180, 160, 130, 0.5);
+  box-shadow: 
+    -2px 4px 12px rgba(0,0,0,0.25),
+    inset 0 0 10px rgba(210, 195, 165, 0.3);
+}
+
+/* Layered Pseudo-Elements: Paper Corner Curl Lifting 2-3mm Off Clipboard */
+.carbon-copy-sheet::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  right: 18px;
+  width: 50%;
+  height: 20px;
+  background: transparent;
+  box-shadow: 0 16px 22px rgba(15, 10, 5, 0.45);
+  transform: rotate(2.4deg) skew(2.5deg);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.carbon-copy-sheet::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 60px;
+  width: 1px;
+  background: rgba(220, 90, 90, 0.35);
+  pointer-events: none;
+}
+
+/* Sheet Title Header */
+.sheet-tender-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid #221c15;
+  padding-bottom: 16px;
+  margin-bottom: 30px;
+}
+
+.tender-main-title {
+  font-family: var(--font-title-arch);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #1a1510;
+}
+
+.tender-serial-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #8c2525;
+  background: rgba(140, 37, 37, 0.08);
+  border: 1px solid rgba(140, 37, 37, 0.3);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+/* Form Grid & Debossed Recessed Inputs */
+.brief-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.field-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #685741;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+}
+
+/* Tactile Recessed Inputs: Ink Pressing into Physical Fibers */
+.debossed-input {
+  background: #fbf8f0;
+  border: 1px solid rgba(160, 140, 110, 0.5);
+  border-radius: 3px;
+  padding: 12px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: #1a1510;
+  /* Deep soft inset shadow looking stamped into the masonite clipboard */
+  box-shadow: 
+    inset 1px 3px 6px rgba(0, 0, 0, 0.22),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.7),
+    0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: background-color 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  width: 100%;
+}
+
+/* Paper Weight & Ink Absorption State on Focus and Typing */
+.debossed-input:focus,
+.debossed-input:not(:placeholder-shown) {
+  outline: none;
+  border-color: #8c6a28;
+  /* Fiber color shifts to indicate absorbed ink pressure */
+  background-color: #f2ece0;
+  color: #0d0a06;
+  text-shadow: 0 0 0.5px rgba(20, 16, 10, 0.4);
+  box-shadow: 
+    inset 2px 4px 8px rgba(0, 0, 0, 0.28),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.9),
+    0 0 0 2px rgba(212, 175, 55, 0.35);
+}
+
+textarea.debossed-input {
+  resize: vertical;
+  min-height: 95px;
+}
+
+/* Project Scope Checkboxes (Pencil Check Style) */
+.checkbox-scope-cluster {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.pencil-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: #383027;
+}
+
+.pencil-checkbox-label input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #6b573e;
+  border-radius: 2px;
+  background: #f7f3e8;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.15);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pencil-checkbox-label input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  color: #1a1510;
+  font-size: 14px;
+  font-weight: 800;
+  top: -2px;
+}
+
+/* Industrial Mechanical Rubber Stamp Button */
+.stamp-action-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 36px;
+  position: relative;
+}
+
+.mechanical-stamp-btn {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding-top: 45px; /* Room for stamp handle */
+}
+
+/* Turned Mahogany Handle & Brass Plunger */
+.stamp-handle-assembly {
+  position: absolute;
+  top: 0;
+  width: 44px;
+  height: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stamp-wood-knob {
+  width: 38px;
+  height: 24px;
+  background: radial-gradient(ellipse at 35% 25%, #7a4623 0%, #3e1f0c 70%, #1a0a03 100%);
+  border-radius: 12px 12px 6px 6px;
+  box-shadow: 
+    -2px 3px 6px rgba(0,0,0,0.5),
+    inset 0 1px 1px rgba(255,255,255,0.3);
+}
+
+.stamp-brass-shaft {
+  width: 14px;
+  height: 24px;
+  background: var(--brass-gradient);
+  border: 1px solid #5a4014;
+  box-shadow: -1px 2px 4px rgba(0,0,0,0.4);
+}
+
+/* Heavy Base Die of the Stamp */
+.stamp-die-base {
+  background: linear-gradient(135deg, #2b1f13 0%, #150e07 100%);
+  border: 2px solid #d4af37;
+  border-radius: 4px;
+  padding: 14px 28px;
+  box-shadow: 
+    -3px 6px 14px rgba(0,0,0,0.4),
+    inset 0 1px 1px rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stamp-action-label {
+  font-family: var(--font-title-arch);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #ffd885;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+
+/* Mechanical Stamp Compression Animation when Clicked */
+.mechanical-stamp-btn.stamping .stamp-handle-assembly {
+  transform: translateY(22px);
+}
+
+.mechanical-stamp-btn.stamping .stamp-die-base {
+  transform: scale(0.97);
+  box-shadow: -1px 2px 4px rgba(0,0,0,0.4);
+}
+
+/* The Imprinted Red Ink Seal (Appears on form after stamping) */
+.imprinted-ink-seal {
+  position: absolute;
+  top: 15px;
+  right: 50px;
+  width: 140px;
+  height: 140px;
+  border: 3px dashed #b52222;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #b52222;
+  padding: 10px;
+  transform: rotate(-12deg) scale(0);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.4s var(--ease-spring), opacity 0.3s ease;
+  user-select: none;
+}
+
+.imprinted-ink-seal.stamped {
+  transform: rotate(-12deg) scale(1);
+  opacity: 0.94;
+}
+
+.seal-title {
+  font-family: var(--font-title-arch);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.seal-date {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  margin: 4px 0;
+}
+
+.seal-status {
+  font-family: var(--font-title-arch);
+  font-size: 0.65rem;
+  font-weight: 800;
+  border-top: 1px solid #b52222;
+  border-bottom: 1px solid #b52222;
+  padding: 2px 4px;
+}
+

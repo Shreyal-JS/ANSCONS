@@ -1,0 +1,599 @@
+const fs = require('fs');
+
+const htmlContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instrument Calibration Desk &amp; Bill of Quantities | ANSCONS Master Estimator</title>
+  <meta name="description" content="High-liability architectural calibration desk and parametric Bill of Quantities drafting sheet. Calibrate gross footprint, geotechnical coefficients, tectonic typologies, and metallurgy.">
+  
+  <!-- Skeuomorphic Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/desk.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/caliper.css">
+  <link rel="stylesheet" href="css/legal-specs.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="studio-mode" data-theme="studio">
+
+  <!-- Floating Brass Return-To-Origin Compass Widget -->
+  <button id="btn-return-origin" class="btn-return-origin" title="Return to Top of Calibration Desk" aria-label="Return to top of drafting table">
+    <span class="compass-needle" aria-hidden="true">▲</span>
+    <span class="origin-text">ORIGIN (TOP)</span>
+  </button>
+
+  <!-- Virtual Desktop Lamp Glow (Top-Left 315° Ambient Light) -->
+  <div class="desk-lamp-glow" aria-hidden="true"></div>
+
+  <!-- Calibrated Marginal Desk Rulers -->
+  <div class="desk-ruler-top" aria-hidden="true">
+    <span>0 CM &nbsp; &nbsp; &nbsp; 10 &nbsp; &nbsp; &nbsp; 20 &nbsp; &nbsp; &nbsp; 30 &nbsp; &nbsp; &nbsp; 40 &nbsp; &nbsp; &nbsp; 50 &nbsp; &nbsp; &nbsp; 60 &nbsp; &nbsp; &nbsp; 70 &nbsp; &nbsp; &nbsp; 80 &nbsp; &nbsp; &nbsp; 90 &nbsp; &nbsp; &nbsp; 100 &nbsp; &nbsp; &nbsp; 110 &nbsp; &nbsp; &nbsp; 120 CM // ESTIMATOR CALIBRATION DESK</span>
+  </div>
+  <div class="desk-ruler-left" aria-hidden="true">
+    <span>0 IN &nbsp; &nbsp; &nbsp; 10 &nbsp; &nbsp; &nbsp; 20 &nbsp; &nbsp; &nbsp; 30 &nbsp; &nbsp; &nbsp; 40 &nbsp; &nbsp; &nbsp; 50 &nbsp; &nbsp; &nbsp; 60 &nbsp; &nbsp; &nbsp; 70 IN // QUANTITY SURVEY REGISTER</span>
+  </div>
+
+  <!-- Desk HUD Controls (Audio Mute Toggle & Solid Cast-Brass Theme Lever) -->
+  <div class="desk-controls-hud">
+    <button class="desk-audio-toggle" id="desk-audio-toggle" aria-label="Toggle mechanical audio feedback">
+      <svg class="audio-icon" viewBox="0 0 24 24">
+        <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73 4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+      </svg>
+      <span class="desk-audio-badge" id="audio-status-badge">Muted</span>
+    </button>
+
+    <div class="lamp-lever-container">
+      <div class="brass-switch-plate" id="brass-theme-lever" title="Snap toggle switch between Studio Warm Lamp and Blueprint Cyanotype mode">
+        <div class="plate-screw" aria-hidden="true"></div>
+        <span class="switch-mode-label active" id="label-mode-studio">STUDIO</span>
+        <div class="brass-toggle-housing" aria-hidden="true">
+          <div class="brass-toggle-bat" id="brass-toggle-bat"></div>
+        </div>
+        <span class="switch-mode-label" id="label-mode-blueprint">BLUEPRINT</span>
+        <div class="plate-screw" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Master Drafting Table Workspace -->
+  <div class="drafting-table">
+
+    <!-- Persistent Clamped Vellum Navigation Bar (Global Multi-Page Router) -->
+    <header class="tracing-nav-container">
+      <div class="tracing-nav-track">
+        <div class="brass-blueprint-clip" aria-hidden="true"></div>
+        <a href="index.html" class="vellum-tab" title="Atelier Master Drawing Sheet">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 01</span>
+          <span class="tab-title">ATELIER</span>
+        </a>
+        <a href="about.html" class="vellum-tab" title="Philosophy &amp; Heritage Ledger">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 02</span>
+          <span class="tab-title">PHILOSOPHY</span>
+        </a>
+        <a href="services.html" class="vellum-tab" title="Bespoke Architectural Services">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 03</span>
+          <span class="tab-title">SERVICES</span>
+        </a>
+        <a href="projects.html" class="vellum-tab" title="Monograph Folio of Built Works">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 04</span>
+          <span class="tab-title">PORTFOLIO</span>
+        </a>
+        <a href="estimator.html" class="vellum-tab active" title="Scale Caliper Project Estimator">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 05</span>
+          <span class="tab-title">ESTIMATOR</span>
+        </a>
+        <a href="contact.html" class="vellum-tab" title="Commission Liaison Brief">
+          <div class="vellum-tab-clip" aria-hidden="true"></div>
+          <span class="tab-code">DOC 06</span>
+          <span class="tab-title">LIAISON</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- SECTION: Master Calibration Bench & Bill of Quantities (BOM) Sheet -->
+    <section id="section-estimator-bench" class="calibration-workbench-desk">
+      
+      <!-- Heavy Oiled Oak / Anodized Instrument Housing -->
+      <div class="workbench-instrument-housing">
+        
+        <!-- Brass Corner Edge Protectors -->
+        <div class="brass-corner-bracket top-left" aria-hidden="true"></div>
+        <div class="brass-corner-bracket top-right" aria-hidden="true"></div>
+        <div class="brass-corner-bracket bottom-left" aria-hidden="true"></div>
+        <div class="brass-corner-bracket bottom-right" aria-hidden="true"></div>
+
+        <!-- Workbench Header Row -->
+        <div class="workbench-header-row">
+          <div class="workbench-title-group">
+            <div class="workbench-doc-code">
+              <span>DOC 05</span>
+              <span>//</span>
+              <span>INSTRUMENT CALIBRATION DESK &amp; BILL OF QUANTITIES</span>
+            </div>
+            <h1 class="workbench-doc-title">Parametric Bill of Quantities &amp; Cost Calibration</h1>
+            <p class="workbench-doc-subtitle">
+              High-liability parametric cost calibration. Adjust conditioned gross footprint, geotechnical bedrock coefficient, tectonic moment frames, and bespoke artisanal metallurgy.
+            </p>
+          </div>
+
+          <!-- Metal Asset Tag & Measurement Toggle Assembly -->
+          <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 12px;">
+            <div class="calibration-asset-tag">
+              <span class="asset-tag-id">FORM 105-B // PARAMETRIC CIVIL BENCH</span>
+              <span class="asset-tag-serial">CALIBRATION STANDARD: ASTM / AIA-A101</span>
+            </div>
+
+            <!-- The "Metric / Imperial" Brass Toggle -->
+            <div class="system-toggle-assembly" title="Toggle between Imperial (Sq Ft / USD) and Metric (Sq Meters / EUR)">
+              <span class="unit-mode-label active" id="label-unit-imperial">IMPERIAL [SQ. FT. / $]</span>
+              <div class="unit-switch-plate" id="unit-switch-plate" role="button" tabindex="0" aria-label="Toggle measurement units">
+                <div class="unit-switch-toggle"></div>
+              </div>
+              <span class="unit-mode-label" id="label-unit-metric">METRIC [M² / €]</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ZONE 1: Dual Physical Instruments (Vernier Caliper & Rotary Dial) -->
+        <div class="workbench-top-instruments-grid">
+          
+          <!-- Instrument 1: The Primary Vernier Caliper -->
+          <div class="instrument-card-housing">
+            <div class="instrument-card-header">
+              <span class="instrument-label-title">PRIMARY VERNIER CALIPER // GROSS FOOTPRINT</span>
+              <span class="instrument-spec-code">INSTRUMENT NO. VC-9814 // SATIN STEEL BEAM</span>
+            </div>
+
+            <div class="vernier-caliper-stage">
+              <!-- Left Reference Anvil / Fixed Jaw -->
+              <div class="master-fixed-jaw">
+                <span class="jaw-brand-hallmark">ANSCONS</span>
+              </div>
+
+              <!-- Master Steel Caliper Beam with Dual Imperial / Metric Scales -->
+              <div class="master-caliper-beam">
+                <div class="caliper-imperial-scale">
+                  <span>2.5K</span>
+                  <span>5K</span>
+                  <span>7.5K</span>
+                  <span>10K</span>
+                  <span>12.5K</span>
+                  <span>15K</span>
+                  <span>17.5K</span>
+                  <span>20K</span>
+                  <span>22.5K</span>
+                  <span>25K+ SQ.FT.</span>
+                </div>
+                <div class="caliper-metric-scale">
+                  <span>230M²</span>
+                  <span>500M²</span>
+                  <span>750M²</span>
+                  <span>1,000M²</span>
+                  <span>1,250M²</span>
+                  <span>1,500M²</span>
+                  <span>1,750M²</span>
+                  <span>2,000M²</span>
+                  <span>2,320M²</span>
+                </div>
+              </div>
+
+              <!-- Sliding Knurled Brass Jaw Assembly -->
+              <div class="master-sliding-jaw" id="master-sliding-jaw">
+                <div class="jaw-knurled-thumbscrew" aria-hidden="true"></div>
+                <div class="jaw-vernier-window">
+                  <div class="vernier-hairline-ticks"></div>
+                  <span class="vernier-index-mark" id="vernier-index-mark">VERNIER: 0.3 // 42%</span>
+                </div>
+              </div>
+
+              <!-- Accessible Range Input for Touch, Keyboard & Pointer Navigation -->
+              <input 
+                type="range" 
+                id="caliper-slider-input" 
+                class="master-caliper-range-input" 
+                min="2500" 
+                max="25000" 
+                step="250" 
+                value="10000"
+                aria-label="Adjust gross conditioned square footage via Vernier Caliper slider"
+              >
+            </div>
+
+            <!-- Footprint Readout Strip -->
+            <div class="caliper-readout-strip">
+              <span class="caliper-readout-title">CALIBRATED CONDITIONED FOOTPRINT:</span>
+              <span class="caliper-footprint-value" id="caliper-footprint-value">10,000 SQ. FT. [929 M²]</span>
+            </div>
+          </div>
+
+          <!-- Instrument 2: The Rotary Geotechnical Bezel / Dial -->
+          <div class="instrument-card-housing">
+            <div class="instrument-card-header">
+              <span class="instrument-label-title">GEOTECHNICAL DIAL</span>
+              <span class="instrument-spec-code">FACTOR: 1.00× — 1.45×</span>
+            </div>
+
+            <div class="rotary-geotech-bezel-unit">
+              <!-- Machined Circular Rotating Dial -->
+              <div class="rotary-bezel-assembly">
+                <div class="bezel-outer-ring">
+                  <div class="bezel-rotating-knob" id="bezel-rotating-knob" title="Click or select below to rotate geotechnical factor dial">
+                    <div class="bezel-pointer-needle"></div>
+                    <div class="bezel-center-cap" id="bezel-center-cap">1.00×</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mechanical Detent Index Notches -->
+              <div class="rotary-detent-buttons">
+                <button class="detent-pill-btn active" data-factor="1.00" data-angle="0" data-name="Stable Granite Bedrock">
+                  1.00× BEDROCK
+                </button>
+                <button class="detent-pill-btn" data-factor="1.15" data-angle="45" data-name="Weathered Shale Hillside">
+                  1.15× HILLSIDE
+                </button>
+                <button class="detent-pill-btn" data-factor="1.30" data-angle="90" data-name="Active Fault Shear Zone">
+                  1.30× SEISMIC
+                </button>
+                <button class="detent-pill-btn" data-factor="1.45" data-angle="135" data-name="Coastal Wave-Break Bluff">
+                  1.45× COASTAL
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ZONE 2: Multi-Axis Parametric Scope Toggles (The "Material Levers") -->
+        <div class="parametric-levers-section">
+          <div class="levers-rack-header">
+            <div class="levers-rack-title">
+              <span>⚙</span>
+              <span>MULTI-AXIS PARAMETRIC SCOPE LEVERS &amp; MATERIAL SELECTORS</span>
+            </div>
+          </div>
+
+          <div class="levers-rack-grid">
+            
+            <!-- Lever Bank 1: Typology & Structural Tectonics -->
+            <div class="lever-bank-enclosure">
+              <div>
+                <div class="lever-bank-tag">LEVER BANK 01 // TECTONICS</div>
+                <h3 class="lever-bank-title">Structural Typology &amp; Massing</h3>
+                
+                <div class="lever-options-stack">
+                  <div class="lever-selector-card active" data-lever="typology" data-typology="typ-a" data-multiplier="1.00" tabindex="0" role="button">
+                    <div class="card-spec-info">
+                      <span class="card-spec-code">TYP-A // 1.00×</span>
+                      <span class="card-spec-name">Monolithic Reinforced Earth &amp; Slab</span>
+                      <span class="card-spec-desc">Continuous raft footing, board-formed walls, thermal massing</span>
+                    </div>
+                    <span class="card-multiplier-badge">1.00×</span>
+                  </div>
+
+                  <div class="lever-selector-card" data-lever="typology" data-typology="typ-b" data-multiplier="1.35" tabindex="0" role="button">
+                    <div class="card-spec-info">
+                      <span class="card-spec-code">TYP-B // 1.35×</span>
+                      <span class="card-spec-name">High-Clearance Cantilever Moment Frame</span>
+                      <span class="card-spec-desc">Welded box girders, Dywidag tiebacks, zero visible supports</span>
+                    </div>
+                    <span class="card-multiplier-badge">1.35×</span>
+                  </div>
+
+                  <div class="lever-selector-card" data-lever="typology" data-typology="typ-c" data-multiplier="1.50" tabindex="0" role="button">
+                    <div class="card-spec-info">
+                      <span class="card-spec-code">TYP-C // 1.50×</span>
+                      <span class="card-spec-name">Subterranean Vault &amp; Double Hull</span>
+                      <span class="card-spec-desc">Bentonite tanking, decoupled acoustic floating slab, hydrostatic seal</span>
+                    </div>
+                    <span class="card-multiplier-badge">1.50×</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Lever Bank 2: Glazing & Envelope Spec -->
+            <div class="lever-bank-enclosure">
+              <div>
+                <div class="lever-bank-tag">LEVER BANK 02 // ENVELOPE</div>
+                <h3 class="lever-bank-title">Thermal Envelope &amp; Glazing</h3>
+                
+                <div class="lever-options-stack">
+                  <div class="lever-selector-card active" data-lever="envelope" data-envelope="spec-1" data-multiplier="1.00" tabindex="0" role="button">
+                    <div class="card-spec-info">
+                      <span class="card-spec-code">SPEC-01 // 1.00×</span>
+                      <span class="card-spec-name">Standard Minimal Sightlines</span>
+                      <span class="card-spec-desc">Ultra-narrow aluminum frames, double low-E glazing</span>
+                    </div>
+                    <span class="card-multiplier-badge">1.00×</span>
+                  </div>
+
+                  <div class="lever-selector-card" data-lever="envelope" data-envelope="spec-2" data-multiplier="1.25" tabindex="0" role="button">
+                    <div class="card-spec-info">
+                      <span class="card-spec-code">SPEC-02 // 1.25×</span>
+                      <span class="card-spec-name">Blast/Cyclonic Low-Iron Acoustic</span>
+                      <span class="card-spec-desc">Triple-laminated acoustic interlayer (NC-15), bronze mullions</span>
+                    </div>
+                    <span class="card-multiplier-badge">1.25×</span>
+                  </div>
+
+                  <div class="lever-selector-card" data-lever="envelope" data-envelope="spec-3" data-multiplier="1.55" tabindex="0" role="button">
+                    <div class="card-spec-info">
+                      <span class="card-spec-code">SPEC-03 // 1.55×</span>
+                      <span class="card-spec-name">Motorized 12m Structural Glass Curtain</span>
+                      <span class="card-spec-desc">Full-height sliding panels, concealed pneumatic compression seals</span>
+                    </div>
+                    <span class="card-multiplier-badge">1.55×</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Lever Bank 3: Finish & Millwork Metallurgy -->
+            <div class="lever-bank-enclosure">
+              <div>
+                <div class="lever-bank-tag">LEVER BANK 03 // METALLURGY</div>
+                <h3 class="lever-bank-title">Interior Joinery &amp; Metallurgy</h3>
+                
+                <div class="lever-options-stack">
+                  <div class="lever-selector-card active" data-lever="finishes" data-finish="fin-1" data-multiplier="1.00" tabindex="0" role="button">
+                    <div class="card-spec-info">
+                      <span class="card-spec-code">FIN-01 // 1.00×</span>
+                      <span class="card-spec-name">Smoked French Oak &amp; Travertine</span>
+                      <span class="card-spec-desc">Quarter-sawn timber, unfilled travertine paver format</span>
+                    </div>
+                    <span class="card-multiplier-badge">1.00×</span>
+                  </div>
+
+                  <div class="lever-selector-card" data-lever="finishes" data-finish="fin-2" data-multiplier="1.30" tabindex="0" role="button">
+                    <div class="card-spec-info">
+                      <span class="card-spec-code">FIN-02 // 1.30×</span>
+                      <span class="card-spec-name">Calacatta Silk + C360 Bronze Inlays</span>
+                      <span class="card-spec-desc">Continuous vein alignment, recessed bronze reveals, micro-bevels</span>
+                    </div>
+                    <span class="card-multiplier-badge">1.30×</span>
+                  </div>
+
+                  <div class="lever-selector-card" data-lever="finishes" data-finish="fin-3" data-multiplier="1.65" tabindex="0" role="button">
+                    <div class="card-spec-info">
+                      <span class="card-spec-code">FIN-03 // 1.65×</span>
+                      <span class="card-spec-name">Archival Acoustic Woodcraft &amp; Bronze</span>
+                      <span class="card-spec-desc">Slatted walnut baffles, solid sand-cast bronze pivot doors</span>
+                    </div>
+                    <span class="card-multiplier-badge">1.65×</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ZONE 3: Drafting Paper Underlay: "The Bill of Quantities (BOM) Ledger" -->
+        <div class="bom-drafting-sheet-container">
+          <!-- Drafting Tape Corner Pins -->
+          <div class="drafting-tape-pin tl" aria-hidden="true"></div>
+          <div class="drafting-tape-pin tr" aria-hidden="true"></div>
+          <div class="drafting-tape-pin bl" aria-hidden="true"></div>
+          <div class="drafting-tape-pin br" aria-hidden="true"></div>
+
+          <!-- Architect's Estimate Drafting Sheet / Bill of Quantities -->
+          <div class="bom-drafting-sheet">
+            
+            <!-- Ledger Header -->
+            <div class="bom-sheet-header">
+              <div class="bom-header-col-left">
+                <span class="bom-document-serial" id="bom-doc-code">FORM 105-B // BILL OF QUANTITIES LEDGER</span>
+                <h2 class="bom-document-headline">Architectural Pre-Construction Feasibility Ledger</h2>
+              </div>
+              <div class="bom-header-col-right">
+                <span id="bom-date-stamp">ISSUED: 2026.04 // AIA DOC B101-C</span>
+                <span>ANSCONS ATELIER // REGISTER NO. AR-09412</span>
+              </div>
+            </div>
+
+            <!-- Line-Item Technical Breakdown -->
+            <div class="bom-line-items-table">
+              
+              <!-- Line Item 1: Substructure -->
+              <div class="bom-item-row">
+                <span class="bom-item-title">01 // SUBSTRUCTURE &amp; BEDROCK ANCHORING</span>
+                <span class="bom-item-detail" id="line-substructure-detail">450 cu. yd. 70 MPa self-consolidating pozzolan concrete + 22 Dywidag rock tiebacks (Stable Granite Bedrock)</span>
+                <span class="bom-item-amount" id="line-substructure-amount">$2,310,000 — $3,124,000</span>
+              </div>
+
+              <!-- Line Item 2: Superstructure -->
+              <div class="bom-item-row">
+                <span class="bom-item-title">02 // SUPERSTRUCTURE &amp; STRUCTURAL STEEL</span>
+                <span class="bom-item-detail" id="line-superstructure-detail">180 tons welded moment box girders with ductile moment seismic connections</span>
+                <span class="bom-item-amount" id="line-superstructure-amount">$2,940,000 — $3,976,000</span>
+              </div>
+
+              <!-- Line Item 3: Envelope -->
+              <div class="bom-item-row">
+                <span class="bom-item-title">03 // THERMAL ENVELOPE &amp; FENESTRATION</span>
+                <span class="bom-item-detail" id="line-envelope-detail">6,500 sq. ft. high-performance acoustic facade with thermally broken bronze mullions</span>
+                <span class="bom-item-amount" id="line-envelope-amount">$2,520,000 — $3,408,000</span>
+              </div>
+
+              <!-- Line Item 4: Finishes -->
+              <div class="bom-item-row">
+                <span class="bom-item-title">04 // INTERIOR JOINERY &amp; BESPOKE METALLURGY</span>
+                <span class="bom-item-detail" id="line-finishes-detail">Artisanal guild execution: Smoked French Oak &amp; Travertine with custom foundry bronze castings</span>
+                <span class="bom-item-amount" id="line-finishes-amount">$1,890,000 — $2,556,000</span>
+              </div>
+
+              <!-- Line Item 5: General Conditions -->
+              <div class="bom-item-row">
+                <span class="bom-item-title">05 // GENERAL CONDITIONS &amp; GUILD OVERSIGHT</span>
+                <span class="bom-item-detail" id="line-general-detail">Site security, AIA statutory oversight, full-time superintendent, third-party laboratory pull-testing</span>
+                <span class="bom-item-amount" id="line-general-amount">$840,000 — $1,136,000</span>
+              </div>
+
+            </div>
+
+            <!-- Schedule & Critical Path Box -->
+            <div class="bom-schedule-card">
+              <div class="schedule-label-block">
+                <span class="schedule-header-tag">PROJECTED CRITICAL PATH &amp; GUILD SCHEDULE</span>
+                <span class="schedule-milestones-text" id="schedule-milestones-text">Excavation: Mo 01-04 → Substructure: Mo 05-09 → Steel &amp; Envelope: Mo 10-18 → Handover: Mo 22-26</span>
+              </div>
+              <div class="schedule-duration-badge" id="schedule-duration-badge">22 — 26 MONTHS</div>
+            </div>
+
+            <!-- Total Certified Investment Range Banner -->
+            <div class="bom-total-banner">
+              <div class="total-label-group">
+                <span class="total-cert-tag">TOTAL CERTIFIED COMMISSION INVESTMENT RANGE:</span>
+                <span class="total-unit-rate" id="total-unit-rate">INDICATIVE UNIT RATE: $1,050 — $1,420 / SQ. FT.</span>
+                
+                <!-- Dynamic Redline AIA Feasibility Ink Stamp -->
+                <div class="aia-feasibility-stamp approved" id="aia-feasibility-stamp">
+                  ✓ AIA DOCUMENT B101 COMPLIANT // TENDER FEASIBILITY CERTIFIED
+                </div>
+              </div>
+
+              <div class="total-sum-range" id="total-sum-range">
+                $10.50M — $14.20M USD
+              </div>
+            </div>
+
+            <!-- ZONE 4: Perforated Tear-Off Slip -->
+            <div class="bom-tear-off-card" id="bom-tear-off-card">
+              <div class="tear-off-left-summary">
+                <span class="tear-perforation-tag">✂ PERFORATED PRE-CONSTRUCTION ESTIMATE SLIP // TRANSMITTAL VOUCHER</span>
+                <h4 class="tear-summary-title">Architectural Commission Tender Memorandum</h4>
+                <p class="tear-summary-details" id="tear-summary-details">
+                  FOOTPRINT: 10,000 SQ. FT. • TYPOLOGY: MONOLITHIC REINFORCED SLAB • GEOLOGY: 1.00× • ESTIMATE: $10.5M — $14.2M USD
+                </p>
+              </div>
+
+              <button class="btn-tear-and-transmit" id="btn-tear-and-transmit" title="Tear off estimate slip and transmit straight to DOC 06 Liaison tender brief">
+                <span>TEAR OFF ESTIMATE SLIP &amp; TRANSMIT TO TENDER BRIEF</span>
+                <span>↗</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: Unified Architectural Specification Sheet Legal Footer (Same as other pages) -->
+    <footer class="drafting-table-footer-zone">
+      
+      <!-- Heavy Cutting Mat Bottom Lip / Edge -->
+      <div class="cutting-mat-bottom-lip">
+        <div class="mat-lip-metric-ticks">
+          <span>| 00 MM</span>
+          <span>| 150 MM</span>
+          <span>| 300 MM</span>
+          <span>| 450 MM</span>
+          <span>| 600 MM</span>
+          <span>| 750 MM</span>
+          <span>| 900 MM</span>
+          <span>| 1050 MM</span>
+          <span>| 1200 MM</span>
+        </div>
+        <div class="mat-lip-title">SPECIFICATION ARCHIVE // LEGAL &amp; STATUTORY COVENANTS</div>
+      </div>
+
+      <!-- Tucked Specification Sheets Stack (Spec Sheets) -->
+      <div class="tucked-spec-stack">
+        
+        <!-- Spec Sheet 1: Privacy Policy -->
+        <div class="spec-sheet-tab" data-spec="spec-01" tabindex="0" role="button" aria-label="View SPEC-01: Client Privacy & Fiduciary Data Covenant">
+          <div class="spec-hole-punch" aria-hidden="true"></div>
+          <span class="spec-doc-id">SPEC-01 // PRV</span>
+          <div>
+            <div class="spec-doc-title">Client Privacy Protocols &amp; Confidentiality Data Covenant</div>
+            <div class="spec-doc-classification">AIA Standard B101 • Air-Gapped Vault Archiving • Zero-Publicity Guarantee</div>
+          </div>
+          <span class="spec-doc-classification">REV 2026.04</span>
+          <span class="spec-doc-action">OPEN SPEC SHEET ↗</span>
+        </div>
+
+        <!-- Spec Sheet 2: Terms of Service -->
+        <div class="spec-sheet-tab" data-spec="spec-02" tabindex="0" role="button" aria-label="View SPEC-02: General Conditions of Commission & Tender Terms">
+          <div class="spec-hole-punch" aria-hidden="true"></div>
+          <span class="spec-doc-id">SPEC-02 // TOS</span>
+          <div>
+            <div class="spec-doc-title">General Conditions of Commission &amp; Tender Terms</div>
+            <div class="spec-doc-classification">AIA A101/A201 Framework • Metric Feasibility Standards • Change-Order Protocols</div>
+          </div>
+          <span class="spec-doc-classification">REV 2026.04</span>
+          <span class="spec-doc-action">OPEN SPEC SHEET ↗</span>
+        </div>
+
+        <!-- Spec Sheet 3: Refund Guidelines -->
+        <div class="spec-sheet-tab" data-spec="spec-03" tabindex="0" role="button" aria-label="View SPEC-03: Retainer Deposit & Escrow Refund Guidelines">
+          <div class="spec-hole-punch" aria-hidden="true"></div>
+          <span class="spec-doc-id">SPEC-03 // RFD</span>
+          <div>
+            <div class="spec-doc-title">Retainer Deposit &amp; Escrow Refund Guidelines</div>
+            <div class="spec-doc-classification">FDIC-Insured Escrow • 14-Day Pre-Construction Refund Window • Milestone Accounting</div>
+          </div>
+          <span class="spec-doc-classification">REV 2026.04</span>
+          <span class="spec-doc-action">OPEN SPEC SHEET ↗</span>
+        </div>
+
+        <!-- Spec Sheet 4: Licensure & AIA Disclosures -->
+        <div class="spec-sheet-tab" data-spec="spec-04" tabindex="0" role="button" aria-label="View SPEC-04: AIA Licensure, Ethics & Statutory Compliance">
+          <div class="spec-hole-punch" aria-hidden="true"></div>
+          <span class="spec-doc-id">SPEC-04 // AIA</span>
+          <div>
+            <div class="spec-doc-title">AIA Licensure, Professional Ethics &amp; Statutory Disclosures</div>
+            <div class="spec-doc-classification">Board of Architectural Examiners • OSHA VPP Star • C-8 General Contractor #882194</div>
+          </div>
+          <span class="spec-doc-classification">REV 2026.04</span>
+          <span class="spec-doc-action">OPEN SPEC SHEET ↗</span>
+        </div>
+
+      </div>
+
+      <!-- Debossed Mat Imprint Stamp -->
+      <div class="cutting-mat-imprint-stamp">
+        <div class="mat-debossed-copyright">© 2026 ANSCONS ARCHITECTURE, CONSTRUCTION &amp; BESPOKE INTERIORS ATELIER • ALL RIGHTS RESERVED</div>
+        <div class="mat-debossed-licensure">REGISTERED PRACTICE NO. AR-09412-AIA // GENERAL BUILDING CONTRACTOR LIC. #C8-882194 // JURISDICTION: US &amp; INTERNATIONAL ATELIERS</div>
+      </div>
+
+    </footer>
+
+  </div>
+
+  <!-- Architectural Specification Sheet Modal Inspector -->
+  <div id="spec-modal-overlay" class="spec-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="spec-document-card">
+      <div class="spec-modal-header">
+        <div class="spec-modal-code-tag" id="spec-modal-code">SECTION 00 22 10 // SPEC-01</div>
+        <button class="spec-modal-close" id="spec-modal-close" aria-label="Close statutory document">✕</button>
+      </div>
+      <div class="spec-modal-body" id="spec-modal-body">
+        <!-- Injected via legal-specs.js -->
+      </div>
+      <div class="spec-modal-footer">
+        <div class="spec-modal-stamp">ARCHIVAL RECORD CERTIFIED // AIA CONTRACT DOCUMENT DIVISION</div>
+        <button class="btn-spec-dismiss" id="btn-spec-dismiss">RETURN TO BENCH</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Interactivity Scripts -->
+  <script type="module" src="js/estimator.js"></script>
+
+</body>
+</html>
+`;
+
+fs.writeFileSync('estimator.html', htmlContent, 'utf8');
+console.log('Successfully created estimator.html! Total bytes:', htmlContent.length);
+

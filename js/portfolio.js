@@ -51,12 +51,16 @@ export class PortfolioController {
   constructor(audioInstance) {
     this.audio = audioInstance;
     this.currentIndex = 0;
+    this.currentRevision = 6; // Default to REV 06 (COMPLETED)
     
     this.imgEl = document.getElementById('folio-photo-img');
     this.tagEl = document.getElementById('folio-overlay-tag');
     this.titleEl = document.getElementById('folio-project-title');
     this.locationEl = document.getElementById('folio-project-location');
     this.narrativeEl = document.getElementById('folio-project-narrative');
+    this.photoFrameEl = document.getElementById('folio-photo-frame');
+    this.revStepperEl = document.getElementById('folio-revision-stepper');
+    this.revButtons = this.revStepperEl ? this.revStepperEl.querySelectorAll('.folio-rev-btn') : [];
     
     this.specFootprint = document.getElementById('spec-footprint');
     this.specTypology = document.getElementById('spec-typology');
@@ -85,7 +89,48 @@ export class PortfolioController {
       });
     }
 
+    // Bind Drawing Revision Stepper
+    this.revButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const rev = parseInt(btn.dataset.rev, 10);
+        if (rev && rev !== this.currentRevision) {
+          this.setRevision(rev);
+        }
+      });
+    });
+
     this.renderInstant();
+  }
+
+  setRevision(rev) {
+    this.currentRevision = rev;
+    if (this.audio) this.audio.playSwitchClick();
+
+    // Update active button state
+    this.revButtons.forEach(btn => {
+      btn.classList.toggle('active', parseInt(btn.dataset.rev, 10) === rev);
+    });
+
+    // Update photo frame visual data-revision attribute
+    if (this.photoFrameEl) {
+      this.photoFrameEl.setAttribute('data-revision', `rev-0${rev}`);
+    }
+
+    // Update tag text with revision phase
+    const revNames = {
+      1: 'REV 01 // CONCEPT',
+      2: 'REV 02 // SCHEMATIC',
+      3: 'REV 03 // STRUCTURAL',
+      4: 'REV 04 // MATERIAL',
+      5: 'REV 05 // EXECUTION',
+      6: 'REV 06 // COMPLETED'
+    };
+
+    const p = portfolioProjects[this.currentIndex];
+    if (p && this.tagEl) {
+      const baseDwg = p.tag.split('//')[0].trim();
+      this.tagEl.textContent = `${baseDwg} // ${revNames[rev] || `REV 0${rev}`}`;
+    }
   }
 
   navigate(direction) {
@@ -153,7 +198,18 @@ export class PortfolioController {
       }, 100);
     }
 
-    if (this.tagEl) this.tagEl.textContent = p.tag;
+    if (this.tagEl) {
+      const revNames = {
+        1: 'REV 01 // CONCEPT',
+        2: 'REV 02 // SCHEMATIC',
+        3: 'REV 03 // STRUCTURAL',
+        4: 'REV 04 // MATERIAL',
+        5: 'REV 05 // EXECUTION',
+        6: 'REV 06 // COMPLETED'
+      };
+      const baseDwg = p.tag.split('//')[0].trim();
+      this.tagEl.textContent = `${baseDwg} // ${revNames[this.currentRevision] || 'REV 06'}`;
+    }
     if (this.titleEl) this.titleEl.textContent = p.title;
     if (this.locationEl) this.locationEl.textContent = p.location;
     if (this.narrativeEl) this.narrativeEl.textContent = p.narrative;

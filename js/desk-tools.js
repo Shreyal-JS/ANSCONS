@@ -11,6 +11,9 @@ export class DeskToolsController {
     this.navTabs = document.querySelectorAll('.vellum-tab');
     this.navContainer = document.querySelector('.tracing-nav-container');
     this.originBtn = document.getElementById('btn-return-origin');
+    this.controlRail = document.getElementById('architectural-control-rail');
+    this.railKeys = [];
+    this.railOriginBtn = null;
     this.isDocked = false;
     this.scrollTicking = false;
 
@@ -18,7 +21,10 @@ export class DeskToolsController {
   }
 
   init() {
-    // Theme Lever Switch: Toggles between .studio-mode and .blueprint-mode
+    // 1. Ensure Architectural Control Rail (State C) exists and bind interactions
+    this.ensureControlRail();
+
+    // 2. Theme Lever Switch: Toggles between .studio-mode and .blueprint-mode
     if (this.themeLever) {
       const setMode = (isBlueprint) => {
         if (isBlueprint) {
@@ -51,7 +57,7 @@ export class DeskToolsController {
       });
     }
 
-    // Audio Toggle (MUTED BY DEFAULT)
+    // 3. Audio Toggle (MUTED BY DEFAULT)
     if (this.audioBtn && this.audio) {
       this.audioBtn.addEventListener('click', () => {
         const isMuted = this.audio.toggleMute();
@@ -62,8 +68,11 @@ export class DeskToolsController {
       });
     }
 
-    // Smooth scroll for top vellum tabs
+    // 4. Smooth scroll for top vellum tabs (State A File Index)
     this.navTabs.forEach(tab => {
+      tab.addEventListener('mouseenter', () => {
+        if (this.audio) this.audio.playCaliperTick();
+      });
       tab.addEventListener('click', (e) => {
         const href = tab.getAttribute('href');
         if (href && href.startsWith('#')) {
@@ -77,15 +86,18 @@ export class DeskToolsController {
       });
     });
 
-    // Return to Drawing Sheet Origin (Top of Desk)
+    // 5. Floating Return-To-Origin button (Bottom-right compass FAB)
     if (this.originBtn) {
+      this.originBtn.addEventListener('mouseenter', () => {
+        if (this.audio) this.audio.playCaliperTick();
+      });
       this.originBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         if (this.audio) this.audio.playSwitchClick();
       });
     }
 
-    // Scrollspy & Docked Navigation Manager with requestAnimationFrame throttling
+    // 6. Scrollspy & Deliberate Metamorphosis Manager with requestAnimationFrame throttling
     window.addEventListener('scroll', () => {
       if (!this.scrollTicking) {
         window.requestAnimationFrame(() => {
@@ -96,29 +108,126 @@ export class DeskToolsController {
       }
     }, { passive: true });
 
+    // Initial evaluation on load
     this.handleScroll();
+  }
+
+  ensureControlRail() {
+    if (!this.controlRail) {
+      this.controlRail = document.getElementById('architectural-control-rail');
+    }
+
+    // If not statically rendered, generate and inject into DOM
+    if (!this.controlRail) {
+      const nav = document.createElement('nav');
+      nav.className = 'architectural-control-rail';
+      nav.id = 'architectural-control-rail';
+      nav.setAttribute('aria-label', 'Architectural Control Rail');
+
+      const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+      const docs = [
+        { href: 'index.html', code: 'DOC 01', name: 'ATELIER' },
+        { href: 'about.html', code: 'DOC 02', name: 'PHILOSOPHY' },
+        { href: 'services.html', code: 'DOC 03', name: 'SERVICES' },
+        { href: 'projects.html', code: 'DOC 04', name: 'PORTFOLIO' },
+        { href: 'estimator.html', code: 'DOC 05', name: 'ESTIMATOR' },
+        { href: 'contact.html', code: 'DOC 06', name: 'LIAISON' }
+      ];
+
+      nav.innerHTML = `
+        <div class="rail-crest">
+          <div class="rail-screw" aria-hidden="true"></div>
+          <span class="rail-compass-pip" aria-hidden="true">▲</span>
+          <span class="rail-brand">ANSCONS</span>
+          <span class="rail-spec">INDEX RAIL</span>
+        </div>
+        <div class="rail-keys-track">
+          ${docs.map(d => {
+            const isActive = currentPath === d.href || (currentPath === '' && d.href === 'index.html');
+            return `
+              <a href="${d.href}" class="rail-key ${isActive ? 'active' : ''}" data-doc="${d.code}" title="${d.name}">
+                <span class="rail-key-code">${d.code}</span>
+                <span class="rail-key-name">${d.name}</span>
+                <span class="rail-indicator" aria-hidden="true"></span>
+              </a>
+            `;
+          }).join('')}
+        </div>
+      `;
+
+      document.body.appendChild(nav);
+      this.controlRail = nav;
+    }
+
+    this.railKeys = this.controlRail.querySelectorAll('.rail-key');
+    this.railOriginBtn = this.controlRail.querySelector('#rail-origin-btn');
+
+    // Attach mechanical sound and smooth navigation handlers
+    this.railKeys.forEach(key => {
+      key.addEventListener('mouseenter', () => {
+        if (this.audio) this.audio.playCaliperTick();
+      });
+      key.addEventListener('click', (e) => {
+        const href = key.getAttribute('href');
+        const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+        if (href === currentFile || (href === 'index.html' && (currentFile === '' || currentFile === 'index.html'))) {
+          // Already on current page -> smooth scroll to origin
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          if (this.audio) this.audio.playSwitchClick();
+        } else if (href && href.startsWith('#')) {
+          const target = document.getElementById(href.replace('#', ''));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+            if (this.audio) this.audio.playSwitchClick();
+          }
+        } else {
+          if (this.audio) this.audio.playSwitchClick();
+        }
+      });
+    });
+
+    if (this.railOriginBtn) {
+      this.railOriginBtn.addEventListener('mouseenter', () => {
+        if (this.audio) this.audio.playCaliperTick();
+      });
+      this.railOriginBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (this.audio) this.audio.playSwitchClick();
+      });
+    }
   }
 
   handleScroll() {
     const scrollY = window.scrollY;
 
-    // Condense top vellum navbar with Hysteresis Gate
-    // Entering dock state requires > 160px; exiting requires < 60px.
-    // The 100px buffer completely prevents rapid oscillation/lockup at the boundary.
-    if (this.navContainer) {
-      const DOCK_ENTER = 160;
-      const DOCK_EXIT = 60;
+    // Deliberate Metamorphosis:
+    // State A (Hero File Index) -> State B (Scroll Compress) -> State C (Architectural Control Rail)
+    // Entering Control Panel state requires > 160px; exiting back to File Index requires < 65px.
+    // The 95px hysteresis gap completely prevents rapid oscillation at the boundary.
+    const DOCK_ENTER = 160;
+    const DOCK_EXIT = 65;
 
-      if (!this.isDocked && scrollY > DOCK_ENTER) {
-        this.isDocked = true;
-        this.navContainer.classList.add('docked-sticky');
-      } else if (this.isDocked && scrollY < DOCK_EXIT) {
-        this.isDocked = false;
-        this.navContainer.classList.remove('docked-sticky');
+    if (!this.isDocked && scrollY > DOCK_ENTER) {
+      this.isDocked = true;
+      if (this.navContainer) {
+        this.navContainer.classList.add('file-index-compressed');
+      }
+      if (this.controlRail) {
+        this.controlRail.classList.add('control-rail-active');
+      }
+    } else if (this.isDocked && scrollY < DOCK_EXIT) {
+      this.isDocked = false;
+      if (this.navContainer) {
+        this.navContainer.classList.remove('file-index-compressed');
+      }
+      if (this.controlRail) {
+        this.controlRail.classList.remove('control-rail-active');
       }
     }
 
-    // Floating Return-To-Origin button visibility
+    // Floating Return-To-Origin compass button visibility
     if (this.originBtn) {
       if (scrollY > 420) {
         this.originBtn.classList.add('visible');
@@ -127,7 +236,7 @@ export class DeskToolsController {
       }
     }
 
-    // Section scrollspy highlight (only for in-page anchor tabs)
+    // Section scrollspy highlight (for in-page anchor tabs)
     const hasAnchorTabs = Array.from(this.navTabs).some(tab => tab.getAttribute('href')?.startsWith('#'));
     if (hasAnchorTabs) {
       const sections = ['section-hero', 'section-materials', 'section-portfolio', 'section-caliper', 'section-credentials', 'section-commission'];
@@ -136,10 +245,17 @@ export class DeskToolsController {
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
         if (el && el.offsetTop <= scrollPos) {
+          const activeHref = `#${sections[i]}`;
           this.navTabs.forEach(tab => {
             const href = tab.getAttribute('href');
             if (href && href.startsWith('#')) {
-              tab.classList.toggle('active', href === `#${sections[i]}`);
+              tab.classList.toggle('active', href === activeHref);
+            }
+          });
+          this.railKeys?.forEach(key => {
+            const href = key.getAttribute('href');
+            if (href && href.startsWith('#')) {
+              key.classList.toggle('active', href === activeHref);
             }
           });
           break;

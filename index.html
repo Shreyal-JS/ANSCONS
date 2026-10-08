@@ -62,6 +62,48 @@
     </div>
   </div>
 
+  <!-- State C: Persistent Architectural Control Rail (Precision Control Panel) -->
+  <nav class="architectural-control-rail" id="architectural-control-rail" aria-label="Architectural Control Rail">
+    <div class="rail-crest">
+      <div class="rail-screw" aria-hidden="true"></div>
+      <span class="rail-compass-pip" aria-hidden="true">▲</span>
+      <span class="rail-brand">ANSCONS</span>
+      <span class="rail-spec">INDEX RAIL</span>
+    </div>
+    <div class="rail-keys-track">
+      <a href="index.html" class="rail-key" data-doc="01" title="Atelier Master Drawing Sheet">
+        <span class="rail-key-code"> 01</span>
+        <span class="rail-key-name">ATELIER</span>
+        <span class="rail-indicator" aria-hidden="true"></span>
+      </a>
+      <a href="about.html" class="rail-key" data-doc="02" title="Philosophy &amp; Heritage Ledger">
+        <span class="rail-key-code"> 02</span>
+        <span class="rail-key-name">PHILOSOPHY</span>
+        <span class="rail-indicator" aria-hidden="true"></span>
+      </a>
+      <a href="services.html" class="rail-key" data-doc="03" title="Bespoke Architectural Services">
+        <span class="rail-key-code"> 03</span>
+        <span class="rail-key-name">SERVICES</span>
+        <span class="rail-indicator" aria-hidden="true"></span>
+      </a>
+      <a href="projects.html" class="rail-key" data-doc="04" title="Monograph Folio of Built Works">
+        <span class="rail-key-code"> 04</span>
+        <span class="rail-key-name">PORTFOLIO</span>
+        <span class="rail-indicator" aria-hidden="true"></span>
+      </a>
+      <a href="estimator.html" class="rail-key" data-doc="05" title="Scale Caliper Project Estimator">
+        <span class="rail-key-code"> 05</span>
+        <span class="rail-key-name">ESTIMATOR</span>
+        <span class="rail-indicator" aria-hidden="true"></span>
+      </a>
+      <a href="contact.html" class="rail-key" data-doc="06" title="Commission Liaison Brief">
+        <span class="rail-key-code"> 06</span>
+        <span class="rail-key-name">LIAISON</span>
+        <span class="rail-indicator" aria-hidden="true"></span>
+      </a>
+    </div>
+  </nav>
+
   <!-- Master Drafting Table Layout -->
   <div class="drafting-table">
 
@@ -370,10 +412,23 @@
           
           <!-- Left Page: Project Visual Render -->
           <div class="folio-page-left">
-            <div class="page-photo-frame">
+            <div class="page-photo-frame" id="folio-photo-frame" data-revision="rev-06">
               <img id="folio-photo-img" class="page-photo-img" src="assets/images/project-1-belair.jpg" alt="The Bel-Air Cantilever Estate">
               <div id="folio-overlay-tag" class="photo-blueprint-overlay-tag">DWG REF: BA-RES-2026 // REV 06</div>
+              <div id="folio-revision-sketch-layer" class="folio-revision-sketch-layer" aria-hidden="true"></div>
             </div>
+
+            <!-- Drawing Revision Stepper -->
+            <div class="folio-revision-stepper" id="folio-revision-stepper" role="tablist" aria-label="Drawing Revision State">
+              <span class="folio-rev-label">REVISION:</span>
+              <button class="folio-rev-btn" data-rev="1" title="REV 01: Concept Massing">REV 01</button>
+              <button class="folio-rev-btn" data-rev="2" title="REV 02: Schematic Wireframe">REV 02</button>
+              <button class="folio-rev-btn" data-rev="3" title="REV 03: Structural Frame">REV 03</button>
+              <button class="folio-rev-btn" data-rev="4" title="REV 04: Material Spec">REV 04</button>
+              <button class="folio-rev-btn" data-rev="5" title="REV 05: Field Redlines">REV 05</button>
+              <button class="folio-rev-btn active" data-rev="6" title="REV 06: Completed As-Built">REV 06</button>
+            </div>
+
             <div class="arch-label" style="text-align: center; margin-top: 10px;">PLATE 01 • PHOTOGRAMMETRIC CAPTURE &amp; SPECIFICATION</div>
           </div>
 

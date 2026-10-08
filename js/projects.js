@@ -625,12 +625,654 @@ const PORTFOLIO_TYPOLOGIES = {
   }
 };
 
+/* ==========================================================================
+   ARCHITECTURAL DRAWING REVISION LIFECYCLE (REV 01 -> REV 06)
+   Parametric SVG linework, technical specs and field stamps for each phase
+   ========================================================================== */
+
+const DWG_CODES = {
+  'typ-1': 'BA-RES-2026',
+  'typ-1-p2': 'BS-SEAWALL-2026',
+  'typ-2': 'SN-MONO-2026',
+  'typ-2-p4': 'AL-QUARRY-2026',
+  'typ-3': 'KY-VAULT-2026',
+  'typ-3-p6': 'KY-SANCT-2026',
+  'typ-4': 'TR-MERC-2026'
+};
+
+const REVISION_PHASES = {
+  1: {
+    num: 'REV 01',
+    name: 'CONCEPT',
+    badge: 'REV 01 // CONCEPT MASSING',
+    icon: '✎',
+    tag: 'CONCEPT STAGE // CHARCOAL VOLUMETRIC MASSING STUDY',
+    desc: 'Hand-Drafted Charcoal Massing, Solar Azimuth & Topography'
+  },
+  2: {
+    num: 'REV 02',
+    name: 'SCHEMATIC',
+    badge: 'REV 02 // SCHEMATIC WIREFRAME',
+    icon: '◫',
+    tag: 'SCHEMATIC STAGE // 1:50 AXIAL GRID & SPATIAL PROGRAMMING',
+    desc: '1:50 Axial Column Grid, Spatial Envelopes & Circulation'
+  },
+  3: {
+    num: 'REV 03',
+    name: 'STRUCTURAL',
+    badge: 'REV 03 // STRUCTURAL CALCS',
+    icon: '⚙',
+    tag: 'STRUCTURAL STAGE // MOMENT FRAME & TIEBACK ENGINEERING',
+    desc: 'Deep Moment Frames, Bedrock Tiebacks & Tectonic Calcs'
+  },
+  4: {
+    num: 'REV 04',
+    name: 'MATERIAL',
+    badge: 'REV 04 // MATERIAL TECTONICS',
+    icon: '◈',
+    tag: 'MATERIAL SPECIFICATION // FINISH TECTONICS & JOINERY',
+    desc: 'Tectonic Materiality Sections, Timber Grain & Metallurgy'
+  },
+  5: {
+    num: 'REV 05',
+    name: 'EXECUTION',
+    badge: 'REV 05 // FIELD REDLINES',
+    icon: '▲',
+    tag: 'FIELD EXECUTION // CONTRACTOR REDLINES & QA VERIFICATION',
+    desc: 'Active Field Redlines, Pull-Test Stamps & QA Verification'
+  },
+  6: {
+    num: 'REV 06',
+    name: 'COMPLETED',
+    badge: 'REV 06 // COMPLETED AS-BUILT',
+    icon: '✓',
+    tag: 'COMPLETED COMMISSION // AS-BUILT PHOTOGRAMMETRIC RECORD',
+    desc: 'Official As-Built Drawing Set & Photogrammetric Record'
+  }
+};
+
+function getRevisionRedlines(typologyKey, rev, defaultRedlines = []) {
+  switch (rev) {
+    case 1:
+      return [
+        "☀️ Solar Azimuth Study: 242° Summer Solstice West Incline",
+        "⛰️ Natural Terrain Incline: Topographical Ridge Analysis",
+        "💨 Prevailing Thermal Breezes & Micro-Climate Passive Vector",
+        "📐 Volumetric Massing Boundary Envelope (Zero Footprint Violations)"
+      ];
+    case 2:
+      return [
+        "📐 1:50 Axial Modular Grid: 6.00m Coordinate Spacing",
+        "🚶 Uninterrupted Axial Circulation Spine & Sight Cone",
+        "🪟 180° Panoramic Canyon / Horizon Vista Clear-Line",
+        "🚪 Acoustic Thermal Buffer Zone & Vestibule Break"
+      ];
+    case 4:
+      return [
+        "🪵 Select Smoked French Oak & Charred Accoya Fascia (DIN Class 1)",
+        "🪨 Honed Belgian Bluestone & Sawn Caliche Travertine Paving",
+        "🪟 Low-Iron Acoustic Triple Glazing (Ug = 0.5 W/m²K // NC-15)",
+        "🪙 Patinated C61400 Aluminum-Bronze Inlay Profiles & Hardware"
+      ];
+    case 5:
+      return [
+        "🔴 RFI #108: Foundation Tieback Embedment Depth 32.4m Verified",
+        "🔴 Core Test #12: 74.2 MPa Compressive Break Exceeds Spec",
+        "🔴 Laser 3D Scan Variance: 0.12mm (Within ±0.3mm Max Tolerance)",
+        "🔴 PE Stamp #48291: Approved As Noted for High-Early Concrete Pour"
+      ];
+    case 3:
+    case 6:
+    default:
+      return (defaultRedlines && defaultRedlines.length) ? defaultRedlines : [
+        "f'c = 65 MPa Self-Consolidating Foundation Pour",
+        "14 Dywidag Rock Tiebacks Drilled 32m into Bedrock",
+        "Zero Spring Deflection Tolerance ±0.3 mm Achieved",
+        "Charred Shou Sugi Ban Accoya & Acoustic Low-Iron Glazing"
+      ];
+  }
+}
+
+function getConceptOverlay(key) {
+  const meta = {
+    'typ-1': {
+      title: 'THE OBSIDIAN CANTILEVER // BEL-AIR RIDGE',
+      dwg: 'DWG SK-101 // REV 01',
+      site: 'WEATHERED SHALE 38° CANYON INCLINE (CONTOUR ∇ +420FT)',
+      slope: 'M 0,220 L 460,540 L 1200,540 L 1200,600 L 0,600 Z',
+      volLabel: 'PRIMARY CANTILEVER VOLUME [9,400 SQ. FT. CONDITIONED]',
+      volX: 280, volY: 270, volW: 820, volH: 130,
+      note1: 'ZERO VERTICAL SUPPORT BEYOND RIDGE // PURE 18M SPAN',
+      note2: 'SOLAR THERMAL VECTOR // SUMMER SHADING OVERHANG 2.4M',
+      solarApex: '☀️ SUMMER SOLSTICE AZIMUTH: 242° // 14:00 PEAK SOLAR ANGLE',
+      windNote: '💨 PREVAILING THERMAL CANYON DRAFT // PASSIVE COOLING VECTOR'
+    },
+    'typ-1-p2': {
+      title: 'BLUFFLINE SEA-WALL // BIG SUR COAST',
+      dwg: 'DWG SK-102 // REV 01',
+      site: 'PACIFIC WAVE-BREAK BEDROCK SHELF (HIGH TIDAL EXPOSURE)',
+      slope: 'M 0,380 Q 180,330 380,390 T 780,450 L 1200,460 L 1200,600 L 0,600 Z',
+      volLabel: 'CLIFFSIDE RESIDENCE & MARINE BARRIER [12,200 SQ. FT.]',
+      volX: 420, volY: 200, volW: 680, volH: 220,
+      note1: '70 MPa POZZOLAN SEA-WALL PROFILE // 8.5M TIDAL RETENTION',
+      note2: 'C61400 ALUMINUM-BRONZE CORROSION SHIELD ENVELOPE',
+      solarApex: '☀️ COASTAL HORIZON AZIMUTH: 260° // MARITIME EXPOSURE',
+      windNote: '💨 PACIFIC STORM SURGE 4,000 L/MIN PERIMETER DIVERTER'
+    },
+    'typ-2': {
+      title: 'MONOLITH IV // FIVE PATIOS (SONORAN DESERT)',
+      dwg: 'DWG SK-204 // REV 01',
+      site: 'CALICHE HARDPAN BEDROCK // CONTINUOUS STRUCTURAL RAFT',
+      slope: 'M 0,480 L 1200,480 L 1200,600 L 0,600 Z',
+      volLabel: 'DUAL-WYTHE BOARD-FORMED MONOLITH MASSING [14,500 SQ. FT.]',
+      volX: 80, volY: 170, volW: 980, volH: 260,
+      note1: '5 MONUMENTAL CONCRETE PIERS // 4 INTERNAL TRAVERTINE PATIOS',
+      note2: 'SUB-FLOOR EVAPORATIVE WATER CHANNELS ∇ -0.45M',
+      solarApex: '☀️ DESERT ZENITH AZIMUTH: 285° // 48°C EXTREME SUMMER PEAK',
+      windNote: '💨 DIURNAL COURTYARD AIR CIRCULATION & THERMAL SIPHON'
+    },
+    'typ-2-p4': {
+      title: 'QUARRY CUT PAVILION // SWISS ALPS',
+      dwg: 'DWG SK-208 // REV 01',
+      site: 'SWISS ALPS GRANITE OUTCROPPING BEDROCK PROFILE',
+      slope: 'M 0,200 L 360,400 L 1200,400 L 1200,600 L 0,600 Z',
+      volLabel: 'ALPINE TIMBER CLEAR-SPAN PAVILION [8,800 SQ. FT.]',
+      volX: 330, volY: 170, volW: 790, volH: 230,
+      note1: 'DIAMOND-WIRE WIRE-SAWN GRANITE LIVING FLOOR (800 TONS)',
+      note2: 'GLULAM DOUGLAS FIR TIMBER SPINE // FLITCH PLATE CONNECTIONS',
+      solarApex: '☀️ ALPINE PASS AZIMUTH: 210° // WINTER LOW-ANGLE HEATING',
+      windNote: '↓↓ 35 kN/m² SNOW-PACK LOAD COMPLIANT COLD ROOF'
+    },
+    'typ-3': {
+      title: 'KYOTO PRIVATE MUSEUM VAULT',
+      dwg: 'DWG SK-301 // REV 01',
+      site: '∇ NATURAL GRADE LEVEL +0.00M // 6.2M SUB-GRADE EXCAVATION',
+      slope: 'M 0,150 L 1200,150 L 1200,600 L 0,600 Z',
+      volLabel: 'DOUBLE-HULLED WATERPROOF RETENTION VAULT [6,200 SQ. FT.]',
+      volX: 140, volY: 180, volW: 920, volH: 320,
+      note1: 'INNER DECOUPLED FLOATING ROOM-WITHIN-A-ROOM (NC-12)',
+      note2: '3-TON SOLID BRONZE BALANCED PIVOT VAULT ENTRANCE',
+      solarApex: '☼ AIR-GAPPED THERMAL BUFFER // SUBTERRANEAN CONSTANT 18°C',
+      windNote: '≋ HYDROSTATIC GROUNDWATER EQUALIZER & SUMP DRAINAGE'
+    },
+    'typ-3-p6': {
+      title: 'BIOPHILIC MOVEMENT SANCTUARY // KYOTO',
+      dwg: 'DWG SK-306 // REV 01',
+      site: '∇ SUBTERRANEAN BEDROCK BASIN // KINETIC ACOUSTIC PIT',
+      slope: 'M 0,140 L 1200,140 L 1200,600 L 0,600 Z',
+      volLabel: 'KINETICALLY ISOLATED MOVEMENT ATELIER [5,100 SQ. FT.]',
+      volX: 120, volY: 180, volW: 960, volH: 280,
+      note1: 'SPRUNG EUROPEAN WHITE OAK FLOOR // HYDRONIC RADIANT LOOPS',
+      note2: 'SLATTED ACOUSTIC WALNUT BAFFLES // CIRCADIAN SPECTRUM',
+      solarApex: '☼ FULL-SPECTRUM 6500K - 2200K CIRCADIAN EMITTER ARRAY',
+      windNote: '💨 ZERO-VELOCITY LAMINAR AIRFLOW CEILING PLENUM (HEPA H14)'
+    },
+    'typ-4': {
+      title: 'THE CAST-IRON MERCANTILE EXCHANGE // TRIBECA',
+      dwg: 'DWG SK-408 // REV 01',
+      site: '1892 LANDMARKED BRICK & CAST-IRON PARTY WALLS',
+      slope: 'M 0,490 L 1200,490 L 1200,600 L 0,600 Z',
+      volLabel: 'TRIPLEX CONVERSION & NEW 4.5M SUB-BASEMENT [11,800 SQ. FT.]',
+      volX: 80, volY: 140, volW: 1040, volH: 340,
+      note1: 'HYDRAULIC NEEDLE BEAMS & 450 kN MICRO-JACK UNDERPINNING',
+      note2: 'RESTORED FLUTED CAST-IRON COLUMNS & BRONZE ELEVATOR CORE',
+      solarApex: '☀️ CENTRAL ATRIUM SKYLIGHT SHAFT // LIGHTWELL CORE',
+      windNote: '∇ 4.5M EXCAVATION INTO MANHATTAN SCHIST BEDROCK'
+    }
+  };
+
+  const m = meta[key] || meta['typ-1'];
+
+  return `
+    <!-- ARCHITECTURAL DRAWING REVISION 01: CONCEPT MASSING STUDY -->
+    <svg viewBox="0 0 1200 600" class="vellum-cad-overlay" preserveAspectRatio="none">
+      <!-- Natural Site Slope & Strata Contours -->
+      <path d="${m.slope}" class="cad-bedrock-slope" />
+      <path d="M 0,190 Q 300,280 600,470 T 1200,520" class="cad-bedrock-hatch" stroke-dasharray="6 4" stroke-width="1.5" />
+      <path d="M 0,270 Q 340,340 680,540 T 1200,570" class="cad-bedrock-hatch" stroke-dasharray="6 4" stroke-width="1.5" />
+      <text x="50" y="210" class="cad-dimension-text" font-weight="800">${m.site}</text>
+
+      <!-- Solar Trajectory Arc & Solstice Azimuth -->
+      <path d="M 80,360 Q 640,20 1140,280" class="cad-accent-vector" stroke-dasharray="8 6" stroke-width="2.5" />
+      <circle cx="640" cy="105" r="16" class="cad-pile-anchor-head" />
+      <line x1="640" y1="80" x2="640" y2="60" class="cad-accent-vector" />
+      <line x1="640" y1="130" x2="640" y2="150" class="cad-accent-vector" />
+      <line x1="615" y1="105" x2="595" y2="105" class="cad-accent-vector" />
+      <line x1="665" y1="105" x2="685" y2="105" class="cad-accent-vector" />
+      <text x="640" y="50" text-anchor="middle" class="cad-dimension-text" font-weight="800">${m.solarApex}</text>
+      <text x="140" y="340" class="cad-dimension-text">AM SOLAR CAPTURE</text>
+      <text x="1000" y="260" class="cad-dimension-text">PM HORIZON AZIMUTH</text>
+
+      <!-- Prevailing Wind / Thermal Micro-Climate Vector -->
+      <path d="M 60,480 Q 360,400 780,260" class="cad-detail-stroke" stroke-dasharray="5 5" stroke-width="2" />
+      <text x="100" y="465" class="cad-redline-callout">${m.windNote}</text>
+
+      <!-- Gestural Charcoal Massing Blocks (Hand-Drafted Roughness) -->
+      <rect x="${m.volX}" y="${m.volY}" width="${m.volW}" height="${m.volH}" class="cad-concrete-mass" stroke-dasharray="10 5" stroke-width="3" rx="4" />
+      <rect x="${m.volX - 30}" y="${m.volY - 30}" width="${m.volW + 60}" height="35" class="cad-structure-beam" stroke-dasharray="8 4" stroke-width="2.5" />
+      <line x1="${m.volX + 20}" y1="${m.volY}" x2="${m.volX + m.volW - 20}" y2="${m.volY + m.volH}" class="cad-detail-stroke" stroke-dasharray="4 4" />
+      <line x1="${m.volX + 20}" y1="${m.volY + m.volH}" x2="${m.volX + m.volW - 20}" y2="${m.volY}" class="cad-detail-stroke" stroke-dasharray="4 4" />
+
+      <!-- Sightline Cone -->
+      <polygon points="${m.volX + 40},${m.volY + 70} 1160,180 1160,520" fill="rgba(198, 162, 92, 0.08)" stroke="#c6a25c" stroke-dasharray="4 3" stroke-width="1.2" />
+      <text x="${m.volX + (m.volW / 2)}" y="${m.volY + 70}" text-anchor="middle" class="cad-dimension-text" font-weight="700">180° UNOBSTRUCTED VISTA SIGHTLINE CONE</text>
+
+      <!-- Charcoal Design Notes -->
+      <text x="${m.volX + 40}" y="${m.volY + 45}" class="cad-redline-callout" font-size="11" font-weight="800">${m.volLabel}</text>
+      <text x="${m.volX + 40}" y="${m.volY + 105}" class="cad-dimension-text">${m.note1}</text>
+      <text x="${m.volX + 40}" y="${m.volY - 40}" class="cad-dimension-text" font-weight="800">${m.note2}</text>
+
+      <!-- Archival Concept Title Block -->
+      <g transform="translate(840, 470)">
+        <rect x="0" y="0" width="330" height="105" class="cad-title-block-box" rx="3" />
+        <text x="16" y="24" class="cad-dimension-text" font-weight="800">ANSCONS ATELIER // ${m.dwg}</text>
+        <text x="16" y="44" class="cad-dimension-text">CONCEPT VOLUMETRIC MASSING STUDY</text>
+        <text x="16" y="62" class="cad-dimension-text">${m.title}</text>
+        <text x="16" y="82" class="cad-redline-callout">PHASE: PRELIMINARY ARCHITECTURAL CONCEPT</text>
+        <text x="16" y="96" class="cad-dimension-text" font-size="8">TOPOGRAPHICAL FEASIBILITY CONFIRMED</text>
+      </g>
+    </svg>
+  `;
+}
+
+function getSchematicOverlay(key) {
+  const meta = {
+    'typ-1': {
+      title: 'THE OBSIDIAN CANTILEVER // BEL-AIR RIDGE',
+      dwg: 'DWG A-101-S // REV 02',
+      rooms: [
+        { label: 'ARRIVAL FOYER & GALLERY', area: '75 m²', x: 180, y: 200, w: 200, h: 240, color: 'rgba(198, 162, 92, 0.12)', border: '#7c6246' },
+        { label: 'CENTRAL ATRIUM LIGHTWELL', area: '45 m²', x: 400, y: 220, w: 200, h: 200, color: 'rgba(100, 200, 220, 0.12)', border: '#5a8b9e' },
+        { label: 'CANTILEVER GREAT ROOM', area: '220 m²', x: 620, y: 190, w: 460, h: 250, color: 'rgba(180, 150, 110, 0.18)', border: '#3e2e1c' }
+      ],
+      circNote: 'PRIMARY ARCHITECTURAL CIRCULATION SPINE (32M RUN) →',
+      spanNote: 'UNOBSTRUCTED 18M CLEAR SPAN // ZERO INTERNAL COLUMNS'
+    },
+    'typ-1-p2': {
+      title: 'BLUFFLINE SEA-WALL // BIG SUR COAST',
+      dwg: 'DWG A-102-S // REV 02',
+      rooms: [
+        { label: 'MARINE RETENTION BUFFER', area: '95 m²', x: 260, y: 210, w: 240, h: 240, color: 'rgba(100, 150, 180, 0.15)', border: '#4a6f8a' },
+        { label: 'OCEAN PAVILION LIVING', area: '280 m²', x: 520, y: 160, w: 380, h: 260, color: 'rgba(180, 150, 110, 0.18)', border: '#3e2e1c' },
+        { label: 'PRIVATE OBSERVATION SUITE', area: '140 m²', x: 920, y: 160, w: 200, h: 260, color: 'rgba(198, 162, 92, 0.12)', border: '#7c6246' }
+      ],
+      circNote: 'SEAWALL LOGGIA CIRCULATION AXIS →',
+      spanNote: '8.5M MONOLITHIC MARINE SEA-WALL ENVELOPE'
+    },
+    'typ-2': {
+      title: 'MONOLITH IV // FIVE PATIOS (SONORAN)',
+      dwg: 'DWG A-204-S // REV 02',
+      rooms: [
+        { label: 'PATIO I: WEST ENTRANCE', area: '90 m²', x: 140, y: 210, w: 180, h: 220, color: 'rgba(198, 162, 92, 0.12)', border: '#7c6246' },
+        { label: 'PATIO II & III: LIVING CORE', area: '310 m²', x: 340, y: 190, w: 380, h: 250, color: 'rgba(180, 150, 110, 0.18)', border: '#3e2e1c' },
+        { label: 'PATIO IV: EAST RETREAT', area: '110 m²', x: 740, y: 210, w: 280, h: 220, color: 'rgba(198, 162, 92, 0.12)', border: '#7c6246' }
+      ],
+      circNote: '60M CONTINUOUS MONOLITHIC AXIAL LOGGIA →',
+      spanNote: '450mm DUAL-WYTHE BOARD-FORMED STRUCTURAL PIERS'
+    },
+    'typ-2-p4': {
+      title: 'QUARRY CUT PAVILION // SWISS ALPS',
+      dwg: 'DWG A-208-S // REV 02',
+      rooms: [
+        { label: 'QUARRY ENTRANCE PORTAL', area: '65 m²', x: 280, y: 220, w: 180, h: 210, color: 'rgba(160, 160, 160, 0.15)', border: '#666' },
+        { label: 'TIMBER CLEAR-SPAN ATRIUM', area: '240 m²', x: 480, y: 180, w: 380, h: 250, color: 'rgba(198, 162, 92, 0.15)', border: '#7c6246' },
+        { label: 'ALPINE PANORAMA OVERLOOK', area: '120 m²', x: 880, y: 180, w: 240, h: 250, color: 'rgba(100, 200, 220, 0.12)', border: '#5a8b9e' }
+      ],
+      circNote: '26M TIMBER CLEAR-SPAN SPINE →',
+      spanNote: '800 TONS DIAMOND-WIRE SAWN NATURAL GRANITE'
+    },
+    'typ-3': {
+      title: 'KYOTO PRIVATE MUSEUM VAULT',
+      dwg: 'DWG A-301-S // REV 02',
+      rooms: [
+        { label: 'SUBTERRANEAN ANTECHAMBER', area: '50 m²', x: 220, y: 230, w: 180, h: 200, color: 'rgba(100, 100, 100, 0.15)', border: '#555' },
+        { label: 'FLOATING ACOUSTIC SANCTUM', area: '190 m²', x: 420, y: 190, w: 380, h: 240, color: 'rgba(198, 162, 92, 0.14)', border: '#7c6246' },
+        { label: 'CLIMATE ARCHIVAL ARCHIVE', area: '85 m²', x: 820, y: 190, w: 200, h: 240, color: 'rgba(100, 200, 160, 0.12)', border: '#3e7c5a' }
+      ],
+      circNote: 'HERMETIC ACCESS CORRIDOR // NC-12 RATED →',
+      spanNote: 'DECOUPLED ROOM-WITHIN-A-ROOM ACOUSTIC SLAB'
+    },
+    'typ-3-p6': {
+      title: 'BIOPHILIC MOVEMENT SANCTUARY',
+      dwg: 'DWG A-306-S // REV 02',
+      rooms: [
+        { label: 'VESTIBULE & SOUND AIRLOCK', area: '45 m²', x: 200, y: 220, w: 180, h: 210, color: 'rgba(100, 100, 100, 0.15)', border: '#555' },
+        { label: 'SPRUNG OAK MOVEMENT FLOOR', area: '230 m²', x: 400, y: 180, w: 440, h: 250, color: 'rgba(198, 162, 92, 0.18)', border: '#7c6246' },
+        { label: 'CIRCADIAN REFLECTION LOUNGE', area: '90 m²', x: 860, y: 180, w: 200, h: 250, color: 'rgba(100, 200, 220, 0.12)', border: '#5a8b9e' }
+      ],
+      circNote: 'LAMINAR AIRFLOW ACOUSTIC TRANSITION →',
+      spanNote: '0.28 SECONDS REVERBERATION TIME (RT60)'
+    },
+    'typ-4': {
+      title: 'THE MERCANTILE EXCHANGE // TRIBECA',
+      dwg: 'DWG A-408-S // REV 02',
+      rooms: [
+        { label: '1892 HISTORIC GROUND FOYER', area: '110 m²', x: 180, y: 200, w: 240, h: 230, color: 'rgba(180, 120, 90, 0.15)', border: '#8b4513' },
+        { label: 'DOUBLE-HEIGHT LOFT ATRIUM', area: '320 m²', x: 440, y: 170, w: 380, h: 260, color: 'rgba(198, 162, 92, 0.15)', border: '#7c6246' },
+        { label: 'BRONZE ELEVATOR & TRIPLEX CORE', area: '95 m²', x: 840, y: 170, w: 220, h: 260, color: 'rgba(100, 80, 60, 0.2)', border: '#4a3825' }
+      ],
+      circNote: 'HISTORIC FLUTED COLUMN CLEAR SPAN AXIS →',
+      spanNote: '4.5M SUB-BASEMENT EXCAVATED IN SCHIST'
+    }
+  };
+
+  const m = meta[key] || meta['typ-1'];
+
+  return `
+    <!-- ARCHITECTURAL DRAWING REVISION 02: SCHEMATIC SPATIAL WIREFRAME -->
+    <svg viewBox="0 0 1200 600" class="vellum-cad-overlay" preserveAspectRatio="none">
+      <!-- 1:50 Axial Column Grid Lines -->
+      <line x1="180" y1="70" x2="180" y2="550" class="cad-dimension-line" stroke-dasharray="8 4 2 4" stroke-width="1.2" opacity="0.7" />
+      <line x1="380" y1="70" x2="380" y2="550" class="cad-dimension-line" stroke-dasharray="8 4 2 4" stroke-width="1.2" opacity="0.7" />
+      <line x1="620" y1="70" x2="620" y2="550" class="cad-dimension-line" stroke-dasharray="8 4 2 4" stroke-width="1.2" opacity="0.7" />
+      <line x1="860" y1="70" x2="860" y2="550" class="cad-dimension-line" stroke-dasharray="8 4 2 4" stroke-width="1.2" opacity="0.7" />
+      <line x1="1100" y1="70" x2="1100" y2="550" class="cad-dimension-line" stroke-dasharray="8 4 2 4" stroke-width="1.2" opacity="0.7" />
+
+      <!-- Horizontal Grid Lines -->
+      <line x1="100" y1="180" x2="1140" y2="180" class="cad-dimension-line" stroke-dasharray="8 4 2 4" stroke-width="1.2" opacity="0.7" />
+      <line x1="100" y1="340" x2="1140" y2="340" class="cad-dimension-line" stroke-dasharray="8 4 2 4" stroke-width="1.2" opacity="0.7" />
+      <line x1="100" y1="460" x2="1140" y2="460" class="cad-dimension-line" stroke-dasharray="8 4 2 4" stroke-width="1.2" opacity="0.7" />
+
+      <!-- Grid Identifiers -->
+      <circle cx="180" cy="85" r="14" class="cad-title-block-box" />
+      <text x="180" y="89" text-anchor="middle" class="cad-dimension-text" font-weight="800">A</text>
+      <circle cx="380" cy="85" r="14" class="cad-title-block-box" />
+      <text x="380" y="89" text-anchor="middle" class="cad-dimension-text" font-weight="800">B</text>
+      <circle cx="620" cy="85" r="14" class="cad-title-block-box" />
+      <text x="620" y="89" text-anchor="middle" class="cad-dimension-text" font-weight="800">C</text>
+      <circle cx="860" cy="85" r="14" class="cad-title-block-box" />
+      <text x="860" y="89" text-anchor="middle" class="cad-dimension-text" font-weight="800">D</text>
+      <circle cx="1100" cy="85" r="14" class="cad-title-block-box" />
+      <text x="1100" y="89" text-anchor="middle" class="cad-dimension-text" font-weight="800">E</text>
+
+      <!-- Spatial Programming Rooms -->
+      ${m.rooms.map(r => `
+        <rect x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}" fill="${r.color}" stroke="${r.border}" stroke-width="2" rx="3" />
+        <text x="${r.x + (r.w / 2)}" y="${r.y + 35}" text-anchor="middle" class="cad-dimension-text" font-weight="800">${r.label}</text>
+        <text x="${r.x + (r.w / 2)}" y="${r.y + 55}" text-anchor="middle" class="cad-redline-callout" font-size="9">${r.area}</text>
+      `).join('')}
+
+      <!-- Circulation Arrow -->
+      <path d="M 280,420 L 280,310 Q 380,310 610,310 L 840,310" class="cad-accent-vector" stroke-dasharray="6 4" stroke-width="2.5" />
+      <polygon points="840,305 855,310 840,315" fill="#c23824" />
+      <text x="440" y="330" class="cad-redline-callout" font-size="9">${m.circNote}</text>
+      <text x="620" y="470" text-anchor="middle" class="cad-dimension-text" font-weight="800">${m.spanNote}</text>
+
+      <!-- Dimension Strings -->
+      <line x1="180" y1="140" x2="1100" y2="140" class="cad-dimension-line" />
+      <line x1="180" y1="130" x2="180" y2="150" class="cad-dimension-line" />
+      <line x1="380" y1="130" x2="380" y2="150" class="cad-dimension-line" />
+      <line x1="620" y1="130" x2="620" y2="150" class="cad-dimension-line" />
+      <line x1="860" y1="130" x2="860" y2="150" class="cad-dimension-line" />
+      <line x1="1100" y1="130" x2="1100" y2="150" class="cad-dimension-line" />
+      <text x="280" y="132" text-anchor="middle" class="cad-dimension-text" font-size="9">6.00M</text>
+      <text x="500" y="132" text-anchor="middle" class="cad-dimension-text" font-size="9">7.20M</text>
+      <text x="740" y="132" text-anchor="middle" class="cad-dimension-text" font-size="9">7.20M</text>
+      <text x="980" y="132" text-anchor="middle" class="cad-dimension-text" font-size="9">7.20M</text>
+
+      <!-- Archival Title Block -->
+      <g transform="translate(840, 470)">
+        <rect x="0" y="0" width="330" height="105" class="cad-title-block-box" rx="3" />
+        <text x="16" y="24" class="cad-dimension-text" font-weight="800">ANSCONS ATELIER // ${m.dwg}</text>
+        <text x="16" y="44" class="cad-dimension-text">SCHEMATIC SPATIAL WIREFRAME &amp; AXIAL GRID</text>
+        <text x="16" y="62" class="cad-dimension-text">${m.title}</text>
+        <text x="16" y="82" class="cad-redline-callout">SCALE 1:50 METRIC // MODULAR PLANNING</text>
+        <text x="16" y="96" class="cad-dimension-text" font-size="8">PROGRAMMED SPACE SPECIFICATION VERIFIED</text>
+      </g>
+    </svg>
+  `;
+}
+
+function getMaterialOverlay(key) {
+  const meta = {
+    'typ-1': {
+      title: 'THE OBSIDIAN CANTILEVER // BEL-AIR RIDGE',
+      dwg: 'DWG M-101 // REV 04',
+      mats: [
+        { code: 'MAT-01', name: 'CHARRED SHOU SUGI BAN ACCOYA', spec: 'YAKISUGI DEEP EMBOSS // DIN 68800 CLASS 1', x: 420, y: 135, lx: 340, ly: 90 },
+        { code: 'MAT-02', name: 'ACOUSTIC TRIPLE LOW-E LAMINATED GLASS', spec: 'Ug = 0.5 W/m²K // NC-15 ACOUSTIC ISOLATION', x: 740, y: 220, lx: 920, ly: 190 },
+        { code: 'MAT-03', name: '50mm HONED BELGIAN BLUESTONE', spec: 'GAUGED CLASS A // SEAMLESS PAVING RUN', x: 680, y: 310, lx: 820, ly: 420 },
+        { code: 'MAT-04', name: 'C61400 PATINATED BRONZE INLAYS', spec: 'HAND-RUBBED OIL FINISH // THERMAL REVEAL', x: 920, y: 310, lx: 1040, ly: 270 },
+        { code: 'MAT-05', name: '65 MPa BOARD-FORMED CONCRETE', spec: 'DOUGLAS FIR GRAIN // ZERO RESIN BLEED', x: 260, y: 360, lx: 140, ly: 460 }
+      ],
+      sched: [
+        'MAT-01: Yakisugi Accoya (DIN 68800)',
+        'MAT-02: Triple Acoustic Low-E (EN 1279)',
+        'MAT-03: Belgian Bluestone (ASTM C615)',
+        'MAT-04: C61400 Bronze (ASTM B150)',
+        'MAT-05: 65 MPa Concrete (ACI 318)'
+      ]
+    },
+    'typ-1-p2': {
+      title: 'BLUFFLINE SEA-WALL // BIG SUR COAST',
+      dwg: 'DWG M-102 // REV 04',
+      mats: [
+        { code: 'MAT-01', name: '70 MPa POZZOLAN MARINE CONCRETE', spec: 'SULFATE-RESISTANT // CHLORIDE < 480 COULOMBS', x: 380, y: 310, lx: 220, ly: 160 },
+        { code: 'MAT-02', name: 'C61400 ALUMINUM-BRONZE MULLIONS', spec: 'SEISMIC SLIP-JOINT // ZERO CORROSION MATRIX', x: 740, y: 210, lx: 900, ly: 180 },
+        { code: 'MAT-03', name: 'SUBSEA NON-SHRINK GROUT TIEBACKS', spec: 'HIGH-ALUMINA EMBEDMENT // 100 kPa PRESSURE', x: 440, y: 440, lx: 640, ly: 490 },
+        { code: 'MAT-04', name: 'BASALT STONE CANTILEVER STEPS', spec: 'FLAMED NON-SLIP // NATURAL SURF FINISH', x: 860, y: 320, lx: 1020, ly: 290 },
+        { code: 'MAT-05', name: 'MICRO-ETCHED LOW-IRON BALUSTRADES', spec: '19mm TEMPERED LAMINATED MARINE INTERLAYER', x: 620, y: 155, lx: 480, ly: 90 }
+      ],
+      sched: [
+        'MAT-01: Pozzolan Marine Concrete (ACI 357)',
+        'MAT-02: C61400 Aluminum-Bronze (ASTM B150)',
+        'MAT-03: Non-Shrink Grout (ASTM C1107)',
+        'MAT-04: Basalt Paving (ASTM C615)',
+        'MAT-05: Laminated Marine Glass (ASTM C1172)'
+      ]
+    },
+    'typ-2': {
+      title: 'MONOLITH IV // FIVE PATIOS (SONORAN)',
+      dwg: 'DWG M-204 // REV 04',
+      mats: [
+        { code: 'MAT-01', name: 'DUAL-WYTHE BOARD-FORMED CONCRETE', spec: '450mm SOLID MASS // R-60 THERMAL ENVELOPE', x: 330, y: 280, lx: 200, ly: 120 },
+        { code: 'MAT-02', name: 'BOOKMATCHED CALICHE TRAVERTINE', spec: 'HONED VEIN-CUT // DIURNAL HEAT RADIATOR', x: 440, y: 420, lx: 580, ly: 470 },
+        { code: 'MAT-03', name: 'COPPER-SLAG SHADOWLINE ARCHWAYS', spec: 'PATINATED COPPER INLAY // ZERO EXPANSION GAP', x: 770, y: 280, lx: 900, ly: 220 },
+        { code: 'MAT-04', name: 'EVAPORATIVE WATER FLUME BASIN', spec: 'CHISELED ANDESITE STONE // PERIMETER COOLING', x: 235, y: 420, lx: 120, ly: 470 },
+        { code: 'MAT-05', name: 'THERMALLY BROKEN DESERT STEEL FENESTRATION', spec: 'LOW-E ARGON SHIELD // 48°C SHADING COEFFICIENT', x: 660, y: 220, lx: 800, ly: 140 }
+      ],
+      sched: [
+        'MAT-01: Board-Formed Concrete (ACI 301)',
+        'MAT-02: Caliche Travertine (ASTM C1527)',
+        'MAT-03: Patinated Copper (ASTM B370)',
+        'MAT-04: Chiseled Andesite (ASTM C615)',
+        'MAT-05: Thermal Broken Steel (AAMA 101)'
+      ]
+    },
+    'typ-2-p4': {
+      title: 'QUARRY CUT PAVILION // SWISS ALPS',
+      dwg: 'DWG M-208 // REV 04',
+      mats: [
+        { code: 'MAT-01', name: 'DIAMOND-WIRE SAWN GRANITE BEDROCK', spec: '800 TONS LEVELED IN SITU // ±0.3mm TOLERANCE', x: 580, y: 400, lx: 740, ly: 460 },
+        { code: 'MAT-02', name: 'GLULAM DOUGLAS FIR STRUCTURAL POSTS', spec: 'KILN-DRIED // CONCEALED STEEL FLITCH PLATES', x: 380, y: 260, lx: 220, ly: 180 },
+        { code: 'MAT-03', name: 'R-60 TRIPLE ISOLATED COLD ROOF ENVELOPE', spec: 'COMPLIANT WITH 35 kN/m² SNOW-PACK LOAD', x: 640, y: 150, lx: 780, ly: 90 },
+        { code: 'MAT-04', name: 'TRIPLE-PANE ARGON GLASS CURTAIN WALL', spec: 'LOW-E COATING // ZERO ICE CONDENSATION MATRIX', x: 760, y: 290, lx: 920, ly: 240 },
+        { code: 'MAT-05', name: 'CAST-BRONZE HEAVY POST SHOE HARDWARE', spec: 'PINNED BASE SHOES // DIRECT BEDROCK ANCHOR', x: 682, y: 395, lx: 520, ly: 450 }
+      ],
+      sched: [
+        'MAT-01: Swiss Granite Bedrock (DIN EN 1469)',
+        'MAT-02: Glulam Douglas Fir (DIN 1052)',
+        'MAT-03: Cold Roof Membrane (SIA 271)',
+        'MAT-04: Triple-Glazed Argon (SIA 331)',
+        'MAT-05: Cast Bronze Pin Shoes (DIN EN 1982)'
+      ]
+    },
+    'typ-3': {
+      title: 'KYOTO PRIVATE MUSEUM VAULT',
+      dwg: 'DWG M-301 // REV 04',
+      mats: [
+        { code: 'MAT-01', name: 'DOUBLE-HULL BENTONITE & HDPE TANKING', spec: '100 kPa HYDROSTATIC BARRIER // ZERO LEAK RECORD', x: 320, y: 180, lx: 180, ly: 110 },
+        { code: 'MAT-02', name: 'DECOUPLED ACOUSTIC SLAB ON SPRINGS', spec: 'ELASTOMERIC NEOPRENE // NC-12 RATING ACHIEVED', x: 540, y: 440, lx: 380, ly: 500 },
+        { code: 'MAT-03', name: '3-TON SOLID ARCHITECTURAL BRONZE DOOR', spec: 'COUNTERWEIGHTED PIVOT // ZERO MANUAL RESISTANCE', x: 280, y: 310, lx: 140, ly: 250 },
+        { code: 'MAT-04', name: 'HERMETIC CLIMATE WALL SYSTEM', spec: '±1% RH // ±0.5°C CLIMATE RETENTION LINING', x: 680, y: 240, lx: 840, ly: 190 },
+        { code: 'MAT-05', name: 'OPTICAL-GRADE NON-REFLECTIVE VITRINES', spec: 'ANTI-REFLECTIVE MUSEUM GLASS // 99% UV CUT', x: 820, y: 360, lx: 980, ly: 310 }
+      ],
+      sched: [
+        'MAT-01: Bentonite Tanking (ASTM D5385)',
+        'MAT-02: Elastomeric Pads (ISO 10846)',
+        'MAT-03: Solid Architectural Bronze (JIS H3100)',
+        'MAT-04: Hermetic Membrane (DIN 4108)',
+        'MAT-05: Museum UV Glass (ISO 9050)'
+      ]
+    },
+    'typ-3-p6': {
+      title: 'BIOPHILIC MOVEMENT SANCTUARY',
+      dwg: 'DWG M-306 // REV 04',
+      mats: [
+        { code: 'MAT-01', name: 'SPRUNG EUROPEAN WHITE OAK FLOORING', spec: 'QUARTER-SAWN // NATURAL PLANT-WAX COATING', x: 480, y: 420, lx: 320, ly: 490 },
+        { code: 'MAT-02', name: 'HYDRONIC RADIANT HEATING PEX COILS', spec: 'INTEGRAL UNDER-FLOOR // 28°C SURFACE COMFORT', x: 680, y: 430, lx: 840, ly: 490 },
+        { code: 'MAT-03', name: 'SLATTED ACOUSTIC AMERICAN WALNUT BAFFLES', spec: 'REVERBERATION TIME RT60: 0.28 SECONDS', x: 100, y: 260, lx: 180, ly: 210 },
+        { code: 'MAT-04', name: 'HEPA H14 LAMINAR CEILING PLENUM', spec: 'ZERO-VELOCITY DISPERSION // TURBULENCE-FREE', x: 540, y: 150, lx: 720, ly: 90 },
+        { code: 'MAT-05', name: 'FULL-SPECTRUM CIRCADIAN LUMINAIRES', spec: '2200K - 6500K TUNABLE CHIP MATRIX (CRI > 98)', x: 600, y: 200, lx: 800, ly: 150 }
+      ],
+      sched: [
+        'MAT-01: Quarter-Sawn White Oak (DIN 18032)',
+        'MAT-02: PEX Radiant Loops (DIN 4726)',
+        'MAT-03: Acoustic Walnut Baffles (EN ISO 354)',
+        'MAT-04: Laminar HEPA Plenum (ISO 14644)',
+        'MAT-05: Tunable Circadian LED (WELL v2 Std)'
+      ]
+    },
+    'typ-4': {
+      title: 'THE MERCANTILE EXCHANGE // TRIBECA',
+      dwg: 'DWG M-408 // REV 04',
+      mats: [
+        { code: 'MAT-01', name: 'RESTORED FLUTED CAST-IRON COLUMNS', spec: 'ULTRASONIC FLAW TESTED // 100% SOUND MATRIX', x: 500, y: 280, lx: 340, ly: 220 },
+        { code: 'MAT-02', name: 'BLACKENED BRONZE ELEVATOR HOISTWAY', spec: 'EXPOSED COUNTERWEIGHTS & SOLID BRASS SHEAVES', x: 780, y: 220, lx: 940, ly: 180 },
+        { code: 'MAT-03', name: '1892 HISTORIC BRICKWORK RESTORATION', spec: 'NATURAL HYDRAULIC LIME REPOINTING MORTAR', x: 180, y: 260, lx: 80, ly: 210 },
+        { code: 'MAT-04', name: 'HEAVY STRUCTURAL STEEL NEEDLE BEAMS', spec: '450 kN HYDRAULIC JACK SHORING INTEGRATION', x: 260, y: 420, lx: 120, ly: 480 },
+        { code: 'MAT-05', name: 'MANHATTAN SCHIST EXCAVATED SUB-BASE', spec: 'REINFORCED UNDERPINNING CONCRETE RETAINER', x: 620, y: 530, lx: 800, ly: 490 }
+      ],
+      sched: [
+        'MAT-01: Fluted Cast-Iron (ASTM A48 Class 40)',
+        'MAT-02: Blackened Bronze (ASTM B36)',
+        'MAT-03: Historic Masonry Lime (ASTM C144)',
+        'MAT-04: High-Yield Steel (ASTM A992)',
+        'MAT-05: Underpinning Concrete (ACI 318)'
+      ]
+    }
+  };
+
+  const m = meta[key] || meta['typ-1'];
+
+  return `
+    <!-- ARCHITECTURAL DRAWING REVISION 04: MATERIAL SPECIFICATION & METALLURGY -->
+    <svg viewBox="0 0 1200 600" class="vellum-cad-overlay" preserveAspectRatio="none">
+      <!-- Concrete Grade Massing & Sub-Base -->
+      <rect x="180" y="310" width="260" height="100" class="cad-concrete-mass" />
+      <line x1="180" y1="330" x2="440" y2="330" class="cad-detail-stroke" stroke-dasharray="12 3 6 3" />
+      <line x1="180" y1="350" x2="440" y2="350" class="cad-detail-stroke" stroke-dasharray="18 4 4 4" />
+      <line x1="180" y1="370" x2="440" y2="370" class="cad-detail-stroke" stroke-dasharray="10 2 14 3" />
+      <line x1="180" y1="390" x2="440" y2="390" class="cad-detail-stroke" stroke-dasharray="16 5 8 2" />
+
+      <!-- Superstructure Beam & Enclosure Frames -->
+      <path d="M 300,310 L 1120,310 L 1090,375 L 300,375 Z" class="cad-structure-beam" />
+      <rect x="340" y="150" width="740" height="160" class="cad-detail-stroke" />
+      <line x1="460" y1="150" x2="460" y2="310" class="cad-detail-stroke" stroke-width="1.5" />
+      <line x1="700" y1="150" x2="700" y2="310" class="cad-detail-stroke" stroke-width="1.5" />
+      <line x1="940" y1="150" x2="940" y2="310" class="cad-detail-stroke" stroke-width="1.5" />
+
+      <!-- Roof Fascia & Timber Layer -->
+      <rect x="300" y="125" width="810" height="25" class="cad-structure-beam" />
+      <line x1="300" y1="133" x2="1110" y2="133" class="cad-detail-stroke" stroke-dasharray="8 4" />
+
+      <!-- Floor Paving Line -->
+      <rect x="340" y="302" width="740" height="10" class="cad-pile-anchor-head" />
+
+      <!-- Material Annotation Leaders -->
+      ${m.mats.map(mat => `
+        <line x1="${mat.x}" y1="${mat.y}" x2="${mat.lx}" y2="${mat.ly}" class="cad-accent-vector" />
+        <circle cx="${mat.x}" cy="${mat.y}" r="4" class="cad-pile-anchor-head" />
+        <text x="${mat.lx + (mat.lx > mat.x ? 10 : -10)}" y="${mat.ly - 4}" text-anchor="${mat.lx > mat.x ? 'start' : 'end'}" class="cad-redline-callout" font-weight="800">${mat.code}: ${mat.name}</text>
+        <text x="${mat.lx + (mat.lx > mat.x ? 10 : -10)}" y="${mat.ly + 10}" text-anchor="${mat.lx > mat.x ? 'start' : 'end'}" class="cad-dimension-text" font-size="8.5">${mat.spec}</text>
+      `).join('')}
+
+      <!-- Material Schedule Box in lower corner -->
+      <g transform="translate(60, 150)">
+        <rect x="0" y="0" width="230" height="115" class="cad-title-block-box" rx="2" />
+        <text x="12" y="18" class="cad-dimension-text" font-weight="800">MATERIAL SPECIFICATION SCHEDULE</text>
+        ${m.sched.map((item, idx) => `
+          <rect x="12" y="${28 + idx * 17}" width="9" height="9" fill="${idx % 2 === 0 ? '#c6a25c' : '#7c6246'}" />
+          <text x="26" y="${36 + idx * 17}" class="cad-dimension-text" font-size="8">${item}</text>
+        `).join('')}
+      </g>
+
+      <!-- Archival Title Block -->
+      <g transform="translate(840, 470)">
+        <rect x="0" y="0" width="330" height="105" class="cad-title-block-box" rx="3" />
+        <text x="16" y="24" class="cad-dimension-text" font-weight="800">ANSCONS ATELIER // ${m.dwg}</text>
+        <text x="16" y="44" class="cad-dimension-text">TECTONIC MATERIALITY &amp; FINISH SCHEDULE</text>
+        <text x="16" y="62" class="cad-dimension-text">${m.title}</text>
+        <text x="16" y="82" class="cad-redline-callout">ARCHITECTURAL METALLURGY &amp; STONE ARCHIVE</text>
+        <text x="16" y="96" class="cad-dimension-text" font-size="8">FULL SPECIFICATION DIVISION 08 &amp; 09 COMPLIANT</text>
+      </g>
+    </svg>
+  `;
+}
+
+function getExecutionOverlay(key, baseCAD) {
+  const cloudsAndRedlines = `
+    <!-- ARCHITECTURAL DRAWING REVISION 05: CONTRACTOR FIELD REDLINES & STAMPS -->
+    <g class="cad-execution-redline-layer">
+      <!-- Scalloped Revision Clouds around Critical Structural Details -->
+      <path d="M 180,340 Q 210,325 240,345 Q 265,375 255,410 Q 235,445 195,435 Q 160,415 170,375 Z" stroke="#d93838" stroke-dasharray="4 3" fill="none" stroke-width="2.2" />
+      <path d="M 280,290 Q 330,275 390,290 Q 425,335 405,375 Q 350,395 295,380 Q 265,340 280,290 Z" stroke="#d93838" stroke-dasharray="4 3" fill="none" stroke-width="2.2" />
+
+      <!-- Field Contractor Annotations (Red Ink) -->
+      <text x="220" y="270" class="cad-redline-callout" font-size="10.5" font-weight="800">▲ REV 05: RFI #108 FOUNDATION EMBEDMENT DEPTH VERIFIED 32.4M [100% PULL-TEST PASS]</text>
+      <text x="440" y="405" class="cad-redline-callout" font-size="10" font-weight="800">▲ REV 05: CORE TEST #12: 74.2 MPa EXCEEDS 65 MPa SPEC [28-DAY COMPRESSIVE BREAK]</text>
+      <text x="440" y="425" class="cad-redline-callout" font-size="9.5">▲ REV 05: LASER 3D SCAN: HORIZONTAL VARIANCE ±0.12mm (WITHIN ±0.3mm MAX SPEC)</text>
+      <text x="440" y="445" class="cad-redline-callout" font-size="9.5">▲ REV 05: REVISE POST-TENSION TENDON TENSIONING: 1,850 kN LOCK-OFF CONFIRMED</text>
+
+      <!-- Stamped PE Field Approval Badge -->
+      <g transform="translate(710, 240) rotate(-3)">
+        <rect x="0" y="0" width="390" height="72" fill="rgba(255, 235, 235, 0.94)" stroke="#bf2020" stroke-width="2" stroke-dasharray="5 2" rx="4" />
+        <text x="14" y="24" font-family="monospace" font-size="10.5" font-weight="800" fill="#bf2020">★ APPROVED AS NOTED FOR CONCRETE POUR</text>
+        <text x="14" y="44" font-family="monospace" font-size="9.5" font-weight="700" fill="#991b1b">STRUCTURAL PE #48291 // TOLERANCE ±0.5mm CHECKED</text>
+        <text x="14" y="60" font-family="monospace" font-size="9" fill="#991b1b">DATE: 2026-03-14 // ZERO CODE EXCEPTIONS TAKEN</text>
+      </g>
+    </g>
+  `;
+
+  if (baseCAD && baseCAD.includes('</svg>')) {
+    return baseCAD.replace('</svg>', `${cloudsAndRedlines}</svg>`);
+  }
+  return baseCAD;
+}
+
+function getRevisionOverlaySVG(key, revNum, baseCAD) {
+  switch (revNum) {
+    case 1:
+      return getConceptOverlay(key);
+    case 2:
+      return getSchematicOverlay(key);
+    case 3:
+      return baseCAD;
+    case 4:
+      return getMaterialOverlay(key);
+    case 5:
+      return getExecutionOverlay(key, baseCAD);
+    case 6:
+    default:
+      return baseCAD;
+  }
+}
+
 export class MonographController {
   constructor(audioInstance) {
     this.audio = audioInstance;
     this.currentTypologyKey = 'typ-1';
     this.currentReelIndex = 0;
     this.currentRevealPct = 50;
+    this.currentRevision = 6; // Default to REV 06 (COMPLETED)
+
+    // Cache Revision Stepper Elements
+    this.revStrip = document.getElementById('drawing-revision-control');
+    this.revButtons = document.querySelectorAll('.rev-step-btn');
+    this.revDwgRef = document.getElementById('rev-active-dwg-ref');
+    this.revPhaseBadge = document.getElementById('rev-active-phase-badge');
+    this.revPhaseText = document.getElementById('rev-phase-text');
+    this.passepartoutTagEl = document.querySelector('.photo-passepartout-tag');
 
     // Cache Plan Chest Elements
     this.drawers = document.querySelectorAll('.drawer-unit');
@@ -703,6 +1345,7 @@ export class MonographController {
     this.initTypologyTabs();
     this.initHeroSchematic();
     this.initCaliperSlider();
+    this.initDrawingRevisions();
     this.initSiteReels();
     this.initPolaroidModal();
     this.initDrawingSetCTA();
@@ -819,7 +1462,7 @@ export class MonographController {
   initCaliperSlider() {
     if (!this.viewportEl) return;
 
-    const setReveal = (percentage) => {
+    this.setReveal = (percentage) => {
       const clamped = Math.max(5, Math.min(95, percentage));
       this.currentRevealPct = clamped;
       this.viewportEl.style.setProperty('--reveal-pct', `${clamped}%`);
@@ -844,7 +1487,7 @@ export class MonographController {
       const clientX = e.touches ? e.touches[0].clientX : e.clientX;
       const offsetX = clientX - rect.left;
       const pct = (offsetX / rect.width) * 100;
-      setReveal(pct);
+      this.setReveal(pct);
     };
 
     const startDrag = (e) => {
@@ -876,11 +1519,127 @@ export class MonographController {
     // Accessible Range Input Listener
     if (this.accessibleRange) {
       this.accessibleRange.addEventListener('input', (e) => {
-        setReveal(parseFloat(e.target.value));
+        this.setReveal(parseFloat(e.target.value));
       });
     }
 
-    setReveal(50);
+    this.setReveal(50);
+  }
+
+  /* ------------------------------------------------------------------------
+     Architectural Drawing Revision Lifecycle (REV 01 -> REV 06)
+     ------------------------------------------------------------------------ */
+  initDrawingRevisions() {
+    this.revButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const rev = parseInt(btn.getAttribute('data-rev'), 10);
+        if (rev && rev !== this.currentRevision) {
+          this.setRevision(rev, true);
+        }
+      });
+
+      btn.addEventListener('mouseenter', () => {
+        if (this.audio && typeof this.audio.playCaliperTick === 'function') {
+          this.audio.playCaliperTick();
+        }
+      });
+    });
+  }
+
+  setRevision(rev, playSound = true) {
+    const revNum = parseInt(rev, 10) || 6;
+    this.currentRevision = revNum;
+
+    if (playSound && this.audio) {
+      if (revNum === 5 && typeof this.audio.playStampSlam === 'function') {
+        this.audio.playStampSlam();
+      } else if (typeof this.audio.playSwitchClick === 'function') {
+        this.audio.playSwitchClick();
+      }
+    }
+
+    // Update active button state in stepper track
+    this.revButtons.forEach(btn => {
+      const bRev = parseInt(btn.getAttribute('data-rev'), 10);
+      const isActive = (bRev === revNum);
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    // Update viewport data-revision attribute for CSS theming
+    if (this.viewportEl) {
+      this.viewportEl.setAttribute('data-revision', `rev-0${revNum}`);
+    }
+
+    // Update header badges
+    const phaseInfo = REVISION_PHASES[revNum] || REVISION_PHASES[6];
+    if (this.revPhaseText) {
+      this.revPhaseText.textContent = phaseInfo.badge;
+    }
+    const dwgBase = DWG_CODES[this.currentTypologyKey] || 'BA-RES-2026';
+    if (this.revDwgRef) {
+      this.revDwgRef.textContent = `DWG REF: ${dwgBase} // REV 0${revNum}`;
+    }
+
+    // Update passepartout tag
+    if (this.passepartoutTagEl) {
+      this.passepartoutTagEl.textContent = phaseInfo.tag;
+    }
+
+    // Adjust reveal slider for optimum inspection
+    if (typeof this.setReveal === 'function') {
+      if (revNum >= 1 && revNum <= 5) {
+        if (this.currentRevealPct < 75) {
+          this.setReveal(75);
+        }
+      } else if (revNum === 6) {
+        this.setReveal(50);
+      }
+    }
+
+    // Render revision visualization SVG and dynamic redline annotations
+    this.renderRevisionVisualization(revNum);
+  }
+
+  renderRevisionVisualization(revNum) {
+    const key = this.currentTypologyKey;
+    const project = PORTFOLIO_TYPOLOGIES[key];
+    if (!project) return;
+
+    // 1. Inject revision-specific SVG overlay
+    if (this.cadOverlayContainer) {
+      const baseCAD = CAD_OVERLAYS[key] || '';
+      const svgContent = getRevisionOverlaySVG(key, revNum, baseCAD);
+      this.cadOverlayContainer.innerHTML = svgContent;
+    }
+
+    // 2. Handle contractor field stamp for REV 05 (Execution)
+    const existingStamp = this.viewportEl.querySelector('.contractor-field-stamp');
+    if (revNum === 5) {
+      if (!existingStamp) {
+        const stampEl = document.createElement('div');
+        stampEl.className = 'contractor-field-stamp';
+        stampEl.style.top = '22px';
+        stampEl.style.right = '24px';
+        stampEl.innerHTML = `APPROVED AS NOTED FOR POUR // PE #48291 // TOLERANCE ±0.5mm CHECKED`;
+        this.viewportEl.appendChild(stampEl);
+      }
+    } else {
+      if (existingStamp) {
+        existingStamp.remove();
+      }
+    }
+
+    // 3. Render revision-specific redline badges
+    if (this.redlineCluster) {
+      const redlines = getRevisionRedlines(key, revNum, project.redlines);
+      this.redlineCluster.innerHTML = redlines.map(note => `
+        <div class="redline-annotation-badge">
+          <span>📐</span>
+          <span>${note}</span>
+        </div>
+      `).join('');
+    }
   }
 
   /* ------------------------------------------------------------------------
@@ -975,7 +1734,7 @@ export class MonographController {
         
         if (specOverlay && specCode && specTitle && specBody) {
           const project = PORTFOLIO_TYPOLOGIES[this.currentTypologyKey];
-          specCode.textContent = `SECTION 00 24 00 // RESTRICTED DRAWING SET // ${project.code}`;
+          specCode.textContent = `SECTION 00 24 00 // RESTRICTED DRAWING SET // ${project.code} // REV 0${this.currentRevision}`;
           specTitle.textContent = `${project.title} — Official As-Built Monograph Register`;
           specBody.innerHTML = `
             <div style="font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.7; color: #3b2816;">
@@ -1012,20 +1771,8 @@ export class MonographController {
     if (this.passepartoutImg) this.passepartoutImg.src = data.image;
     if (this.reelSnapshotImg) this.reelSnapshotImg.src = data.image;
 
-    // Inject Creative Typology-Specific CAD Vector SVG
-    if (this.cadOverlayContainer && CAD_OVERLAYS[key]) {
-      this.cadOverlayContainer.innerHTML = CAD_OVERLAYS[key];
-    }
-
-    // Redline Annotations
-    if (this.redlineCluster) {
-      this.redlineCluster.innerHTML = data.redlines.map(note => `
-        <div class="redline-annotation-badge">
-          <span>📐</span>
-          <span>${note}</span>
-        </div>
-      `).join('');
-    }
+    // Synchronize Active Drawing Revision Visualization (Overlay SVG, Redlines, Badges, Stamps)
+    this.setRevision(this.currentRevision, false);
 
     // Plate A: Geodetic
     if (this.geoInclineEl) this.geoInclineEl.textContent = data.plateA.incline;
